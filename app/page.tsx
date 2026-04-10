@@ -3,6 +3,7 @@ import FeaturedCourses from '@/components/home/FeaturedCourses'
 import FeaturedEbooks from '@/components/home/FeaturedEbooks'
 import BlogPreview from '@/components/home/BlogPreview'
 import ValuesSection from '@/components/home/ValuesSection'
+import InstagramSection from '@/components/home/InstagramSection'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <FeaturedEbooks />
       <BlogPreview />
       <ValuesSection />
+      <InstagramSection />
       {/* Bottom disclaimer */}
       <div className="container pb-10 md:pb-14">
         <div className="pt-8 border-t border-border/40 text-center">
