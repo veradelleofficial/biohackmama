@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Instagram, Facebook, Youtube, MapPin, Clock, Send } from 'lucide-react'
+import { Mail, Instagram, Facebook, Youtube, Clock, Send } from 'lucide-react'
 
 const socialLinks = [
   { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/biohackmama', handle: '@biohackmama' },
