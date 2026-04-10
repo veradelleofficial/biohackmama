@@ -30,11 +30,6 @@ export default function ContactPage() {
     setForm({ name: '', email: '', subject: '', message: '' })
   }
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-  }
-
   return (
     <main className="pt-24 md:pt-32 pb-14 md:pb-20">
       <div className="container">

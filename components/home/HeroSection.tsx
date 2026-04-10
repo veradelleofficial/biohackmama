@@ -26,17 +26,6 @@ export default function HeroSection() {
     },
   }
 
-  const blobVariants = {
-    animate: {
-      borderRadius: ['60% 40% 30% 70% / 60% 30% 70% 40%', '30% 60% 70% 40% / 50% 60% 30% 60%'],
-      transition: {
-        duration: 8,
-        repeat: Infinity,
-        repeatType: 'mirror' as const,
-      },
-    },
-  }
-
   const scrollVariants = {
     animate: {
       y: [0, 10, 0],
