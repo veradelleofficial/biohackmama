@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Coastal Wellness Palette */
+    --background: 33 16% 92%;          /* #EFEAE4 Off-white */
+    --foreground: 211 20% 35%;         /* #48596B Deep Slate */
+    --primary: 30 25% 53%;             /* #A68A69 Gold/Taupe */
+    --primary-foreground: 0 0% 100%;   /* White */
+    --secondary: 211 52% 80%;          /* #AECAE8 Muted Blue */
+    --secondary-foreground: 211 20% 35%; /* Deep Slate */
+    --secondary-deep: 211 22% 57%;     /* #7A90A8 Deeper Blue */
+    --muted: 33 12% 88%;              /* Warm muted off-white */
+    --muted-foreground: 211 15% 48%;   /* Soft slate */
+    --card: 33 14% 96%;               /* Warm near-white */
+    --card-foreground: 211 20% 35%;    /* Deep Slate */
+    --border: 211 18% 86%;            /* Soft blue-gray */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background font-body;
+    color: rgba(72, 89, 107, 0.85);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* --- Wellness Oasis Heading Hierarchy --- */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+    color: #48596B;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+    line-height: 1.05;
+  }
+
+  h2 {
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+  }
+
+  /* --- Body & UI Typography --- */
+  p {
+    @apply font-body;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(72, 89, 107, 0.82);
+  }
+
+  button, input, label {
+    @apply font-body;
+    font-weight: 500;
+  }
+
+  span {
+    @apply font-body;
+  }
+
+  /* --- CTA Button Typography --- */
+  a[class*="bg-coastal-gold"],
+  button[type="submit"],
+  a[class*="rounded-2xl"],
+  a[class*="rounded-3xl"] {
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  /* --- Links base --- */
+  a {
+    @apply font-body;
+    font-weight: 400;
+  }
+
+  /* --- Navigation typography --- */
+  nav a {
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-size: 0.875rem;
+  }
+}
+
+/* Coastal Wellness Animations */
+@keyframes floatingCard {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes dnaRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Floating disabled on mobile for performance */
+.animate-floating,
+.animate-floating-delayed,
+.animate-floating-delayed-2 {
+  animation: none;
+}
+
+@media (min-width: 768px) {
+  .animate-floating {
+    animation: floatingCard 5s ease-in-out infinite;
+  }
+  .animate-floating-delayed {
+    animation: floatingCard 5s ease-in-out 1.5s infinite;
+  }
+  .animate-floating-delayed-2 {
+    animation: floatingCard 5s ease-in-out 3s infinite;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out both;
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 4s ease-in-out infinite;
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* --- Prose: editorial long-form --- */
+  .prose {
+    @apply font-body;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(72, 89, 107, 0.82);
+  }
+
+  .prose h2 {
+    @apply font-heading text-3xl mt-10 mb-5;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: #48596B;
+  }
+
+  .prose h3 {
+    @apply font-heading text-2xl mt-8 mb-4;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: #48596B;
+  }
+
+  .prose p {
+    @apply mb-5;
+  }
+
+  .prose a {
+    @apply text-primary hover:underline;
+    font-weight: 400;
+  }
+
+  .prose strong {
+    font-weight: 500;
+    color: #48596B;
+  }
+
+  .prose em {
+    @apply italic;
+  }
+
+  /* --- Typography utilities --- */
+  .text-body-soft {
+    color: rgba(72, 89, 107, 0.78);
+    font-weight: 300;
+  }
+
+  .text-body-medium {
+    color: rgba(72, 89, 107, 0.88);
+    font-weight: 400;
+  }
+
+  .text-heading-display {
+    @apply font-heading;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: #48596B;
+  }
+
+  .text-cta {
+    @apply font-body;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+}
