@@ -3,20 +3,17 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Star, BookOpen, Clock } from '@phosphor-icons/react'
+import { BookOpen, Clock } from '@phosphor-icons/react'
 
 
 const mockCourses = [
   {
     id: 1,
     title: 'Hormony w równowadze',
-    description: 'Zrozum swoje hormony i nauczy się naturalnych sposobów ich regulacji',
+    description: 'Zrozum swoje hormony i naucz się naturalnych sposobów ich regulacji',
     duration: '8 tygodni',
     lessons: 24,
     level: 'Początkujący',
-    price: '299 zł',
-    rating: 4.8,
-    reviews: 124,
     image: '/images/pexels-daria-liudnaya-8187452.webp',
     imageAlt: 'Kobieta z jabłkiem — równowaga hormonalna i zdrowe ciało',
   },
@@ -27,9 +24,6 @@ const mockCourses = [
     duration: '6 tygodni',
     lessons: 18,
     level: 'Średniozaawansowany',
-    price: '249 zł',
-    rating: 4.9,
-    reviews: 89,
     image: '/images/kira-severinova-5nk1IVc0h5Y-unsplash.webp',
     imageAlt: 'Kobieta praktykująca jogę — regeneracja ciała i umysłu',
   },
@@ -40,9 +34,6 @@ const mockCourses = [
     duration: '4 tygodnie',
     lessons: 12,
     level: 'Początkujący',
-    price: '199 zł',
-    rating: 4.7,
-    reviews: 156,
     image: '/images/pexels-cottonbro-5722883.webp',
     imageAlt: 'Kapsułki i suplementy — codzienne biohacki',
   },
@@ -125,20 +116,10 @@ export default function FeaturedCourses() {
 
               {/* Content */}
               <div className="p-4 md:p-6">
-                <div className="flex items-start justify-between mb-3">
+                <div className="mb-3">
                   <span className="text-xs px-3 py-1.5 bg-secondary/15 text-coastal-ocean rounded-full font-medium">
                     {course.level}
                   </span>
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        size={14}
-                        weight={i < Math.floor(course.rating) ? 'fill' : 'regular'}
-                        className={i < Math.floor(course.rating) ? 'fill-coastal-gold text-coastal-gold' : 'text-border'}
-                      />
-                    ))}
-                  </div>
                 </div>
 
                 <h3 className="font-heading font-semibold text-xl mb-2 line-clamp-2 tracking-heading">
