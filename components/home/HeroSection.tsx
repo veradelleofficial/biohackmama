@@ -78,8 +78,8 @@ export default function HeroSection() {
               variants={itemVariants}
             >
               Oczyść,{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-coastal-gold via-coastal-ocean to-coastal-gold">
-                biohackuj
+              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-coastal-gold via-coastal-ocean to-coastal-gold">
+                BIOHACKUJ
               </span>
               , optymalizuj
             </motion.h1>
