@@ -2,9 +2,40 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { getCourses } from '@/lib/sanity/queries'
-import { Star } from 'lucide-react'
+import { Star, Clock, BookOpen } from 'lucide-react'
+
+const upcomingCourses = [
+  {
+    id: 'upcoming-1',
+    title: 'Hormony w równowadze',
+    description: 'Zrozum swoje hormony i naucz się naturalnych sposobów ich regulacji',
+    duration: '8 tygodni',
+    lessons: 24,
+    level: 'Początkujący',
+    image: '/images/pexels-daria-liudnaya-8187452.webp',
+  },
+  {
+    id: 'upcoming-2',
+    title: 'Regeneracja i sen',
+    description: 'Kompleksowy przewodnik po wysokiej jakości śnie i regeneracji',
+    duration: '6 tygodni',
+    lessons: 18,
+    level: 'Średniozaawansowany',
+    image: '/images/kira-severinova-5nk1IVc0h5Y-unsplash.webp',
+  },
+  {
+    id: 'upcoming-3',
+    title: 'Biohacking na co dzień',
+    description: 'Praktyczne techniki do wdrażania w codziennym życiu',
+    duration: '4 tygodnie',
+    lessons: 12,
+    level: 'Początkujący',
+    image: '/images/pexels-cottonbro-5722883.webp',
+  },
+]
 
 interface Course {
   _id: string
@@ -180,6 +211,62 @@ export default function CoursesPage() {
             ))}
           </motion.div>
         )}
+
+        {/* Upcoming Courses */}
+        <motion.div
+          className="mt-14 md:mt-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-normal mb-8 tracking-heading text-center">
+            Już wkrótce
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
+            {upcomingCourses.map((course) => (
+              <div
+                key={course.id}
+                className="bg-card rounded-3xl overflow-hidden border border-border/60 shadow-coastal-sm"
+              >
+                <div className="relative w-full aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={course.image}
+                    alt={course.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                    <span className="text-white text-lg md:text-xl font-heading font-semibold tracking-heading uppercase">
+                      Już wkrótce
+                    </span>
+                  </div>
+                </div>
+                <div className="p-4 md:p-6">
+                  <span className="text-xs px-3 py-1.5 bg-secondary/15 text-coastal-ocean rounded-full font-medium">
+                    {course.level}
+                  </span>
+                  <h3 className="font-heading font-semibold text-xl mt-3 mb-2 tracking-heading">
+                    {course.title}
+                  </h3>
+                  <p className="text-sm font-light mb-4 line-clamp-2" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
+                    {course.description}
+                  </p>
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <span className="inline-flex items-center gap-1">
+                      <Clock size={16} className="text-coastal-ocean" />
+                      {course.duration}
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      <BookOpen size={16} className="text-coastal-ocean" />
+                      {course.lessons} lekcji
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Bottom disclaimer */}
         <div className="mt-14 md:mt-20 pt-8 border-t border-border/40 text-center">

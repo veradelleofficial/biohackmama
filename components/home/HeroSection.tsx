@@ -122,11 +122,10 @@ export default function HeroSection() {
                   alt="Kobieta na plaży w porannym słońcu — wellness i biohacking"
                   fill
                   className="object-cover hover:scale-[1.03] transition-transform duration-700"
-                  style={{ filter: 'sepia(8%) saturate(90%)' }}
                   sizes="(max-width: 768px) 0vw, (max-width: 1024px) 50vw, 45vw"
+                  quality={90}
                   priority
                 />
-                <div className="absolute inset-0 bg-coastal-sand/10 pointer-events-none rounded-3xl" />
               </div>
             </figure>
           </motion.div>

@@ -107,18 +107,20 @@ export default function FeaturedCourses() {
                 index === 0 ? 'animate-floating' : index === 1 ? 'animate-floating-delayed' : 'animate-floating-delayed-2'
               }`}
             >
-              {/* Course Image — 16:9 ratio with hover scale */}
+              {/* Course Image */}
               <div className="relative w-full aspect-[16/10] overflow-hidden">
                 <Image
                   src={course.image}
                   alt={course.imageAlt}
                   fill
-                  className="object-cover group-hover:scale-[1.04] transition-transform duration-700"
-                  style={{ filter: 'sepia(8%) saturate(92%)' }}
+                  className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                {/* Warm overlay */}
-                <div className="absolute inset-0 bg-coastal-sand/12 pointer-events-none" />
+                <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                  <span className="text-white text-lg md:text-xl font-heading font-semibold tracking-heading uppercase">
+                    Już wkrótce
+                  </span>
+                </div>
               </div>
 
               {/* Content */}
@@ -158,18 +160,8 @@ export default function FeaturedCourses() {
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-coastal-gold">{course.price}</span>
-                  <Link
-                    href={`/kursy/${course.id}`}
-                    className="px-5 py-2.5 bg-coastal-gold text-white rounded-2xl text-sm hover:brightness-110 hover:shadow-coastal transition-all duration-300 text-cta"
-                  >
-                    Zobacz
-                  </Link>
-                </div>
-
-                <div className="text-xs text-muted-foreground mt-3">
-                  ⭐ {course.rating} ({course.reviews} opinii)
+                <div className="text-center">
+                  <span className="text-sm font-medium text-coastal-ocean">Już wkrótce</span>
                 </div>
               </div>
             </motion.div>
