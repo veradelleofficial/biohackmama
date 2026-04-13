@@ -15,6 +15,10 @@ export default authMiddleware({
     '/polityka-prywatnosci',
     '/regulamin',
   ],
+  ignoredRoutes: [
+    '/((?!api|trpc))(_next|.+\\..+)(.*)',
+    '/api/webhook(.*)',
+  ],
 })
 
 export const config = {
