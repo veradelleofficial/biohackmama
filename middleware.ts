@@ -1,26 +1,9 @@
-import { authMiddleware } from '@clerk/nextjs'
+import { NextResponse } from 'next/server'
 
-export default authMiddleware({
-  publicRoutes: [
-    '/',
-    '/blog(.*)',
-    '/kursy(.*)',
-    '/ebooki(.*)',
-    '/o-mnie',
-    '/kontakt',
-    '/sign-in(.*)',
-    '/sign-up(.*)',
-    '/api/webhook(.*)',
-    '/studio(.*)',
-    '/polityka-prywatnosci',
-    '/regulamin',
-  ],
-  ignoredRoutes: [
-    '/((?!api|trpc))(_next|.+\\..+)(.*)',
-    '/api/webhook(.*)',
-  ],
-})
+export function middleware() {
+  return NextResponse.next()
+}
 
 export const config = {
-  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: ['/((?!.*\\..*|_next).*)'],
 }

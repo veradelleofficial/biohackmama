@@ -35,7 +35,12 @@ const purchasedEbooks = [
 ]
 
 export default function DashboardPage() {
-  const { user } = useUser()
+  const { user, isLoaded, isSignedIn } = useUser()
+
+  if (isLoaded && !isSignedIn) {
+    window.location.href = '/sign-in'
+    return null
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
