@@ -9,13 +9,13 @@ const posts = [
     id: 1,
     image: '/images/pexels-fbyf-studio-1601304170-29705721.webp',
     alt: 'Kobieta na plazy, wellness i biohacking',
-    href: 'https://instagram.com/biohackmama',
+    href: 'https://instagram.com/biohackmama.pl',
   },
   {
     id: 2,
     image: '/images/pexels-daria-liudnaya-8187452.webp',
     alt: 'Zdrowy styl zycia i rownowaga hormonalna',
-    href: 'https://instagram.com/biohackmama',
+    href: 'https://instagram.com/biohackmama.pl',
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const posts = [
     id: 5,
     image: '/images/pexels-daria-liudnaya-8187444.webp',
     alt: 'Naturalne odzywianie i energia',
-    href: 'https://instagram.com/biohackmama',
+    href: 'https://instagram.com/biohackmama.pl',
   },
   {
     id: 6,
@@ -44,7 +44,7 @@ const posts = [
 ]
 
 const accounts = [
-  { handle: '@biohackmama', href: 'https://instagram.com/biohackmama', description: 'Non-toxic life, clean living, biohacking' },
+  { handle: '@biohackmama', href: 'https://instagram.com/biohackmama.pl', description: 'Non-toxic life, clean living, biohacking' },
   { handle: '@veradelleofficial', href: 'https://instagram.com/veradelleofficial', description: 'Za kulisami, codziennosc, inspiracje' },
 ]
 
@@ -78,7 +78,7 @@ export default function InstagramSection() {
             </div>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-normal mb-4 md:mb-5 tracking-heading">
-            Sledz nas na Instagramie
+            Śledź nas na Instagramie
           </h2>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             {accounts.map((account) => (

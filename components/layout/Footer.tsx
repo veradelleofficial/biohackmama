@@ -87,7 +87,7 @@ export default function Footer() {
           <div>
             <h4 className="font-heading font-normal mb-4 tracking-heading text-sm uppercase" style={{ color: 'rgba(72, 89, 107, 0.9)' }}>Śledź nas</h4>
             <div className="flex gap-4">
-              <a href="https://instagram.com/biohackmama" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-coastal-gold transition-colors duration-300" title="@biohackmama">
+              <a href="https://instagram.com/biohackmama.pl" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-coastal-gold transition-colors duration-300" title="@biohackmama">
                 <Instagram size={20} />
               </a>
               <a href="https://instagram.com/veradelleofficial" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-coastal-gold transition-colors duration-300" title="@veradelleofficial">
