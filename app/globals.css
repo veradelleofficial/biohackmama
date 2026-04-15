@@ -17,6 +17,12 @@
     --card: 33 14% 96%;               /* Warm near-white */
     --card-foreground: 211 20% 35%;    /* Deep Slate */
     --border: 211 18% 86%;            /* Soft blue-gray */
+
+    /* Custom easing curves (Emil Kowalski) */
+    --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   html {
@@ -151,6 +157,97 @@
 
 .animate-gentle-pulse {
   animation: gentlePulse 4s ease-in-out infinite;
+}
+
+/* ─── Button / pressable element feedback ───────────────────────────────── */
+/* Scale down on press — gives instant tactile feedback */
+.btn-press {
+  transition: transform 160ms var(--ease-out-strong), opacity 160ms ease;
+}
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* Apply press feedback to all CTA-style links and buttons */
+@media (hover: hover) and (pointer: fine) {
+  a[class*="bg-coastal-gold"]:active,
+  button[type="submit"]:active,
+  a[class*="rounded-2xl"]:active,
+  a[class*="rounded-3xl"]:active {
+    transform: scale(0.97);
+  }
+}
+
+/* ─── Nav link animated underline (clip-path reveal) ────────────────────── */
+.nav-link-underline {
+  position: relative;
+}
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #A68A69; /* coastal-gold */
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 240ms var(--ease-out-strong);
+}
+@media (hover: hover) and (pointer: fine) {
+  .nav-link-underline:hover::after {
+    clip-path: inset(0 0% 0 0);
+  }
+}
+
+/* ─── Hamburger icon morph ───────────────────────────────────────────────── */
+.hamburger {
+  width: 22px;
+  height: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background-color: #48596B;
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 250ms var(--ease-out-strong), opacity 200ms ease, width 250ms var(--ease-out-strong);
+}
+.hamburger[data-open="true"] .hamburger-line:nth-child(1) {
+  transform: translateY(7.25px) rotate(45deg);
+}
+.hamburger[data-open="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.hamburger[data-open="true"] .hamburger-line:nth-child(3) {
+  transform: translateY(-7.25px) rotate(-45deg);
+}
+
+/* ─── Smooth image hover — gate behind hover media query ────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  .img-zoom img {
+    transition: transform 650ms var(--ease-out-strong);
+  }
+  .img-zoom:hover img {
+    transform: scale(1.04);
+  }
+}
+
+/* ─── Card hover — only transform + shadow, never transition: all ────────── */
+.card-lift {
+  transition: transform 300ms var(--ease-out-strong), box-shadow 300ms var(--ease-out-strong);
+}
+@media (hover: hover) and (pointer: fine) {
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(72, 89, 107, 0.14);
+  }
 }
 
 @layer components {

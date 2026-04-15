@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from '@phosphor-icons/react'
 
+const EASE_OUT = [0.23, 1, 0.32, 1] as const
+
 const mockEbooks = [
   {
     id: 1,
@@ -35,35 +37,37 @@ const mockEbooks = [
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.15,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.97 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.55, ease: EASE_OUT },
+  },
+}
+
 export default function FeaturedEbooks() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: 'easeOut' },
-    },
-  }
-
   return (
     <section className="py-14 md:py-20 lg:py-24 relative">
       <div className="container">
+        {/* Header */}
         <motion.div
           className="text-center mb-14"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.55, ease: EASE_OUT }}
           viewport={{ once: true }}
         >
           <div className="flex justify-center mb-1.5 md:mb-2">
@@ -77,37 +81,40 @@ export default function FeaturedEbooks() {
           </p>
         </motion.div>
 
+        {/* Cards */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: '-60px' }}
         >
-          {mockEbooks.map((ebook, index) => (
+          {mockEbooks.map((ebook) => (
             <motion.div
               key={ebook.id}
-              variants={itemVariants}
-              className={`group ${
-                index === 0 ? 'animate-floating' : index === 1 ? 'animate-floating-delayed' : 'animate-floating-delayed-2'
-              }`}
+              variants={cardVariants}
+              className="group"
             >
-              {/* Ebook cover — 4:5 portrait ratio */}
+              {/* Ebook cover */}
               <figure className="relative mb-5">
-                <div className="relative aspect-[3/4] sm:aspect-[4/5] rounded-3xl overflow-hidden border border-border/40 hover:border-coastal-ocean/40 hover:shadow-coastal-blue transition-all duration-500 cursor-pointer">
+                <div
+                  className="relative aspect-[3/4] sm:aspect-[4/5] rounded-3xl overflow-hidden
+                             border border-border/40 img-zoom
+                             transition-[border-color,box-shadow] duration-300
+                             hover:border-coastal-ocean/40 hover:shadow-coastal"
+                >
                   <Image
                     src={ebook.image}
                     alt={ebook.imageAlt}
                     fill
-                    className="object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                    className="object-cover"
                     style={{ filter: 'sepia(10%) saturate(90%)' }}
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  {/* Warm overlay */}
                   <div className="absolute inset-0 bg-coastal-sand/10 pointer-events-none" />
-                  {/* Hover overlay with arrow */}
+                  {/* Hover overlay — appears from opacity 0 */}
                   <div className="absolute inset-0 bg-coastal-slate/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <ArrowRight className="w-8 h-8 text-white" />
+                    <ArrowRight className="w-8 h-8 text-white translate-y-1 group-hover:translate-y-0 transition-transform duration-300" style={{ transitionTimingFunction: 'cubic-bezier(0.23,1,0.32,1)' }} />
                   </div>
                 </div>
               </figure>
@@ -126,7 +133,10 @@ export default function FeaturedEbooks() {
                 </div>
                 <Link
                   href={`/ebooki/${ebook.id}`}
-                  className="px-5 py-2.5 bg-coastal-gold text-white rounded-2xl text-sm hover:brightness-110 hover:shadow-coastal transition-all duration-300 text-cta"
+                  className="px-5 py-2.5 bg-coastal-gold text-white rounded-2xl text-sm
+                             hover:brightness-110 hover:shadow-coastal
+                             transition-[transform,filter,box-shadow] duration-200
+                             active:scale-[0.97] text-cta"
                 >
                   Więcej
                 </Link>
@@ -135,16 +145,20 @@ export default function FeaturedEbooks() {
           ))}
         </motion.div>
 
+        {/* CTA */}
         <motion.div
           className="text-center mt-14"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
         >
           <Link
             href="/ebooki"
-            className="inline-block px-8 py-3.5 border border-coastal-ocean/30 text-coastal-slate rounded-3xl hover:bg-secondary/10 hover:border-coastal-ocean/50 transition-all duration-300 text-cta text-sm"
+            className="inline-block px-8 py-3.5 border border-coastal-ocean/30 text-coastal-slate rounded-3xl
+                       hover:bg-secondary/10 hover:border-coastal-ocean/50
+                       transition-[transform,background-color,border-color] duration-200
+                       active:scale-[0.97] text-cta text-sm"
           >
             Wszystkie ebooki
           </Link>

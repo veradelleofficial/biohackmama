@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { BookOpen, Clock } from '@phosphor-icons/react'
 
+const EASE_OUT = [0.23, 1, 0.32, 1] as const
 
 const mockCourses = [
   {
@@ -39,37 +40,39 @@ const mockCourses = [
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.15,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.97 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.55, ease: EASE_OUT },
+  },
+}
+
 export default function FeaturedCourses() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: 'easeOut' },
-    },
-  }
-
   return (
     <section className="py-14 md:py-20 lg:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/5 to-background" />
 
       <div className="container relative z-10">
+        {/* Header */}
         <motion.div
           className="text-center mb-14"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.55, ease: EASE_OUT }}
           viewport={{ once: true }}
         >
           <div className="flex justify-center mb-1.5 md:mb-2">
@@ -83,23 +86,22 @@ export default function FeaturedCourses() {
           </p>
         </motion.div>
 
+        {/* Cards */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: '-60px' }}
         >
-          {mockCourses.map((course, index) => (
+          {mockCourses.map((course) => (
             <motion.div
               key={course.id}
-              variants={itemVariants}
-              className={`group bg-card rounded-3xl overflow-hidden border border-border/60 shadow-coastal-sm hover:shadow-card-hover hover:-translate-y-1 transition-all duration-500 ${
-                index === 0 ? 'animate-floating' : index === 1 ? 'animate-floating-delayed' : 'animate-floating-delayed-2'
-              }`}
+              variants={cardVariants}
+              className="group card-lift bg-card rounded-3xl overflow-hidden border border-border/60 shadow-coastal-sm"
             >
               {/* Course Image */}
-              <div className="relative w-full aspect-[16/10] overflow-hidden">
+              <div className="relative w-full aspect-[16/10] overflow-hidden img-zoom">
                 <Image
                   src={course.image}
                   alt={course.imageAlt}
@@ -107,6 +109,7 @@ export default function FeaturedCourses() {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
+                {/* "Coming soon" overlay */}
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                   <span className="text-white text-lg md:text-xl font-heading font-semibold tracking-heading uppercase">
                     Już wkrótce
@@ -149,16 +152,20 @@ export default function FeaturedCourses() {
           ))}
         </motion.div>
 
+        {/* CTA */}
         <motion.div
           className="text-center mt-14"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
         >
           <Link
             href="/kursy"
-            className="inline-block px-8 py-3.5 border border-coastal-ocean/30 text-coastal-slate rounded-3xl hover:bg-secondary/10 hover:border-coastal-ocean/50 transition-all duration-300 text-cta text-sm"
+            className="inline-block px-8 py-3.5 border border-coastal-ocean/30 text-coastal-slate rounded-3xl
+                       hover:bg-secondary/10 hover:border-coastal-ocean/50
+                       transition-[transform,background-color,border-color] duration-200
+                       active:scale-[0.97] text-cta text-sm"
           >
             Zobacz wszystkie kursy
           </Link>
