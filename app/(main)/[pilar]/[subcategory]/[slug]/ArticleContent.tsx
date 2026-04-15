@@ -19,6 +19,7 @@ interface Article {
   pilarTitle: string
   content: any
   author?: string
+  coverImage?: any
 }
 
 const portableTextComponents: PortableTextComponents = {
@@ -147,21 +148,30 @@ export default function ArticleContent({ article, pilar, subcategory }: Props) {
             </time>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4 tracking-heading">
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4 tracking-heading normal-case">
             {article.title}
           </h1>
           <p className="text-xl text-muted-foreground">{article.excerpt}</p>
         </motion.div>
 
         {/* Cover */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="w-full h-80 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center text-8xl mb-12"
-        >
-          📄
-        </motion.div>
+        {article.coverImage?.asset && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden mb-12"
+          >
+            <Image
+              src={urlFor(article.coverImage).width(1200).url()}
+              alt={article.coverImage.alt || article.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 800px"
+              priority
+            />
+          </motion.div>
+        )}
 
         {/* Content */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="max-w-none text-base">
