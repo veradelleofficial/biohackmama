@@ -133,7 +133,7 @@ export default async function SubcategoryPage({ params }: PageProps) {
                         </span>
                         <span className="text-xs text-muted-foreground">{article.readTime} min</span>
                       </div>
-                      <Link href={`/${params.pilar}/${params.subcategory}/${article.slug.current}`}>
+                      <Link href={`/blog/${article.slug.current}`}>
                         <h3 className="font-heading font-semibold text-xl mb-2 line-clamp-2 tracking-heading group-hover:text-coastal-gold transition-colors duration-300">
                           {article.title}
                         </h3>
@@ -144,7 +144,7 @@ export default async function SubcategoryPage({ params }: PageProps) {
                           {new Date(article.publishedAt).toLocaleDateString('pl-PL')}
                         </span>
                         <Link
-                          href={`/${params.pilar}/${params.subcategory}/${article.slug.current}`}
+                          href={`/blog/${article.slug.current}`}
                           className="text-coastal-gold hover:text-coastal-gold/80 transition-colors duration-300 text-sm font-medium"
                         >
                           Czytaj →

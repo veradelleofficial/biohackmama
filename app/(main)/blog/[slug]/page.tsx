@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { redirect } from 'next/navigation'
 import { getArticleBySlug } from '@/lib/sanity/queries'
 import BlogPostContent from './BlogPostContent'
 
@@ -47,11 +46,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPostPage({ params }: PageProps) {
   const article = await getArticleBySlug(params.slug)
-
-  // 301 redirect to new SEO URL structure if article has pilar/category assigned
-  if (article?.pilarSlug && article?.categorySlug) {
-    redirect(`/${article.pilarSlug}/${article.categorySlug}/${params.slug}`)
-  }
 
   const articleSchema = article
     ? {
