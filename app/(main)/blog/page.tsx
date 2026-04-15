@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Artykuły o biohackingu, hormonach, śnie, żywieniu i długowieczności. Naukowe protokoły dopasowane do kobiecego ciała.',
 }
 
-export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 export default async function BlogPage() {
   const articles = await getArticles()
