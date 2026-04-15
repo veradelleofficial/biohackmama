@@ -95,7 +95,7 @@ export default function IFCalculator() {
         <div className="flex items-center justify-between p-4 rounded-2xl border border-indigo-200/60 bg-indigo-50/40">
           <div>
             <div className="text-xs text-muted-foreground mb-1">Koniec postu (następny dzień)</div>
-            <div className="text-2xl font-heading font-semibold text-coastal-slate">{fastEnd}</div>
+            <div className="text-2xl font-heading font-semibold text-coastal-slate">{firstMeal}</div>
           </div>
           <span className="text-2xl">☀️</span>
         </div>
