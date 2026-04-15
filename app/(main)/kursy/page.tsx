@@ -108,13 +108,6 @@ export default function CoursesPage() {
           </p>
         </motion.div>
 
-        {/* Disclaimer */}
-        <div className="mb-10 p-4 md:p-5 bg-secondary/8 border border-border/40 rounded-2xl text-center">
-          <p className="text-xs md:text-sm font-light leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.7)' }}>
-            Treści, którymi się dzielę, mają charakter wyłącznie edukacyjny i nie zastępują porady lekarskiej. Pamiętaj, że każdy organizm jest inny – przed wdrożeniem nowych protokołów, suplementacji czy zmian w diecie, skonsultuj się ze swoim lekarzem lub wykwalifikowanym specjalistą.
-          </p>
-        </div>
-
         {/* Level Filter */}
         <div className="mb-12 flex flex-wrap gap-2">
           {levels.map((lvl) => (
@@ -270,7 +263,7 @@ export default function CoursesPage() {
 
         {/* Bottom disclaimer */}
         <div className="mt-14 md:mt-20 pt-8 border-t border-border/40 text-center">
-          <p className="text-xs font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.6)' }}>
+          <p className="text-sm md:text-base font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.75)' }}>
             Prezentowane materiały mają charakter wyłącznie informacyjny i nie stanowią porady medycznej ani specjalistycznej. Przed wprowadzeniem zmian w suplementacji lub stylu życia, skonsultuj się z lekarzem.
           </p>
         </div>
