@@ -19,8 +19,6 @@ export default function IFCalculator() {
   const [firstMeal, setFirstMeal] = useState('08:00')
 
   const lastMeal = addHours(firstMeal, protocol.eat)
-  const fastStart = lastMeal
-  const fastEnd = firstMeal
 
   return (
     <div className="bg-card border border-border/60 rounded-3xl p-6 md:p-8 shadow-coastal-sm">
