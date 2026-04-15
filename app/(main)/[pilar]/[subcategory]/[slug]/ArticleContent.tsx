@@ -22,6 +22,14 @@ interface Article {
   coverImage?: any
 }
 
+const CALLOUT_STYLES: Record<string, { border: string; bg: string; icon: string; label: string }> = {
+  protip:   { border: 'border-coastal-gold/50',   bg: 'bg-coastal-gold/8',    icon: '💡', label: 'Pro-tip' },
+  warning:  { border: 'border-amber-400/50',       bg: 'bg-amber-50/60',       icon: '⚠️', label: 'Uwaga' },
+  research: { border: 'border-coastal-ocean/40',   bg: 'bg-coastal-ocean/6',   icon: '🔬', label: 'Badanie' },
+  info:     { border: 'border-emerald-400/50',     bg: 'bg-emerald-50/50',     icon: 'ℹ️', label: 'Info' },
+  fact:     { border: 'border-indigo-300/50',      bg: 'bg-indigo-50/50',      icon: '✨', label: 'Ciekawostka' },
+}
+
 const portableTextComponents: PortableTextComponents = {
   types: {
     image: ({ value }) => {
@@ -45,6 +53,32 @@ const portableTextComponents: PortableTextComponents = {
         </figure>
       )
     },
+    callout: ({ value }) => {
+      const style = CALLOUT_STYLES[value.variant] || CALLOUT_STYLES.info
+      return (
+        <div className={`my-7 rounded-2xl border ${style.border} ${style.bg} p-5`}>
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-lg">{style.icon}</span>
+            <span className="text-xs font-semibold uppercase tracking-wider text-coastal-slate/70">
+              {value.title || style.label}
+            </span>
+          </div>
+          <p className="text-sm leading-relaxed" style={{ color: 'rgba(72,89,107,0.88)' }}>
+            {value.body}
+          </p>
+        </div>
+      )
+    },
+    pullQuote: ({ value }) => (
+      <div className="my-10 py-8 px-6 border-y border-coastal-gold/30 text-center">
+        <p className="text-xl md:text-2xl font-heading font-normal italic leading-snug text-coastal-slate mb-3">
+          &ldquo;{value.text}&rdquo;
+        </p>
+        {value.attribution && (
+          <p className="text-sm text-muted-foreground">&mdash; {value.attribution}</p>
+        )}
+      </div>
+    ),
   },
   block: {
     h2: ({ children }) => (
