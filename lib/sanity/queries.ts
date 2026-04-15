@@ -1,6 +1,63 @@
 import client from './client'
 
-// Article Queries
+// ─── PILAR QUERIES ────────────────────────────────────────────────────────────
+
+export const getPilars = async () => {
+  const query = `*[_type == "pilar"] | order(order asc) {
+    _id,
+    title,
+    slug,
+    description,
+    metaTitle,
+    metaDescription,
+  }`
+  return client.fetch(query)
+}
+
+export const getPilarBySlug = async (slug: string) => {
+  const query = `*[_type == "pilar" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    description,
+    metaTitle,
+    metaDescription,
+  }`
+  return client.fetch(query, { slug })
+}
+
+// ─── SUBCATEGORY (CATEGORY) QUERIES ──────────────────────────────────────────
+
+export const getSubcategoriesByPilar = async (pilarSlug: string) => {
+  const query = `*[_type == "category" && pilar->slug.current == $pilarSlug] | order(title asc) {
+    _id,
+    title,
+    slug,
+    description,
+    metaTitle,
+    metaDescription,
+    "pilarSlug": pilar->slug.current,
+    "pilarTitle": pilar->title,
+  }`
+  return client.fetch(query, { pilarSlug })
+}
+
+export const getSubcategoryBySlug = async (pilarSlug: string, subcategorySlug: string) => {
+  const query = `*[_type == "category" && slug.current == $subcategorySlug && pilar->slug.current == $pilarSlug][0] {
+    _id,
+    title,
+    slug,
+    description,
+    metaTitle,
+    metaDescription,
+    "pilarSlug": pilar->slug.current,
+    "pilarTitle": pilar->title,
+  }`
+  return client.fetch(query, { pilarSlug, subcategorySlug })
+}
+
+// ─── ARTICLE QUERIES ──────────────────────────────────────────────────────────
+
 export const getArticles = async () => {
   const query = `*[_type == "article"] | order(publishedAt desc) {
     _id,
@@ -9,10 +66,45 @@ export const getArticles = async () => {
     excerpt,
     publishedAt,
     readTime,
-    category,
     coverImage,
+    "category": category->title,
+    "categorySlug": category->slug.current,
+    "pilarSlug": category->pilar->slug.current,
+    "pilarTitle": category->pilar->title,
   }`
   return client.fetch(query)
+}
+
+export const getArticlesByPilar = async (pilarSlug: string) => {
+  const query = `*[_type == "article" && category->pilar->slug.current == $pilarSlug] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    excerpt,
+    publishedAt,
+    readTime,
+    coverImage,
+    "category": category->title,
+    "categorySlug": category->slug.current,
+    "pilarSlug": category->pilar->slug.current,
+  }`
+  return client.fetch(query, { pilarSlug })
+}
+
+export const getArticlesBySubcategory = async (pilarSlug: string, subcategorySlug: string) => {
+  const query = `*[_type == "article" && category->slug.current == $subcategorySlug && category->pilar->slug.current == $pilarSlug] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    excerpt,
+    publishedAt,
+    readTime,
+    coverImage,
+    "category": category->title,
+    "categorySlug": category->slug.current,
+    "pilarSlug": category->pilar->slug.current,
+  }`
+  return client.fetch(query, { pilarSlug, subcategorySlug })
 }
 
 export const getArticleBySlug = async (slug: string) => {
@@ -23,15 +115,58 @@ export const getArticleBySlug = async (slug: string) => {
     excerpt,
     publishedAt,
     readTime,
-    category,
     coverImage,
     content,
-    author
+    author,
+    "category": category->title,
+    "categorySlug": category->slug.current,
+    "pilarSlug": category->pilar->slug.current,
+    "pilarTitle": category->pilar->title,
   }`
   return client.fetch(query, { slug })
 }
 
-// Course Queries
+export const getArticleByFullPath = async (pilarSlug: string, subcategorySlug: string, slug: string) => {
+  const query = `*[_type == "article" && slug.current == $slug && category->slug.current == $subcategorySlug && category->pilar->slug.current == $pilarSlug][0] {
+    _id,
+    title,
+    slug,
+    excerpt,
+    publishedAt,
+    readTime,
+    coverImage,
+    content,
+    author,
+    "category": category->title,
+    "categorySlug": category->slug.current,
+    "pilarSlug": category->pilar->slug.current,
+    "pilarTitle": category->pilar->title,
+  }`
+  return client.fetch(query, { pilarSlug, subcategorySlug, slug })
+}
+
+export const getAllArticlePaths = async () => {
+  const query = `*[_type == "article" && defined(slug.current) && defined(category->slug.current) && defined(category->pilar->slug.current)] {
+    "slug": slug.current,
+    "subcategorySlug": category->slug.current,
+    "pilarSlug": category->pilar->slug.current,
+  }`
+  return client.fetch(query)
+}
+
+// ─── LEGACY BLOG QUERY (backward compat) ─────────────────────────────────────
+
+export const getArticleSlugForRedirect = async (slug: string) => {
+  const query = `*[_type == "article" && slug.current == $slug][0] {
+    "slug": slug.current,
+    "subcategorySlug": category->slug.current,
+    "pilarSlug": category->pilar->slug.current,
+  }`
+  return client.fetch(query, { slug })
+}
+
+// ─── COURSE QUERIES ───────────────────────────────────────────────────────────
+
 export const getCourses = async () => {
   const query = `*[_type == "course"] | order(createdAt desc) {
     _id,
@@ -70,7 +205,8 @@ export const getCourseBySlug = async (slug: string) => {
   return client.fetch(query, { slug })
 }
 
-// Ebook Queries
+// ─── EBOOK QUERIES ────────────────────────────────────────────────────────────
+
 export const getEbooks = async () => {
   const query = `*[_type == "ebook"] | order(createdAt desc) {
     _id,

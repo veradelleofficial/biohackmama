@@ -40,9 +40,10 @@ export default {
     },
     {
       name: 'category',
-      title: 'Kategoria',
+      title: 'Subkategoria',
       type: 'reference',
       to: [{ type: 'category' }],
+      description: 'Wybierz subkategorię – pilar zostanie przypisany automatycznie',
     },
     {
       name: 'author',

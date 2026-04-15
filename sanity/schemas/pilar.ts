@@ -1,11 +1,11 @@
 export default {
-  name: 'category',
-  title: 'Subkategoria',
+  name: 'pilar',
+  title: 'Pilar SEO',
   type: 'document',
   fields: [
     {
       name: 'title',
-      title: 'Nazwa',
+      title: 'Nazwa pilara',
       type: 'string',
       validation: (Rule: any) => Rule.required(),
     },
@@ -14,13 +14,6 @@ export default {
       title: 'URL Slug',
       type: 'slug',
       options: { source: 'title' },
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
-      name: 'pilar',
-      title: 'Pilar nadrzędny',
-      type: 'reference',
-      to: [{ type: 'pilar' }],
       validation: (Rule: any) => Rule.required(),
     },
     {
@@ -40,11 +33,13 @@ export default {
       type: 'text',
       rows: 2,
     },
+    {
+      name: 'order',
+      title: 'Kolejność',
+      type: 'number',
+    },
   ],
   preview: {
-    select: {
-      title: 'title',
-      subtitle: 'pilar.title',
-    },
+    select: { title: 'title', subtitle: 'slug.current' },
   },
 }
