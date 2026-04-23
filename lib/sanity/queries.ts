@@ -66,11 +66,15 @@ export const getArticles = async () => {
     excerpt,
     publishedAt,
     readTime,
-    coverImage,
+    coverImage {
+      ...,
+      asset->
+    },
     "category": category->title,
     "categorySlug": category->slug.current,
     "pilarSlug": category->pilar->slug.current,
     "pilarTitle": category->pilar->title,
+    "hasContent": defined(content) && length(content) > 0,
   }`
   return client.fetch(query)
 }
@@ -152,6 +156,22 @@ export const getAllArticlePaths = async () => {
     "pilarSlug": category->pilar->slug.current,
   }`
   return client.fetch(query)
+}
+
+export const getRelatedArticles = async (currentSlug: string, limit = 3) => {
+  const query = `*[_type == "article" && slug.current != $currentSlug] | order(publishedAt desc) [0...$limit] {
+    _id,
+    title,
+    slug,
+    excerpt,
+    readTime,
+    coverImage {
+      ...,
+      asset->
+    },
+    "category": category->title,
+  }`
+  return client.fetch(query, { currentSlug, limit })
 }
 
 // ─── LEGACY BLOG QUERY (backward compat) ─────────────────────────────────────
