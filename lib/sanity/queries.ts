@@ -253,3 +253,41 @@ export const getEbookBySlug = async (slug: string) => {
   }`
   return sanityFetch(query, { slug })
 }
+
+// ─── PIGUŁKA QUERIES ──────────────────────────────────────────────────────────
+
+export const getPigulki = async () => {
+  const query = `*[_type == "pigulka" && defined(publishedAt)] | order(sciezka asc, order asc) {
+    _id,
+    title,
+    slug,
+    sciezka,
+    description,
+    duration,
+    audioUrl,
+    videoUrl,
+    pdfUrl,
+    isFree,
+    publishedAt,
+    order
+  }`
+  return sanityFetch<any[]>(query)
+}
+
+export const getPigulkaBySlug = async (slug: string) => {
+  const query = `*[_type == "pigulka" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    sciezka,
+    description,
+    duration,
+    audioUrl,
+    videoUrl,
+    pdfUrl,
+    isFree,
+    publishedAt,
+    order
+  }`
+  return sanityFetch<any>(query, { slug })
+}
