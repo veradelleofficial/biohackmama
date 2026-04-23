@@ -4,9 +4,9 @@ import { useState, useMemo, useCallback, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Search, ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 import { cardReveal, staggerContainer } from '@/lib/animations'
 import { TiltCard } from '@/components/ui/TiltCard'
-import { RevealImage } from '@/components/ui/RevealImage'
 
 interface Article {
   _id: string
@@ -165,14 +165,12 @@ export default function BlogList({ articles }: { articles: Article[] }) {
                       className="relative w-full h-48 bg-gradient-to-br from-secondary/15 via-primary/8 to-secondary/10"
                     >
                       {coverUrl ? (
-                        <RevealImage
+                        <Image
                           src={coverUrl}
                           alt={article.title}
                           fill
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          containerClassName="absolute inset-0"
-                          direction="up"
-                          duration={0.80}
+                          className="object-cover"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-5xl">
