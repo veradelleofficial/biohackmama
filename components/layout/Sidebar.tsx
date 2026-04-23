@@ -274,11 +274,12 @@ function PromoBlocks() {
   )
 }
 
-// ─── Ad Slot 300×250 ──────────────────────────────────────────────────────────
+// ─── Ad Slots 300×250 ─────────────────────────────────────────────────────────
 
-const AD_HREF = 'https://czarneznatury.pl/produkt/alcalina-kwas-humusowy/'
+const AD1_HREF = 'https://czarneznatury.pl/produkt/alcalina-kwas-humusowy/'
+const AD2_HREF = '#'  // ← podmień na link drugiej reklamy
 
-function SidebarAdSlot() {
+function SidebarAdSlot({ href, src, alt }: { href: string; src: string; alt: string }) {
   return (
     <motion.div
       className="rounded-2xl border border-border/60 overflow-hidden"
@@ -286,16 +287,27 @@ function SidebarAdSlot() {
       animate={{ scale: [1, 1.008, 1] }}
       transition={{ delay: 3, duration: 2.0, ease: 'easeInOut', repeat: Infinity, repeatDelay: 14 }}
     >
-      <Link href={AD_HREF} target="_blank" rel="noopener noreferrer sponsored">
+      <Link href={href} target="_blank" rel="noopener noreferrer sponsored">
         <Image
-          src="/images/alcalina-ad.jpg.png"
-          alt="Alcalina -10% kod: WERONIKA"
+          src={src}
+          alt={alt}
           width={300}
           height={250}
           className="block w-full"
         />
       </Link>
     </motion.div>
+  )
+}
+
+function SidebarAdSlot2() {
+  return (
+    <div
+      className="rounded-2xl border border-border/60 overflow-hidden flex items-center justify-center"
+      style={{ width: '300px', height: '250px', background: 'rgba(33,58,80,0.02)' }}
+    >
+      <p className="text-xs text-muted-foreground">Miejsce na reklamę 300×250</p>
+    </div>
   )
 }
 
@@ -306,7 +318,8 @@ export default function Sidebar() {
     <div className="sticky top-28 space-y-6">
       <NewsletterBox />
       <PromoBlocks />
-      <SidebarAdSlot />
+      <SidebarAdSlot href={AD1_HREF} src="/images/alcalina-ad.jpg.png" alt="Alcalina -10% kod: WERONIKA" />
+      <SidebarAdSlot2 />
     </div>
   )
 }

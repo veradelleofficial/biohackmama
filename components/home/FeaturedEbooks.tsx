@@ -81,86 +81,25 @@ export default function FeaturedEbooks() {
           </p>
         </motion.div>
 
-        {/* Cards */}
+        {/* Coming soon */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-        >
-          {mockEbooks.map((ebook) => (
-            <motion.div
-              key={ebook.id}
-              variants={cardVariants}
-              className="group"
-            >
-              {/* Ebook cover */}
-              <figure className="relative mb-5">
-                <div
-                  className="relative aspect-[3/4] sm:aspect-[4/5] rounded-3xl overflow-hidden
-                             border border-border/40 img-zoom vintage-film
-                             transition-[border-color,box-shadow] duration-300
-                             hover:border-coastal-ocean/40 hover:shadow-coastal"
-                >
-                  <Image
-                    src={ebook.image}
-                    alt={ebook.imageAlt}
-                    fill
-                    className="object-cover"
-                    style={{ filter: 'sepia(10%) saturate(90%)' }}
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-coastal-sand/10 pointer-events-none" />
-                  {/* Hover overlay — appears from opacity 0 */}
-                  <div className="absolute inset-0 bg-coastal-slate/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <ArrowRight className="w-8 h-8 text-white translate-y-1 group-hover:translate-y-0 transition-transform duration-300" style={{ transitionTimingFunction: 'cubic-bezier(0.23,1,0.32,1)' }} />
-                  </div>
-                </div>
-              </figure>
-
-              <h3 className="font-heading font-semibold text-xl mb-1.5 tracking-heading">
-                {ebook.title}
-              </h3>
-              <p className="text-sm font-light mb-3" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.6' }}>
-                {ebook.subtitle}
-              </p>
-
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground">{ebook.pages} stron</p>
-                  <p className="text-2xl font-bold text-coastal-gold">{ebook.price}</p>
-                </div>
-                <Link
-                  href={`/ebooki/${ebook.id}`}
-                  className="px-5 py-2.5 bg-coastal-gold text-white rounded-2xl text-sm
-                             hover:brightness-110 hover:shadow-coastal
-                             transition-[transform,filter,box-shadow] duration-200
-                             active:scale-[0.97] text-cta"
-                >
-                  Więcej
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div
-          className="text-center mt-14"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-center py-10 md:py-14"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: EASE_OUT }}
           viewport={{ once: true }}
         >
+          <p className="text-sm font-semibold uppercase tracking-widest mb-4" style={{ color: 'rgba(166,138,105,0.85)' }}>
+            Już wkrótce
+          </p>
+          <p className="text-base font-light max-w-md mx-auto leading-relaxed mb-8" style={{ color: 'rgba(72,89,107,0.70)' }}>
+            Pracuję nad ebookami, które pomogą Ci wziąć zdrowie w swoje ręce. Obserwuj mnie na Instagramie, żeby być pierwsza.
+          </p>
           <Link
             href="/ebooki"
-            className="inline-block px-8 py-3.5 border border-coastal-ocean/30 text-coastal-slate rounded-3xl
-                       hover:bg-secondary/10 hover:border-coastal-ocean/50
-                       transition-[transform,background-color,border-color] duration-200
-                       active:scale-[0.97] text-cta text-sm"
+            className="inline-block px-8 py-3.5 border border-coastal-ocean/30 text-coastal-slate rounded-3xl hover:bg-secondary/10 hover:border-coastal-ocean/50 transition-all duration-200 active:scale-[0.97] text-cta text-sm"
           >
-            Wszystkie ebooki
+            Dowiedz się więcej
           </Link>
         </motion.div>
       </div>
