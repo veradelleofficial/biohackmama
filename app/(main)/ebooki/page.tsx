@@ -1,61 +1,20 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { getEbooks } from '@/lib/sanity/queries'
 import { EbookiCoverHero } from '@/components/ebooki/EbookiCoverHero'
+
+export const dynamic = 'force-dynamic'
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const
 
-interface Ebook {
-  _id: string
-  title: string
-  slug: { current: string }
-  description: string
-  price: number | string
-  pages: number
-  author?: string
-}
-
 export default function EbooksPage() {
-  const [ebooks, setEbooks] = useState<Ebook[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const fetchEbooks = async () => {
-      try {
-        const data = await getEbooks()
-        setEbooks(data || [])
-      } catch (error) {
-        console.error('Error fetching ebooks:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchEbooks()
-  }, [])
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
-  }
-
   return (
     <main className="pb-14 md:pb-20">
 
-      {/* Full-bleed cover hero */}
       <EbookiCoverHero />
 
-      {/* Content — -mt overlaps the hero's bottom fade zone */}
       <div className="container -mt-8 md:-mt-14 relative z-40">
 
-        {/* Bridge card — visual anchor between hero and grid */}
         <motion.div
           className="mb-10 rounded-3xl border border-border/40 px-5 py-5 md:px-7 md:py-6"
           style={{
@@ -73,7 +32,6 @@ export default function EbooksPage() {
           </p>
         </motion.div>
 
-        {/* Coming soon */}
         <motion.div
           className="text-center py-16 md:py-24"
           initial={{ opacity: 0, y: 20 }}
@@ -98,7 +56,6 @@ export default function EbooksPage() {
           </a>
         </motion.div>
 
-        {/* Disclaimer */}
         <div className="mt-14 md:mt-20 pt-8 border-t border-border/40 text-center">
           <p className="text-sm md:text-base font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.75)' }}>
             Prezentowane materiały mają charakter wyłącznie informacyjny i nie stanowią porady medycznej ani specjalistycznej. Przed wprowadzeniem zmian w suplementacji lub stylu życia, skonsultuj się z lekarzem.

@@ -277,7 +277,6 @@ function PromoBlocks() {
 // ─── Ad Slots 300×250 ─────────────────────────────────────────────────────────
 
 const AD1_HREF = 'https://czarneznatury.pl/produkt/alcalina-kwas-humusowy/'
-const AD2_HREF = '#'  // ← podmień na link drugiej reklamy
 
 function SidebarAdSlot({ href, src, alt }: { href: string; src: string; alt: string }) {
   return (
@@ -502,7 +501,7 @@ export function MobileSidebar() {
 
       {/* ── Ad slot ── */}
       <div className="flex justify-center">
-        <SidebarAdSlot />
+        <SidebarAdSlot href="https://czarneznatury.pl/produkt/alcalina-kwas-humusowy/" src="/images/alcalina-ad.jpg.png" alt="Alcalina -10% kod: WERONIKA" />
       </div>
     </div>
   )
