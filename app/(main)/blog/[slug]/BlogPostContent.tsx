@@ -873,7 +873,7 @@ export default function BlogPostContent({
               rel="noopener noreferrer sponsored"
             >
               <Image
-                src="/images/aquatru-ad.jpg"
+                src="/images/aquatru-ad.jpg.png"
                 alt="AquaTru – specjalny rabat, nalicza się automatycznie z linkiem"
                 width={728}
                 height={120}
