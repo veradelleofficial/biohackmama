@@ -56,7 +56,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     getArticleBySlug(params.slug),
     getRelatedArticles(params.slug),
   ])
-  const relatedArticles = pickRandom(relatedPool || [], 3)
+  const relatedArticles = pickRandom((relatedPool || []) as any[], 3)
 
   const articleSchema = article
     ? {
