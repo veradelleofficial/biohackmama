@@ -301,12 +301,22 @@ function SidebarAdSlot({ href, src, alt }: { href: string; src: string; alt: str
 
 function SidebarAdSlot2() {
   return (
-    <div
-      className="rounded-2xl border border-border/60 overflow-hidden flex items-center justify-center"
-      style={{ width: '300px', height: '250px', background: 'rgba(33,58,80,0.02)' }}
+    <motion.div
+      className="rounded-2xl border border-border/60 overflow-hidden"
+      style={{ boxShadow: 'inset 0 1px 3px rgba(33,58,80,0.06)' }}
+      animate={{ scale: [1, 1.008, 1] }}
+      transition={{ delay: 5, duration: 2.0, ease: 'easeInOut', repeat: Infinity, repeatDelay: 14 }}
     >
-      <p className="text-xs text-muted-foreground">Miejsce na reklamę 300×250</p>
-    </div>
+      <Link href="https://mitowell.pl/sklep/lampy-do-terapii-czerwonym-swiatlem/" target="_blank" rel="noopener noreferrer sponsored">
+        <Image
+          src="/images/mitowell-ad.jpg.png"
+          alt="Mitowell -10% kod: VERONICA10"
+          width={300}
+          height={250}
+          className="block w-full"
+        />
+      </Link>
+    </motion.div>
   )
 }
 
