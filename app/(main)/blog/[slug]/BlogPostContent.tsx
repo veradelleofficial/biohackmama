@@ -584,7 +584,7 @@ function AuthorBox({ author }: { author?: string }) {
     <div className="mt-14 rounded-3xl border border-coastal-gold/25 bg-card p-6 md:p-8 shadow-coastal-sm flex gap-5 items-start">
       <div className="flex-shrink-0">
         <Image
-          src="/images/vera-delle.jpg"
+          src="/images/vera-delle.jpg.jpg"
           alt="Vera Delle"
           width={64}
           height={64}
