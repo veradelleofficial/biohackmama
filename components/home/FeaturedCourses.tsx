@@ -43,7 +43,7 @@ const mockCourses = [
 
 export default function FeaturedCourses() {
   return (
-    <section className="py-14 md:py-20 lg:py-24 relative overflow-hidden">
+    <section className="pt-6 pb-14 md:py-20 lg:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/5 to-background" />
 
       <div className="container relative z-10">
