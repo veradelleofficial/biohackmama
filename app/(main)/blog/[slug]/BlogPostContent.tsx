@@ -866,29 +866,20 @@ export default function BlogPostContent({
           </div>
 
           {/* Ad Slot A-3 — after content, before related articles */}
-          <div
-            className="mt-12 rounded-2xl overflow-hidden border-y"
-            style={{ borderColor: 'rgba(166,138,105,0.18)' }}
-          >
-            <p
-              className="text-[10px] font-semibold uppercase tracking-widest text-center py-1.5 border-b"
-              style={{
-                color: 'rgba(33,58,80,0.38)',
-                borderColor: 'rgba(166,138,105,0.15)',
-                background: 'rgba(33,58,80,0.02)',
-              }}
+          <div className="mt-12">
+            <a
+              href="https://aquatruwater.pxf.io/9LqYAy"
+              target="_blank"
+              rel="noopener noreferrer sponsored"
             >
-              Materiał sponsorowany
-            </p>
-            <div
-              className="flex items-center justify-center py-10"
-              style={{
-                background: 'linear-gradient(135deg, rgba(166,138,105,0.06) 0%, rgba(174,202,232,0.08) 100%)',
-                minHeight: '120px',
-              }}
-            >
-              {/* wklej tutaj kod AdSense lub kreację sponsora */}
-            </div>
+              <Image
+                src="/images/aquatru-ad.jpg"
+                alt="AquaTru – specjalny rabat, nalicza się automatycznie z linkiem"
+                width={728}
+                height={120}
+                className="block w-full rounded-2xl"
+              />
+            </a>
           </div>
 
           {/* Related Articles */}
