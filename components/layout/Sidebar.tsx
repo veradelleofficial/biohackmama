@@ -286,12 +286,6 @@ function SidebarAdSlot() {
       animate={{ scale: [1, 1.008, 1] }}
       transition={{ delay: 3, duration: 2.0, ease: 'easeInOut', repeat: Infinity, repeatDelay: 14 }}
     >
-      <p
-        className="text-[10px] font-semibold uppercase tracking-widest text-center py-1.5 border-b border-border/40"
-        style={{ color: 'rgba(33,58,80,0.40)', background: 'rgba(33,58,80,0.03)' }}
-      >
-        Reklama
-      </p>
       <Link href={AD_HREF} target="_blank" rel="noopener noreferrer sponsored">
         <Image
           src="/images/alcalina-ad.jpg.png"
