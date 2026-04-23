@@ -583,15 +583,14 @@ function AuthorBox({ author }: { author?: string }) {
   return (
     <div className="mt-14 rounded-3xl border border-coastal-gold/25 bg-card p-6 md:p-8 shadow-coastal-sm flex gap-5 items-start">
       <div className="flex-shrink-0">
-        <div
-          className="w-16 h-16 rounded-full flex items-center justify-center text-xl font-heading font-semibold shadow-coastal-sm"
-          style={{
-            background: 'linear-gradient(135deg, #A68A69 0%, #AECAE8 100%)',
-            color: '#fff',
-          }}
-        >
-          VD
-        </div>
+        <Image
+          src="/images/vera-delle.jpg"
+          alt="Vera Delle"
+          width={64}
+          height={64}
+          className="w-16 h-16 rounded-full object-cover shadow-coastal-sm"
+          style={{ objectPosition: 'center top' }}
+        />
       </div>
       <div>
         <p className="text-xs font-medium uppercase tracking-widest text-coastal-ocean mb-1">Autorka</p>
