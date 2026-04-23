@@ -281,7 +281,7 @@ const AD1_HREF = 'https://czarneznatury.pl/produkt/alcalina-kwas-humusowy/'
 function SidebarAdSlot({ href, src, alt }: { href: string; src: string; alt: string }) {
   return (
     <motion.div
-      className="rounded-2xl border border-border/60 overflow-hidden"
+      className="w-full rounded-2xl border border-border/60 overflow-hidden"
       style={{ boxShadow: 'inset 0 1px 3px rgba(33,58,80,0.06)' }}
       animate={{ scale: [1, 1.008, 1] }}
       transition={{ delay: 3, duration: 2.0, ease: 'easeInOut', repeat: Infinity, repeatDelay: 14 }}
@@ -292,7 +292,7 @@ function SidebarAdSlot({ href, src, alt }: { href: string; src: string; alt: str
           alt={alt}
           width={300}
           height={250}
-          className="block w-full"
+          className="block w-full h-auto"
         />
       </Link>
     </motion.div>
@@ -302,7 +302,7 @@ function SidebarAdSlot({ href, src, alt }: { href: string; src: string; alt: str
 function SidebarAdSlot2() {
   return (
     <motion.div
-      className="rounded-2xl border border-border/60 overflow-hidden"
+      className="w-full rounded-2xl border border-border/60 overflow-hidden"
       style={{ boxShadow: 'inset 0 1px 3px rgba(33,58,80,0.06)' }}
       animate={{ scale: [1, 1.008, 1] }}
       transition={{ delay: 5, duration: 2.0, ease: 'easeInOut', repeat: Infinity, repeatDelay: 14 }}
@@ -313,7 +313,7 @@ function SidebarAdSlot2() {
           alt="Mitowell -10% kod: VERONICA10"
           width={300}
           height={250}
-          className="block w-full"
+          className="block w-full h-auto"
         />
       </Link>
     </motion.div>
