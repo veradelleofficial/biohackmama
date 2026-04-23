@@ -66,10 +66,7 @@ export const getArticles = async () => {
     excerpt,
     publishedAt,
     readTime,
-    coverImage {
-      ...,
-      asset->
-    },
+    "coverImageUrl": coverImage.asset->url,
     "category": category->title,
     "categorySlug": category->slug.current,
     "pilarSlug": category->pilar->slug.current,

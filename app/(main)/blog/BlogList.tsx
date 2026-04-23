@@ -4,21 +4,9 @@ import { useState, useMemo, useCallback, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Search, ChevronLeft, ChevronRight } from 'lucide-react'
-import { urlFor } from '@/lib/sanity/client'
 import { cardReveal, staggerContainer } from '@/lib/animations'
 import { TiltCard } from '@/components/ui/TiltCard'
 import { RevealImage } from '@/components/ui/RevealImage'
-
-function getCoverImageUrl(coverImage: any): string | null {
-  if (!coverImage) return null
-  try {
-    if (coverImage?.asset?.url) return coverImage.asset.url
-    const url = urlFor(coverImage).width(600).height(400).fit('crop').url()
-    return url || null
-  } catch {
-    return null
-  }
-}
 
 interface Article {
   _id: string
@@ -28,7 +16,7 @@ interface Article {
   publishedAt: string
   readTime: number
   category: string
-  coverImage?: any
+  coverImageUrl?: string | null
   hasContent?: boolean
 }
 
@@ -155,7 +143,7 @@ export default function BlogList({ articles }: { articles: Article[] }) {
             animate="visible"
           >
             {paginated.map((article, i) => {
-              const coverUrl = getCoverImageUrl(article.coverImage)
+              const coverUrl = article.coverImageUrl || null
               const colOffset = i % 3 === 1 ? 'lg:translate-y-6' : ''
               const isEmpty = !article.hasContent
 
