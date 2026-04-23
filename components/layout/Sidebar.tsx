@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 
 // ─── Newsletter ───────────────────────────────────────────────────────────────
@@ -275,20 +276,15 @@ function PromoBlocks() {
 
 // ─── Ad Slot 300×250 ──────────────────────────────────────────────────────────
 
+const AD_HREF = '#'  // ← podmień na link do sklepu Alcalina
+
 function SidebarAdSlot() {
   return (
-    // Gentle attention pulse after 3s — repeats every 14s, never aggressive
     <motion.div
       className="rounded-2xl border border-border/60 overflow-hidden"
       style={{ boxShadow: 'inset 0 1px 3px rgba(33,58,80,0.06)' }}
       animate={{ scale: [1, 1.008, 1] }}
-      transition={{
-        delay: 3,
-        duration: 2.0,
-        ease: 'easeInOut',
-        repeat: Infinity,
-        repeatDelay: 14,
-      }}
+      transition={{ delay: 3, duration: 2.0, ease: 'easeInOut', repeat: Infinity, repeatDelay: 14 }}
     >
       <p
         className="text-[10px] font-semibold uppercase tracking-widest text-center py-1.5 border-b border-border/40"
@@ -296,13 +292,15 @@ function SidebarAdSlot() {
       >
         Reklama
       </p>
-      {/* AdSense / partner banner — 300×250 */}
-      <div
-        className="flex items-center justify-center"
-        style={{ width: '300px', height: '250px', background: 'rgba(33,58,80,0.03)' }}
-      >
-        {/* wklej tutaj kod AdSense lub iframe partnera */}
-      </div>
+      <Link href={AD_HREF} target="_blank" rel="noopener noreferrer sponsored">
+        <Image
+          src="/images/alcalina-ad.jpg"
+          alt="Alcalina -10% kod: WERONIKA"
+          width={300}
+          height={250}
+          className="block w-full"
+        />
+      </Link>
     </motion.div>
   )
 }
