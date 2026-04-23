@@ -16,7 +16,7 @@ export const urlFor = (source: any) => {
 
 export const sanityFetch = <T = any>(
   query: string,
-  params?: Record<string, unknown>
+  params: Record<string, unknown> = {}
 ): Promise<T> =>
   client.fetch<T>(query, params, { cache: 'no-store' } as any)
 
