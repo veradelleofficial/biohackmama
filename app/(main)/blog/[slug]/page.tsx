@@ -46,11 +46,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
+function pickRandom<T>(arr: T[], n: number): T[] {
+  const shuffled = [...arr].sort(() => Math.random() - 0.5)
+  return shuffled.slice(0, n)
+}
+
 export default async function BlogPostPage({ params }: PageProps) {
-  const [article, relatedArticles] = await Promise.all([
+  const [article, relatedPool] = await Promise.all([
     getArticleBySlug(params.slug),
-    getRelatedArticles(params.slug, 3),
+    getRelatedArticles(params.slug),
   ])
+  const relatedArticles = pickRandom(relatedPool || [], 3)
 
   const articleSchema = article
     ? {

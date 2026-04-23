@@ -157,8 +157,8 @@ export const getAllArticlePaths = async () => {
   return sanityFetch(query)
 }
 
-export const getRelatedArticles = async (currentSlug: string, limit = 3) => {
-  const query = `*[_type == "article" && slug.current != $currentSlug] | order(publishedAt desc) [0...$limit] {
+export const getRelatedArticles = async (currentSlug: string) => {
+  const query = `*[_type == "article" && slug.current != $currentSlug && defined(content[0])] | order(publishedAt desc) [0...9] {
     _id,
     title,
     slug,
@@ -167,7 +167,7 @@ export const getRelatedArticles = async (currentSlug: string, limit = 3) => {
     "coverImageUrl": coverImage.asset->url,
     "category": category->title,
   }`
-  return sanityFetch(query, { currentSlug, limit })
+  return sanityFetch(query, { currentSlug })
 }
 
 // ─── LEGACY BLOG QUERY (backward compat) ─────────────────────────────────────
