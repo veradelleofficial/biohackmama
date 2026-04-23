@@ -59,7 +59,7 @@ export const getSubcategoryBySlug = async (pilarSlug: string, subcategorySlug: s
 // ─── ARTICLE QUERIES ──────────────────────────────────────────────────────────
 
 export const getArticles = async () => {
-  const query = `*[_type == "article"] | order(publishedAt desc) {
+  const query = `*[_type == "article"] | order(defined(content[0]) desc, publishedAt desc) {
     _id,
     title,
     slug,
