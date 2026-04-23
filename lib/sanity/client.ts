@@ -14,4 +14,10 @@ export const urlFor = (source: any) => {
   return builder.image(source)
 }
 
+export const sanityFetch = <T = unknown>(
+  query: string,
+  params?: Record<string, unknown>
+): Promise<T> =>
+  client.fetch<T>(query, params, { cache: 'no-store' } as any)
+
 export default client

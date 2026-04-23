@@ -19,6 +19,7 @@ interface Article {
   category: string
   categorySlug?: string
   pilarSlug?: string
+  coverImageUrl?: string | null
   coverImage?: any
   content: any
   author?: string
@@ -31,7 +32,7 @@ interface RelatedArticle {
   excerpt?: string
   readTime?: number
   category?: string
-  coverImage?: any
+  coverImageUrl?: string | null
 }
 
 // ─── Reading Progress Bar ────────────────────────────────────────────────────
@@ -386,11 +387,7 @@ function RelatedArticles({ articles }: { articles: RelatedArticle[] }) {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {articles.map((a) => {
-          const coverUrl = a.coverImage?.asset?.url
-            ? a.coverImage.asset.url
-            : a.coverImage
-            ? (() => { try { return urlFor(a.coverImage).width(400).height(260).fit('crop').url() } catch { return null } })()
-            : null
+          const coverUrl = a.coverImageUrl || null
 
           return (
             <Link
@@ -667,7 +664,7 @@ export default function BlogPostContent({
     [article?.content]
   )
 
-  const coverUrl = useMemo(() => getCoverUrl(article?.coverImage), [article?.coverImage])
+  const coverUrl = article?.coverImageUrl || getCoverUrl(article?.coverImage)
 
   if (!article) {
     return (

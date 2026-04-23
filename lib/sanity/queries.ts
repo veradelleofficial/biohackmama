@@ -1,4 +1,4 @@
-import client from './client'
+import { sanityFetch } from './client'
 
 // ─── PILAR QUERIES ────────────────────────────────────────────────────────────
 
@@ -11,7 +11,7 @@ export const getPilars = async () => {
     metaTitle,
     metaDescription,
   }`
-  return client.fetch(query)
+  return sanityFetch(query)
 }
 
 export const getPilarBySlug = async (slug: string) => {
@@ -23,7 +23,7 @@ export const getPilarBySlug = async (slug: string) => {
     metaTitle,
     metaDescription,
   }`
-  return client.fetch(query, { slug })
+  return sanityFetch(query, { slug })
 }
 
 // ─── SUBCATEGORY (CATEGORY) QUERIES ──────────────────────────────────────────
@@ -39,7 +39,7 @@ export const getSubcategoriesByPilar = async (pilarSlug: string) => {
     "pilarSlug": pilar->slug.current,
     "pilarTitle": pilar->title,
   }`
-  return client.fetch(query, { pilarSlug })
+  return sanityFetch(query, { pilarSlug })
 }
 
 export const getSubcategoryBySlug = async (pilarSlug: string, subcategorySlug: string) => {
@@ -53,7 +53,7 @@ export const getSubcategoryBySlug = async (pilarSlug: string, subcategorySlug: s
     "pilarSlug": pilar->slug.current,
     "pilarTitle": pilar->title,
   }`
-  return client.fetch(query, { pilarSlug, subcategorySlug })
+  return sanityFetch(query, { pilarSlug, subcategorySlug })
 }
 
 // ─── ARTICLE QUERIES ──────────────────────────────────────────────────────────
@@ -73,7 +73,7 @@ export const getArticles = async () => {
     "pilarTitle": category->pilar->title,
     "hasContent": defined(content) && length(content) > 0,
   }`
-  return client.fetch(query)
+  return sanityFetch(query)
 }
 
 export const getArticlesByPilar = async (pilarSlug: string) => {
@@ -84,12 +84,12 @@ export const getArticlesByPilar = async (pilarSlug: string) => {
     excerpt,
     publishedAt,
     readTime,
-    coverImage,
+    "coverImageUrl": coverImage.asset->url,
     "category": category->title,
     "categorySlug": category->slug.current,
     "pilarSlug": category->pilar->slug.current,
   }`
-  return client.fetch(query, { pilarSlug })
+  return sanityFetch(query, { pilarSlug })
 }
 
 export const getArticlesBySubcategory = async (pilarSlug: string, subcategorySlug: string) => {
@@ -100,12 +100,12 @@ export const getArticlesBySubcategory = async (pilarSlug: string, subcategorySlu
     excerpt,
     publishedAt,
     readTime,
-    coverImage,
+    "coverImageUrl": coverImage.asset->url,
     "category": category->title,
     "categorySlug": category->slug.current,
     "pilarSlug": category->pilar->slug.current,
   }`
-  return client.fetch(query, { pilarSlug, subcategorySlug })
+  return sanityFetch(query, { pilarSlug, subcategorySlug })
 }
 
 export const getArticleBySlug = async (slug: string) => {
@@ -116,6 +116,7 @@ export const getArticleBySlug = async (slug: string) => {
     excerpt,
     publishedAt,
     readTime,
+    "coverImageUrl": coverImage.asset->url,
     coverImage,
     content,
     author,
@@ -124,7 +125,7 @@ export const getArticleBySlug = async (slug: string) => {
     "pilarSlug": category->pilar->slug.current,
     "pilarTitle": category->pilar->title,
   }`
-  return client.fetch(query, { slug })
+  return sanityFetch(query, { slug })
 }
 
 export const getArticleByFullPath = async (pilarSlug: string, subcategorySlug: string, slug: string) => {
@@ -135,6 +136,7 @@ export const getArticleByFullPath = async (pilarSlug: string, subcategorySlug: s
     excerpt,
     publishedAt,
     readTime,
+    "coverImageUrl": coverImage.asset->url,
     coverImage,
     content,
     author,
@@ -143,7 +145,7 @@ export const getArticleByFullPath = async (pilarSlug: string, subcategorySlug: s
     "pilarSlug": category->pilar->slug.current,
     "pilarTitle": category->pilar->title,
   }`
-  return client.fetch(query, { pilarSlug, subcategorySlug, slug })
+  return sanityFetch(query, { pilarSlug, subcategorySlug, slug })
 }
 
 export const getAllArticlePaths = async () => {
@@ -152,7 +154,7 @@ export const getAllArticlePaths = async () => {
     "subcategorySlug": category->slug.current,
     "pilarSlug": category->pilar->slug.current,
   }`
-  return client.fetch(query)
+  return sanityFetch(query)
 }
 
 export const getRelatedArticles = async (currentSlug: string, limit = 3) => {
@@ -162,13 +164,10 @@ export const getRelatedArticles = async (currentSlug: string, limit = 3) => {
     slug,
     excerpt,
     readTime,
-    coverImage {
-      ...,
-      asset->
-    },
+    "coverImageUrl": coverImage.asset->url,
     "category": category->title,
   }`
-  return client.fetch(query, { currentSlug, limit })
+  return sanityFetch(query, { currentSlug, limit })
 }
 
 // ─── LEGACY BLOG QUERY (backward compat) ─────────────────────────────────────
@@ -179,7 +178,7 @@ export const getArticleSlugForRedirect = async (slug: string) => {
     "subcategorySlug": category->slug.current,
     "pilarSlug": category->pilar->slug.current,
   }`
-  return client.fetch(query, { slug })
+  return sanityFetch(query, { slug })
 }
 
 // ─── COURSE QUERIES ───────────────────────────────────────────────────────────
@@ -198,7 +197,7 @@ export const getCourses = async () => {
     rating,
     reviews,
   }`
-  return client.fetch(query)
+  return sanityFetch(query)
 }
 
 export const getCourseBySlug = async (slug: string) => {
@@ -219,7 +218,7 @@ export const getCourseBySlug = async (slug: string) => {
     courseUrl,
     author
   }`
-  return client.fetch(query, { slug })
+  return sanityFetch(query, { slug })
 }
 
 // ─── EBOOK QUERIES ────────────────────────────────────────────────────────────
@@ -235,7 +234,7 @@ export const getEbooks = async () => {
     image,
     author,
   }`
-  return client.fetch(query)
+  return sanityFetch(query)
 }
 
 export const getEbookBySlug = async (slug: string) => {
@@ -252,5 +251,5 @@ export const getEbookBySlug = async (slug: string) => {
     downloadUrl,
     benefits
   }`
-  return client.fetch(query, { slug })
+  return sanityFetch(query, { slug })
 }
