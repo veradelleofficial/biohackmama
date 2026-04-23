@@ -14,7 +14,7 @@ export const urlFor = (source: any) => {
   return builder.image(source)
 }
 
-export const sanityFetch = <T = unknown>(
+export const sanityFetch = <T = any>(
   query: string,
   params?: Record<string, unknown>
 ): Promise<T> =>
