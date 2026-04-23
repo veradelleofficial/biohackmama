@@ -510,10 +510,8 @@ export function MobileSidebar() {
       <NewsletterBox />
 
       {/* ── Ad slots ── */}
-      <div className="flex justify-center">
+      <div className="grid grid-cols-2 gap-3">
         <SidebarAdSlot href="https://czarneznatury.pl/produkt/alcalina-kwas-humusowy/" src="/images/alcalina-ad.jpg.png" alt="Alcalina -10% kod: WERONIKA" />
-      </div>
-      <div className="flex justify-center">
         <SidebarAdSlot2 />
       </div>
     </div>
