@@ -73,57 +73,30 @@ export default function EbooksPage() {
           </p>
         </motion.div>
 
-        {/* Ebooks grid */}
-        {loading ? (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">Ładowanie ebooków...</p>
-          </div>
-        ) : ebooks.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">Brak dostępnych ebooków.</p>
-          </div>
-        ) : (
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+        {/* Coming soon */}
+        <motion.div
+          className="text-center py-16 md:py-24"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: EASE_OUT }}
+        >
+          <p className="text-5xl mb-6">📖</p>
+          <h2 className="font-heading text-3xl md:text-4xl font-normal tracking-heading mb-4" style={{ color: '#213a50' }}>
+            Już wkrótce
+          </h2>
+          <p className="text-base font-light max-w-md mx-auto leading-relaxed" style={{ color: 'rgba(72,89,107,0.70)' }}>
+            Pracuję nad ebookami, które pomogą Ci wziąć zdrowie w swoje ręce. Obserwuj mnie na Instagramie, żeby być pierwsza.
+          </p>
+          <a
+            href="https://www.instagram.com/veradelleofficial"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-8 px-7 py-3.5 rounded-2xl text-white text-sm font-semibold transition-all duration-300 hover:brightness-110"
+            style={{ background: 'linear-gradient(135deg, #A68A69, #8a7058)', boxShadow: '0 4px 16px rgba(166,138,105,0.30)' }}
           >
-            {ebooks.map((ebook) => (
-              <motion.div
-                key={ebook._id}
-                variants={itemVariants}
-                className="group"
-              >
-                <Link href={`/ebooki/${ebook.slug.current}`}>
-                  <div className="relative mb-5 h-64 bg-gradient-to-br from-secondary/20 via-primary/8 to-secondary/15 rounded-3xl overflow-hidden flex items-center justify-center text-7xl border border-border/40 hover:border-coastal-ocean/40 hover:shadow-coastal-blue transition-all duration-500 cursor-pointer">
-                    📖
-                  </div>
-                </Link>
-
-                <h3 className="font-heading font-semibold text-xl mb-1.5 tracking-heading group-hover:text-coastal-gold transition-colors duration-300">
-                  {ebook.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                  {ebook.description}
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-muted-foreground">{ebook.pages} stron</p>
-                    <p className="text-2xl font-bold text-coastal-gold">{ebook.price} zł</p>
-                  </div>
-                  <Link
-                    href={`/ebooki/${ebook.slug.current}`}
-                    className="px-5 py-2.5 bg-coastal-gold text-white rounded-2xl text-sm hover:brightness-110 hover:shadow-coastal transition-all duration-300 text-cta"
-                  >
-                    Więcej
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
+            Obserwuj na Instagramie →
+          </a>
+        </motion.div>
 
         {/* Disclaimer */}
         <div className="mt-14 md:mt-20 pt-8 border-t border-border/40 text-center">
