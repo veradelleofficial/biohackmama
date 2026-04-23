@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getPilarBySlug, getSubcategoriesByPilar, getArticlesByPilar } from '@/lib/sanity/queries'
 
+export const dynamic = 'force-dynamic'
+
 const BASE_URL = 'https://biohackmama.pl'
 
 const PILARS_CONFIG: Record<string, { icon: string; color: string }> = {

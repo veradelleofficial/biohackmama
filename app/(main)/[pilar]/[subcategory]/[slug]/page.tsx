@@ -5,8 +5,7 @@ import ArticleContent from './ArticleContent'
 
 const BASE_URL = 'https://biohackmama.pl'
 
-// Revalidate every 60s so Sanity content updates appear without a full rebuild
-export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 interface PageProps {
   params: { pilar: string; subcategory: string; slug: string }

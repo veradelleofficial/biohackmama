@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { getEbookBySlug } from '@/lib/sanity/queries'
 import EbookContent from './EbookContent'
 
+export const dynamic = 'force-dynamic'
+
 interface PageProps {
   params: { slug: string }
 }

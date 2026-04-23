@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { getArticleBySlug, getRelatedArticles } from '@/lib/sanity/queries'
 import BlogPostContent from './BlogPostContent'
 
+export const dynamic = 'force-dynamic'
+
 interface PageProps {
   params: { slug: string }
 }
