@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Co ćwiczyć w moim cyklu?</title>
+  <style>
+    :root {
+      --bg:          #EFEAE4;
+      --bg-card:     #F7F3EE;
+      --bg-card-2:   #F2EDE7;
+      --text:        #48596B;
+      --text-soft:   rgba(72, 89, 107, 0.68);
+      --gold:        #A68A69;
+      --gold-light:  rgba(166, 138, 105, 0.10);
+      --gold-mid:    rgba(166, 138, 105, 0.22);
+      --ocean:       #AECAE8;
+      --ocean-deep:  #7A90A8;
+      --border:      rgba(174, 202, 232, 0.38);
+      --border-card: rgba(166, 138, 105, 0.14);
+      --radius:      22px;
+      --radius-sm:   13px;
+      --shadow-sm:   0 2px 12px rgba(72, 89, 107, 0.08);
+      --shadow-md:   0 8px 32px rgba(72, 89, 107, 0.12);
+      --font-serif:  'Georgia', 'Times New Roman', serif;
+      --font-sans:   system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+      /* Phase palette */
+      --phase-1-bg:    rgba(195, 100, 100, 0.07);
+      --phase-1-border:rgba(195, 100, 100, 0.22);
+      --phase-1-color: #9a3a3a;
+      --phase-1-icon:  #c56060;
+
+      --phase-2-bg:    rgba(100, 175, 120, 0.08);
+      --phase-2-border:rgba(100, 175, 120, 0.25);
+      --phase-2-color: #2a7a44;
+      --phase-2-icon:  #4aa060;
+
+      --phase-3-bg:    rgba(240, 190, 60, 0.09);
+      --phase-3-border:rgba(240, 190, 60, 0.28);
+      --phase-3-color: #8a6010;
+      --phase-3-icon:  #d4920a;
+
+      --phase-4-bg:    rgba(166, 138, 105, 0.09);
+      --phase-4-border:rgba(166, 138, 105, 0.28);
+      --phase-4-color: #7a5c3a;
+      --phase-4-icon:  #A68A69;
+
+      --phase-5-bg:    rgba(122, 144, 168, 0.09);
+      --phase-5-border:rgba(122, 144, 168, 0.28);
+      --phase-5-color: #4a6278;
+      --phase-5-icon:  #7A90A8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 28px 16px 48px;
+      min-height: 100vh;
+    }
+
+    /* Film grain */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: -50%;
+      pointer-events: none;
+      opacity: 0.15;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 80px 80px;
+      z-index: 9999;
+    }
+
+    .wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ───────────────────────────────────────── */
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .header-eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      padding: 4px 12px;
+      background: var(--gold-light);
+      border-radius: 100px;
+      border: 1px solid var(--gold-mid);
+      margin-bottom: 14px;
+    }
+
+    .header h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 5.5vw, 30px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 14px;
+      color: var(--text-soft);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    /* ── Cycle timeline ───────────────────────────────── */
+    .cycle-timeline {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 28px;
+      height: 8px;
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .ct-seg {
+      height: 100%;
+      border-radius: 0;
+      transition: opacity 0.3s ease;
+      opacity: 0.35;
+    }
+
+    .ct-seg.active { opacity: 1; }
+
+    .ct-1 { flex: 5;  background: var(--phase-1-icon); }
+    .ct-2 { flex: 8;  background: var(--phase-2-icon); }
+    .ct-3 { flex: 3;  background: var(--phase-3-icon); }
+    .ct-4 { flex: 7;  background: var(--phase-4-icon); }
+    .ct-5 { flex: 12; background: var(--phase-5-icon); }
+
+    /* ── Slider card ──────────────────────────────────── */
+    .slider-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 16px;
+    }
+
+    .slider-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .slider-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .day-display {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .day-number {
+      font-family: var(--font-serif);
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--gold);
+    }
+
+    .day-unit {
+      font-size: 13px;
+      color: var(--text-soft);
+      letter-spacing: 0.02em;
+    }
+
+    /* Slider */
+    .slider-wrap {
+      position: relative;
+      padding: 8px 0;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 5px;
+      border-radius: 100px;
+      outline: none;
+      cursor: pointer;
+      background: linear-gradient(to right, var(--gold) 0%, var(--gold) var(--pct, 0%), var(--border) var(--pct, 0%), var(--border) 100%);
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 2.5px solid var(--gold);
+      box-shadow: 0 2px 8px rgba(166,138,105,0.28);
+      cursor: pointer;
+      transition: box-shadow 0.2s ease, transform 0.15s ease;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 2.5px solid var(--gold);
+      box-shadow: 0 2px 8px rgba(166,138,105,0.28);
+      cursor: pointer;
+      transition: box-shadow 0.2s ease;
+    }
+
+    input[type="range"]:hover::-webkit-slider-thumb,
+    input[type="range"]:focus::-webkit-slider-thumb {
+      box-shadow: 0 2px 16px rgba(166,138,105,0.45);
+      transform: scale(1.08);
+    }
+
+    .slider-ticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      padding: 0 2px;
+    }
+
+    .slider-tick {
+      font-size: 11px;
+      color: var(--text-soft);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Phase result ─────────────────────────────────── */
+    .phase-result {
+      border-radius: var(--radius);
+      border: 1px solid var(--border-card);
+      padding: 28px 26px;
+      box-shadow: var(--shadow-md);
+      transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.23,1,0.32,1);
+    }
+
+    .phase-result.fading {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .phase-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .phase-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+
+    .phase-meta { flex: 1; }
+
+    .phase-days {
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .phase-name {
+      font-family: var(--font-serif);
+      font-size: clamp(18px, 4vw, 22px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    .phase-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 18px;
+    }
+
+    .phase-advice {
+      font-size: 15px;
+      line-height: 1.72;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+
+    /* Intensity bar */
+    .intensity-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .intensity-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      white-space: nowrap;
+    }
+
+    .intensity-bar {
+      flex: 1;
+      height: 6px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .intensity-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1), background 0.4s ease;
+    }
+
+    /* Workouts chips */
+    .workouts-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+
+    .workout-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 13px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid transparent;
+    }
+
+    .chip-icon { font-size: 14px; }
+
+    /* Tip box */
+    .phase-tip {
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 14px 16px;
+      border-left: 3px solid;
+    }
+
+    .tip-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .tip-text {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    /* CTA */
+    .phase-cta {
+      margin-top: 22px;
+    }
+
+    .btn-cta {
+      display: block;
+      width: 100%;
+      padding: 15px 24px;
+      background: var(--gold);
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-size: 14.5px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      text-align: center;
+      transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      margin-bottom: 10px;
+    }
+
+    .btn-cta:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(166,138,105,0.32);
+    }
+
+    .btn-cta:active { transform: scale(0.98); }
+
+    .btn-reset {
+      display: block;
+      width: 100%;
+      padding: 13px 24px;
+      background: transparent;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-size: 14px;
+      font-family: var(--font-sans);
+      color: var(--text-soft);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-reset:hover {
+      border-color: var(--ocean-deep);
+      color: var(--ocean-deep);
+    }
+
+    .disclaimer {
+      margin-top: 20px;
+      font-size: 11px;
+      color: var(--text-soft);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* ── Phase themes ─────────────────────────────────── */
+    .theme-1 .phase-icon    { background: var(--phase-1-bg); }
+    .theme-1 .phase-days    { color: var(--phase-1-color); }
+    .theme-1 .intensity-fill { background: var(--phase-1-icon); }
+    .theme-1 .chip          { background: var(--phase-1-bg); border-color: var(--phase-1-border); color: var(--phase-1-color); }
+    .theme-1 .phase-tip     { background: var(--phase-1-bg); border-left-color: var(--phase-1-icon); }
+    .theme-1 .tip-label     { color: var(--phase-1-color); }
+
+    .theme-2 .phase-icon    { background: var(--phase-2-bg); }
+    .theme-2 .phase-days    { color: var(--phase-2-color); }
+    .theme-2 .intensity-fill { background: var(--phase-2-icon); }
+    .theme-2 .chip          { background: var(--phase-2-bg); border-color: var(--phase-2-border); color: var(--phase-2-color); }
+    .theme-2 .phase-tip     { background: var(--phase-2-bg); border-left-color: var(--phase-2-icon); }
+    .theme-2 .tip-label     { color: var(--phase-2-color); }
+
+    .theme-3 .phase-icon    { background: var(--phase-3-bg); }
+    .theme-3 .phase-days    { color: var(--phase-3-color); }
+    .theme-3 .intensity-fill { background: var(--phase-3-icon); }
+    .theme-3 .chip          { background: var(--phase-3-bg); border-color: var(--phase-3-border); color: var(--phase-3-color); }
+    .theme-3 .phase-tip     { background: var(--phase-3-bg); border-left-color: var(--phase-3-icon); }
+    .theme-3 .tip-label     { color: var(--phase-3-color); }
+
+    .theme-4 .phase-icon    { background: var(--phase-4-bg); }
+    .theme-4 .phase-days    { color: var(--phase-4-color); }
+    .theme-4 .intensity-fill { background: var(--phase-4-icon); }
+    .theme-4 .chip          { background: var(--phase-4-bg); border-color: var(--phase-4-border); color: var(--phase-4-color); }
+    .theme-4 .phase-tip     { background: var(--phase-4-bg); border-left-color: var(--phase-4-icon); }
+    .theme-4 .tip-label     { color: var(--phase-4-color); }
+
+    .theme-5 .phase-icon    { background: var(--phase-5-bg); }
+    .theme-5 .phase-days    { color: var(--phase-5-color); }
+    .theme-5 .intensity-fill { background: var(--phase-5-icon); }
+    .theme-5 .chip          { background: var(--phase-5-bg); border-color: var(--phase-5-border); color: var(--phase-5-color); }
+    .theme-5 .phase-tip     { background: var(--phase-5-bg); border-left-color: var(--phase-5-icon); }
+    .theme-5 .tip-label     { color: var(--phase-5-color); }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <div class="header">
+      <div class="header-eyebrow">Biohacking &middot; Cykl hormonalny</div>
+      <h1>Co ćwiczyć w moim cyklu?</h1>
+      <p>Przesuń suwak na dzień swojego cyklu i dowiedz się, jaki trening będzie dziś dla Ciebie optymalny</p>
+    </div>
+
+    <!-- Cycle timeline bar -->
+    <div class="cycle-timeline" id="cycleTimeline">
+      <div class="ct-seg ct-1" data-phase="1"></div>
+      <div class="ct-seg ct-2" data-phase="2"></div>
+      <div class="ct-seg ct-3" data-phase="3"></div>
+      <div class="ct-seg ct-4" data-phase="4"></div>
+      <div class="ct-seg ct-5" data-phase="5"></div>
+    </div>
+
+    <!-- Slider card -->
+    <div class="slider-card">
+      <div class="slider-header">
+        <span class="slider-label">Dzień cyklu</span>
+        <div class="day-display">
+          <span class="day-number" id="dayNumber">1</span>
+          <span class="day-unit">dzien</span>
+        </div>
+      </div>
+      <div class="slider-wrap">
+        <input
+          type="range"
+          id="cycleSlider"
+          min="1"
+          max="35"
+          value="1"
+          oninput="onSlider(this.value)"
+        >
+      </div>
+      <div class="slider-ticks">
+        <span class="slider-tick">1</span>
+        <span class="slider-tick">5</span>
+        <span class="slider-tick">13</span>
+        <span class="slider-tick">16</span>
+        <span class="slider-tick">23</span>
+        <span class="slider-tick">35</span>
+      </div>
+    </div>
+
+    <!-- Phase result -->
+    <div class="phase-result" id="phaseResult"></div>
+
+    <p class="disclaimer">Narzędzie ma charakter wyłącznie informacyjny. Każdy organizm jest inny — obserwuj siebie i dostosowuj intensywność do własnego samopoczucia.</p>
+
+  </div>
+
+  <script>
+    const PHASES = [
+      {
+        id: 1,
+        range: [1, 5],
+        theme: 'theme-1',
+        icon: '🌙',
+        days: 'Dni 1–5',
+        name: 'Faza menstruacyjna',
+        advice: 'Czas na regenerację. Twoje ciało złuszcza błonę śluzową macicy, a poziomy estrogenu i progesteronu są najniższe. Pozwól sobie na odpoczynek — to nie lenistwo, to fizjologia.',
+        intensity: 15,
+        workouts: [
+          { icon: '🧘', label: 'Joga nidra' },
+          { icon: '🚶', label: 'Spokojny spacer' },
+          { icon: '🛁', label: 'Rozciąganie' },
+          { icon: '😴', label: 'Odpoczynek' }
+        ],
+        tip: 'Jeśli masz ochotę na ruch — postaw na yin jogę lub bardzo spokojny spacer. Unikaj intensywnego cardio i dźwigania ciężkich obciążeń.',
+        tipLabel: 'Wskazówka biohackerki',
+        cta: 'Dowiedz się więcej o swoim cyklu hormonalnym',
+        href: '/ebooki'
+      },
+      {
+        id: 2,
+        range: [6, 13],
+        theme: 'theme-2',
+        icon: '🌱',
+        days: 'Dni 6–13',
+        name: 'Faza folikularna',
+        advice: 'Zielone światło! Estrogen rośnie, a Ty masz więcej siły, lepszą koordynację i szybszą regenerację. To najlepszy czas na intensywne treningi.',
+        intensity: 90,
+        workouts: [
+          { icon: '⚡', label: 'HIIT' },
+          { icon: '🏋️', label: 'Trening siłowy' },
+          { icon: '🏃', label: 'Bieganie' },
+          { icon: '🚴', label: 'Spinning' }
+        ],
+        tip: 'Pobijaj rekordy siłowe właśnie teraz. Twoje mięśnie adaptują się szybciej, a próg bólu jest wyższy. Estrogen ma też działanie anaboliczne.',
+        tipLabel: 'Wskazówka biohackerki',
+        cta: 'Poznaj pełny protokół treningowy cyklu',
+        href: '/ebooki'
+      },
+      {
+        id: 3,
+        range: [14, 16],
+        theme: 'theme-3',
+        icon: '✨',
+        days: 'Dni 14–16',
+        name: 'Owulacja — szczyt formy',
+        advice: 'Jesteś w absolutnym szczycie formy! Estrogen osiąga maksimum, a LH skacze. Masz najwyższą siłę, endurance i motywację. Czas na bicie rekordów!',
+        intensity: 100,
+        workouts: [
+          { icon: '🏋️', label: 'Rekordy siłowe' },
+          { icon: '🏃', label: 'Sprint' },
+          { icon: '🥊', label: 'Crossfit' },
+          { icon: '🧗', label: 'Wspinaczka' }
+        ],
+        tip: 'Uwaga na stawy! Wysoki estrogen może lekko rozluźniać więzadła — rób staranne rozgrzewki i nie idź na absolutne maksimum bez odpowiedniego przygotowania.',
+        tipLabel: 'Ważna wskazówka',
+        cta: 'Naucz się planować trening według cyklu',
+        href: '/ebooki'
+      },
+      {
+        id: 4,
+        range: [17, 23],
+        theme: 'theme-4',
+        icon: '🍂',
+        days: 'Dni 17–23',
+        name: 'Wczesna faza lutealna',
+        advice: 'Skup się na średniej intensywności. Progesteron rośnie, metabolizm przyspiesza — spalasz więcej kalorii w spoczynku. Trening siłowy z umiarkowanym obciążeniem będzie idealny.',
+        intensity: 65,
+        workouts: [
+          { icon: '🏋️', label: 'Trening siłowy' },
+          { icon: '🚶', label: 'Marsz nordic walking' },
+          { icon: '🏊', label: 'Pływanie' },
+          { icon: '🚴', label: 'Jazda na rowerze' }
+        ],
+        tip: 'To dobry moment na pracę techniczną i ćwiczenia stabilizacyjne. Temperatura ciała jest wyższa o ok. 0,5°C — pamiętaj o nawadnianiu.',
+        tipLabel: 'Wskazówka biohackerki',
+        cta: 'Odkryj jak hormony wpływają na Twoją dietę',
+        href: '/ebooki'
+      },
+      {
+        id: 5,
+        range: [24, 35],
+        theme: 'theme-5',
+        icon: '🌊',
+        days: 'Dni 24–35',
+        name: 'Późna faza lutealna',
+        advice: 'Zwolnij i zadbaj o siebie. Twoja oś stresu (HPA) jest teraz bardzo wrażliwa — intensywne cardio podnosi kortyzol w momencie, gdy organizm i tak jest pod presją hormonalną.',
+        intensity: 30,
+        workouts: [
+          { icon: '🧘', label: 'Joga / pilates' },
+          { icon: '🤸', label: 'Stretching' },
+          { icon: '🚶', label: 'Spacer' },
+          { icon: '💆', label: 'Masaż / sauna' }
+        ],
+        tip: 'Jeśli masz PMS — to znak, że kortyzol i progesteron są w konflikcie. Nie dokładaj organizmowi stresu ciężkim treningiem. Magnez, ciepła kąpiel i joga działają lepiej niż HIIT.',
+        tipLabel: 'Wskazówka biohackerki',
+        cta: 'Dowiedz się jak zredukować PMS naturalnie',
+        href: '/ebooki'
+      }
+    ]
+
+    function getPhase(day) {
+      return PHASES.find(p => day >= p.range[0] && day <= p.range[1]) || PHASES[4]
+    }
+
+    function updateSliderTrack(val) {
+      const slider = document.getElementById('cycleSlider')
+      const pct = ((val - 1) / (slider.max - 1)) * 100
+      slider.style.setProperty('--pct', pct + '%')
+    }
+
+    function updateTimeline(phaseId) {
+      document.querySelectorAll('.ct-seg').forEach(seg => {
+        seg.classList.toggle('active', parseInt(seg.dataset.phase) === phaseId)
+      })
+    }
+
+    let fadeTimer = null
+
+    function onSlider(val) {
+      val = parseInt(val)
+      document.getElementById('dayNumber').textContent = val
+      updateSliderTrack(val)
+
+      const phase = getPhase(val)
+      updateTimeline(phase.id)
+
+      const el = document.getElementById('phaseResult')
+
+      // Fade out, update, fade in
+      el.classList.add('fading')
+
+      clearTimeout(fadeTimer)
+      fadeTimer = setTimeout(() => {
+        renderPhase(phase, el)
+        el.classList.remove('fading')
+      }, 220)
+    }
+
+    function renderPhase(p, el) {
+      const intensityWidth = p.intensity + '%'
+      const chips = p.workouts.map(w =>
+        `<div class="chip"><span class="chip-icon">${w.icon}</span>${w.label}</div>`
+      ).join('')
+
+      el.className = `phase-result ${p.theme}`
+      el.innerHTML = `
+        <div class="phase-top">
+          <div class="phase-icon">${p.icon}</div>
+          <div class="phase-meta">
+            <div class="phase-days">${p.days}</div>
+            <h2 class="phase-name">${p.name}</h2>
+          </div>
+        </div>
+        <div class="phase-divider"></div>
+        <p class="phase-advice">${p.advice}</p>
+        <div class="intensity-row">
+          <span class="intensity-label">Intensywność</span>
+          <div class="intensity-bar">
+            <div class="intensity-fill" style="width:${intensityWidth}"></div>
+          </div>
+          <span style="font-size:12px;color:var(--text-soft);white-space:nowrap">${p.intensity}%</span>
+        </div>
+        <p class="workouts-label">Polecane aktywności</p>
+        <div class="workout-chips">${chips}</div>
+        <div class="phase-tip">
+          <p class="tip-label">${p.tipLabel}</p>
+          <p class="tip-text">${p.tip}</p>
+        </div>
+        <div class="phase-cta">
+          <a href="${p.href}" class="btn-cta">${p.cta}</a>
+          <button class="btn-reset" onclick="reset()">Resetuj narzędzie</button>
+        </div>
+      `
+
+      // Animate intensity bar in
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const fill = el.querySelector('.intensity-fill')
+          if (fill) fill.style.width = intensityWidth
+        })
+      })
+    }
+
+    function reset() {
+      const slider = document.getElementById('cycleSlider')
+      slider.value = 1
+      onSlider(1)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
+    // Init
+    updateSliderTrack(1)
+    const initPhase = getPhase(1)
+    updateTimeline(initPhase.id)
+    renderPhase(initPhase, document.getElementById('phaseResult'))
+  </script>
+</body>
+</html>

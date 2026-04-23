@@ -99,7 +99,7 @@ export default function FeaturedEbooks() {
               <figure className="relative mb-5">
                 <div
                   className="relative aspect-[3/4] sm:aspect-[4/5] rounded-3xl overflow-hidden
-                             border border-border/40 img-zoom
+                             border border-border/40 img-zoom vintage-film
                              transition-[border-color,box-shadow] duration-300
                              hover:border-coastal-ocean/40 hover:shadow-coastal"
                 >

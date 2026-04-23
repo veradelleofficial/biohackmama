@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audyt Przeciążenia Kortyzolem</title>
+  <style>
+    :root {
+      --bg:           #EFEAE4;
+      --bg-card:      #F7F3EE;
+      --bg-card-2:    #F2EDE7;
+      --text:         #48596B;
+      --text-soft:    rgba(72, 89, 107, 0.68);
+      --gold:         #A68A69;
+      --gold-light:   rgba(166, 138, 105, 0.10);
+      --gold-mid:     rgba(166, 138, 105, 0.25);
+      --ocean:        #AECAE8;
+      --ocean-deep:   #7A90A8;
+      --border:       rgba(174, 202, 232, 0.38);
+      --border-card:  rgba(166, 138, 105, 0.14);
+      --radius:       20px;
+      --radius-sm:    12px;
+      --shadow-sm:    0 2px 10px rgba(72, 89, 107, 0.07);
+      --shadow-md:    0 6px 28px rgba(72, 89, 107, 0.11);
+      --font-serif:   'Georgia', 'Times New Roman', serif;
+      --font-sans:    system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 28px 16px 48px;
+      min-height: 100vh;
+    }
+
+    /* Film grain */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: -50%;
+      pointer-events: none;
+      opacity: 0.15;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 80px 80px;
+      z-index: 9999;
+    }
+
+    .wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ───────────────────────────────────────── */
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .header-eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      padding: 4px 12px;
+      background: var(--gold-light);
+      border-radius: 100px;
+      border: 1px solid var(--gold-mid);
+      margin-bottom: 14px;
+    }
+
+    .header h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 5.5vw, 30px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 14px;
+      color: var(--text-soft);
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    /* ── Progress ─────────────────────────────────────── */
+    .progress-wrap {
+      margin-bottom: 24px;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .progress-label {
+      font-size: 12px;
+      color: var(--text-soft);
+      letter-spacing: 0.02em;
+    }
+
+    .progress-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .progress-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: background 0.35s ease;
+    }
+
+    .progress-dot.done  { background: var(--gold); }
+    .progress-dot.active { background: var(--ocean-deep); }
+
+    .progress-track {
+      height: 3px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--ocean-deep));
+      border-radius: 100px;
+      transition: width 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+      width: 0%;
+    }
+
+    /* ── Question card ────────────────────────────────── */
+    .question-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 26px 24px;
+      box-shadow: var(--shadow-sm);
+      animation: slideUp 0.38s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+
+    .q-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .q-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .q-category {
+      font-size: 11px;
+      padding: 3px 10px;
+      background: var(--gold-light);
+      color: var(--gold);
+      border-radius: 100px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      border: 1px solid var(--gold-mid);
+    }
+
+    .q-text {
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--text);
+      margin-bottom: 6px;
+      font-weight: 400;
+    }
+
+    .q-hint {
+      font-size: 12px;
+      color: var(--text-soft);
+      font-style: italic;
+      margin-bottom: 22px;
+      padding-left: 12px;
+      border-left: 2px solid var(--border);
+    }
+
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-ans {
+      padding: 13px 20px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border);
+      background: transparent;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      color: var(--text);
+      transition: all 0.18s ease;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-ans:hover { transform: translateY(-1px); }
+
+    .btn-yes:hover {
+      background: var(--gold-light);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .btn-no:hover {
+      background: rgba(174, 202, 232, 0.18);
+      border-color: var(--ocean-deep);
+      color: var(--ocean-deep);
+    }
+
+    .btn-ans:active { transform: scale(0.97); }
+
+    /* ── Result card ──────────────────────────────────── */
+    .result-card {
+      display: none;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-md);
+      animation: slideUp 0.55s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+
+    .result-card.visible { display: block; }
+
+    .result-top {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .result-score-wrap {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+
+    .result-score {
+      font-family: var(--font-serif);
+      font-size: 72px;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--gold);
+    }
+
+    .result-score-max {
+      font-size: 22px;
+      color: var(--text-soft);
+    }
+
+    .result-score-sub {
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 16px;
+    }
+
+    .result-badge {
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .badge-green  { background: rgba(90, 165, 90, 0.12);  color: #3d7a3d;  border: 1px solid rgba(90,165,90,0.25); }
+    .badge-yellow { background: rgba(200, 160, 60, 0.12); color: #9a6e10;  border: 1px solid rgba(200,160,60,0.25); }
+    .badge-red    { background: rgba(195, 70, 70, 0.12);  color: #a82828;  border: 1px solid rgba(195,70,70,0.25); }
+
+    .result-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 20px 0;
+    }
+
+    .result-title {
+      font-family: var(--font-serif);
+      font-size: clamp(18px, 4vw, 22px);
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .result-desc {
+      font-size: 14px;
+      line-height: 1.72;
+      color: var(--text-soft);
+      margin-bottom: 18px;
+    }
+
+    .result-tips-box {
+      background: linear-gradient(135deg, rgba(166,138,105,0.06) 0%, rgba(174,202,232,0.06) 100%);
+      border: 1px solid var(--border-card);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 18px 20px;
+      margin-bottom: 24px;
+    }
+
+    .result-tips-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .result-tips-text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .btn-cta {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--gold);
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-size: 14.5px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      text-align: center;
+      transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      margin-bottom: 10px;
+    }
+
+    .btn-cta:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(166, 138, 105, 0.32);
+    }
+
+    .btn-cta:active { transform: scale(0.98); }
+
+    .btn-reset {
+      display: block;
+      width: 100%;
+      padding: 13px 24px;
+      background: transparent;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-size: 14px;
+      font-family: var(--font-sans);
+      color: var(--text-soft);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-reset:hover {
+      border-color: var(--ocean-deep);
+      color: var(--ocean-deep);
+    }
+
+    /* ── Disclaimer ───────────────────────────────────── */
+    .disclaimer {
+      margin-top: 20px;
+      font-size: 11px;
+      color: var(--text-soft);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <div class="header">
+      <div class="header-eyebrow">Biohacking &middot; Hormony</div>
+      <h1>Audyt Przeciążenia<br>Kortyzolem</h1>
+      <p>8 pytań, które pomogą Ci ocenić stan Twojej osi HPA i rytmu dobowego kortyzolu</p>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span class="progress-label" id="progressLabel">Pytanie 1 z 8</span>
+        <div class="progress-dots" id="progressDots"></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <div id="quizContainer"></div>
+    <div class="result-card" id="resultCard"></div>
+
+  </div>
+
+  <script>
+    const QUESTIONS = [
+      {
+        category: 'Poranki',
+        text: 'Czy rano, nawet po 7–8 godzinach snu, budzisz się wyczerpana i musisz wypić kawę, aby w ogóle zacząć funkcjonować?',
+        hint: 'Świadczy o zaburzonym porannym wyrzucie kortyzolu (CAR — Cortisol Awakening Response)'
+      },
+      {
+        category: 'Noce',
+        text: 'Czy regularnie wybudzasz się w nocy (najczęściej między 2:00 a 4:00 rano) i towarzyszy Ci gonitwa myśli lub niepokój?',
+        hint: 'Skok kortyzolu w odpowiedzi na spadek cukru we krwi'
+      },
+      {
+        category: 'Popołudnia',
+        text: 'Czy około godziny 14:00–15:00 odczuwasz drastyczny spadek energii i ratujesz się kofeiną lub słodyczami?',
+        hint: 'Rozregulowana krzywa dobowa kortyzolu'
+      },
+      {
+        category: 'Układ nerwowy',
+        text: 'Czy wieczorem czujesz się fizycznie wyczerpana, ale Twój mózg jest mocno pobudzony i nie potrafisz się wyciszyć?',
+        hint: 'Efekt "tired but wired" — typowy objaw przeciążenia osi HPA'
+      },
+      {
+        category: 'Sylwetka',
+        text: 'Czy zauważyłaś odkładanie się tkanki tłuszczowej głównie w okolicach brzucha lub opuchliznę na twarzy, mimo braku większych zmian w diecie?',
+        hint: 'Kortyzol stymuluje odkładanie tłuszczu trzewnego'
+      },
+      {
+        category: 'Głód i minerały',
+        text: 'Czy masz silne, trudne do opanowania zachcianki na bardzo słone jedzenie lub cukier w sytuacjach stresowych?',
+        hint: 'Spadek aldosteronu i wahania glukozy we krwi'
+      },
+      {
+        category: 'Regeneracja',
+        text: 'Czy łapiesz infekcje częściej niż kiedyś, masz brain fog lub po treningu "dochodzisz do siebie" znacznie dłużej niż wcześniej?',
+        hint: 'Kortyzol hamuje układ odpornościowy i naprawę tkanek'
+      },
+      {
+        category: 'Reaktywność',
+        text: 'Czy drobne, codzienne problemy sprawiają, że od razu czujesz się przytłoczona lub irytujesz się szybciej i silniej niż zwykle?',
+        hint: 'Przewlekle aktywowane współczulne ramię układu nerwowego'
+      }
+    ]
+
+    const RESULTS = [
+      {
+        min: 0, max: 2,
+        badge: 'Zielone światło', badgeClass: 'badge-green',
+        title: 'Twój rytm dobowy i poziom stresu są pod kontrolą.',
+        desc: 'Twoja krzywa kortyzolowa działa prawidłowo. Masz energię rano i potrafisz wyciszyć się wieczorem. To dobra wiadomość — Twoje nadnercza regenerują się sprawnie.',
+        tips: 'Aby utrzymać ten stan, dbaj o podstawy biohackingu: wystawiaj oczy na światło słoneczne do 30 minut po przebudzeniu, dbaj o śniadania bogate w białko (stabilizuje cukier na resztę dnia) i chroń swój sen — unikaj niebieskiego światła po 21:00.',
+        cta: 'Zoptymalizuj swoje zdrowie i poznaj swój cykl — Pobierz e-booka',
+        href: '/ebooki'
+      },
+      {
+        min: 3, max: 5,
+        badge: 'Żółte światło', badgeClass: 'badge-yellow',
+        title: 'Twoja oś HPA jest przebodźcowana.',
+        desc: 'Twój organizm zaczyna odczuwać skutki przewlekłego stresu, a krzywa kortyzolu ulega spłaszczeniu. To najwyższy czas na interwencję, zanim pojawią się głębsze zaburzenia hormonalne.',
+        tips: 'Zadbaj o stabilizację cukru we krwi — nigdy nie pij kawy na pusty żołądek. Wprowadź techniki regulacji nerwu błędnego (np. głębokie oddychanie przeponowe 4-7-8). Zredukuj intensywne treningi HIIT na rzecz treningu siłowego i sprawdź, czy długie posty (IF) na pewno Ci w tej chwili służą.',
+        cta: 'Zatrzymaj wypalenie i zresetuj hormony — Pobierz e-booka',
+        href: '/ebooki'
+      },
+      {
+        min: 6, max: 8,
+        badge: 'Czerwony alarm', badgeClass: 'badge-red',
+        title: 'Głębokie przeciążenie nadnerczy.',
+        desc: 'Twój układ nerwowy utknął w trybie "walcz lub uciekaj", a ciało jest wyczerpane. Prawdopodobnie doświadczasz naprzemiennie wyrzutów kortyzolu i jego drastycznych spadków — co tłumaczy wahania energii i nastroju.',
+        tips: 'Wymagasz radykalnej regeneracji. Całkowicie odpuść intensywne cardio oraz restrykcyjne diety i głodówki — Twoje ciało odbiera je jako dodatkowe zagrożenie. Skup się na głębokim odżywieniu (minerały: magnez, sód, potas), wybieraj spacery, jogę i sen ponad 8 godzin. Jeśli problem nie mija, skonsultuj się z lekarzem. Zmiana stylu życia nie jest już opcją — jest koniecznością.',
+        cta: 'Odzyskaj energię krok po kroku — Pobierz e-booka i zacznij naprawę',
+        href: '/ebooki'
+      }
+    ]
+
+    let answers = []
+    let current = 0
+
+    function buildDots() {
+      const wrap = document.getElementById('progressDots')
+      wrap.innerHTML = ''
+      QUESTIONS.forEach((_, i) => {
+        const d = document.createElement('div')
+        d.className = 'progress-dot'
+        d.id = 'dot-' + i
+        wrap.appendChild(d)
+      })
+    }
+
+    function updateProgress() {
+      document.getElementById('progressFill').style.width = (current / QUESTIONS.length * 100) + '%'
+      document.getElementById('progressLabel').textContent = current < QUESTIONS.length
+        ? `Pytanie ${current + 1} z ${QUESTIONS.length}`
+        : 'Wynik gotowy'
+      QUESTIONS.forEach((_, i) => {
+        const d = document.getElementById('dot-' + i)
+        if (!d) return
+        d.className = 'progress-dot' + (i < current ? ' done' : i === current ? ' active' : '')
+      })
+    }
+
+    function renderQuestion() {
+      const q = QUESTIONS[current]
+      document.getElementById('quizContainer').innerHTML = `
+        <div class="question-card">
+          <div class="q-top">
+            <span class="q-num">0${current + 1}</span>
+            <span class="q-category">${q.category}</span>
+          </div>
+          <p class="q-text">${q.text}</p>
+          <p class="q-hint">${q.hint}</p>
+          <div class="btn-row">
+            <button class="btn-ans btn-yes" onclick="answer(1)">Tak</button>
+            <button class="btn-ans btn-no"  onclick="answer(0)">Nie</button>
+          </div>
+        </div>
+      `
+      updateProgress()
+    }
+
+    function answer(val) {
+      answers.push(val)
+      current++
+      if (current < QUESTIONS.length) {
+        renderQuestion()
+      } else {
+        showResult()
+      }
+    }
+
+    function showResult() {
+      const score = answers.reduce((a, b) => a + b, 0)
+      const r = RESULTS.find(x => score >= x.min && score <= x.max)
+
+      document.getElementById('quizContainer').innerHTML = ''
+      document.getElementById('progressFill').style.width = '100%'
+      updateProgress()
+
+      const card = document.getElementById('resultCard')
+      card.innerHTML = `
+        <div class="result-top">
+          <div class="result-score-wrap">
+            <span class="result-score">${score}</span>
+            <span class="result-score-max">/8</span>
+          </div>
+          <p class="result-score-sub">punktów</p>
+          <span class="result-badge ${r.badgeClass}">${r.badge}</span>
+        </div>
+        <div class="result-divider"></div>
+        <h2 class="result-title">${r.title}</h2>
+        <p class="result-desc">${r.desc}</p>
+        <div class="result-tips-box">
+          <p class="result-tips-label">Co robić?</p>
+          <p class="result-tips-text">${r.tips}</p>
+        </div>
+        <a href="${r.href}" class="btn-cta">${r.cta}</a>
+        <button class="btn-reset" onclick="reset()">Rozwiąż quiz od nowa</button>
+        <p class="disclaimer">Narzędzie ma charakter wyłącznie informacyjny i nie stanowi porady medycznej.</p>
+      `
+      card.classList.add('visible')
+    }
+
+    function reset() {
+      answers = []
+      current = 0
+      document.getElementById('resultCard').classList.remove('visible')
+      document.getElementById('resultCard').innerHTML = ''
+      renderQuestion()
+    }
+
+    buildDots()
+    renderQuestion()
+  </script>
+</body>
+</html>

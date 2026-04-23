@@ -3,7 +3,11 @@ import { Playfair_Display, Inter, Cormorant_Garamond } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { SmoothScrollProvider } from '@/components/layout/SmoothScrollProvider'
+import { LayoutAnimationProvider } from '@/components/layout/LayoutAnimationProvider'
 import './globals.css'
+
+
 
 const playfair = Playfair_Display({
   subsets: ['latin', 'latin-ext'],
@@ -22,6 +26,7 @@ const cormorant = Cormorant_Garamond({
   variable: '--font-cormorant',
   weight: ['300', '400', '600'],
 })
+
 
 const BASE_URL = 'https://biohackmama.pl'
 
@@ -199,9 +204,13 @@ export default function RootLayout({
           />
         </head>
         <body>
-          <Navbar />
-          {children}
-          <Footer />
+          <SmoothScrollProvider>
+            <Navbar />
+            <LayoutAnimationProvider>
+              {children}
+            </LayoutAnimationProvider>
+            <Footer />
+          </SmoothScrollProvider>
         </body>
       </html>
     </ClerkProvider>

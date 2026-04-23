@@ -35,6 +35,12 @@ const config: Config = {
           ocean: '#7A90A8',
           slate: '#48596B',
         },
+        alabaster:     'hsl(var(--alabaster))',
+        'biolum-gold': 'hsl(var(--biolum-gold))',
+        'sage-leaf':   'hsl(var(--sage-leaf))',
+        'deep-earth':  'hsl(var(--deep-earth))',
+        'lab-white':   'hsl(var(--lab-white))',
+        graphite:      'hsl(var(--graphite))',
       },
       fontFamily: {
         heading: ['var(--font-cormorant)', 'Cormorant Garamond', 'serif'],

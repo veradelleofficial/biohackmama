@@ -69,6 +69,45 @@ export default {
             select: { title: 'text', subtitle: 'attribution' },
           },
         },
+        {
+          type: 'object',
+          name: 'inlineLink',
+          title: 'Link wyróżniony (Doświadcz też / Dowiedz się)',
+          fields: [
+            {
+              name: 'label',
+              title: 'Etykieta',
+              type: 'string',
+              options: {
+                list: [
+                  { title: 'Doświadcz też', value: 'doswiadcz' },
+                  { title: 'Dowiedz się też', value: 'dowiedz' },
+                  { title: 'Sprawdź też', value: 'sprawdz' },
+                  { title: 'Przeczytaj też', value: 'przeczytaj' },
+                  { title: 'Zobacz też', value: 'zobacz' },
+                ],
+              },
+            },
+            { name: 'title', title: 'Tytuł linku', type: 'string', validation: (Rule: any) => Rule.required() },
+            { name: 'url', title: 'URL (artykuł, ebook, Instagram...)', type: 'url', validation: (Rule: any) => Rule.required() },
+            {
+              name: 'type',
+              title: 'Typ',
+              type: 'string',
+              options: {
+                list: [
+                  { title: 'Artykuł', value: 'article' },
+                  { title: 'Ebook', value: 'ebook' },
+                  { title: 'Instagram', value: 'instagram' },
+                  { title: 'Zewnętrzny', value: 'external' },
+                ],
+              },
+            },
+          ],
+          preview: {
+            select: { title: 'title', subtitle: 'label' },
+          },
+        },
       ],
     },
     {

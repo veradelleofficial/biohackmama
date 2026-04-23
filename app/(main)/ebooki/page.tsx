@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { getEbooks } from '@/lib/sanity/queries'
+import { EbookiCoverHero } from '@/components/ebooki/EbookiCoverHero'
+
+const EASE_OUT = [0.22, 1, 0.36, 1] as const
 
 interface Ebook {
   _id: string
@@ -35,10 +38,7 @@ export default function EbooksPage() {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   }
 
   const itemVariants = {
@@ -47,20 +47,33 @@ export default function EbooksPage() {
   }
 
   return (
-    <main className="pt-24 md:pt-32 pb-14 md:pb-20">
-      <div className="container">
+    <main className="pb-14 md:pb-20">
+
+      {/* Full-bleed cover hero */}
+      <EbookiCoverHero />
+
+      {/* Content — -mt overlaps the hero's bottom fade zone */}
+      <div className="container -mt-8 md:-mt-14 relative z-40">
+
+        {/* Bridge card — visual anchor between hero and grid */}
         <motion.div
-          className="text-center mb-14"
-          initial={{ opacity: 0, y: -20 }}
+          className="mb-10 rounded-3xl border border-border/40 px-5 py-5 md:px-7 md:py-6"
+          style={{
+            background: 'rgba(239,234,228,0.92)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            boxShadow: 'var(--shadow-float)',
+          }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.15, ease: EASE_OUT }}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-heading font-normal mb-4 md:mb-5 tracking-heading uppercase">Ebooki</h1>
-          <p className="text-lg font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
-            Praktyczne przewodniki do nauki i czytania
+          <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'rgba(33,58,80,0.45)' }}>
+            Wszystkie publikacje
           </p>
         </motion.div>
 
-        {/* Ebooks Grid */}
+        {/* Ebooks grid */}
         {loading ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground">Ładowanie ebooków...</p>
@@ -112,13 +125,14 @@ export default function EbooksPage() {
           </motion.div>
         )}
 
-        {/* Bottom disclaimer */}
+        {/* Disclaimer */}
         <div className="mt-14 md:mt-20 pt-8 border-t border-border/40 text-center">
           <p className="text-sm md:text-base font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.75)' }}>
             Prezentowane materiały mają charakter wyłącznie informacyjny i nie stanowią porady medycznej ani specjalistycznej. Przed wprowadzeniem zmian w suplementacji lub stylu życia, skonsultuj się z lekarzem.
           </p>
         </div>
       </div>
+
     </main>
   )
 }

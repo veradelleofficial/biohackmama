@@ -18,6 +18,14 @@
     --card-foreground: 211 20% 35%;    /* Deep Slate */
     --border: 211 18% 86%;            /* Soft blue-gray */
 
+    /* ── Extended palette tokens ── */
+    --alabaster:     33 30% 95%;
+    --biolum-gold:   37 49% 60%;
+    --sage-leaf:     107 8%  50%;
+    --deep-earth:    22 30% 13%;
+    --lab-white:     33 20% 98%;
+    --graphite:      60 1%  29%;
+
     /* Custom easing curves (Emil Kowalski) */
     --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
@@ -25,16 +33,22 @@
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
+  /* ─── Z-Axis Shadow Tokens ───────────────────────────────────────────────── */
+  --shadow-rest:    0 1px 3px rgba(33,58,80,0.06), 0 4px 12px rgba(33,58,80,0.05);
+  --shadow-lift:    0 8px 24px rgba(33,58,80,0.10), 0 2px 6px rgba(33,58,80,0.06);
+  --shadow-float:   0 20px 60px rgba(33,58,80,0.14), 0 4px 16px rgba(33,58,80,0.08);
+  --shadow-glow:    0 0 0 1px rgba(166,138,105,0.12), 0 8px 32px rgba(166,138,105,0.10);
+
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior handled by Lenis */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     @apply bg-background font-body;
-    color: rgba(72, 89, 107, 0.85);
-    font-weight: 300;
+    color: rgba(46, 60, 74, 0.95);
+    font-weight: 400;
     line-height: 1.6;
   }
 
@@ -68,9 +82,9 @@
   /* --- Body & UI Typography --- */
   p {
     @apply font-body;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.6;
-    color: rgba(72, 89, 107, 0.82);
+    color: rgba(46, 60, 74, 0.92);
   }
 
   button, input, label {
@@ -258,10 +272,10 @@
   /* --- Prose: editorial long-form --- */
   .prose {
     @apply font-body;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1rem;
     line-height: 1.7;
-    color: rgba(72, 89, 107, 0.82);
+    color: rgba(46, 60, 74, 0.92);
   }
 
   .prose h2 {
@@ -319,4 +333,90 @@
     font-weight: 500;
     letter-spacing: 0.05em;
   }
+
+  /* ── Vintage Film Overlay ─────────────────────────────────────────────
+   * Analog film look via pure CSS overlays.
+   *
+   * Customise via CSS vars on .vintage-film or any parent:
+   *   --vf-grain-opacity    grain visibility       (default 0.28)
+   *   --vf-sepia            sepia filter amount    (default 0.18)
+   *   --vf-contrast         contrast level         (default 0.82)
+   *   --vf-warmth-opacity   warm gradient strength (default 0.14)
+   * ─────────────────────────────────────────────────────────────────── */
+
+  .vintage-film {
+    --vf-grain-opacity:  0.42;
+    --vf-sepia:          0.28;
+    --vf-contrast:       0.75;
+    --vf-warmth-opacity: 0.22;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* Image filter — lifted blacks, warm shift, lowered punch */
+  .vintage-film img,
+  .vintage-film video {
+    filter:
+      contrast(var(--vf-contrast))
+      saturate(0.88)
+      sepia(var(--vf-sepia))
+      brightness(1.03);
+    transition: filter 0.4s ease;
+  }
+
+  /* Warm colour grading — tints shadows, fades to transparent in highlights */
+  .vintage-film::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        145deg,
+        rgba(180, 140, 90, var(--vf-warmth-opacity)) 0%,
+        rgba(160, 120, 70, calc(var(--vf-warmth-opacity) * 0.7)) 40%,
+        rgba(120, 90, 60, calc(var(--vf-warmth-opacity) * 0.3)) 70%,
+        transparent 100%
+      );
+    mix-blend-mode: multiply;
+  }
+
+  /* Film grain — procedural SVG noise, animated for life */
+  .vintage-film::after {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    z-index: 2;
+    pointer-events: none;
+    opacity: var(--vf-grain-opacity);
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+  }
+
+  /* Light bloom — vignette reverse (bright center, dark edges) */
+  .vintage-film-bloom::before {
+    background:
+      radial-gradient(
+        ellipse at 50% 40%,
+        rgba(255, 245, 230, 0.08) 0%,
+        transparent 65%
+      ),
+      linear-gradient(
+        145deg,
+        rgba(180, 140, 90, var(--vf-warmth-opacity)) 0%,
+        rgba(160, 120, 70, calc(var(--vf-warmth-opacity) * 0.7)) 40%,
+        rgba(120, 90, 60, calc(var(--vf-warmth-opacity) * 0.3)) 70%,
+        transparent 100%
+      ) !important;
+    mix-blend-mode: multiply;
+  }
+
+  /* Vignette — dark corners for analog feel */
+  .vintage-film-vignette {
+    box-shadow: inset 0 0 80px 20px rgba(30, 20, 10, 0.18);
+  }
+
 }

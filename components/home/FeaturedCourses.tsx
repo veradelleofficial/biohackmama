@@ -4,8 +4,9 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { BookOpen, Clock } from '@phosphor-icons/react'
-
-const EASE_OUT = [0.23, 1, 0.32, 1] as const
+import { RevealImage } from '@/components/ui/RevealImage'
+import { TiltCard } from '@/components/ui/TiltCard'
+import { staggerContainer, cardReveal, VIEWPORT_ONCE } from '@/lib/animations'
 
 const mockCourses = [
   {
@@ -40,27 +41,6 @@ const mockCourses = [
   },
 ]
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.15,
-    },
-  },
-}
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.97 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.55, ease: EASE_OUT },
-  },
-}
-
 export default function FeaturedCourses() {
   return (
     <section className="py-14 md:py-20 lg:py-24 relative overflow-hidden">
@@ -72,7 +52,7 @@ export default function FeaturedCourses() {
           className="text-center mb-14"
           initial={{ opacity: 0, y: -16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: EASE_OUT }}
+          transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
           viewport={{ once: true }}
         >
           <div className="flex justify-center mb-1.5 md:mb-2">
@@ -89,65 +69,70 @@ export default function FeaturedCourses() {
         {/* Cards */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8"
-          variants={containerVariants}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={VIEWPORT_ONCE}
         >
-          {mockCourses.map((course) => (
-            <motion.div
-              key={course.id}
-              variants={cardVariants}
-              className="group card-lift bg-card rounded-3xl overflow-hidden border border-border/60 shadow-coastal-sm"
-            >
-              {/* Course Image */}
-              <div className="relative w-full aspect-[16/10] overflow-hidden img-zoom">
-                <Image
-                  src={course.image}
-                  alt={course.imageAlt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                {/* "Coming soon" overlay */}
-                <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                  <span className="text-white text-lg md:text-xl font-heading font-semibold tracking-heading uppercase">
-                    Już wkrótce
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-4 md:p-6">
-                <div className="mb-3">
-                  <span className="text-xs px-3 py-1.5 bg-secondary/15 text-coastal-ocean rounded-full font-medium">
-                    {course.level}
-                  </span>
+          {mockCourses.map((course, i) => (
+            <motion.div key={course.id} variants={cardReveal}>
+              <TiltCard
+                className="group bg-card rounded-3xl overflow-hidden border border-border/60"
+                style={{ boxShadow: 'var(--shadow-rest)' }}
+                maxTilt={3.5}
+                scaleOnHover={1.012}
+                hoverShadow="var(--shadow-lift)"
+              >
+                {/* Course image with reveal — all slide 'up' for consistent feel */}
+                <div className="relative">
+                  <RevealImage
+                    src={course.image}
+                    alt={course.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    containerClassName="relative w-full aspect-[16/10]"
+                    direction="up"
+                    delay={i * 0.07}
+                  />
+                  {/* "Coming soon" overlay sits above the image */}
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-20">
+                    <span className="text-white text-lg md:text-xl font-heading font-semibold tracking-heading uppercase">
+                      Już wkrótce
+                    </span>
+                  </div>
                 </div>
 
-                <h3 className="font-heading font-semibold text-xl mb-2 line-clamp-2 tracking-heading">
-                  {course.title}
-                </h3>
+                <div className="p-4 md:p-6">
+                  <div className="mb-3">
+                    <span className="text-xs px-3 py-1.5 bg-secondary/15 text-coastal-ocean rounded-full font-medium">
+                      {course.level}
+                    </span>
+                  </div>
 
-                <p className="text-sm font-light mb-4 line-clamp-2" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.6' }}>
-                  {course.description}
-                </p>
+                  <h3 className="font-heading font-semibold text-xl mb-2 line-clamp-2 tracking-heading">
+                    {course.title}
+                  </h3>
 
-                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4 pb-4 border-b border-border/50">
-                  <span className="inline-flex items-center gap-1">
-                    <Clock size={16} weight="duotone" className="text-coastal-ocean" />
-                    {course.duration}
-                  </span>
-                  <span className="inline-flex items-center gap-1">
-                    <BookOpen size={16} weight="duotone" className="text-coastal-ocean" />
-                    {course.lessons} lekcji
-                  </span>
+                  <p className="text-sm font-light mb-4 line-clamp-2" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.6' }}>
+                    {course.description}
+                  </p>
+
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4 pb-4 border-b border-border/50">
+                    <span className="inline-flex items-center gap-1">
+                      <Clock size={16} weight="duotone" className="text-coastal-ocean" />
+                      {course.duration}
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      <BookOpen size={16} weight="duotone" className="text-coastal-ocean" />
+                      {course.lessons} lekcji
+                    </span>
+                  </div>
+
+                  <div className="text-center">
+                    <span className="text-sm font-medium text-coastal-ocean">Już wkrótce</span>
+                  </div>
                 </div>
-
-                <div className="text-center">
-                  <span className="text-sm font-medium text-coastal-ocean">Już wkrótce</span>
-                </div>
-              </div>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>

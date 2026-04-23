@@ -4,8 +4,9 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Calendar } from '@phosphor-icons/react'
-
-const EASE_OUT = [0.23, 1, 0.32, 1] as const
+import { RevealImage } from '@/components/ui/RevealImage'
+import { TiltCard } from '@/components/ui/TiltCard'
+import { staggerContainer, cardReveal, VIEWPORT_ONCE } from '@/lib/animations'
 
 const mockArticles = [
   {
@@ -40,28 +41,6 @@ const mockArticles = [
   },
 ]
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.15,
-    },
-  },
-}
-
-// Cards enter from scale(0.95) + opacity — nothing appears from nothing
-const cardVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.97 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.55, ease: EASE_OUT },
-  },
-}
-
 export default function BlogPreview() {
   return (
     <section className="py-14 md:py-20 lg:py-24 relative overflow-hidden">
@@ -73,7 +52,7 @@ export default function BlogPreview() {
           className="text-center mb-14"
           initial={{ opacity: 0, y: -16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: EASE_OUT }}
+          transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
           viewport={{ once: true }}
         >
           <div className="flex justify-center mb-1.5 md:mb-2">
@@ -90,68 +69,70 @@ export default function BlogPreview() {
         {/* Cards grid */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8"
-          variants={containerVariants}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={VIEWPORT_ONCE}
         >
-          {mockArticles.map((article) => (
-            <motion.article
-              key={article.id}
-              variants={cardVariants}
-              className="group card-lift bg-card rounded-3xl overflow-hidden border border-border/60 shadow-coastal-sm"
-            >
-              {/* Image — zoom gated behind hover media query via img-zoom class */}
-              <div className="relative w-full aspect-[16/10] overflow-hidden img-zoom">
-                <Image
+          {mockArticles.map((article, i) => (
+            <motion.div key={article.id} variants={cardReveal}>
+              <TiltCard
+                className="group bg-card rounded-3xl overflow-hidden border border-border/60"
+                style={{ boxShadow: 'var(--shadow-rest)' }}
+                maxTilt={3.5}
+                scaleOnHover={1.012}
+                hoverShadow="var(--shadow-lift)"
+              >
+                {/* Image reveal — staggered direction per column */}
+                <RevealImage
                   src={article.image}
                   alt={article.imageAlt}
                   fill
-                  className="object-cover"
-                  style={{ filter: 'sepia(8%) saturate(92%)' }}
                   sizes="(max-width: 768px) 100vw, 33vw"
+                  containerClassName="relative w-full aspect-[16/10]"
+                  direction={i % 2 === 0 ? 'left' : 'right'}
+                  delay={i * 0.08}
+                  imageStyle={{ filter: 'sepia(8%) saturate(92%)' }}
                 />
-                <div className="absolute inset-0 bg-coastal-sand/10 pointer-events-none" />
-              </div>
 
-              <div className="p-4 md:p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs px-3 py-1.5 bg-secondary/15 text-coastal-ocean rounded-full font-medium">
-                    {article.category}
-                  </span>
-                  <span className="text-xs text-muted-foreground">
-                    {article.readTime} min czytania
-                  </span>
-                </div>
-
-                <h3 className="font-heading font-semibold text-xl mb-2 line-clamp-2 tracking-heading transition-colors duration-200 group-hover:text-coastal-gold">
-                  {article.title}
-                </h3>
-
-                <p className="text-sm font-light mb-4 line-clamp-2" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.6' }}>
-                  {article.excerpt}
-                </p>
-
-                <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <Calendar size={14} weight="duotone" className="text-coastal-ocean" />
-                    {new Date(article.date).toLocaleDateString('pl-PL')}
+                <div className="p-4 md:p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs px-3 py-1.5 bg-secondary/15 text-coastal-ocean rounded-full font-medium">
+                      {article.category}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      {article.readTime} min czytania
+                    </span>
                   </div>
-                  <Link
-                    href={`/blog/${article.id}`}
-                    className="text-coastal-gold hover:text-coastal-gold/80 transition-colors duration-200 inline-flex items-center gap-1.5"
-                  >
-                    <span className="text-sm font-medium">Czytaj</span>
-                    {/* Arrow slides right on card hover, not just link hover */}
-                    <ArrowRight
-                      size={16}
-                      className="transition-transform duration-250 group-hover:translate-x-1"
-                      style={{ transitionTimingFunction: 'cubic-bezier(0.23,1,0.32,1)' }}
-                    />
-                  </Link>
+
+                  <h3 className="font-heading font-semibold text-xl mb-2 line-clamp-2 tracking-heading transition-colors duration-200 group-hover:text-coastal-gold">
+                    {article.title}
+                  </h3>
+
+                  <p className="text-sm font-light mb-4 line-clamp-2" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.6' }}>
+                    {article.excerpt}
+                  </p>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <Calendar size={14} weight="duotone" className="text-coastal-ocean" />
+                      {new Date(article.date).toLocaleDateString('pl-PL')}
+                    </div>
+                    <Link
+                      href={`/blog/${article.id}`}
+                      className="text-coastal-gold hover:text-coastal-gold/80 transition-colors duration-200 inline-flex items-center gap-1.5"
+                    >
+                      <span className="text-sm font-medium">Czytaj</span>
+                      <ArrowRight
+                        size={16}
+                        className="transition-transform duration-250 group-hover:translate-x-1"
+                        style={{ transitionTimingFunction: 'cubic-bezier(0.23,1,0.32,1)' }}
+                      />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </motion.article>
+              </TiltCard>
+            </motion.div>
           ))}
         </motion.div>
 

@@ -41,6 +41,22 @@ const tools = [
     tags: ['Cykl', 'Suplementacja', 'Hormony'],
     color: 'from-rose-500/10 to-pink-500/5',
   },
+  {
+    slug: 'audyt-kortyzolu',
+    icon: '⚡',
+    title: 'Audyt Kortyzolu',
+    description: 'Sprawdź, czy Twoja oś HPA jest przeciążona. 8 pytań opartych na fizjologii stresu oceni stan Twojego rytmu dobowego kortyzolu.',
+    tags: ['Kortyzol', 'Stres', 'Nadnercza'],
+    color: 'from-amber-500/10 to-orange-500/5',
+  },
+  {
+    slug: 'trening-w-cyklu',
+    icon: '🏃',
+    title: 'Trening w cyklu',
+    description: 'Przesuń suwak na dzień swojego cyklu i dowiedz się, jaki trening będzie dziś dla Ciebie optymalny — zgodnie z hormonami, nie wbrew nim.',
+    tags: ['Trening', 'Cykl', 'Hormony'],
+    color: 'from-teal-500/10 to-cyan-500/5',
+  },
 ]
 
 export default function NarzedziaPage() {
@@ -76,7 +92,7 @@ export default function NarzedziaPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {tools.map((tool) => (
               <Link
                 key={tool.slug}

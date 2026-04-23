@@ -17,6 +17,21 @@ export const metadata: Metadata = {
   },
 }
 
+import Sidebar from '@/components/layout/Sidebar'
+import { MobileSidebar } from '@/components/layout/Sidebar'
+
 export default function KursyLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+  return (
+    <div className="flex items-start">
+      <div className="flex-1 min-w-0">
+        {children}
+        <div className="container">
+          <MobileSidebar />
+        </div>
+      </div>
+      <aside className="hidden xl:block w-[300px] flex-shrink-0 pt-32 pr-8 pl-6">
+        <Sidebar />
+      </aside>
+    </div>
+  )
 }

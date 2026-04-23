@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getArticleBySlug } from '@/lib/sanity/queries'
+import { getArticleBySlug, getRelatedArticles } from '@/lib/sanity/queries'
 import BlogPostContent from './BlogPostContent'
 
 interface PageProps {
@@ -45,7 +45,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
-  const article = await getArticleBySlug(params.slug)
+  const [article, relatedArticles] = await Promise.all([
+    getArticleBySlug(params.slug),
+    getRelatedArticles(params.slug, 3),
+  ])
 
   const articleSchema = article
     ? {
@@ -106,7 +109,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <BlogPostContent article={article} />
+      <BlogPostContent article={article} relatedArticles={relatedArticles || []} />
     </>
   )
 }

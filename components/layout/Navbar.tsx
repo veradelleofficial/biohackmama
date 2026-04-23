@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Search, ShoppingBag } from 'lucide-react'
 import { UserButton, useUser } from '@clerk/nextjs'
 
 export default function Navbar() {
@@ -20,7 +21,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-coastal-sand/80 backdrop-blur-md border-b border-border/50 shadow-header">
+      <nav className="sticky top-0 z-50 bg-coastal-sand/80 backdrop-blur-md border-b border-border/50">
         <div className="container flex items-center justify-between h-16 md:h-20 lg:h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
@@ -47,8 +48,26 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Auth & Mobile Button */}
-          <div className="flex items-center gap-4">
+          {/* Search, Cart, Auth & Mobile Button */}
+          <div className="flex items-center gap-3 md:gap-4">
+            {/* Search */}
+            <Link
+              href="/szukaj"
+              className="p-2 rounded-xl text-coastal-slate hover:text-coastal-gold hover:bg-secondary/10 transition-colors duration-200"
+              aria-label="Szukaj"
+            >
+              <Search size={18} strokeWidth={1.8} />
+            </Link>
+
+            {/* Cart */}
+            <Link
+              href="/kursy"
+              className="relative p-2 rounded-xl text-coastal-slate hover:text-coastal-gold hover:bg-secondary/10 transition-colors duration-200"
+              aria-label="Koszyk"
+            >
+              <ShoppingBag size={18} strokeWidth={1.8} />
+            </Link>
+
             {user ? (
               <>
                 <Link

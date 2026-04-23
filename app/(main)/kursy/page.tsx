@@ -6,6 +6,9 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { getCourses } from '@/lib/sanity/queries'
 import { Star, Clock, BookOpen } from 'lucide-react'
+import { KursyCoverHero } from '@/components/kursy/KursyCoverHero'
+
+const EASE_OUT = [0.22, 1, 0.36, 1] as const
 
 const upcomingCourses = [
   {
@@ -72,21 +75,14 @@ export default function CoursesPage() {
   }, [])
 
   useEffect(() => {
-    let result = courses
-    if (level !== 'all') {
-      result = result.filter((c) => c.level === level)
-    }
-    setFiltered(result)
+    setFiltered(level === 'all' ? courses : courses.filter((c) => c.level === level))
   }, [level, courses])
 
   const levels = ['all', 'Początkujący', 'Średniozaawansowany', 'Zaawansowany']
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   }
 
   const itemVariants = {
@@ -95,37 +91,56 @@ export default function CoursesPage() {
   }
 
   return (
-    <main className="pt-24 md:pt-32 pb-14 md:pb-20">
-      <div className="container">
+    <main className="pb-14 md:pb-20">
+
+      {/* Full-bleed cover hero */}
+      <KursyCoverHero />
+
+      {/* Content — -mt overlaps the hero's bottom fade zone */}
+      <div className="container -mt-8 md:-mt-14 relative z-40">
+
+        {/* Level filter — bridge card */}
         <motion.div
-          className="text-center mb-14"
-          initial={{ opacity: 0, y: -20 }}
+          className="mb-10 rounded-3xl border border-border/40 px-5 py-5 md:px-7 md:py-6"
+          style={{
+            background: 'rgba(239,234,228,0.92)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            boxShadow: 'var(--shadow-float)',
+          }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.15, ease: EASE_OUT }}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-heading font-normal mb-4 md:mb-5 tracking-heading uppercase">Kursy online</h1>
-          <p className="text-lg font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
-            Rozwijaj się z naszymi kursami na temat zdrowia i biohackingu
-          </p>
+          <motion.div
+            className="flex flex-wrap gap-2"
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } } }}
+            initial="hidden"
+            animate="visible"
+          >
+            {levels.map((lvl) => (
+              <motion.button
+                key={lvl}
+                onClick={() => setLevel(lvl)}
+                variants={{
+                  hidden: { opacity: 0, y: 8, scale: 0.95 },
+                  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.38, ease: EASE_OUT } },
+                }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className={`px-5 py-2.5 rounded-2xl transition-colors duration-250 text-cta ${
+                  level === lvl
+                    ? 'bg-coastal-gold text-white shadow-coastal-sm'
+                    : 'bg-card border border-border/60 text-coastal-slate hover:border-coastal-ocean/40'
+                }`}
+              >
+                {lvl === 'all' ? 'Wszystkie' : lvl}
+              </motion.button>
+            ))}
+          </motion.div>
         </motion.div>
 
-        {/* Level Filter */}
-        <div className="mb-12 flex flex-wrap gap-2">
-          {levels.map((lvl) => (
-            <button
-              key={lvl}
-              onClick={() => setLevel(lvl)}
-              className={`px-5 py-2.5 rounded-2xl transition-all duration-300 text-cta ${
-                level === lvl
-                  ? 'bg-coastal-gold text-white shadow-coastal-sm'
-                  : 'bg-card border border-border/60 text-coastal-slate hover:border-coastal-ocean/40'
-              }`}
-            >
-              {lvl === 'all' ? 'Wszystkie' : lvl}
-            </button>
-          ))}
-        </div>
-
-        {/* Courses Grid */}
+        {/* Courses grid */}
         {loading ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground">Ładowanie kursów...</p>
@@ -205,7 +220,7 @@ export default function CoursesPage() {
           </motion.div>
         )}
 
-        {/* Upcoming Courses */}
+        {/* Upcoming courses */}
         <motion.div
           className="mt-14 md:mt-20"
           initial={{ opacity: 0, y: 20 }}
@@ -221,7 +236,7 @@ export default function CoursesPage() {
                 key={course.id}
                 className="bg-card rounded-3xl overflow-hidden border border-border/60 shadow-coastal-sm"
               >
-                <div className="relative w-full aspect-[16/10] overflow-hidden">
+                <div className="relative w-full aspect-[16/10] overflow-hidden vintage-film">
                   <Image
                     src={course.image}
                     alt={course.title}
@@ -261,13 +276,14 @@ export default function CoursesPage() {
           </div>
         </motion.div>
 
-        {/* Bottom disclaimer */}
+        {/* Disclaimer */}
         <div className="mt-14 md:mt-20 pt-8 border-t border-border/40 text-center">
           <p className="text-sm md:text-base font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.75)' }}>
             Prezentowane materiały mają charakter wyłącznie informacyjny i nie stanowią porady medycznej ani specjalistycznej. Przed wprowadzeniem zmian w suplementacji lub stylu życia, skonsultuj się z lekarzem.
           </p>
         </div>
       </div>
+
     </main>
   )
 }
