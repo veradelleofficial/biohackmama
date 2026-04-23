@@ -26,7 +26,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
             <Image
-              src="/images/logo.webp"
+              src="/images/logo.png"
               alt="BioHackMama"
               width={320}
               height={80}
