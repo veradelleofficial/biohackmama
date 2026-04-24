@@ -870,12 +870,15 @@ export default function BlogPostContent({
               href="https://aquatruwater.pxf.io/9LqYAy"
               target="_blank"
               rel="noopener noreferrer sponsored"
+              className="block mx-auto max-w-[728px]"
             >
               <Image
                 src="/images/aquatru-ad.jpg.png"
                 alt="AquaTru – specjalny rabat, nalicza się automatycznie z linkiem"
                 width={728}
                 height={120}
+                quality={100}
+                sizes="(max-width: 728px) 100vw, 728px"
                 className="block w-full rounded-2xl"
               />
             </a>
