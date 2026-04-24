@@ -71,18 +71,22 @@ const FAQ = [
 ]
 
 function SubscribeButton() {
-  const { isSignedIn } = useUser()
+  const { isSignedIn, user } = useUser()
   const router = useRouter()
   const [loading, setLoading] = useState(false)
 
   const handleClick = async () => {
-    if (!isSignedIn) {
+    if (!isSignedIn || !user) {
       router.push('/sign-up?redirect=/premium')
       return
     }
     setLoading(true)
     try {
-      const res = await fetch('/api/stripe/checkout', { method: 'POST' })
+      const res = await fetch('/api/stripe/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId: user.id }),
+      })
       const data = await res.json()
       if (data.url) {
         window.location.href = data.url

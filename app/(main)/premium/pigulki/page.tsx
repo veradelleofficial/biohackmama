@@ -1,21 +1,37 @@
-import { auth, clerkClient } from '@clerk/nextjs/server'
-import { redirect } from 'next/navigation'
+'use client'
+
+import { useEffect, useState } from 'react'
+import { useUser } from '@clerk/nextjs'
+import { useRouter } from 'next/navigation'
 import { getPigulki } from '@/lib/sanity/queries'
 import PigulkiLibrary from './PigulkiLibrary'
 
-export const dynamic = 'force-dynamic'
+export default function PigulkiPage() {
+  const { user, isLoaded, isSignedIn } = useUser()
+  const router = useRouter()
+  const [pigulki, setPigulki] = useState<any[] | null>(null)
 
-export default async function PigulkiPage() {
-  const { userId } = auth()
+  useEffect(() => {
+    if (!isLoaded) return
+    if (!isSignedIn) {
+      router.replace('/sign-in')
+      return
+    }
+    const meta = (user?.publicMetadata ?? {}) as Record<string, any>
+    if (meta.subscription !== 'active') {
+      router.replace('/premium')
+      return
+    }
+    getPigulki().then((data) => setPigulki(data ?? []))
+  }, [isLoaded, isSignedIn, user, router])
 
-  if (!userId) redirect('/sign-in')
-
-  const user = await clerkClient.users.getUser(userId)
-  const meta = user.publicMetadata as Record<string, any>
-
-  if (meta?.subscription !== 'active') redirect('/premium')
-
-  const pigulki = await getPigulki()
+  if (!isLoaded || !isSignedIn || pigulki === null) {
+    return (
+      <main className="pt-24 pb-16 flex items-center justify-center">
+        <span className="block w-6 h-6 rounded-full border-2 border-coastal-gold/30 border-t-coastal-gold animate-spin" />
+      </main>
+    )
+  }
 
   return <PigulkiLibrary pigulki={pigulki} />
 }

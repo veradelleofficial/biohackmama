@@ -1,4 +1,4 @@
-import { auth, clerkClient } from '@clerk/nextjs/server'
+import { clerkClient } from '@clerk/nextjs/server'
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
@@ -8,8 +8,10 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2023-08-16',
 })
 
-export async function POST(_req: NextRequest) {
-  const { userId } = auth()
+export async function POST(req: NextRequest) {
+  const body = await req.json().catch(() => ({})) as { userId?: string }
+  const userId = body.userId
+
   if (!userId) {
     return NextResponse.json({ error: 'Nie jesteś zalogowana.' }, { status: 401 })
   }
