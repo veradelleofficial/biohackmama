@@ -11,7 +11,7 @@
  *               Returns to centre on mouse leave.
  *
  * Usage:
- *   <FloatingBookCover title="Tytuł ebooka" pages={120} accentColor="#A68A69" />
+ *   <FloatingBookCover title="Tytuł ebooka" pages={120} accentColor="#4F5E44" />
  *   <FloatingBookCover title="..." coverImage="/covers/ebook.webp" />
  */
 
@@ -37,8 +37,8 @@ export function FloatingBookCover({
   subtitle,
   pages,
   coverImage,
-  accentColor = '#A68A69',
-  spineColor  = '#213a50',
+  accentColor = '#4F5E44',
+  spineColor  = '#2D3A2D',
 }: FloatingBookCoverProps) {
   const ref  = useRef<HTMLDivElement>(null)
   const xRaw = useMotionValue(0)
@@ -87,7 +87,7 @@ export function FloatingBookCover({
             style={{
               width: '200px',
               height: '280px',
-              boxShadow: '8px 12px 40px rgba(33,58,80,0.28), 2px 4px 12px rgba(33,58,80,0.18)',
+              boxShadow: '8px 12px 40px rgba(45, 58, 45,0.28), 2px 4px 12px rgba(45, 58, 45,0.18)',
             }}
           >
             {/* Spine — left edge */}
@@ -165,7 +165,7 @@ export function FloatingBookCover({
         style={{
           width: '160px',
           height: '16px',
-          background: 'rgba(33,58,80,0.35)',
+          background: 'rgba(45, 58, 45,0.35)',
         }}
       />
     </div>

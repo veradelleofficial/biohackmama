@@ -66,7 +66,7 @@ export default function BlogList({ articles }: { articles: Article[] }) {
       <motion.div
         className="mb-10 rounded-3xl border border-border/40 space-y-4 px-5 py-5 md:px-7 md:py-6"
         style={{
-          background: 'rgba(239,234,228,0.92)',
+          background: 'rgba(242,235,221,0.92)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           boxShadow: 'var(--shadow-float)',
@@ -79,8 +79,8 @@ export default function BlogList({ articles }: { articles: Article[] }) {
         <motion.div
           animate={
             focused
-              ? { boxShadow: '0 0 0 3px rgba(166,138,105,0.18), 0 0 0 1px rgba(166,138,105,0.45)' }
-              : { boxShadow: '0 0 0 0px rgba(166,138,105,0)' }
+              ? { boxShadow: '0 0 0 3px rgba(79, 94, 68,0.18), 0 0 0 1px rgba(79, 94, 68,0.45)' }
+              : { boxShadow: '0 0 0 0px rgba(79, 94, 68,0)' }
           }
           transition={{ duration: 0.22 }}
           className="relative rounded-2xl"
@@ -94,7 +94,7 @@ export default function BlogList({ articles }: { articles: Article[] }) {
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
             className="w-full pl-12 pr-4 py-3.5 bg-card border border-border/60 rounded-2xl focus:outline-none transition-colors duration-300"
-            style={{ color: '#213a50' }}
+            style={{ color: '#2D3A2D' }}
           />
         </motion.div>
 
@@ -180,7 +180,7 @@ export default function BlogList({ articles }: { articles: Article[] }) {
                       {isEmpty && (
                         <div className="absolute inset-0 flex items-center justify-center">
                           <span className="px-4 py-2 rounded-full text-xs font-semibold tracking-wide uppercase"
-                            style={{ background: 'rgba(33,58,80,0.72)', color: '#fff', backdropFilter: 'blur(6px)', letterSpacing: '0.08em' }}>
+                            style={{ background: 'rgba(45, 58, 45,0.72)', color: '#fff', backdropFilter: 'blur(6px)', letterSpacing: '0.08em' }}>
                             Już wkrótce
                           </span>
                         </div>
@@ -235,7 +235,7 @@ export default function BlogList({ articles }: { articles: Article[] }) {
           {totalPages > 1 && (
             <div className="mt-10 flex flex-col items-center gap-4">
               {/* Page info */}
-              <p className="text-xs" style={{ color: 'rgba(33,58,80,0.45)' }}>
+              <p className="text-xs" style={{ color: 'rgba(45, 58, 45,0.45)' }}>
                 Strona {page} z {totalPages}
               </p>
 
@@ -256,8 +256,8 @@ export default function BlogList({ articles }: { articles: Article[] }) {
                     onClick={() => { setPage(page + 1); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
                     className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl text-white text-sm font-semibold active:scale-[0.97] transition-all duration-200"
                     style={{
-                      background: 'linear-gradient(135deg, #A68A69, #8a7058)',
-                      boxShadow: '0 4px 16px rgba(166,138,105,0.30)',
+                      background: '#4F5E44',
+                      boxShadow: '0 4px 16px rgba(79, 94, 68,0.30)',
                     }}
                   >
                     Następna strona

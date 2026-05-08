@@ -58,10 +58,19 @@ export default function FeaturedCourses() {
           <div className="flex justify-center mb-1.5 md:mb-2">
             <Image src="/images/icon.webp" alt="" width={64} height={64} className="h-14 md:h-16 w-auto" />
           </div>
+          <span
+            className="inline-block text-[11px] md:text-xs uppercase font-mono mb-3"
+            style={{ color: '#8B6F47', letterSpacing: '0.25em' }}
+          >
+            Kursy online
+          </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-normal mb-4 md:mb-5 tracking-heading">
             Popularne kursy
           </h2>
-          <p className="text-base md:text-lg max-w-2xl mx-auto font-light px-4 md:px-0" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
+          <div className="flex justify-center mb-5">
+            <span className="inline-block w-12 h-[2px] rounded-full" style={{ backgroundColor: '#4F5E44' }} />
+          </div>
+          <p className="text-base md:text-lg max-w-2xl mx-auto font-light px-4 md:px-0" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
             Najchętniej wybierane kursy przez naszą społeczność
           </p>
         </motion.div>
@@ -77,14 +86,14 @@ export default function FeaturedCourses() {
           {mockCourses.map((course, i) => (
             <motion.div key={course.id} variants={cardReveal}>
               <TiltCard
-                className="group bg-card rounded-3xl overflow-hidden border border-border/60"
-                style={{ boxShadow: 'var(--shadow-rest)' }}
+                className="group rounded-3xl overflow-hidden"
+                style={{ boxShadow: 'var(--shadow-rest)', backgroundColor: '#2D3A2D', color: '#FBF7EE' }}
                 maxTilt={3.5}
                 scaleOnHover={1.012}
                 hoverShadow="var(--shadow-lift)"
               >
-                {/* Course image with reveal — all slide 'up' for consistent feel */}
-                <div className="relative">
+                {/* Course image with reveal */}
+                <div className="relative" style={{ backgroundColor: '#3F4D3D' }}>
                   <RevealImage
                     src={course.image}
                     alt={course.imageAlt}
@@ -95,42 +104,57 @@ export default function FeaturedCourses() {
                     delay={i * 0.07}
                   />
                   {/* "Coming soon" overlay sits above the image */}
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-20">
-                    <span className="text-white text-lg md:text-xl font-heading font-semibold tracking-heading uppercase">
+                  <div className="absolute inset-0 flex items-center justify-center z-20" style={{ backgroundColor: 'rgba(45, 58, 45, 0.55)' }}>
+                    <span className="text-lg md:text-xl font-heading font-semibold tracking-heading uppercase" style={{ color: '#FBF7EE' }}>
                       Już wkrótce
                     </span>
                   </div>
                 </div>
 
                 <div className="p-4 md:p-6">
-                  <div className="mb-3">
-                    <span className="text-xs px-3 py-1.5 bg-secondary/15 text-coastal-ocean rounded-full font-medium">
-                      {course.level}
-                    </span>
-                  </div>
+                  <span
+                    className="text-[11px] uppercase font-mono"
+                    style={{ color: '#B89668', letterSpacing: '0.2em' }}
+                  >
+                    Kurs · {course.level}
+                  </span>
 
-                  <h3 className="font-heading font-semibold text-xl mb-2 line-clamp-2 tracking-heading">
+                  <h3
+                    className="font-heading font-semibold text-xl mt-2 mb-2 line-clamp-2 tracking-heading"
+                    style={{ color: '#FBF7EE' }}
+                  >
                     {course.title}
                   </h3>
 
-                  <p className="text-sm font-light mb-4 line-clamp-2" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.6' }}>
+                  <p
+                    className="text-sm font-light mb-4 line-clamp-2"
+                    style={{ color: '#E5DCC4', lineHeight: '1.6' }}
+                  >
                     {course.description}
                   </p>
 
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4 pb-4 border-b border-border/50">
+                  <div
+                    className="flex items-center gap-4 text-sm mb-4 pb-4 border-b"
+                    style={{ color: '#B89668', borderColor: 'rgba(184, 150, 104, 0.25)' }}
+                  >
                     <span className="inline-flex items-center gap-1">
-                      <Clock size={16} weight="duotone" className="text-coastal-ocean" />
+                      <Clock size={16} weight="duotone" style={{ color: '#B89668' }} />
                       {course.duration}
                     </span>
                     <span className="inline-flex items-center gap-1">
-                      <BookOpen size={16} weight="duotone" className="text-coastal-ocean" />
+                      <BookOpen size={16} weight="duotone" style={{ color: '#B89668' }} />
                       {course.lessons} lekcji
                     </span>
                   </div>
 
-                  <div className="text-center">
-                    <span className="text-sm font-medium text-coastal-ocean">Już wkrótce</span>
-                  </div>
+                  <button
+                    type="button"
+                    disabled
+                    className="w-full py-3 rounded-full font-medium text-sm uppercase tracking-wider opacity-90 cursor-default"
+                    style={{ backgroundColor: '#B89668', color: '#2D3A2D', letterSpacing: '0.05em' }}
+                  >
+                    Już wkrótce
+                  </button>
                 </div>
               </TiltCard>
             </motion.div>
@@ -147,10 +171,8 @@ export default function FeaturedCourses() {
         >
           <Link
             href="/kursy"
-            className="inline-block px-8 py-3.5 border border-coastal-ocean/30 text-coastal-slate rounded-3xl
-                       hover:bg-secondary/10 hover:border-coastal-ocean/50
-                       transition-[transform,background-color,border-color] duration-200
-                       active:scale-[0.97] text-cta text-sm"
+            className="inline-block px-8 py-3.5 rounded-full text-cta text-sm border-2 transition-colors active:scale-[0.97]"
+            style={{ borderColor: '#2D3A2D', color: '#2D3A2D' }}
           >
             Zobacz wszystkie kursy
           </Link>

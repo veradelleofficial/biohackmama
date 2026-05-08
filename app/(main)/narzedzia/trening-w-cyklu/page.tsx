@@ -38,7 +38,7 @@ export default function TreningWCykluPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal mb-4 tracking-heading">
             Co ćwiczyć w moim cyklu?
           </h1>
-          <p className="text-base md:text-lg font-light max-w-2xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
+          <p className="text-base md:text-lg font-light max-w-2xl mx-auto" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
             Przesuń suwak na dzień swojego cyklu i dowiedz się, jaki trening
             będzie dla Ciebie dziś optymalny — zgodnie z hormonami, nie wbrew nim.
           </p>
@@ -54,7 +54,7 @@ export default function TreningWCykluPage() {
         </div>
 
         <div className="mt-14 pt-8 border-t border-border/40 text-center">
-          <p className="text-xs font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.6)' }}>
+          <p className="text-xs font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(45, 58, 45, 0.6)' }}>
             Narzędzie ma charakter informacyjny. Każdy organizm jest inny — obserwuj swoje ciało i dostosowuj intensywność do własnego samopoczucia. Nie zastępuje konsultacji ze specjalistą.
           </p>
         </div>

@@ -32,15 +32,25 @@ export default function ValuesSection() {
           </div>
 
           <div className="relative z-10 p-6 sm:p-8 md:p-14 text-center">
-            <h3 className="text-3xl md:text-4xl font-heading font-normal mb-4 tracking-heading">
+            <span
+              className="inline-block text-[11px] md:text-xs uppercase font-mono mb-3"
+              style={{ color: '#8B6F47', letterSpacing: '0.25em' }}
+            >
+              Vera Delle
+            </span>
+            <h3 className="text-3xl md:text-4xl font-heading font-normal mb-3 tracking-heading" style={{ color: '#2D3A2D' }}>
               Poznaj moją historię
             </h3>
-            <p className="text-lg max-w-2xl mx-auto mb-8 font-light" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.6' }}>
+            <div className="flex justify-center mb-5">
+              <span className="inline-block w-12 h-[2px] rounded-full" style={{ backgroundColor: '#4F5E44' }} />
+            </div>
+            <p className="text-lg max-w-2xl mx-auto mb-8 font-light" style={{ color: 'rgba(45, 58, 45, 0.78)', lineHeight: '1.6' }}>
               Dowiedz się, kim jestem, jak zaczęła się moja przygoda z biohackingiem i czemu to robię.
             </p>
             <Link
               href="/o-mnie"
-              className="inline-block px-8 py-3.5 bg-coastal-gold text-white rounded-3xl hover:brightness-110 hover:shadow-coastal-lg transition-all duration-300 text-cta text-sm"
+              className="inline-block px-8 py-3.5 rounded-full text-cta text-sm transition-colors active:scale-[0.97]"
+              style={{ backgroundColor: '#4F5E44', color: '#FBF7EE' }}
             >
               O mnie
             </Link>

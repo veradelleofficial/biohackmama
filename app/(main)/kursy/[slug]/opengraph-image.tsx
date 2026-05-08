@@ -23,7 +23,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
           height: '630px',
           display: 'flex',
           position: 'relative',
-          background: 'linear-gradient(135deg, #2C5F61 0%, #1a3d3f 100%)',
+          background: 'linear-gradient(135deg, #2D3A2D 0%, #2D3A2D 100%)',
           fontFamily: 'Georgia, serif',
         }}
       >
@@ -59,7 +59,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             top: 0,
             width: '6px',
             height: '630px',
-            background: '#C2A05A',
+            background: '#B89668',
           }}
         />
 
@@ -82,8 +82,8 @@ export default async function Image({ params }: { params: { slug: string } }) {
             <span style={{ fontSize: '15px', color: 'rgba(255,255,255,0.6)', letterSpacing: '3px', textTransform: 'uppercase' }}>
               BioHackMama
             </span>
-            <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#C2A05A' }} />
-            <span style={{ fontSize: '13px', color: '#C2A05A', letterSpacing: '3px', textTransform: 'uppercase' }}>
+            <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#B89668' }} />
+            <span style={{ fontSize: '13px', color: '#B89668', letterSpacing: '3px', textTransform: 'uppercase' }}>
               Kurs Online
             </span>
           </div>
@@ -152,7 +152,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
               <div
                 style={{
                   padding: '8px 24px',
-                  background: '#C2A05A',
+                  background: '#B89668',
                   borderRadius: '100px',
                   color: '#FFFFFF',
                   fontSize: '18px',
@@ -181,7 +181,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             left: 0,
             width: '100%',
             height: '4px',
-            background: 'linear-gradient(90deg, #C2A05A 0%, transparent 60%)',
+            background: 'linear-gradient(90deg, #B89668 0%, transparent 60%)',
           }}
         />
       </div>

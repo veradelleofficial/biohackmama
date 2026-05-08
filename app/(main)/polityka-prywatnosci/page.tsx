@@ -57,7 +57,7 @@ export default function PrivacyPolicyPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal tracking-heading mb-4">
             Polityka prywatności
           </h1>
-          <p className="text-sm font-light mb-10" style={{ color: 'rgba(72, 89, 107, 0.6)' }}>
+          <p className="text-sm font-light mb-10" style={{ color: 'rgba(45, 58, 45, 0.6)' }}>
             Ostatnia aktualizacja: 10 kwietnia 2026
           </p>
         </motion.div>
@@ -73,7 +73,7 @@ export default function PrivacyPolicyPage() {
               <h2 className="font-heading font-semibold text-xl mb-3 tracking-heading">
                 {section.title}
               </h2>
-              <p className="font-light leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
+              <p className="font-light leading-relaxed" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
                 {section.content}
               </p>
             </motion.div>

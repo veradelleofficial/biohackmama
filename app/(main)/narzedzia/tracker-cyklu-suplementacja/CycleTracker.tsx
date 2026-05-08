@@ -152,14 +152,14 @@ export default function CycleTracker() {
 
           {phase.avoid && (
             <div className="p-3 bg-white/50 rounded-xl">
-              <p className="text-xs font-light" style={{ color: 'rgba(72, 89, 107, 0.7)' }}>{phase.avoid}</p>
+              <p className="text-xs font-light" style={{ color: 'rgba(45, 58, 45, 0.7)' }}>{phase.avoid}</p>
             </div>
           )}
         </div>
       )}
 
       <div className="p-4 bg-secondary/8 rounded-2xl">
-        <p className="text-xs font-light leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.7)' }}>
+        <p className="text-xs font-light leading-relaxed" style={{ color: 'rgba(45, 58, 45, 0.7)' }}>
           Protokoły suplementacyjne są orientacyjne. Dawkowanie dostosuj do masy ciała
           i indywidualnych potrzeb. Zawsze sprawdzaj interakcje z lekami.
         </p>

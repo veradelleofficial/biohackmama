@@ -96,17 +96,20 @@ export default function HeroSection() {
             initial="hidden"
             animate="visible"
           >
-            {/* Badge */}
+            {/* Eyebrow label */}
             <motion.div variants={itemVariants}>
-              <span className="inline-block px-4 py-2 md:px-5 md:py-2.5 bg-primary/10 text-primary rounded-full text-[10px] md:text-xs tracking-cta font-medium mb-4 md:mb-6 border border-primary/20 uppercase">
-                PROTOKOŁY ZDROWIA I WYDAJNOŚCI
+              <span
+                className="inline-block text-[11px] md:text-xs uppercase font-mono mb-5 md:mb-6"
+                style={{ color: '#8B6F47', letterSpacing: '0.25em' }}
+              >
+                Protokoły zdrowia i wydajności
               </span>
             </motion.div>
 
             {/* Headline */}
             <motion.h1
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-normal mb-5 md:mb-8 tracking-heading uppercase"
-              style={{ lineHeight: '1.05' }}
+              style={{ lineHeight: '1.05', color: '#2D3A2D' }}
               variants={itemVariants}
             >
               Oczyść,{' '}
@@ -119,7 +122,7 @@ export default function HeroSection() {
             {/* Body */}
             <motion.p
               className="text-base md:text-lg lg:text-xl max-w-xl mx-auto lg:mx-0 mb-8 md:mb-10 font-light"
-              style={{ lineHeight: '1.6', color: 'rgba(72, 89, 107, 0.8)' }}
+              style={{ lineHeight: '1.6', color: '#3F4D3D' }}
               variants={itemVariants}
             >
               Twój przewodnik po świadomym życiu w świecie pełnym chemii. Łączymy rzetelny biohacking
@@ -127,34 +130,35 @@ export default function HeroSection() {
               ze zbędnych toksyn i wejść na najwyższy poziom własnych możliwości.
             </motion.p>
 
-            {/* CTAs */}
+            {/* CTAs — primary sage solid, secondary forest outline */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
+              className="flex flex-wrap gap-3 justify-center lg:justify-start"
               variants={itemVariants}
             >
-              <motion.div
-                whileHover={{ scale: 1.03, boxShadow: '0 8px 24px rgba(166,138,105,0.35)' }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ duration: 0.20, ease: 'easeOut' }}
-                className="rounded-3xl"
-              >
+              <motion.div whileTap={{ scale: 0.97 }} transition={{ duration: 0.18 }}>
                 <Link
                   href="/kursy"
-                  className="block px-6 py-3 md:px-8 md:py-4 bg-coastal-gold text-white rounded-3xl text-cta text-sm text-center"
+                  className="block px-7 py-3.5 rounded-full font-medium text-sm uppercase text-center transition-colors"
+                  style={{
+                    backgroundColor: '#4F5E44',
+                    color: '#FBF7EE',
+                    letterSpacing: '0.05em',
+                  }}
                 >
                   Odkryj rozwiązania
                 </Link>
               </motion.div>
 
-              <motion.div
-                whileHover={{ scale: 1.02, backgroundColor: 'rgba(174,202,232,0.10)' }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ duration: 0.20, ease: 'easeOut' }}
-                className="rounded-3xl"
-              >
+              <motion.div whileTap={{ scale: 0.97 }} transition={{ duration: 0.18 }}>
                 <Link
                   href="/blog"
-                  className="block px-6 py-3 md:px-8 md:py-4 border border-coastal-ocean/40 text-coastal-slate rounded-3xl text-cta text-sm text-center"
+                  className="block px-7 py-3.5 rounded-full font-medium text-sm uppercase text-center border-2 transition-colors"
+                  style={{
+                    borderColor: '#2D3A2D',
+                    color: '#2D3A2D',
+                    backgroundColor: 'transparent',
+                    letterSpacing: '0.05em',
+                  }}
                 >
                   Przeczytaj blog
                 </Link>
@@ -174,14 +178,14 @@ export default function HeroSection() {
               <div
                 className="absolute inset-0 -z-10 blur-3xl scale-110"
                 style={{
-                  background: 'radial-gradient(ellipse 70% 60% at 50% 55%, rgba(166,138,105,0.28) 0%, rgba(174,202,232,0.18) 55%, transparent 80%)',
+                  background: 'radial-gradient(ellipse 70% 60% at 50% 55%, rgba(79, 94, 68,0.28) 0%, rgba(184, 150, 104,0.18) 55%, transparent 80%)',
                 }}
               />
               {/* Glow ring behind card */}
               <div
                 className="absolute -inset-4 rounded-3xl opacity-30 blur-2xl"
                 style={{
-                  background: 'radial-gradient(ellipse at center, rgba(166,138,105,0.4) 0%, transparent 70%)',
+                  background: 'radial-gradient(ellipse at center, rgba(79, 94, 68,0.4) 0%, transparent 70%)',
                 }}
               />
               <motion.div

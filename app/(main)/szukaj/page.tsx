@@ -13,32 +13,32 @@ const categories = [
     description: 'Naukowe protokoły i porady dotyczące zdrowia',
     href: '/blog',
     icon: FileText,
-    color: '#A68A69',
-    bg: 'rgba(166,138,105,0.08)',
+    color: '#4F5E44',
+    bg: 'rgba(79, 94, 68,0.08)',
   },
   {
     title: 'E-booki',
     description: 'Praktyczne przewodniki do pobrania',
     href: '/ebooki',
     icon: BookOpen,
-    color: '#213a50',
-    bg: 'rgba(33,58,80,0.06)',
+    color: '#2D3A2D',
+    bg: 'rgba(45, 58, 45,0.06)',
   },
   {
     title: 'Kursy',
     description: 'Kompleksowe programy online z certyfikatem',
     href: '/kursy',
     icon: GraduationCap,
-    color: '#A68A69',
-    bg: 'rgba(166,138,105,0.08)',
+    color: '#4F5E44',
+    bg: 'rgba(79, 94, 68,0.08)',
   },
   {
     title: 'Moja historia',
     description: 'Poznaj Verę Delle i jej drogę do biohackingu',
     href: '/o-mnie',
     icon: Heart,
-    color: '#213a50',
-    bg: 'rgba(33,58,80,0.06)',
+    color: '#2D3A2D',
+    bg: 'rgba(45, 58, 45,0.06)',
   },
 ]
 
@@ -70,7 +70,7 @@ export default function SearchPage() {
           >
             Szukaj
           </h1>
-          <p className="text-base font-light" style={{ color: 'rgba(72,89,107,0.75)' }}>
+          <p className="text-base font-light" style={{ color: 'rgba(45, 58, 45,0.75)' }}>
             Znajdź artykuły, kursy, ebooki i więcej
           </p>
         </motion.div>
@@ -86,7 +86,7 @@ export default function SearchPage() {
           <motion.div
             animate={
               focused
-                ? { boxShadow: '0 0 0 3px rgba(166,138,105,0.18), 0 0 0 1px rgba(166,138,105,0.45)' }
+                ? { boxShadow: '0 0 0 3px rgba(79, 94, 68,0.18), 0 0 0 1px rgba(79, 94, 68,0.45)' }
                 : { boxShadow: 'var(--shadow-rest)' }
             }
             transition={{ duration: 0.22 }}
@@ -95,7 +95,7 @@ export default function SearchPage() {
             <Search
               className="absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none"
               size={20}
-              style={{ color: focused ? '#A68A69' : 'rgba(33,58,80,0.35)' }}
+              style={{ color: focused ? '#4F5E44' : 'rgba(45, 58, 45,0.35)' }}
             />
             <input
               type="text"
@@ -105,7 +105,7 @@ export default function SearchPage() {
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}
               className="w-full pl-14 pr-5 py-4 md:py-5 bg-card border border-border/60 rounded-2xl focus:outline-none transition-colors duration-300 text-base md:text-lg"
-              style={{ color: '#213a50' }}
+              style={{ color: '#2D3A2D' }}
               autoFocus
             />
           </motion.div>
@@ -155,17 +155,17 @@ export default function SearchPage() {
                   <div className="flex items-center justify-between gap-2 mb-1">
                     <h2
                       className="font-body font-semibold text-base group-hover:text-coastal-gold transition-colors duration-200"
-                      style={{ color: '#213a50' }}
+                      style={{ color: '#2D3A2D' }}
                     >
                       {cat.title}
                     </h2>
                     <ArrowRight
                       size={14}
                       className="flex-shrink-0 opacity-0 -translate-x-1 group-hover:opacity-60 group-hover:translate-x-0 transition-all duration-200"
-                      style={{ color: '#A68A69' }}
+                      style={{ color: '#4F5E44' }}
                     />
                   </div>
-                  <p className="text-xs leading-relaxed" style={{ color: 'rgba(72,89,107,0.65)' }}>
+                  <p className="text-xs leading-relaxed" style={{ color: 'rgba(45, 58, 45,0.65)' }}>
                     {cat.description}
                   </p>
                 </div>

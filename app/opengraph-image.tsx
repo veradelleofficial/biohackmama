@@ -14,7 +14,7 @@ export default async function Image() {
           height: '630px',
           display: 'flex',
           position: 'relative',
-          background: '#F5F0E8',
+          background: '#F2EBDD',
           fontFamily: 'Georgia, serif',
         }}
       >
@@ -26,7 +26,7 @@ export default async function Image() {
             top: 0,
             width: '8px',
             height: '630px',
-            background: '#4A7C7E',
+            background: '#4F5E44',
           }}
         />
 
@@ -38,7 +38,7 @@ export default async function Image() {
             top: 0,
             width: '420px',
             height: '630px',
-            background: 'linear-gradient(135deg, #4A7C7E 0%, #2C5F61 100%)',
+            background: 'linear-gradient(135deg, #4F5E44 0%, #2D3A2D 100%)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -124,12 +124,12 @@ export default async function Image() {
               style={{
                 width: '40px',
                 height: '2px',
-                background: '#C2A05A',
+                background: '#B89668',
               }}
             />
             <span
               style={{
-                color: '#C2A05A',
+                color: '#B89668',
                 fontSize: '13px',
                 letterSpacing: '3px',
                 textTransform: 'uppercase',
@@ -151,7 +151,7 @@ export default async function Image() {
               style={{
                 fontSize: '72px',
                 fontWeight: 700,
-                color: '#2C3E50',
+                color: '#2D3A2D',
                 lineHeight: 1,
                 letterSpacing: '-1px',
               }}
@@ -162,7 +162,7 @@ export default async function Image() {
               style={{
                 fontSize: '72px',
                 fontWeight: 400,
-                color: '#4A7C7E',
+                color: '#4F5E44',
                 lineHeight: 1,
                 letterSpacing: '-1px',
                 fontStyle: 'italic',
@@ -175,7 +175,7 @@ export default async function Image() {
           {/* Tagline */}
           <div
             style={{
-              color: 'rgba(72, 89, 107, 0.8)',
+              color: 'rgba(45, 58, 45, 0.8)',
               fontSize: '22px',
               lineHeight: 1.5,
               maxWidth: '560px',
@@ -198,10 +198,10 @@ export default async function Image() {
                 key={tag}
                 style={{
                   padding: '8px 18px',
-                  background: 'rgba(74, 124, 126, 0.12)',
-                  border: '1px solid rgba(74, 124, 126, 0.3)',
+                  background: 'rgba(79, 94, 68, 0.12)',
+                  border: '1px solid rgba(79, 94, 68, 0.3)',
                   borderRadius: '100px',
-                  color: '#4A7C7E',
+                  color: '#4F5E44',
                   fontSize: '14px',
                   letterSpacing: '1px',
                 }}
@@ -214,7 +214,7 @@ export default async function Image() {
           {/* URL */}
           <div
             style={{
-              color: 'rgba(72, 89, 107, 0.5)',
+              color: 'rgba(45, 58, 45, 0.5)',
               fontSize: '15px',
               letterSpacing: '1px',
               marginTop: '8px',
@@ -232,7 +232,7 @@ export default async function Image() {
             left: '0',
             width: '780px',
             height: '4px',
-            background: 'linear-gradient(90deg, #C2A05A 0%, transparent 100%)',
+            background: 'linear-gradient(90deg, #B89668 0%, transparent 100%)',
           }}
         />
       </div>

@@ -4,19 +4,19 @@
 
 @layer base {
   :root {
-    /* Coastal Wellness Palette */
-    --background: 33 16% 92%;          /* #EFEAE4 Off-white */
-    --foreground: 211 20% 35%;         /* #48596B Deep Slate */
-    --primary: 30 25% 53%;             /* #A68A69 Gold/Taupe */
-    --primary-foreground: 0 0% 100%;   /* White */
-    --secondary: 211 52% 80%;          /* #AECAE8 Muted Blue */
-    --secondary-foreground: 211 20% 35%; /* Deep Slate */
-    --secondary-deep: 211 22% 57%;     /* #7A90A8 Deeper Blue */
-    --muted: 33 12% 88%;              /* Warm muted off-white */
-    --muted-foreground: 211 15% 48%;   /* Soft slate */
-    --card: 33 14% 96%;               /* Warm near-white */
-    --card-foreground: 211 20% 35%;    /* Deep Slate */
-    --border: 211 18% 86%;            /* Soft blue-gray */
+    /* Earth Wise Palette (inspirowana arterrashop) */
+    --background: 40 43% 91%;          /* #F2EBDD Cream Linen */
+    --foreground: 120 13% 20%;         /* #2D3A2D Forest Deep */
+    --primary: 95 16% 32%;             /* #4F5E44 Sage Olive */
+    --primary-foreground: 42 60% 96%;  /* #FBF7EE Light Parchment */
+    --secondary: 35 36% 56%;           /* #B89668 Warm Taupe */
+    --secondary-foreground: 120 13% 20%; /* Forest Deep */
+    --secondary-deep: 35 32% 41%;      /* #8B6F47 Tobacco */
+    --muted: 41 38% 87%;               /* #EDE4CF Warm sand muted */
+    --muted-foreground: 116 7% 45%;    /* #6B7A6A Dusty Olive */
+    --card: 42 60% 96%;                /* #FBF7EE Light Parchment */
+    --card-foreground: 120 13% 20%;    /* Forest Deep */
+    --border: 42 30% 79%;              /* #D9CFB8 Sand */
 
     /* ── Extended palette tokens ── */
     --alabaster:     33 30% 95%;
@@ -34,10 +34,10 @@
   }
 
   /* ─── Z-Axis Shadow Tokens ───────────────────────────────────────────────── */
-  --shadow-rest:    0 1px 3px rgba(33,58,80,0.06), 0 4px 12px rgba(33,58,80,0.05);
-  --shadow-lift:    0 8px 24px rgba(33,58,80,0.10), 0 2px 6px rgba(33,58,80,0.06);
-  --shadow-float:   0 20px 60px rgba(33,58,80,0.14), 0 4px 16px rgba(33,58,80,0.08);
-  --shadow-glow:    0 0 0 1px rgba(166,138,105,0.12), 0 8px 32px rgba(166,138,105,0.10);
+  --shadow-rest:    0 1px 3px rgba(45,58,45,0.06), 0 4px 12px rgba(45,58,45,0.05);
+  --shadow-lift:    0 8px 24px rgba(45,58,45,0.10), 0 2px 6px rgba(45,58,45,0.06);
+  --shadow-float:   0 20px 60px rgba(45,58,45,0.14), 0 4px 16px rgba(45,58,45,0.08);
+  --shadow-glow:    0 0 0 1px rgba(79,94,68,0.12), 0 8px 32px rgba(79,94,68,0.10);
 
   html {
     /* scroll-behavior handled by Lenis */
@@ -47,7 +47,7 @@
 
   body {
     @apply bg-background font-body;
-    color: rgba(46, 60, 74, 0.95);
+    color: rgba(45, 58, 45, 0.95);
     font-weight: 400;
     line-height: 1.6;
   }
@@ -55,7 +55,7 @@
   /* --- Wellness Oasis Heading Hierarchy --- */
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
-    color: #48596B;
+    color: #2D3A2D;
     letter-spacing: -0.02em;
     font-weight: 400;
     line-height: 1.15;
@@ -84,7 +84,7 @@
     @apply font-body;
     font-weight: 400;
     line-height: 1.6;
-    color: rgba(46, 60, 74, 0.92);
+    color: rgba(63, 77, 61, 0.92);
   }
 
   button, input, label {
@@ -203,7 +203,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: #A68A69; /* coastal-gold */
+  background-color: #4F5E44; /* sage olive */
   clip-path: inset(0 100% 0 0);
   transition: clip-path 240ms var(--ease-out-strong);
 }
@@ -227,7 +227,7 @@
   display: block;
   width: 100%;
   height: 1.5px;
-  background-color: #48596B;
+  background-color: #2D3A2D;
   border-radius: 2px;
   transform-origin: center;
   transition: transform 250ms var(--ease-out-strong), opacity 200ms ease, width 250ms var(--ease-out-strong);
@@ -260,7 +260,7 @@
 @media (hover: hover) and (pointer: fine) {
   .card-lift:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(72, 89, 107, 0.14);
+    box-shadow: 0 20px 40px rgba(45, 58, 45, 0.14);
   }
 }
 
@@ -275,21 +275,21 @@
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.7;
-    color: rgba(46, 60, 74, 0.92);
+    color: rgba(63, 77, 61, 0.92);
   }
 
   .prose h2 {
     @apply font-heading text-3xl mt-10 mb-5;
     font-weight: 400;
     letter-spacing: -0.02em;
-    color: #48596B;
+    color: #2D3A2D;
   }
 
   .prose h3 {
     @apply font-heading text-2xl mt-8 mb-4;
     font-weight: 600;
     letter-spacing: -0.015em;
-    color: #48596B;
+    color: #2D3A2D;
   }
 
   .prose p {
@@ -303,7 +303,7 @@
 
   .prose strong {
     font-weight: 500;
-    color: #48596B;
+    color: #2D3A2D;
   }
 
   .prose em {
@@ -312,12 +312,12 @@
 
   /* --- Typography utilities --- */
   .text-body-soft {
-    color: rgba(72, 89, 107, 0.78);
+    color: rgba(107, 122, 106, 0.85);
     font-weight: 300;
   }
 
   .text-body-medium {
-    color: rgba(72, 89, 107, 0.88);
+    color: rgba(63, 77, 61, 0.88);
     font-weight: 400;
   }
 
@@ -325,7 +325,7 @@
     @apply font-heading;
     font-weight: 400;
     letter-spacing: -0.02em;
-    color: #48596B;
+    color: #2D3A2D;
   }
 
   .text-cta {

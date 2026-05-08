@@ -27,7 +27,7 @@ export default async function BlogPage() {
         <div className="mt-14 md:mt-20 pt-8 border-t border-border/40 text-center">
           <p
             className="text-sm md:text-base font-light leading-relaxed max-w-3xl mx-auto"
-            style={{ color: 'rgba(72, 89, 107, 0.75)' }}
+            style={{ color: 'rgba(45, 58, 45, 0.75)' }}
           >
             Prezentowane materiały mają charakter wyłącznie informacyjny i nie stanowią porady
             medycznej. Przed wprowadzeniem zmian w suplementacji lub stylu życia skonsultuj się

@@ -16,7 +16,7 @@ Marka to naukowiec-przyjaciółka, która mieszka przy morzu i pisze notatki nat
 
 **Motyw**: Jasny (light mode only).
 
-**Paleta**: Coastal Wellness — ciepły piasek (#EFEAE4), stłumiony złoty (#A68A69), oceański niebieski (#7A90A8), głęboki łupek (#48596B). Nie dodawać nowych kolorów poza tokenami `coastal-*`.
+**Paleta**: Earth Wise — kremowy len (#F2EBDD), szałwiowa oliwka CTA (#4F5E44), ciepły taupe (#B89668), tobacco głęboki (#8B6F47), leśna głębia tekstu (#2D3A2D). Nazwy tokenów Tailwind pozostały `coastal-*` (sand/gold/sky/ocean/slate) ze względu na kompatybilność. Nie dodawać nowych kolorów poza tym systemem.
 
 **Typografia**: Cormorant Garamond (nagłówki), Inter (treść), Playfair Display (akcenty). System zamknięty — nie dodawać nowych fontów.
 

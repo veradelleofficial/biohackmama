@@ -55,10 +55,10 @@ export default function PigulkiLibrary({ pigulki }: { pigulki: Pigulka[] }) {
             <span className="text-xs text-muted-foreground">/</span>
             <span className="text-xs text-muted-foreground">Biblioteka</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal tracking-heading mb-3" style={{ color: '#213a50' }}>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal tracking-heading mb-3" style={{ color: '#2D3A2D' }}>
             Pigułki Wiedzy
           </h1>
-          <p className="text-base font-light" style={{ color: 'rgba(72,89,107,0.75)' }}>
+          <p className="text-base font-light" style={{ color: 'rgba(45, 58, 45,0.75)' }}>
             {pigulki.length} {pigulki.length === 1 ? 'pigułka' : pigulki.length < 5 ? 'pigułki' : 'pigułek'} — audio, wideo i PDF cheat sheet
           </p>
         </motion.div>
@@ -84,7 +84,7 @@ export default function PigulkiLibrary({ pigulki }: { pigulki: Pigulka[] }) {
         {filtered.length === 0 ? (
           <div className="text-center py-20">
             <p className="text-4xl mb-4">📭</p>
-            <p className="font-light" style={{ color: 'rgba(72,89,107,0.65)' }}>
+            <p className="font-light" style={{ color: 'rgba(45, 58, 45,0.65)' }}>
               Treści w tej ścieżce pojawią się wkrótce.
             </p>
           </div>
@@ -101,16 +101,16 @@ export default function PigulkiLibrary({ pigulki }: { pigulki: Pigulka[] }) {
                   <div className="group bg-card rounded-3xl border border-border/60 p-5 hover:border-coastal-gold/40 hover:shadow-card-hover transition-all duration-300 cursor-pointer h-full flex flex-col">
                     {/* Path badge */}
                     <span className="inline-block text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full mb-3 self-start"
-                      style={{ background: 'rgba(166,138,105,0.12)', color: 'rgba(166,138,105,0.90)' }}>
+                      style={{ background: 'rgba(79, 94, 68,0.12)', color: 'rgba(79, 94, 68,0.90)' }}>
                       {pigulka.sciezka}
                     </span>
 
-                    <h3 className="font-heading font-semibold text-lg tracking-heading mb-2 group-hover:text-coastal-gold transition-colors duration-200 flex-1" style={{ color: '#213a50' }}>
+                    <h3 className="font-heading font-semibold text-lg tracking-heading mb-2 group-hover:text-coastal-gold transition-colors duration-200 flex-1" style={{ color: '#2D3A2D' }}>
                       {pigulka.title}
                     </h3>
 
                     {pigulka.description && (
-                      <p className="text-xs font-light leading-relaxed mb-4 line-clamp-2" style={{ color: 'rgba(72,89,107,0.70)' }}>
+                      <p className="text-xs font-light leading-relaxed mb-4 line-clamp-2" style={{ color: 'rgba(45, 58, 45,0.70)' }}>
                         {pigulka.description}
                       </p>
                     )}
@@ -122,7 +122,7 @@ export default function PigulkiLibrary({ pigulki }: { pigulki: Pigulka[] }) {
                         {pigulka.pdfUrl && <span title="PDF" className="text-xs">📄</span>}
                       </div>
                       {pigulka.duration && (
-                        <span className="text-xs font-light" style={{ color: 'rgba(33,58,80,0.45)' }}>
+                        <span className="text-xs font-light" style={{ color: 'rgba(45, 58, 45,0.45)' }}>
                           {pigulka.duration} min
                         </span>
                       )}

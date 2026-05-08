@@ -49,7 +49,7 @@ export default function KalkulatorOknaPage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal tracking-heading uppercase mb-4">
               Kalkulator Okna Żywieniowego
             </h1>
-            <p className="text-lg font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
+            <p className="text-lg font-light" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
               Zaplanuj okno żywieniowe dla postu przerywanego (IF). Wybierz protokół
               i dowiedz się, kiedy zacząć i skończyć jedzenie.
             </p>
@@ -62,7 +62,7 @@ export default function KalkulatorOknaPage() {
               Post przerywany a kobiecy cykl
             </h2>
             <div className="space-y-4">
-              <p className="font-light leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.85)' }}>
+              <p className="font-light leading-relaxed" style={{ color: 'rgba(45, 58, 45, 0.85)' }}>
                 Post przerywany działa inaczej u kobiet niż u mężczyzn. Twój organizm
                 jest wrażliwy na sygnały niedoboru kalorii – zbyt długi post może
                 zaburzyć oś HPG (podwzgórze-przysadka-gonady) i wpłynąć na cykl miesiączkowy.
@@ -77,14 +77,14 @@ export default function KalkulatorOknaPage() {
                   <div key={phase} className={`p-4 rounded-2xl border ${color}`}>
                     <div className="font-semibold text-sm text-coastal-slate mb-1">{phase}</div>
                     <div className="text-xs text-muted-foreground mb-2">{days}</div>
-                    <p className="text-xs font-light leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>{note}</p>
+                    <p className="text-xs font-light leading-relaxed" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>{note}</p>
                   </div>
                 ))}
               </div>
 
               <div className="p-5 bg-secondary/8 border border-border/40 rounded-2xl">
                 <p className="text-sm font-medium text-coastal-ocean mb-2">Ważne dla kobiet:</p>
-                <p className="text-sm font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
+                <p className="text-sm font-light" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
                   Jeśli masz nieregularne cykle, problemy z tarczycą, PCOS lub stres – zacznij
                   od protokołu 12:12 i obserwuj swoje ciało przez 4-6 tygodni zanim wydłużysz post.
                 </p>
@@ -93,7 +93,7 @@ export default function KalkulatorOknaPage() {
           </section>
 
           <div className="mt-12 pt-6 border-t border-border/40">
-            <p className="text-xs font-light leading-relaxed text-center" style={{ color: 'rgba(72, 89, 107, 0.6)' }}>
+            <p className="text-xs font-light leading-relaxed text-center" style={{ color: 'rgba(45, 58, 45, 0.6)' }}>
               Kalkulator ma charakter informacyjny. Post przerywany nie jest odpowiedni dla wszystkich.
               Przed wdrożeniem skonsultuj się z lekarzem, szczególnie jeśli masz problemy hormonalne lub tarczycę.
             </p>

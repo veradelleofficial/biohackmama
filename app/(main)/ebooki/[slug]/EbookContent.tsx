@@ -62,7 +62,7 @@ export default function EbookContent({ ebook }: { ebook: Ebook | null }) {
           <Link
             href="/ebooki"
             className="inline-flex items-center gap-1.5 text-sm hover:text-coastal-gold transition-colors duration-200"
-            style={{ color: 'rgba(72,89,107,0.6)' }}
+            style={{ color: 'rgba(45, 58, 45,0.6)' }}
           >
             <ArrowLeft size={15} />
             Ebooki
@@ -82,12 +82,12 @@ export default function EbookContent({ ebook }: { ebook: Ebook | null }) {
               title={ebook.title}
               pages={ebook.pages}
               coverImage={ebook.coverImage}
-              accentColor="#A68A69"
-              spineColor="#213a50"
+              accentColor="#4F5E44"
+              spineColor="#2D3A2D"
             />
             <p
               className="text-center text-xs mt-6 font-medium"
-              style={{ color: 'rgba(33,58,80,0.45)' }}
+              style={{ color: 'rgba(45, 58, 45,0.45)' }}
             >
               <BookOpen size={12} className="inline mr-1.5 -mt-px" />
               {ebook.pages} stron · Format PDF
@@ -103,7 +103,7 @@ export default function EbookContent({ ebook }: { ebook: Ebook | null }) {
             {/* Title */}
             <h1
               className="text-3xl sm:text-4xl font-body font-bold leading-tight mb-4"
-              style={{ color: '#213a50', letterSpacing: '-0.02em' }}
+              style={{ color: '#2D3A2D', letterSpacing: '-0.02em' }}
             >
               {ebook.title}
             </h1>
@@ -111,7 +111,7 @@ export default function EbookContent({ ebook }: { ebook: Ebook | null }) {
             {/* Description */}
             <p
               className="text-base leading-relaxed mb-8 font-light"
-              style={{ color: 'rgba(72,89,107,0.80)' }}
+              style={{ color: 'rgba(45, 58, 45,0.80)' }}
             >
               {ebook.description}
             </p>
@@ -125,25 +125,25 @@ export default function EbookContent({ ebook }: { ebook: Ebook | null }) {
                 className="px-6 pt-6 pb-5"
                 style={{
                   background:
-                    'linear-gradient(135deg, rgba(166,138,105,0.08) 0%, rgba(174,202,232,0.10) 100%)',
+                    'linear-gradient(135deg, rgba(79, 94, 68,0.08) 0%, rgba(184, 150, 104,0.10) 100%)',
                 }}
               >
                 <p
                   className="text-xs font-semibold uppercase tracking-widest mb-1"
-                  style={{ color: 'rgba(33,58,80,0.45)' }}
+                  style={{ color: 'rgba(45, 58, 45,0.45)' }}
                 >
                   Cena
                 </p>
                 <p
                   className="text-5xl font-bold leading-none mb-1"
-                  style={{ color: '#213a50' }}
+                  style={{ color: '#2D3A2D' }}
                 >
                   {ebook.price}{' '}
-                  <span className="text-2xl font-medium" style={{ color: 'rgba(33,58,80,0.55)' }}>
+                  <span className="text-2xl font-medium" style={{ color: 'rgba(45, 58, 45,0.55)' }}>
                     zł
                   </span>
                 </p>
-                <p className="text-xs" style={{ color: 'rgba(33,58,80,0.45)' }}>
+                <p className="text-xs" style={{ color: 'rgba(45, 58, 45,0.45)' }}>
                   Jednorazowa płatność · Dostęp na zawsze
                 </p>
               </div>
@@ -154,7 +154,7 @@ export default function EbookContent({ ebook }: { ebook: Ebook | null }) {
                   Kup i pobierz
                 </ShimmerButton>
 
-                <div className="flex items-center justify-center gap-1.5 text-xs" style={{ color: 'rgba(33,58,80,0.45)' }}>
+                <div className="flex items-center justify-center gap-1.5 text-xs" style={{ color: 'rgba(45, 58, 45,0.45)' }}>
                   <Shield size={11} />
                   Bezpieczna płatność · Natychmiastowe pobranie
                 </div>
@@ -165,7 +165,7 @@ export default function EbookContent({ ebook }: { ebook: Ebook | null }) {
             <div>
               <p
                 className="text-xs font-semibold uppercase tracking-widest mb-4"
-                style={{ color: 'rgba(33,58,80,0.45)' }}
+                style={{ color: 'rgba(45, 58, 45,0.45)' }}
               >
                 Co znajdziesz w środku
               </p>
@@ -184,9 +184,9 @@ export default function EbookContent({ ebook }: { ebook: Ebook | null }) {
                     <CheckCircle
                       size={16}
                       className="flex-shrink-0 mt-0.5"
-                      style={{ color: '#A68A69' }}
+                      style={{ color: '#4F5E44' }}
                     />
-                    <span className="text-sm" style={{ color: 'rgba(33,58,80,0.80)' }}>
+                    <span className="text-sm" style={{ color: 'rgba(45, 58, 45,0.80)' }}>
                       {benefit}
                     </span>
                   </motion.li>
@@ -198,14 +198,14 @@ export default function EbookContent({ ebook }: { ebook: Ebook | null }) {
             {ebook.author && (
               <div
                 className="mt-8 pt-6 border-t"
-                style={{ borderColor: 'rgba(33,58,80,0.10)' }}
+                style={{ borderColor: 'rgba(45, 58, 45,0.10)' }}
               >
-                <p className="text-xs" style={{ color: 'rgba(33,58,80,0.50)' }}>
+                <p className="text-xs" style={{ color: 'rgba(45, 58, 45,0.50)' }}>
                   Autorka:{' '}
                   <Link
                     href="/o-mnie"
                     className="font-medium hover:text-coastal-gold transition-colors duration-200"
-                    style={{ color: 'rgba(33,58,80,0.70)' }}
+                    style={{ color: 'rgba(45, 58, 45,0.70)' }}
                   >
                     {ebook.author}
                   </Link>
@@ -223,11 +223,11 @@ export default function EbookContent({ ebook }: { ebook: Ebook | null }) {
             whileInView="visible"
             viewport={VIEWPORT_ONCE}
             className="mt-16 pt-14 border-t"
-            style={{ borderColor: 'rgba(33,58,80,0.10)' }}
+            style={{ borderColor: 'rgba(45, 58, 45,0.10)' }}
           >
             <h2
               className="font-accent font-semibold text-2xl md:text-3xl normal-case mb-6"
-              style={{ color: '#213a50' }}
+              style={{ color: '#2D3A2D' }}
             >
               O tym ebooku
             </h2>
@@ -250,7 +250,7 @@ export default function EbookContent({ ebook }: { ebook: Ebook | null }) {
           viewport={VIEWPORT_ONCE}
           className="mt-14 text-center"
         >
-          <p className="text-sm mb-5" style={{ color: 'rgba(33,58,80,0.55)' }}>
+          <p className="text-sm mb-5" style={{ color: 'rgba(45, 58, 45,0.55)' }}>
             Zainteresowana innymi ebookami?
           </p>
           <Link

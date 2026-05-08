@@ -86,7 +86,7 @@ export function SmoothAccordion({
             >
               <span
                 className="font-body font-semibold text-sm md:text-base transition-colors duration-200 group-hover:text-coastal-gold"
-                style={{ color: '#213a50' }}
+                style={{ color: '#2D3A2D' }}
               >
                 {item.header}
               </span>
@@ -109,7 +109,7 @@ export function SmoothAccordion({
                   <Plus
                     size={18}
                     strokeWidth={1.5}
-                    style={{ color: isOpen ? '#A68A69' : 'rgba(33,58,80,0.45)' }}
+                    style={{ color: isOpen ? '#4F5E44' : 'rgba(45, 58, 45,0.45)' }}
                   />
                 </motion.div>
               </div>

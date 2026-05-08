@@ -36,7 +36,7 @@ export default function PigulkaPage({ params }: { params: { slug: string } }) {
   if (pigulka === null) {
     return (
       <main className="pt-24 pb-16 text-center">
-        <p className="text-base font-light" style={{ color: 'rgba(72,89,107,0.75)' }}>
+        <p className="text-base font-light" style={{ color: 'rgba(45, 58, 45,0.75)' }}>
           Nie znaleziono pigułki.
         </p>
       </main>

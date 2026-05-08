@@ -49,7 +49,7 @@ export default function TrackerCykluPage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal tracking-heading uppercase mb-4">
               Tracker Cyklu i Suplementacji
             </h1>
-            <p className="text-lg font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
+            <p className="text-lg font-light" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
               Podaj dzień cyklu i dowiedz się, jakie suplementy najlepiej wspierają
               twój organizm teraz. Protokoły oparte na infradian rhythm.
             </p>
@@ -62,19 +62,19 @@ export default function TrackerCykluPage() {
               Czym jest infradian rhythm?
             </h2>
             <div className="space-y-4">
-              <p className="font-light leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.85)' }}>
+              <p className="font-light leading-relaxed" style={{ color: 'rgba(45, 58, 45, 0.85)' }}>
                 Kobiety mają dwa rytmy biologiczne: dobowy (circadian) i miesięczny (infradian).
                 Infradian rhythm trwa 24-35 dni i reguluje cykl menstruacyjny, gospodarkę
                 hormonalną, poziom energii, metabolizm i nastrój.
               </p>
-              <p className="font-light leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.85)' }}>
+              <p className="font-light leading-relaxed" style={{ color: 'rgba(45, 58, 45, 0.85)' }}>
                 W każdej fazie cyklu twoje ciało ma inne potrzeby żywieniowe i suplementacyjne.
                 Dostosowanie diety i suplementacji do faz cyklu (cycle syncing) może poprawić
                 równowagę hormonalną, zmniejszyć PMS i zwiększyć poziom energii.
               </p>
               <div className="p-5 bg-secondary/8 border border-border/40 rounded-2xl">
                 <p className="text-sm font-medium text-coastal-ocean mb-2">Cycle syncing:</p>
-                <p className="text-sm font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
+                <p className="text-sm font-light" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
                   Koncepcja cycle syncing, spopularyzowana przez Alise Vitti, zakłada synchronizację
                   diety, ćwiczeń i stylu życia z fazami cyklu. Tracker suplementacji to prosty
                   pierwszy krok w kierunku tej praktyki.
@@ -84,7 +84,7 @@ export default function TrackerCykluPage() {
           </section>
 
           <div className="mt-12 pt-6 border-t border-border/40">
-            <p className="text-xs font-light leading-relaxed text-center" style={{ color: 'rgba(72, 89, 107, 0.6)' }}>
+            <p className="text-xs font-light leading-relaxed text-center" style={{ color: 'rgba(45, 58, 45, 0.6)' }}>
               Informacje mają charakter edukacyjny i nie stanowią porady medycznej. Przed wdrożeniem
               suplementacji skonsultuj się z lekarzem lub dietetykiem klinicznym.
             </p>
