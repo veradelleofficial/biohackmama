@@ -1,22 +1,26 @@
 import type { Metadata } from 'next'
-import HeroSection from '@/components/home/HeroSection'
-import FeaturedCourses from '@/components/home/FeaturedCourses'
-import FeaturedEbooks from '@/components/home/FeaturedEbooks'
-import BlogPreview from '@/components/home/BlogPreview'
-import ValuesSection from '@/components/home/ValuesSection'
-import InstagramSection from '@/components/home/InstagramSection'
+import LabRoseScope from '@/components/lab-rose/LabRoseScope'
+import Hero from '@/components/lab-rose/Hero'
+import StatsBar from '@/components/lab-rose/StatsBar'
+import StartHere from '@/components/lab-rose/StartHere'
+import FeaturedCourses from '@/components/lab-rose/FeaturedCourses'
+import FeaturedEbooks from '@/components/lab-rose/FeaturedEbooks'
+import BlogPreview from '@/components/lab-rose/BlogPreview'
+import Authority from '@/components/lab-rose/Authority'
+import NewsletterCTA from '@/components/lab-rose/NewsletterCTA'
+import Disclaimer from '@/components/lab-rose/Disclaimer'
 
 export const metadata: Metadata = {
-  title: 'BioHackMama – Biohacking i Wellness dla Kobiet | Vera Delle',
+  title: 'BioHackMama – Naukowy biohacking dla mam | Vera Delle',
   description:
-    'Naukowe protokoły biohackingu dopasowane do kobiecego ciała. Hormony w równowadze, optymalizacja snu, żywienie i longevity. Kursy, ebooki i bezpłatne artykuły od Very Delle.',
+    'Mierzone protokoły hormonalne, snu i regeneracji oparte na badaniach. Bez ezoteryki, bez suplementacji za 800 zł miesięcznie. Tylko to, co działa w 14 dni. Vera Delle.',
   alternates: {
     canonical: 'https://biohackmama.pl',
   },
   openGraph: {
-    title: 'BioHackMama – Biohacking i Wellness dla Kobiet',
+    title: 'BioHackMama – Naukowy biohacking dla mam',
     description:
-      'Naukowe protokoły biohackingu dopasowane do kobiecego ciała. Hormony, sen, żywienie i longevity przez Verę Delle.',
+      'Mierzone protokoły hormonalne, snu i regeneracji. Bez ezoteryki. Tylko to, co działa w 14 dni.',
     url: 'https://biohackmama.pl',
     type: 'website',
   },
@@ -24,20 +28,16 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main>
-      <HeroSection />
+    <LabRoseScope>
+      <Hero />
+      <StatsBar />
+      <StartHere />
       <FeaturedCourses />
       <FeaturedEbooks />
+      <Authority />
       <BlogPreview />
-      <ValuesSection />
-      <InstagramSection />
-      <div className="container pb-10 md:pb-14">
-        <div className="pt-8 border-t border-border/40 text-center">
-          <p className="text-xs font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.6)' }}>
-            Prezentowane materiały mają charakter wyłącznie informacyjny i nie stanowią porady medycznej ani specjalistycznej. Przed wprowadzeniem zmian w suplementacji lub stylu życia, skonsultuj się z lekarzem.
-          </p>
-        </div>
-      </div>
-    </main>
+      <NewsletterCTA />
+      <Disclaimer />
+    </LabRoseScope>
   )
 }

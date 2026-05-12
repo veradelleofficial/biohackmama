@@ -1,0 +1,208 @@
+'use client'
+
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { Instagram } from 'lucide-react'
+
+const EASE = [0.22, 1, 0.36, 1] as const
+
+const stagger = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+}
+const fadeUp = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+}
+
+export default function Hero() {
+  return (
+    <section
+      className="relative overflow-hidden"
+      style={{ padding: 'clamp(6rem, 12vw, 10rem) 0 clamp(4rem, 8vw, 7rem)' }}
+    >
+      {/* Ambient rose glow — top right */}
+      <div
+        aria-hidden
+        className="absolute pointer-events-none"
+        style={{
+          top: '-10%',
+          right: '-15%',
+          width: '50%',
+          height: '50%',
+          background: 'radial-gradient(ellipse at center, rgba(232,174,189,0.09) 0%, transparent 65%)',
+          filter: 'blur(60px)',
+        }}
+      />
+      {/* Ambient lime glow — bottom left */}
+      <div
+        aria-hidden
+        className="absolute pointer-events-none"
+        style={{
+          bottom: '-20%',
+          left: '-10%',
+          width: '40%',
+          height: '40%',
+          background: 'radial-gradient(ellipse at center, rgba(201,242,79,0.04) 0%, transparent 70%)',
+          filter: 'blur(80px)',
+        }}
+      />
+      {/* Vertical hairlines */}
+      <div
+        aria-hidden
+        className="hidden md:block absolute left-8 top-0 bottom-0 w-px"
+        style={{ background: 'linear-gradient(to bottom, transparent, var(--lr-rule), transparent)' }}
+      />
+      <div
+        aria-hidden
+        className="hidden md:block absolute right-8 top-0 bottom-0 w-px"
+        style={{ background: 'linear-gradient(to bottom, transparent, var(--lr-rule), transparent)' }}
+      />
+
+      <motion.div
+        className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 relative"
+        variants={stagger}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Top row — eyebrow */}
+        <motion.div variants={fadeUp} className="mb-12 md:mb-16">
+          <span className="lr-eyebrow">Protokół</span>
+        </motion.div>
+
+        {/* Headline */}
+        <motion.h1 variants={fadeUp} style={{ maxWidth: '22ch' }}>
+          Twój przewodnik po{' '}
+          <span className="lr-rose" style={{ fontStyle: 'italic', fontWeight: 300 }}>
+            świadomym życiu
+          </span>{' '}
+          w świecie pełnym chemii.
+        </motion.h1>
+
+        {/* Body */}
+        <motion.p variants={fadeUp} className="mt-10 md:mt-12" style={{ maxWidth: '56ch' }}>
+          Łączę rzetelny biohacking z filozofią non-toxic i mądrością ziołolecznictwa. Pokazuję
+          kobietom, mężczyznom i całym rodzinom, jak oczyścić codzienność ze zbędnych toksyn i
+          wejść na najwyższy poziom własnych możliwości, krok po kroku, bez perfekcji od zaraz.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          variants={fadeUp}
+          className="mt-10 md:mt-14 flex flex-wrap gap-3 md:gap-4 items-center"
+        >
+          <Link href="/kursy" className="lr-cta-primary">
+            Poznaj rozwiązania
+            <span aria-hidden>→</span>
+          </Link>
+          <Link href="/audyt" className="lr-cta-ghost">
+            Zrób audyt (3 min)
+          </Link>
+        </motion.div>
+
+        {/* Signature + Instagram branch */}
+        <motion.div
+          variants={fadeUp}
+          className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-end"
+          style={{ paddingTop: '2rem', borderTop: '1px solid var(--lr-rule)' }}
+        >
+          {/* Left — signature */}
+          <div>
+            <span
+              className="lr-script"
+              style={{
+                fontSize: 'clamp(2.5rem, 4.5vw, 3.5rem)',
+                color: 'var(--lr-rose)',
+                transform: 'rotate(-3deg)',
+                display: 'inline-block',
+                lineHeight: 0.9,
+              }}
+            >
+              Vera Delle
+            </span>
+            <div
+              className="lr-mono mt-2"
+              style={{
+                color: 'var(--lr-ink-dim)',
+                fontSize: '0.625rem',
+                letterSpacing: '0.22em',
+              }}
+            >
+              Founder · BioHackMama
+            </div>
+          </div>
+
+          {/* Right — Instagram branch */}
+          <div>
+            <span
+              className="lr-mono"
+              style={{
+                fontSize: '0.625rem',
+                color: 'var(--lr-ink-dim)',
+                letterSpacing: '0.22em',
+                display: 'block',
+                marginBottom: '0.875rem',
+              }}
+            >
+              TU DOWIESZ SIĘ WIĘCEJ
+            </span>
+            <div className="space-y-2">
+              {[
+                { handle: '@biohackmama.pl', href: 'https://instagram.com/biohackmama.pl' },
+                { handle: '@veradelleofficial', href: 'https://instagram.com/veradelleofficial' },
+              ].map((ig) => (
+                <a
+                  key={ig.handle}
+                  href={ig.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.875rem',
+                    padding: '0.875rem 1rem',
+                    border: '1px solid var(--lr-rule)',
+                    background: 'var(--lr-surface)',
+                    textDecoration: 'none',
+                    transition: 'border-color 240ms var(--ease-out-strong)',
+                  }}
+                >
+                  <Instagram
+                    size={16}
+                    strokeWidth={1.5}
+                    style={{
+                      color: 'var(--lr-rose)',
+                      transition: 'color 240ms var(--ease-out-strong)',
+                    }}
+                  />
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-fraunces), serif',
+                      fontSize: '1rem',
+                      color: 'var(--lr-ink)',
+                      flex: 1,
+                    }}
+                  >
+                    {ig.handle}
+                  </span>
+                  <span
+                    style={{
+                      color: 'var(--lr-accent)',
+                      fontSize: '1rem',
+                      transition: 'transform 240ms var(--ease-out-strong)',
+                      display: 'inline-block',
+                    }}
+                    className="group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </section>
+  )
+}

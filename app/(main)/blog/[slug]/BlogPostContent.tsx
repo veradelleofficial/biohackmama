@@ -477,7 +477,7 @@ const makePortableTextComponents = (): PortableTextComponents => ({
           </p>
           {value.attribution && (
             <cite className="text-sm font-medium not-italic text-coastal-gold">
-              — {value.attribution}
+              · {value.attribution}
             </cite>
           )}
         </div>

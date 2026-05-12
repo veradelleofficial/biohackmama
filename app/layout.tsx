@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Inter, Cormorant_Garamond } from 'next/font/google'
+import { Playfair_Display, Inter, Cormorant_Garamond, Fraunces, JetBrains_Mono, Allura } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -25,6 +25,25 @@ const cormorant = Cormorant_Garamond({
   subsets: ['latin', 'latin-ext'],
   variable: '--font-cormorant',
   weight: ['300', '400', '600'],
+})
+
+const fraunces = Fraunces({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-fraunces',
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-jetbrains',
+  weight: ['400', '500', '600', '700'],
+})
+
+const allura = Allura({
+  subsets: ['latin'],
+  variable: '--font-allura',
+  weight: ['400'],
 })
 
 
@@ -188,7 +207,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="pl" className={`${playfair.variable} ${inter.variable} ${cormorant.variable}`}>
+      <html lang="pl" data-page="lab-rose" className={`${playfair.variable} ${inter.variable} ${cormorant.variable} ${fraunces.variable} ${jetbrainsMono.variable} ${allura.variable}`}>
         <head>
           <script
             type="application/ld+json"
@@ -203,7 +222,7 @@ export default function RootLayout({
             dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
           />
         </head>
-        <body>
+        <body className="lab-rose">
           <SmoothScrollProvider>
             <Navbar />
             <LayoutAnimationProvider>

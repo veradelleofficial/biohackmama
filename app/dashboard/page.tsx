@@ -76,7 +76,7 @@ export default function DashboardPage() {
             Witaj, {user?.firstName || 'piękna'}!
           </h1>
           <p className="text-base md:text-lg font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
-            Twój panel — subskrypcja, kursy i ebooki w jednym miejscu
+            Twój panel: subskrypcja, kursy i ebooki w jednym miejscu
           </p>
         </motion.div>
 
@@ -103,7 +103,7 @@ export default function DashboardPage() {
               ) : (
                 <div className="bg-card rounded-3xl p-5 md:p-6 border border-border/60 shadow-coastal-sm">
                   <stat.icon className="w-6 h-6 text-coastal-ocean mb-3" />
-                  <p className="text-2xl font-bold text-coastal-gold">{stat.value ?? '—'}</p>
+                  <p className="text-2xl font-bold text-coastal-gold">{stat.value ?? '·'}</p>
                   <p className="text-sm font-light" style={{ color: 'rgba(72, 89, 107, 0.7)' }}>{stat.label}</p>
                 </div>
               )}
@@ -134,7 +134,7 @@ export default function DashboardPage() {
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" />
-                    <p className="text-sm font-semibold" style={{ color: '#213a50' }}>BioHackMama Premium — Aktywna</p>
+                    <p className="text-sm font-semibold" style={{ color: '#213a50' }}>BioHackMama Premium · Aktywna</p>
                   </div>
                   {subscriptionEnd && (
                     <p className="text-xs font-light" style={{ color: 'rgba(33,58,80,0.55)' }}>

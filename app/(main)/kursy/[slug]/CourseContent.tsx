@@ -41,26 +41,26 @@ const EASE_OUT = [0.22, 1, 0.36, 1] as const
 
 const DEMO_CURRICULUM: CurriculumModule[] = [
   {
-    title: 'Moduł 1 — Wprowadzenie do biohackingu',
+    title: 'Moduł 1: Wprowadzenie do biohackingu',
     lessons: [
       { title: 'Czym jest biohacking i dlaczego działa inaczej dla kobiet', duration: '18 min', free: true },
-      { title: 'Twój infradian rhythm — wewnętrzny zegar kobiety', duration: '24 min' },
+      { title: 'Twój infradian rhythm: wewnętrzny zegar kobiety', duration: '24 min' },
       { title: 'Pierwsze kroki: tracking i pomiary bazowe', duration: '15 min' },
     ],
   },
   {
-    title: 'Moduł 2 — Hormony i cykl dobowy',
+    title: 'Moduł 2: Hormony i cykl dobowy',
     lessons: [
-      { title: 'Kortyzol, insulina i adenozyna — jak je kontrolować', duration: '31 min' },
+      { title: 'Kortyzol, insulina i adenozyna, jak je kontrolować', duration: '31 min' },
       { title: 'Protokół porannej rutyny', duration: '20 min' },
       { title: 'Wieczorna deaktywacja układu nerwowego', duration: '22 min' },
       { title: 'Suplementacja na wybranych etapach cyklu', duration: '28 min' },
     ],
   },
   {
-    title: 'Moduł 3 — Żywienie i metabolizm',
+    title: 'Moduł 3: Żywienie i metabolizm',
     lessons: [
-      { title: 'Glukoza i insulina — zrozum swoje skoki cukru', duration: '26 min' },
+      { title: 'Glukoza i insulina, zrozum swoje skoki cukru', duration: '26 min' },
       { title: 'Post przerywany a faza cyklu', duration: '19 min' },
       { title: 'Protokoły żywieniowe dla maksymalnej energii', duration: '33 min' },
     ],
@@ -223,9 +223,9 @@ export default function CourseContent({ course }: { course: Course | null }) {
                 <VideoMorphModal
                   id={course.slug.current}
                   thumbnailSrc={course.trailerThumbnail ?? '/images/pexels-daria-liudnaya-8187452.webp'}
-                  thumbnailAlt={`Trailer — ${course.title}`}
+                  thumbnailAlt={`Trailer · ${course.title}`}
                   videoUrl={course.trailerUrl ?? 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1'}
-                  title={`${course.title} — trailer`}
+                  title={`${course.title} · trailer`}
                 />
               </div>
             </motion.div>

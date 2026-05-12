@@ -12,9 +12,9 @@ export default function Navbar() {
   const { user } = useUser()
 
   const navLinks = [
-    { href: '/blog', label: 'Blog' },
-    { href: '/kursy', label: 'Kursy' },
-    { href: '/ebooki', label: 'Ebooki' },
+    { href: '/blog', label: 'Artykuły' },
+    { href: '/kursy', label: 'Programy' },
+    { href: '/ebooki', label: 'Biblioteka' },
     { href: '/o-mnie', label: 'O mnie' },
     { href: '/kontakt', label: 'Kontakt' },
   ]

@@ -13,7 +13,7 @@ const SCIEZKI = [
   {
     emoji: '🆘',
     title: 'SOS: Przebodźcowanie',
-    desc: 'Szybkie techniki na reset układu nerwowego — oddech, nerw błędny, protokół 60 sekund.',
+    desc: 'Szybkie techniki na reset układu nerwowego: oddech, nerw błędny, protokół 60 sekund.',
     color: 'from-rose-100/60 to-rose-50/40',
     border: 'border-rose-200/50',
   },
@@ -41,7 +41,7 @@ const SCIEZKI = [
   {
     emoji: '⚖️',
     title: 'Hormony',
-    desc: 'Cykl intradiański, kortyzol poranny, estrogen i progesteron — jak pracować z cyklem.',
+    desc: 'Cykl intradiański, kortyzol poranny, estrogen i progesteron. Jak pracować z cyklem.',
     color: 'from-purple-100/60 to-purple-50/40',
     border: 'border-purple-200/50',
   },
@@ -50,23 +50,23 @@ const SCIEZKI = [
 const FAQ = [
   {
     q: 'Co to są Pigułki Wiedzy?',
-    a: 'Krótkie materiały 3-5 minut w formacie audio i wideo, do każdego dołączony jednostronicowy cheat sheet PDF. Zero teorii — tylko konkretny krok do zrobienia dziś.',
+    a: 'Krótkie materiały 3-5 minut w formacie audio i wideo, do każdego dołączony jednostronicowy cheat sheet PDF. Zero teorii. Tylko konkretny krok do zrobienia dziś.',
   },
   {
     q: 'Jak mogę słuchać nagrań audio?',
-    a: 'Każdą pigułkę odsłuchasz bezpośrednio na stronie. W przyszłości planuję też prywatny feed podcastu do Spotify i Apple Podcasts — idealny do słuchania na spacerze lub gotując obiad.',
+    a: 'Każdą pigułkę odsłuchasz bezpośrednio na stronie. W przyszłości planuję też prywatny feed podcastu do Spotify i Apple Podcasts, idealny do słuchania na spacerze lub gotując obiad.',
   },
   {
     q: 'Kiedy mogę anulować subskrypcję?',
-    a: 'W dowolnym momencie — bez zobowiązań i ukrytych opłat. Dostęp masz do końca opłaconego okresu.',
+    a: 'W dowolnym momencie, bez zobowiązań i ukrytych opłat. Dostęp masz do końca opłaconego okresu.',
   },
   {
     q: 'Jak często pojawiają się nowe pigułki?',
-    a: 'Plan to minimum 2 nowe pigułki tygodniowo. Batching — nagrywam blok treści co miesiąc, żeby zachować jakość i spójność.',
+    a: 'Plan to minimum 2 nowe pigułki tygodniowo. Batching: nagrywam blok treści co miesiąc, żeby zachować jakość i spójność.',
   },
   {
     q: 'Czy treści są dostosowane do mam?',
-    a: 'Tak — każda pigułka jest projektowana z myślą o zapracowanych mamach. Format 3-5 min pasuje na spacer z wózkiem, gotowanie obiadu czy przejazd autem.',
+    a: 'Tak, każda pigułka jest projektowana z myślą o zapracowanych mamach. Format 3-5 min pasuje na spacer z wózkiem, gotowanie obiadu czy przejazd autem.',
   },
 ]
 
@@ -167,7 +167,7 @@ export default function PremiumPage() {
               Pigułki Wiedzy
             </h1>
             <p className="text-base md:text-lg font-light leading-relaxed mb-8" style={{ color: 'rgba(72,89,107,0.78)' }}>
-              Protokoły biohackingu w 3-5 minut. Audio i wideo do słuchania w biegu, plus jednostronicowy cheat sheet do każdej pigułki. Zero teorii — tylko konkretny krok na dziś.
+              Protokoły biohackingu w 3-5 minut. Audio i wideo do słuchania w biegu, plus jednostronicowy cheat sheet do każdej pigułki. Zero teorii. Tylko konkretny krok na dziś.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm font-medium" style={{ color: 'rgba(33,58,80,0.65)' }}>
               <span className="flex items-center gap-1.5">🎧 Audio do Spotify</span>
@@ -285,7 +285,7 @@ export default function PremiumPage() {
           href="/premium/pigulki"
           className="inline-block px-6 py-3 border border-coastal-ocean/30 text-coastal-slate rounded-3xl hover:bg-secondary/10 transition-all duration-200 text-sm"
         >
-          Mam już subskrypcję — przejdź do biblioteki →
+          Mam już subskrypcję, przejdź do biblioteki →
         </Link>
       </div>
     </main>

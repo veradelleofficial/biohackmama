@@ -1,44 +1,42 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { Search, BookOpen, GraduationCap, FileText, Heart, ArrowRight } from 'lucide-react'
+import { Search, BookOpen, GraduationCap, FileText, Heart } from 'lucide-react'
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const
 
 const categories = [
   {
     title: 'Artykuły',
-    description: 'Naukowe protokoły i porady dotyczące zdrowia',
+    description: 'Naukowe protokoły i porady dotyczące zdrowia.',
     href: '/blog',
     icon: FileText,
-    color: '#A68A69',
-    bg: 'rgba(166,138,105,0.08)',
+    accent: 'rose' as const,
   },
   {
     title: 'E-booki',
-    description: 'Praktyczne przewodniki do pobrania',
+    description:
+      'Wiedza spoza utartych ścieżek, sprawdzona na sobie. Każdy ebook z bibliografią naukową.',
     href: '/ebooki',
     icon: BookOpen,
-    color: '#213a50',
-    bg: 'rgba(33,58,80,0.06)',
+    accent: 'lime' as const,
   },
   {
     title: 'Kursy',
-    description: 'Kompleksowe programy online z certyfikatem',
+    description: 'Realna praca nad sobą krok po kroku. Mierzalny efekt w ciele i w głowie.',
     href: '/kursy',
     icon: GraduationCap,
-    color: '#A68A69',
-    bg: 'rgba(166,138,105,0.08)',
+    accent: 'rose' as const,
   },
   {
-    title: 'Moja historia',
-    description: 'Poznaj Verę Delle i jej drogę do biohackingu',
+    title: 'Poznaj Weronikę',
+    description: 'Skąd to wszystko się wzięło i dlaczego to robię.',
     href: '/o-mnie',
     icon: Heart,
-    color: '#213a50',
-    bg: 'rgba(33,58,80,0.06)',
+    accent: 'lime' as const,
   },
 ]
 
@@ -55,126 +53,207 @@ export default function SearchPage() {
   }
 
   return (
-    <main className="pt-24 md:pt-32 pb-14 md:pb-20">
-      <div className="container max-w-3xl">
-
-        {/* Header */}
-        <motion.div
-          className="text-center mb-10 md:mb-14"
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: EASE_OUT }}
-        >
-          <h1
-            className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal mb-3 tracking-heading uppercase"
-          >
-            Szukaj
-          </h1>
-          <p className="text-base font-light" style={{ color: 'rgba(72,89,107,0.75)' }}>
-            Znajdź artykuły, kursy, ebooki i więcej
-          </p>
-        </motion.div>
-
-        {/* Search bar */}
-        <motion.form
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.1, ease: EASE_OUT }}
-          className="mb-14 md:mb-16"
-        >
-          <motion.div
-            animate={
-              focused
-                ? { boxShadow: '0 0 0 3px rgba(166,138,105,0.18), 0 0 0 1px rgba(166,138,105,0.45)' }
-                : { boxShadow: 'var(--shadow-rest)' }
-            }
-            transition={{ duration: 0.22 }}
-            className="relative rounded-2xl"
-          >
-            <Search
-              className="absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none"
-              size={20}
-              style={{ color: focused ? '#A68A69' : 'rgba(33,58,80,0.35)' }}
-            />
-            <input
-              type="text"
-              placeholder="Czego szukasz?"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onFocus={() => setFocused(true)}
-              onBlur={() => setFocused(false)}
-              className="w-full pl-14 pr-5 py-4 md:py-5 bg-card border border-border/60 rounded-2xl focus:outline-none transition-colors duration-300 text-base md:text-lg"
-              style={{ color: '#213a50' }}
-              autoFocus
-            />
-          </motion.div>
-        </motion.form>
-
-        {/* Category tiles */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5"
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.08, delayChildren: 0.25 } },
+    <main className="min-h-screen">
+      <section
+        className="relative overflow-hidden"
+        style={{ padding: 'clamp(5rem, 9vw, 7rem) 0 clamp(3rem, 5vw, 4rem)' }}
+      >
+        <div
+          aria-hidden
+          className="absolute pointer-events-none"
+          style={{
+            top: '-20%',
+            right: '-10%',
+            width: '50%',
+            height: '70%',
+            background: 'radial-gradient(ellipse at center, rgba(232,174,189,0.12) 0%, transparent 65%)',
+            filter: 'blur(50px)',
           }}
-          initial="hidden"
-          animate="visible"
+        />
+
+        <motion.div
+          className="max-w-3xl mx-auto px-6 md:px-12 lg:px-16 relative"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: EASE_OUT }}
         >
-          {categories.map((cat) => {
-            const Icon = cat.icon
-            return (
-              <motion.a
-                key={cat.href}
-                href={cat.href}
-                variants={{
-                  hidden: { opacity: 0, y: 16, scale: 0.97 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    transition: { duration: 0.5, ease: EASE_OUT },
-                  },
+          <nav aria-label="Breadcrumb" className="mb-10">
+            <ol
+              className="lr-mono flex items-center gap-2 flex-wrap"
+              style={{ fontSize: '0.625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.22em' }}
+            >
+              <li>
+                <Link href="/" style={{ color: 'var(--lr-ink-soft)', textDecoration: 'none' }}>
+                  HOME
+                </Link>
+              </li>
+              <li>/</li>
+              <li style={{ color: 'var(--lr-rose)' }}>SZUKAJ</li>
+            </ol>
+          </nav>
+
+          <span className="lr-eyebrow">Szukaj</span>
+          <h1
+            className="mt-6"
+            style={{
+              fontSize: 'clamp(2rem, 4.5vw, 3rem)',
+              lineHeight: 1.05,
+              maxWidth: '20ch',
+            }}
+          >
+            Czego{' '}
+            <span className="lr-rose" style={{ fontStyle: 'italic' }}>
+              dziś szukasz?
+            </span>
+          </h1>
+          <p className="mt-6" style={{ maxWidth: '48ch', fontSize: '1rem' }}>
+            Wpisz temat: hormony, sen, kortyzol, post przerywany, ziołolecznictwo, longevity.
+            Albo wybierz kategorię poniżej.
+          </p>
+
+          {/* Search */}
+          <form onSubmit={handleSubmit} className="mt-10">
+            <div
+              style={{
+                position: 'relative',
+                border: '1px solid',
+                borderColor: focused ? 'var(--lr-accent)' : 'var(--lr-rule-strong)',
+                background: 'var(--lr-bg)',
+                transition: 'border-color 200ms var(--ease-out-strong)',
+                boxShadow: focused ? '0 0 0 1px var(--lr-accent)' : 'none',
+              }}
+            >
+              <Search
+                className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"
+                size={18}
+                strokeWidth={1.5}
+                style={{ color: focused ? 'var(--lr-accent)' : 'var(--lr-ink-dim)' }}
+              />
+              <input
+                type="text"
+                placeholder="Wpisz hasło i naciśnij Enter..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
+                style={{
+                  width: '100%',
+                  padding: '1.1rem 1.25rem 1.1rem 3rem',
+                  background: 'transparent',
+                  border: 'none',
+                  color: 'var(--lr-ink)',
+                  fontSize: '0.9375rem',
+                  outline: 'none',
+                  fontFamily: 'var(--font-inter), sans-serif',
                 }}
-                whileHover={{ y: -3, boxShadow: 'var(--shadow-lift)' }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-                className="group flex items-start gap-4 p-5 md:p-6 rounded-3xl border border-border/50 bg-card cursor-pointer"
-                style={{ boxShadow: 'var(--shadow-rest)' }}
-              >
-                {/* Icon */}
-                <div
-                  className="flex-shrink-0 w-11 h-11 rounded-2xl flex items-center justify-center mt-0.5"
-                  style={{ background: cat.bg }}
-                >
-                  <Icon size={20} strokeWidth={1.6} style={{ color: cat.color }} />
-                </div>
-
-                {/* Text */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between gap-2 mb-1">
-                    <h2
-                      className="font-body font-semibold text-base group-hover:text-coastal-gold transition-colors duration-200"
-                      style={{ color: '#213a50' }}
-                    >
-                      {cat.title}
-                    </h2>
-                    <ArrowRight
-                      size={14}
-                      className="flex-shrink-0 opacity-0 -translate-x-1 group-hover:opacity-60 group-hover:translate-x-0 transition-all duration-200"
-                      style={{ color: '#A68A69' }}
-                    />
-                  </div>
-                  <p className="text-xs leading-relaxed" style={{ color: 'rgba(72,89,107,0.65)' }}>
-                    {cat.description}
-                  </p>
-                </div>
-              </motion.a>
-            )
-          })}
+                autoFocus
+              />
+            </div>
+          </form>
         </motion.div>
+      </section>
 
-      </div>
+      {/* Category tiles */}
+      <section style={{ padding: '0 0 clamp(5rem, 9vw, 8rem)' }}>
+        <div className="max-w-3xl mx-auto px-6 md:px-12 lg:px-16">
+          <span className="lr-eyebrow">Kategorie</span>
+          <motion.div
+            className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-px"
+            style={{ background: 'var(--lr-rule)' }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+            }}
+            initial="hidden"
+            animate="visible"
+          >
+            {categories.map((cat) => {
+              const Icon = cat.icon
+              const accentColor = cat.accent === 'lime' ? 'var(--lr-accent)' : 'var(--lr-rose)'
+              return (
+                <motion.a
+                  key={cat.href}
+                  href={cat.href}
+                  variants={{
+                    hidden: { opacity: 0, y: 14 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.5, ease: EASE_OUT },
+                    },
+                  }}
+                  className="group"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '1rem',
+                    padding: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+                    background: 'var(--lr-bg)',
+                    textDecoration: 'none',
+                    transition: 'background-color 200ms var(--ease-out-strong)',
+                  }}
+                >
+                  <div
+                    style={{
+                      flexShrink: 0,
+                      width: '40px',
+                      height: '40px',
+                      border: '1px solid var(--lr-rule-strong)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      transition: 'border-color 240ms var(--ease-out-strong)',
+                    }}
+                    className="group-hover:border-[currentColor]"
+                  >
+                    <Icon size={16} strokeWidth={1.5} style={{ color: accentColor }} />
+                  </div>
+
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div
+                      className="flex items-center justify-between gap-2"
+                      style={{ marginBottom: '0.35rem' }}
+                    >
+                      <h2
+                        style={{
+                          fontFamily: 'var(--font-fraunces), serif',
+                          fontSize: '1.0625rem',
+                          color: 'var(--lr-ink)',
+                          fontWeight: 400,
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {cat.title}
+                      </h2>
+                      <span
+                        style={{
+                          color: accentColor,
+                          fontSize: '0.875rem',
+                          opacity: 0.4,
+                          transition: 'all 200ms var(--ease-out-strong)',
+                        }}
+                        className="group-hover:opacity-100 group-hover:translate-x-0.5"
+                      >
+                        →
+                      </span>
+                    </div>
+                    <p
+                      style={{
+                        fontSize: '0.8125rem',
+                        color: 'var(--lr-ink-soft)',
+                        lineHeight: 1.5,
+                        margin: 0,
+                      }}
+                    >
+                      {cat.description}
+                    </p>
+                  </div>
+                </motion.a>
+              )
+            })}
+          </motion.div>
+        </div>
+      </section>
     </main>
   )
 }

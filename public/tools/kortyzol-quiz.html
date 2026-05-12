@@ -6,24 +6,24 @@
   <title>Audyt Przeciążenia Kortyzolem</title>
   <style>
     :root {
-      --bg:           #EFEAE4;
-      --bg-card:      #F7F3EE;
-      --bg-card-2:    #F2EDE7;
-      --text:         #48596B;
-      --text-soft:    rgba(72, 89, 107, 0.68);
-      --gold:         #A68A69;
-      --gold-light:   rgba(166, 138, 105, 0.10);
-      --gold-mid:     rgba(166, 138, 105, 0.25);
-      --ocean:        #AECAE8;
-      --ocean-deep:   #7A90A8;
-      --border:       rgba(174, 202, 232, 0.38);
-      --border-card:  rgba(166, 138, 105, 0.14);
-      --radius:       20px;
-      --radius-sm:    12px;
-      --shadow-sm:    0 2px 10px rgba(72, 89, 107, 0.07);
-      --shadow-md:    0 6px 28px rgba(72, 89, 107, 0.11);
-      --font-serif:   'Georgia', 'Times New Roman', serif;
-      --font-sans:    system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --bg:           #0E0D0A;
+      --bg-card:      #1A1815;
+      --bg-card-2:    #232017;
+      --text:         #F4EFE6;
+      --text-soft:    rgba(244, 239, 230, 0.70);
+      --gold:         #C9F24F;
+      --gold-light:   rgba(201, 242, 79, 0.10);
+      --gold-mid:     rgba(201, 242, 79, 0.30);
+      --ocean:        #E8AEBD;
+      --ocean-deep:   #D89BAC;
+      --border:       rgba(58, 53, 45, 0.7);
+      --border-card:  rgba(42, 38, 34, 0.9);
+      --radius:       2px;
+      --radius-sm:    2px;
+      --shadow-sm:    0 2px 10px rgba(0, 0, 0, 0.35);
+      --shadow-md:    0 6px 28px rgba(0, 0, 0, 0.55);
+      --font-serif:   'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-sans:    'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,18 +38,7 @@
       min-height: 100vh;
     }
 
-    /* Film grain */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: -50%;
-      pointer-events: none;
-      opacity: 0.15;
-      mix-blend-mode: multiply;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 80px 80px;
-      z-index: 9999;
-    }
+    /* Film grain disabled on dark theme */
 
     .wrapper {
       max-width: 600px;
@@ -223,7 +212,7 @@
     }
 
     .btn-no:hover {
-      background: rgba(174, 202, 232, 0.18);
+      background: rgba(232, 174, 189, 0.10);
       border-color: var(--ocean-deep);
       color: var(--ocean-deep);
     }
@@ -287,9 +276,9 @@
       text-transform: uppercase;
     }
 
-    .badge-green  { background: rgba(90, 165, 90, 0.12);  color: #3d7a3d;  border: 1px solid rgba(90,165,90,0.25); }
-    .badge-yellow { background: rgba(200, 160, 60, 0.12); color: #9a6e10;  border: 1px solid rgba(200,160,60,0.25); }
-    .badge-red    { background: rgba(195, 70, 70, 0.12);  color: #a82828;  border: 1px solid rgba(195,70,70,0.25); }
+    .badge-green  { background: rgba(201, 242, 79, 0.10); color: #C9F24F; border: 1px solid rgba(201,242,79,0.30); }
+    .badge-yellow { background: rgba(232, 174, 189, 0.10); color: #E8AEBD; border: 1px solid rgba(232,174,189,0.30); }
+    .badge-red    { background: rgba(216, 155, 172, 0.10); color: #D89BAC; border: 1px solid rgba(216,155,172,0.32); }
 
     .result-divider {
       height: 1px;
@@ -314,10 +303,10 @@
     }
 
     .result-tips-box {
-      background: linear-gradient(135deg, rgba(166,138,105,0.06) 0%, rgba(174,202,232,0.06) 100%);
+      background: var(--bg-card-2);
       border: 1px solid var(--border-card);
       border-left: 3px solid var(--gold);
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      border-radius: 0;
       padding: 18px 20px;
       margin-bottom: 24px;
     }
@@ -342,23 +331,25 @@
       width: 100%;
       padding: 16px 24px;
       background: var(--gold);
-      color: white;
+      color: var(--bg);
       border: none;
-      border-radius: 14px;
-      font-size: 14.5px;
-      font-weight: 500;
+      border-radius: 2px;
+      font-size: 12.5px;
+      font-weight: 600;
       cursor: pointer;
       text-decoration: none;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       text-align: center;
       transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
       margin-bottom: 10px;
+      font-family: var(--font-sans);
     }
 
     .btn-cta:hover {
       filter: brightness(1.08);
       transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(166, 138, 105, 0.32);
+      box-shadow: 0 8px 24px rgba(201, 242, 79, 0.22);
     }
 
     .btn-cta:active { transform: scale(0.98); }

@@ -420,3 +420,644 @@
   }
 
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   LAB × ROSE SCOPE (Biohack × Mama, prototyp 2026-05-12)
+   Czarne lab tło + warm cream + electric lime + dusty rose.
+   Wszystkie reguły scoped pod `.lab-rose`, żeby nie naruszać reszty serwisu.
+   ════════════════════════════════════════════════════════════════════════ */
+
+.lab-rose {
+  /* Palette */
+  --lr-bg:        #0E0D0A;
+  --lr-surface:   #1A1815;
+  --lr-surface-2: #232017;
+  --lr-ink:       #F4EFE6;
+  --lr-ink-soft:  #B8B0A3;
+  --lr-ink-dim:   #6B665E;
+  --lr-accent:    #C9F24F;  /* electric lime — CTA + data */
+  --lr-accent-soft: #A8D43D;
+  --lr-rose:      #E8AEBD;  /* dusty rose — mama warmth */
+  --lr-rose-deep: #D89BAC;
+  --lr-rule:      #2A2622;
+  --lr-rule-strong: #3A352D;
+
+  background-color: var(--lr-bg);
+  color: var(--lr-ink);
+  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings — Fraunces serif, editorial weight */
+.lab-rose h1,
+.lab-rose h2,
+.lab-rose h3,
+.lab-rose h4,
+.lab-rose .lr-display {
+  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  color: var(--lr-ink);
+  font-feature-settings: 'ss01', 'ss03';
+}
+.lab-rose h1 { font-size: clamp(2.75rem, 7vw, 5.5rem); }
+.lab-rose h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
+.lab-rose h3 { font-size: clamp(1.25rem, 2.2vw, 1.75rem); }
+.lab-rose h4 { font-size: 1.125rem; line-height: 1.25; font-weight: 500; }
+
+/* Body text */
+.lab-rose p {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  color: var(--lr-ink-soft);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+}
+
+/* Mono — for data, eyebrows, badges */
+.lab-rose .lr-mono {
+  font-family: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Script — signature only */
+.lab-rose .lr-script {
+  font-family: var(--font-allura), 'Allura', cursive;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 0.9;
+}
+
+/* Accent helpers */
+.lab-rose .lr-accent { color: var(--lr-accent); }
+.lab-rose .lr-rose { color: var(--lr-rose); }
+.lab-rose .lr-ink-soft { color: var(--lr-ink-soft); }
+
+/* Eyebrow chip — mono + dot + label */
+.lab-rose .lr-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lr-ink-soft);
+}
+.lab-rose .lr-eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lr-rose);
+  box-shadow: 0 0 12px rgba(232, 174, 189, 0.6);
+}
+
+/* Lime CTA */
+.lab-rose .lr-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.75rem;
+  background: var(--lr-accent);
+  color: var(--lr-bg);
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 240ms var(--ease-out-strong), transform 200ms var(--ease-out-strong), box-shadow 240ms var(--ease-out-strong);
+}
+@media (hover: hover) and (pointer: fine) {
+  .lab-rose .lr-cta-primary:hover {
+    background: #D4FF3D;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgba(201, 242, 79, 0.18);
+  }
+  /* Modyfikator: hover na różowo, bez podświetlenia (np. Wyślij wiadomość) */
+  .lab-rose .lr-cta-primary--rose:hover {
+    background: var(--lr-rose);
+    color: var(--lr-bg);
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+/* Ghost CTA */
+.lab-rose .lr-cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.75rem;
+  background: transparent;
+  color: var(--lr-ink);
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid var(--lr-rule-strong);
+  cursor: pointer;
+  transition: border-color 240ms var(--ease-out-strong), color 240ms var(--ease-out-strong);
+}
+@media (hover: hover) and (pointer: fine) {
+  .lab-rose .lr-cta-ghost:hover {
+    border-color: var(--lr-rose);
+    color: var(--lr-rose);
+  }
+}
+
+/* Data stat card — large number, mono label */
+.lab-rose .lr-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.lab-rose .lr-stat__num {
+  font-family: var(--font-fraunces), serif;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 300;
+  color: var(--lr-accent);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.lab-rose .lr-stat__label {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lr-ink-soft);
+  max-width: 18ch;
+}
+
+/* Hairlines */
+.lab-rose .lr-rule {
+  height: 1px;
+  background: var(--lr-rule);
+  width: 100%;
+}
+.lab-rose .lr-rule-rose {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--lr-rose), transparent);
+}
+
+/* Footer link hover (scope-aware) */
+.lab-rose .lr-footer-link {
+  position: relative;
+}
+@media (hover: hover) and (pointer: fine) {
+  .lab-rose .lr-footer-link:hover {
+    color: var(--lr-accent) !important;
+  }
+  .lab-rose .lr-footer-icon:hover {
+    border-color: var(--lr-rose) !important;
+    color: var(--lr-rose) !important;
+  }
+  /* Hero IG branch — hover state */
+  .lab-rose a.group:hover {
+    border-color: var(--lr-rose) !important;
+  }
+}
+
+/* Override navbar appearance when on lab-rose page */
+html[data-page="lab-rose"] nav.sticky {
+  background-color: rgba(14, 13, 10, 0.72) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: var(--lr-rule) !important;
+}
+html[data-page="lab-rose"] nav.sticky a,
+html[data-page="lab-rose"] nav.sticky button {
+  color: var(--lr-ink) !important;
+}
+html[data-page="lab-rose"] nav.sticky a:hover {
+  color: var(--lr-accent) !important;
+}
+
+/* Nav links (Artykuły, Programy, Biblioteka, O mnie, Kontakt) — JetBrains Mono jak Zarejestruj */
+html[data-page="lab-rose"] .nav-link-underline {
+  font-family: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, monospace !important;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+/* Sign-in / sign-up CTAs in navbar — restyled for Lab × Rose */
+html[data-page="lab-rose"] nav.sticky a[href="/sign-in"] {
+  border-color: var(--lr-rule-strong) !important;
+  background: transparent !important;
+}
+html[data-page="lab-rose"] nav.sticky a[href="/sign-up"],
+html[data-page="lab-rose"] nav.sticky a[href="/dashboard"] {
+  background-color: var(--lr-accent) !important;
+  color: var(--lr-bg) !important;
+  font-family: var(--font-jetbrains), monospace !important;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+}
+html[data-page="lab-rose"] nav.sticky a[href="/sign-up"]:hover,
+html[data-page="lab-rose"] nav.sticky a[href="/dashboard"]:hover {
+  background-color: var(--lr-rose) !important;
+  color: var(--lr-bg) !important;
+}
+html[data-page="lab-rose"] nav.sticky a[href="/sign-in"]:hover {
+  border-color: var(--lr-rose) !important;
+  color: var(--lr-rose) !important;
+  background: transparent !important;
+}
+
+/* Hamburger lines on dark navbar */
+html[data-page="lab-rose"] .hamburger-line {
+  background-color: var(--lr-ink) !important;
+}
+
+/* Mobile menu drawer */
+html[data-page="lab-rose"] nav.sticky > div + div {
+  background-color: rgba(14, 13, 10, 0.96) !important;
+  border-top-color: var(--lr-rule) !important;
+}
+
+/* Body bg + scroll snap when on lab-rose page */
+html[data-page="lab-rose"] body {
+  background-color: var(--lr-bg);
+  color: var(--lr-ink);
+}
+
+/* ─── COASTAL → LAB ROSE COLOR REMAP ─────────────────────────────────────
+   Globalny mapping starych klas Tailwind/coastal na paletę Lab × Rose.
+   Pozwala subpages dziedziczyć nową paletę bez przepisywania kodu.
+   ──────────────────────────────────────────────────────────────────────── */
+
+.lab-rose .bg-coastal-sand,
+.lab-rose .bg-coastal-cream,
+.lab-rose .bg-background,
+.lab-rose [class*="bg-coastal-sand/"] {
+  background-color: var(--lr-bg) !important;
+}
+.lab-rose .bg-card {
+  background-color: var(--lr-surface) !important;
+  color: var(--lr-ink);
+}
+.lab-rose .bg-coastal-gold,
+.lab-rose [class*="bg-coastal-gold/"] {
+  background-color: var(--lr-accent) !important;
+  color: var(--lr-bg) !important;
+}
+.lab-rose .bg-coastal-ocean,
+.lab-rose [class*="bg-coastal-ocean/"],
+.lab-rose .bg-secondary,
+.lab-rose [class*="bg-secondary/"] {
+  background-color: rgba(232, 174, 189, 0.12) !important;
+}
+.lab-rose .bg-primary,
+.lab-rose [class*="bg-primary/"] {
+  background-color: rgba(201, 242, 79, 0.12) !important;
+}
+
+.lab-rose .text-coastal-slate,
+.lab-rose .text-foreground {
+  color: var(--lr-ink) !important;
+}
+.lab-rose .text-coastal-gold {
+  color: var(--lr-accent) !important;
+}
+.lab-rose .text-coastal-ocean,
+.lab-rose .text-secondary {
+  color: var(--lr-rose) !important;
+}
+.lab-rose .text-muted-foreground,
+.lab-rose .text-foreground\/60,
+.lab-rose .text-foreground\/70,
+.lab-rose .text-foreground\/80 {
+  color: var(--lr-ink-soft) !important;
+}
+
+.lab-rose .border-coastal-ocean,
+.lab-rose [class*="border-coastal-ocean/"],
+.lab-rose .border-coastal-gold,
+.lab-rose [class*="border-coastal-gold/"],
+.lab-rose .border-border,
+.lab-rose [class*="border-border/"] {
+  border-color: var(--lr-rule) !important;
+}
+
+/* Buttons w starym stylu coastal-gold → lime CTA */
+.lab-rose button.bg-coastal-gold,
+.lab-rose a.bg-coastal-gold,
+.lab-rose [class*="bg-coastal-gold"]:where(button, a) {
+  background-color: var(--lr-accent) !important;
+  color: var(--lr-bg) !important;
+  font-family: var(--font-jetbrains), monospace !important;
+  letter-spacing: 0.16em !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  font-size: 0.75rem !important;
+}
+
+/* Inputs ciemne */
+.lab-rose input,
+.lab-rose textarea,
+.lab-rose select {
+  background-color: var(--lr-bg) !important;
+  border-color: var(--lr-rule-strong) !important;
+  color: var(--lr-ink) !important;
+}
+.lab-rose input::placeholder,
+.lab-rose textarea::placeholder {
+  color: var(--lr-ink-dim) !important;
+}
+.lab-rose input:focus,
+.lab-rose textarea:focus,
+.lab-rose select:focus {
+  border-color: var(--lr-accent) !important;
+  outline: none;
+  box-shadow: 0 0 0 1px var(--lr-accent);
+}
+
+/* Body domyślnie ma paletę lab-rose, ale wbudowane Tailwind tokens (np. bg-background w html)
+   też trafiają do dark; przy braku scope wracają do starych. */
+.lab-rose section,
+.lab-rose article,
+.lab-rose main {
+  background-color: transparent;
+}
+
+/* Shadow tokens — ciepłe na dark */
+.lab-rose .shadow-coastal,
+.lab-rose .shadow-coastal-sm,
+.lab-rose .shadow-coastal-lg {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32) !important;
+}
+
+/* Filter sepia/saturate na obrazach — wyłączyć w lab-rose */
+.lab-rose .vintage-film img,
+.lab-rose .vintage-film video {
+  filter: contrast(1.02) saturate(0.92) brightness(0.95) !important;
+}
+
+/* ─── INLINE STYLE COLOR OVERRIDES ───────────────────────────────────────
+   Łapie konkretne RGBA i hex używane przez Coastal w inline style={{...}}.
+   Bez edycji każdego pliku, atrybucją selektora przekierowujemy na paletę
+   Lab × Rose. ─────────────────────────────────────────────────────────── */
+
+/* Dark slate / forest text → ink */
+.lab-rose [style*="rgba(72, 89, 107"],
+.lab-rose [style*="rgba(72,89,107"],
+.lab-rose [style*="rgba(33, 58, 80"],
+.lab-rose [style*="rgba(33,58,80"],
+.lab-rose [style*="rgba(63, 77, 61"],
+.lab-rose [style*="rgba(63,77,61"],
+.lab-rose [style*="rgba(45, 58, 45"],
+.lab-rose [style*="rgba(45,58,45"],
+.lab-rose [style*="rgba(46, 60, 74"],
+.lab-rose [style*="rgba(46,60,74"],
+.lab-rose [style*="rgba(122, 144, 168"],
+.lab-rose [style*="rgba(122,144,168"] {
+  color: var(--lr-ink-soft) !important;
+}
+
+/* Hex dark text → ink */
+.lab-rose [style*="#213a50"],
+.lab-rose [style*="#213A50"],
+.lab-rose [style*="#48596B"],
+.lab-rose [style*="#48596b"],
+.lab-rose [style*="#2D3A2D"],
+.lab-rose [style*="#2d3a2d"],
+.lab-rose [style*="#3F4D3D"],
+.lab-rose [style*="#3f4d3d"] {
+  color: var(--lr-ink) !important;
+}
+
+/* Coastal gold hex → lime accent */
+.lab-rose [style*="#A68A69"],
+.lab-rose [style*="#a68a69"],
+.lab-rose [style*="#8a7058"],
+.lab-rose [style*="#B89668"],
+.lab-rose [style*="#b89668"] {
+  color: var(--lr-accent) !important;
+}
+
+/* Coastal ocean hex → rose */
+.lab-rose [style*="#AECAE8"],
+.lab-rose [style*="#aecae8"],
+.lab-rose [style*="#7A90A8"],
+.lab-rose [style*="#7a90a8"] {
+  color: var(--lr-rose) !important;
+}
+
+/* Background tokens — light cream/sand backgrounds in inline → surface */
+.lab-rose [style*="background: rgba(239,234,228"],
+.lab-rose [style*="background: rgba(239, 234, 228"],
+.lab-rose [style*="background: rgba(242,235,221"],
+.lab-rose [style*="background: rgba(242, 235, 221"],
+.lab-rose [style*="background:linear-gradient(135deg, #1c3448"],
+.lab-rose [style*="background: #FBF7EE"] {
+  background: var(--lr-surface) !important;
+}
+
+/* Headings — `text-foreground` color override propagates through utility classes */
+.lab-rose h1[style*="color"],
+.lab-rose h2[style*="color"],
+.lab-rose h3[style*="color"],
+.lab-rose h4[style*="color"] {
+  color: var(--lr-ink) !important;
+}
+
+/* Common Tailwind text utilities that snuck in via auto-translation */
+.lab-rose .text-coastal-slate\/70,
+.lab-rose .text-coastal-slate\/80,
+.lab-rose .text-foreground\/50,
+.lab-rose .text-foreground\/60,
+.lab-rose .text-foreground\/70,
+.lab-rose .text-foreground\/80,
+.lab-rose .text-foreground\/90 {
+  color: var(--lr-ink-soft) !important;
+}
+
+/* Strong text in prose & paragraphs */
+.lab-rose strong {
+  color: var(--lr-ink);
+}
+
+/* Star ratings + svg fills used by lucide on cards */
+.lab-rose .fill-coastal-gold {
+  fill: var(--lr-accent) !important;
+}
+
+/* Cards with white backgrounds inside lab-rose scope */
+.lab-rose .bg-white,
+.lab-rose [class*="bg-white/"] {
+  background: var(--lr-surface) !important;
+  color: var(--lr-ink);
+}
+
+/* Inputs/textareas focus rings sometimes still cream */
+.lab-rose .focus\:ring-coastal-gold\/40:focus,
+.lab-rose .focus\:border-coastal-gold\/60:focus {
+  box-shadow: 0 0 0 1px var(--lr-accent) !important;
+  border-color: var(--lr-accent) !important;
+}
+
+/* Brighten paragraph-style mono captions (disclaimers, info boxes).
+   Eyebrow chips, breadcrumb separators and edition strings nadal używają
+   --lr-ink-dim — to są małe spany/divy, nie paragrafy. */
+.lab-rose p.lr-mono {
+  color: var(--lr-ink) !important;
+  opacity: 0.92;
+}
+
+/* ─── LR TOOL PANEL — "podniesiony instrument" dla kalkulatorów ─────────
+   Jaśniejsze tło + mocna ramka + głęboki cień pod + subtle inner top
+   highlight = wrażenie obiektu uniesionego z ciemnej powierzchni. */
+.lab-rose .lr-tool-panel {
+  position: relative;
+  background: linear-gradient(180deg, #262218 0%, #1F1B16 100%);
+  border: 1px solid var(--lr-rule-strong);
+  border-radius: 2px;
+  box-shadow:
+    0 1px 0 rgba(244, 239, 230, 0.045) inset,
+    0 28px 64px -16px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(0, 0, 0, 0.4);
+  /* scoped override — wewnątrz panelu dim i soft są wyraźnie jaśniejsze */
+  --lr-ink-soft: #D4CCBA;
+  --lr-ink-dim:  #BCB4A4;
+}
+.lab-rose .lr-tool-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 0%,
+    rgba(244, 239, 230, 0.025) 0%,
+    transparent 70%
+  );
+}
+
+/* Lekko podgryźć też --lr-ink-dim globalnie żeby drobne mono labele
+   (data, wersja, breadcrumb) były lepiej widoczne. */
+.lab-rose {
+  --lr-ink-dim: #948C7F;
+}
+
+/* ─── PROSE (artykuły blogowe) w Lab × Rose ──────────────────────────── */
+.lab-rose .prose {
+  color: var(--lr-ink-soft) !important;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  max-width: 68ch;
+}
+.lab-rose .prose h1,
+.lab-rose .prose h2,
+.lab-rose .prose h3,
+.lab-rose .prose h4 {
+  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif !important;
+  color: var(--lr-ink) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.15 !important;
+  text-transform: none !important;
+}
+.lab-rose .prose h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem) !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1.25rem !important;
+}
+.lab-rose .prose h3 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem) !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+}
+.lab-rose .prose p {
+  font-size: 1.0625rem !important;
+  line-height: 1.75 !important;
+  color: var(--lr-ink-soft) !important;
+  margin-bottom: 1.25rem !important;
+  text-align: left !important;
+}
+.lab-rose .prose strong {
+  color: var(--lr-ink) !important;
+  font-weight: 500 !important;
+}
+.lab-rose .prose em {
+  color: var(--lr-rose) !important;
+  font-style: italic;
+}
+.lab-rose .prose a {
+  color: var(--lr-accent) !important;
+  text-decoration: underline;
+  text-decoration-color: var(--lr-rule-strong);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 200ms var(--ease-out-strong);
+}
+.lab-rose .prose a:hover {
+  text-decoration-color: var(--lr-accent) !important;
+}
+.lab-rose .prose blockquote {
+  border-left: 2px solid var(--lr-accent) !important;
+  padding-left: 1.5rem !important;
+  margin: 2rem 0 !important;
+  font-family: var(--font-fraunces), serif !important;
+  font-style: italic !important;
+  font-size: 1.25rem !important;
+  color: var(--lr-rose) !important;
+  line-height: 1.5 !important;
+}
+.lab-rose .prose blockquote p {
+  color: var(--lr-rose) !important;
+  font-size: 1.25rem !important;
+}
+.lab-rose .prose ul,
+.lab-rose .prose ol {
+  margin: 1.5rem 0 !important;
+  padding-left: 1.5rem !important;
+}
+.lab-rose .prose li {
+  margin-bottom: 0.5rem !important;
+  color: var(--lr-ink-soft) !important;
+}
+.lab-rose .prose code {
+  font-family: var(--font-jetbrains), monospace !important;
+  background: var(--lr-surface) !important;
+  color: var(--lr-accent) !important;
+  padding: 0.15em 0.4em !important;
+  border-radius: 2px !important;
+  font-size: 0.875em !important;
+}
+.lab-rose .prose pre {
+  background: var(--lr-surface) !important;
+  border: 1px solid var(--lr-rule) !important;
+  padding: 1.25rem !important;
+  border-radius: 2px !important;
+  overflow-x: auto;
+}
+.lab-rose .prose pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  color: var(--lr-ink) !important;
+}
+.lab-rose .prose img {
+  border-radius: 2px !important;
+  border: 1px solid var(--lr-rule) !important;
+}
+.lab-rose .prose hr {
+  border-color: var(--lr-rule) !important;
+  margin: 3rem 0 !important;
+}

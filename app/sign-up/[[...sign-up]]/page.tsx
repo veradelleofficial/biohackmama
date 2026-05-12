@@ -1,28 +1,75 @@
 import { SignUp } from '@clerk/nextjs'
+import Link from 'next/link'
 
 export default function SignUpPage() {
   return (
-    <main className="min-h-[80vh] flex items-center justify-center py-16 px-4">
+    <main className="min-h-[90vh] flex items-center justify-center py-16 md:py-24 px-4">
       <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-heading font-normal tracking-heading mb-2">
-            Dołącz do nas
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="mb-8 flex justify-center">
+          <ol
+            className="lr-mono flex items-center gap-2 flex-wrap"
+            style={{ fontSize: '0.625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.22em' }}
+          >
+            <li>
+              <Link href="/" style={{ color: 'var(--lr-ink-soft)', textDecoration: 'none' }}>
+                HOME
+              </Link>
+            </li>
+            <li>/</li>
+            <li style={{ color: 'var(--lr-rose)' }}>ZAREJESTRUJ</li>
+          </ol>
+        </nav>
+
+        <div className="text-center mb-10">
+          <span className="lr-eyebrow">Załóż konto</span>
+          <h1 className="mt-6 mb-4" style={{ fontSize: 'clamp(2rem, 4.5vw, 3rem)' }}>
+            Dołącz do{' '}
+            <span className="lr-rose" style={{ fontStyle: 'italic' }}>
+              społeczności.
+            </span>
           </h1>
-          <p className="text-base font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
-            Stwórz konto i zacznij swoją transformację
+          <p style={{ maxWidth: '38ch', margin: '0 auto', fontSize: '0.9375rem' }}>
+            Stwórz konto i zacznij wprowadzać zmiany w swoim zdrowiu krok po kroku.
           </p>
         </div>
+
         <SignUp
           appearance={{
+            variables: {
+              colorPrimary: '#C9F24F',
+              colorBackground: '#1E1B16',
+              colorText: '#F4EFE6',
+              colorTextSecondary: '#B8B0A3',
+              colorInputBackground: '#0E0D0A',
+              colorInputText: '#F4EFE6',
+              colorNeutral: '#F4EFE6',
+              colorDanger: '#E8AEBD',
+              borderRadius: '2px',
+              fontFamily: 'var(--font-inter), Inter, sans-serif',
+              fontSize: '0.9375rem',
+            },
             elements: {
               rootBox: 'mx-auto w-full',
-              card: 'shadow-coastal border border-border/60 rounded-3xl',
-              headerTitle: 'font-heading',
-              formButtonPrimary:
-                'bg-coastal-gold hover:brightness-110 transition-all duration-300 rounded-2xl',
+              card:
+                'border bg-[#1E1B16] shadow-[0_28px_64px_-16px_rgba(0,0,0,0.65)]',
+              headerTitle: 'font-heading text-[#F4EFE6] !text-base',
+              headerSubtitle: 'text-[#B8B0A3] !text-xs',
+              socialButtonsBlockButton:
+                'border border-[#46402F] bg-[#0E0D0A] text-[#F4EFE6] hover:bg-[#262218]',
+              socialButtonsBlockButtonText: 'text-[#F4EFE6]',
+              dividerLine: 'bg-[#2A2622]',
+              dividerText: 'text-[#948C7F]',
+              formFieldLabel: 'text-[#B8B0A3] text-xs uppercase tracking-widest',
               formFieldInput:
-                'rounded-2xl border-border/60 focus:ring-2 focus:ring-coastal-gold/40 focus:border-coastal-gold/60',
-              footerActionLink: 'text-coastal-gold hover:text-coastal-gold/80',
+                'bg-[#0E0D0A] border border-[#46402F] text-[#F4EFE6] focus:border-[#C9F24F] focus:ring-1 focus:ring-[#C9F24F]',
+              formButtonPrimary:
+                'bg-[#C9F24F] text-[#0E0D0A] hover:bg-[#E8AEBD] font-mono tracking-widest uppercase text-xs font-semibold',
+              footerActionText: 'text-[#B8B0A3]',
+              footerActionLink: 'text-[#C9F24F] hover:text-[#D4FF3D]',
+              identityPreviewText: 'text-[#F4EFE6]',
+              identityPreviewEditButton: 'text-[#C9F24F]',
+              otpCodeFieldInput: 'bg-[#0E0D0A] border border-[#46402F] text-[#F4EFE6]',
             },
           }}
         />

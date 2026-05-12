@@ -59,7 +59,7 @@ export default function PigulkiLibrary({ pigulki }: { pigulki: Pigulka[] }) {
             Pigułki Wiedzy
           </h1>
           <p className="text-base font-light" style={{ color: 'rgba(72,89,107,0.75)' }}>
-            {pigulki.length} {pigulki.length === 1 ? 'pigułka' : pigulki.length < 5 ? 'pigułki' : 'pigułek'} — audio, wideo i PDF cheat sheet
+            {pigulki.length} {pigulki.length === 1 ? 'pigułka' : pigulki.length < 5 ? 'pigułki' : 'pigułek'}: audio, wideo i PDF cheat sheet
           </p>
         </motion.div>
 

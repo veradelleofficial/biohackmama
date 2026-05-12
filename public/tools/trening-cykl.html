@@ -6,50 +6,50 @@
   <title>Co ćwiczyć w moim cyklu?</title>
   <style>
     :root {
-      --bg:          #EFEAE4;
-      --bg-card:     #F7F3EE;
-      --bg-card-2:   #F2EDE7;
-      --text:        #48596B;
-      --text-soft:   rgba(72, 89, 107, 0.68);
-      --gold:        #A68A69;
-      --gold-light:  rgba(166, 138, 105, 0.10);
-      --gold-mid:    rgba(166, 138, 105, 0.22);
-      --ocean:       #AECAE8;
-      --ocean-deep:  #7A90A8;
-      --border:      rgba(174, 202, 232, 0.38);
-      --border-card: rgba(166, 138, 105, 0.14);
-      --radius:      22px;
-      --radius-sm:   13px;
-      --shadow-sm:   0 2px 12px rgba(72, 89, 107, 0.08);
-      --shadow-md:   0 8px 32px rgba(72, 89, 107, 0.12);
-      --font-serif:  'Georgia', 'Times New Roman', serif;
-      --font-sans:   system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --bg:          #0E0D0A;
+      --bg-card:     #1A1815;
+      --bg-card-2:   #232017;
+      --text:        #F4EFE6;
+      --text-soft:   rgba(244, 239, 230, 0.70);
+      --gold:        #C9F24F;
+      --gold-light:  rgba(201, 242, 79, 0.10);
+      --gold-mid:    rgba(201, 242, 79, 0.30);
+      --ocean:       #E8AEBD;
+      --ocean-deep:  #D89BAC;
+      --border:      rgba(58, 53, 45, 0.7);
+      --border-card: rgba(42, 38, 34, 0.9);
+      --radius:      2px;
+      --radius-sm:   2px;
+      --shadow-sm:   0 2px 12px rgba(0, 0, 0, 0.35);
+      --shadow-md:   0 8px 32px rgba(0, 0, 0, 0.55);
+      --font-serif:  'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-sans:   'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-      /* Phase palette */
-      --phase-1-bg:    rgba(195, 100, 100, 0.07);
-      --phase-1-border:rgba(195, 100, 100, 0.22);
-      --phase-1-color: #9a3a3a;
-      --phase-1-icon:  #c56060;
+      /* Phase palette — Lab × Rose tonalna */
+      --phase-1-bg:    rgba(216, 155, 172, 0.08);
+      --phase-1-border:rgba(216, 155, 172, 0.32);
+      --phase-1-color: #D89BAC;
+      --phase-1-icon:  #D89BAC;
 
-      --phase-2-bg:    rgba(100, 175, 120, 0.08);
-      --phase-2-border:rgba(100, 175, 120, 0.25);
-      --phase-2-color: #2a7a44;
-      --phase-2-icon:  #4aa060;
+      --phase-2-bg:    rgba(201, 242, 79, 0.07);
+      --phase-2-border:rgba(201, 242, 79, 0.28);
+      --phase-2-color: #C9F24F;
+      --phase-2-icon:  #C9F24F;
 
-      --phase-3-bg:    rgba(240, 190, 60, 0.09);
-      --phase-3-border:rgba(240, 190, 60, 0.28);
-      --phase-3-color: #8a6010;
-      --phase-3-icon:  #d4920a;
+      --phase-3-bg:    rgba(232, 174, 189, 0.09);
+      --phase-3-border:rgba(232, 174, 189, 0.30);
+      --phase-3-color: #E8AEBD;
+      --phase-3-icon:  #E8AEBD;
 
-      --phase-4-bg:    rgba(166, 138, 105, 0.09);
-      --phase-4-border:rgba(166, 138, 105, 0.28);
-      --phase-4-color: #7a5c3a;
-      --phase-4-icon:  #A68A69;
+      --phase-4-bg:    rgba(184, 176, 163, 0.08);
+      --phase-4-border:rgba(184, 176, 163, 0.28);
+      --phase-4-color: #B8B0A3;
+      --phase-4-icon:  #B8B0A3;
 
-      --phase-5-bg:    rgba(122, 144, 168, 0.09);
-      --phase-5-border:rgba(122, 144, 168, 0.28);
-      --phase-5-color: #4a6278;
-      --phase-5-icon:  #7A90A8;
+      --phase-5-bg:    rgba(216, 155, 172, 0.07);
+      --phase-5-border:rgba(216, 155, 172, 0.25);
+      --phase-5-color: #D89BAC;
+      --phase-5-icon:  #D89BAC;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,18 +64,7 @@
       min-height: 100vh;
     }
 
-    /* Film grain */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: -50%;
-      pointer-events: none;
-      opacity: 0.15;
-      mix-blend-mode: multiply;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 80px 80px;
-      z-index: 9999;
-    }
+    /* Film grain disabled on dark theme */
 
     .wrapper {
       max-width: 600px;
@@ -215,7 +204,7 @@
       border-radius: 50%;
       background: var(--bg-card);
       border: 2.5px solid var(--gold);
-      box-shadow: 0 2px 8px rgba(166,138,105,0.28);
+      box-shadow: 0 2px 8px rgba(201,242,79,0.32);
       cursor: pointer;
       transition: box-shadow 0.2s ease, transform 0.15s ease;
     }
@@ -226,14 +215,14 @@
       border-radius: 50%;
       background: var(--bg-card);
       border: 2.5px solid var(--gold);
-      box-shadow: 0 2px 8px rgba(166,138,105,0.28);
+      box-shadow: 0 2px 8px rgba(201,242,79,0.32);
       cursor: pointer;
       transition: box-shadow 0.2s ease;
     }
 
     input[type="range"]:hover::-webkit-slider-thumb,
     input[type="range"]:focus::-webkit-slider-thumb {
-      box-shadow: 0 2px 16px rgba(166,138,105,0.45);
+      box-shadow: 0 2px 16px rgba(201,242,79,0.55);
       transform: scale(1.08);
     }
 
@@ -405,23 +394,25 @@
       width: 100%;
       padding: 15px 24px;
       background: var(--gold);
-      color: white;
+      color: var(--bg);
       border: none;
-      border-radius: 14px;
-      font-size: 14.5px;
-      font-weight: 500;
+      border-radius: 2px;
+      font-size: 12.5px;
+      font-weight: 600;
       cursor: pointer;
       text-decoration: none;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       text-align: center;
       transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
       margin-bottom: 10px;
+      font-family: var(--font-sans);
     }
 
     .btn-cta:hover {
       filter: brightness(1.08);
       transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(166,138,105,0.32);
+      box-shadow: 0 8px 24px rgba(201,242,79,0.22);
     }
 
     .btn-cta:active { transform: scale(0.98); }

@@ -5,13 +5,12 @@ import { useState } from 'react'
 const PHASES = [
   {
     name: 'Menstruacja',
+    short: 'Menstr.',
     days: [1, 2, 3, 4, 5],
-    emoji: '🔴',
-    color: 'border-rose-200 bg-rose-50/60',
-    accent: 'text-rose-600',
-    tagColor: 'bg-rose-100 text-rose-700',
+    glyph: '01',
     hormones: 'Estrogen i progesteron na dnie',
     energy: 'Niska',
+    accent: 'rose',
     supplements: [
       { name: 'Żelazo (bisglicynian)', dose: '18-25mg', reason: 'Uzupełnienie utrat podczas krwawienia' },
       { name: 'Magnez (bisglicynian)', dose: '300-400mg', reason: 'Redukuje skurcze i ból' },
@@ -22,13 +21,12 @@ const PHASES = [
   },
   {
     name: 'Faza folikularna',
+    short: 'Folik.',
     days: [6, 7, 8, 9, 10, 11, 12, 13],
-    emoji: '🌱',
-    color: 'border-emerald-200 bg-emerald-50/60',
-    accent: 'text-emerald-600',
-    tagColor: 'bg-emerald-100 text-emerald-700',
+    glyph: '02',
     hormones: 'Estrogen rośnie',
     energy: 'Wysoka, rosnąca',
+    accent: 'lime',
     supplements: [
       { name: 'Witamina D3+K2', dose: '2000-4000 IU D3', reason: 'Regulacja estrogenów, zdrowie kości' },
       { name: 'B-kompleks (aktywny)', dose: '1 kaps. rano', reason: 'Energia, metabolizm estrogenów' },
@@ -39,13 +37,12 @@ const PHASES = [
   },
   {
     name: 'Owulacja',
+    short: 'Owul.',
     days: [14, 15, 16],
-    emoji: '✨',
-    color: 'border-amber-200 bg-amber-50/60',
-    accent: 'text-amber-600',
-    tagColor: 'bg-amber-100 text-amber-700',
+    glyph: '03',
     hormones: 'Szczyt estrogenów, LH surge',
     energy: 'Najwyższa',
+    accent: 'lime',
     supplements: [
       { name: 'Witamina E', dose: '200-400 IU', reason: 'Wsparcie owulacji i płodności' },
       { name: 'Koenzym Q10', dose: '100-200mg', reason: 'Jakość komórek jajowych, energia' },
@@ -56,13 +53,12 @@ const PHASES = [
   },
   {
     name: 'Faza lutealna',
+    short: 'Lutealna',
     days: [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
-    emoji: '🌙',
-    color: 'border-indigo-200 bg-indigo-50/60',
-    accent: 'text-indigo-600',
-    tagColor: 'bg-indigo-100 text-indigo-700',
+    glyph: '04',
     hormones: 'Progesteron dominuje',
     energy: 'Spada ku końcowi fazy',
+    accent: 'rose',
     supplements: [
       { name: 'Magnez (bisglicynian)', dose: '300-400mg wieczorem', reason: 'Sen, redukuje PMS i retencję wody' },
       { name: 'Witamina B6 (P5P)', dose: '50-100mg', reason: 'Synteza progesteronu, nastrój' },
@@ -77,91 +73,259 @@ function getPhase(day: number) {
   return PHASES.find((p) => p.days.includes(day)) || null
 }
 
+function getAccentColor(accent: string) {
+  return accent === 'lime' ? 'var(--lr-accent)' : 'var(--lr-rose)'
+}
+
 export default function CycleTracker() {
   const [cycleDay, setCycleDay] = useState(8)
   const phase = getPhase(cycleDay)
+  const accentColor = phase ? getAccentColor(phase.accent) : 'var(--lr-accent)'
 
   return (
-    <div className="bg-card border border-border/60 rounded-3xl p-6 md:p-8 shadow-coastal-sm">
-
+    <div
+      className="lr-tool-panel"
+      style={{ padding: 'clamp(1.5rem, 3vw, 2.25rem)' }}
+    >
       {/* Day selector */}
       <div className="mb-8">
-        <label className="block text-sm font-medium text-coastal-slate mb-2">
-          Dzień cyklu: <span className="text-coastal-gold font-bold">{cycleDay}</span>
-        </label>
+        <div className="flex items-baseline justify-between mb-4">
+          <label
+            className="lr-mono"
+            style={{ fontSize: '0.625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.22em' }}
+          >
+            DZIEŃ CYKLU
+          </label>
+          <span
+            style={{
+              fontFamily: 'var(--font-fraunces), serif',
+              fontSize: '2.5rem',
+              color: accentColor,
+              fontWeight: 400,
+              lineHeight: 1,
+              letterSpacing: '-0.02em',
+            }}
+          >
+            {cycleDay}
+          </span>
+        </div>
         <input
           type="range"
           min={1}
           max={28}
           value={cycleDay}
           onChange={(e) => setCycleDay(Number(e.target.value))}
-          className="w-full accent-coastal-gold"
+          style={{
+            width: '100%',
+            accentColor: accentColor,
+            cursor: 'pointer',
+          }}
         />
-        <div className="flex justify-between text-xs text-muted-foreground mt-1">
-          <span>Dzień 1</span>
-          <span>Dzień 14</span>
-          <span>Dzień 28</span>
+        <div
+          className="lr-mono flex justify-between mt-2"
+          style={{ fontSize: '0.5625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.18em' }}
+        >
+          <span>D.01</span>
+          <span>D.14</span>
+          <span>D.28</span>
         </div>
       </div>
 
-      {/* Phase indicator */}
-      <div className="grid grid-cols-4 gap-1 mb-8">
-        {PHASES.map((p) => (
-          <button
-            key={p.name}
-            onClick={() => setCycleDay(p.days[Math.floor(p.days.length / 2)])}
-            className={`p-2 rounded-xl text-center transition-all duration-200 border ${
-              phase?.name === p.name
-                ? p.color + ' border-opacity-60 shadow-sm'
-                : 'border-border/20 hover:border-border/40'
-            }`}
-          >
-            <div className="text-lg">{p.emoji}</div>
-            <div className="text-xs font-medium mt-1 text-coastal-slate leading-tight">{p.name}</div>
-            <div className="text-xs text-muted-foreground">d.{p.days[0]}-{p.days[p.days.length - 1]}</div>
-          </button>
-        ))}
+      {/* Phase tabs */}
+      <div
+        className="grid grid-cols-4 gap-px mb-8"
+        style={{ background: 'var(--lr-rule)', border: '1px solid var(--lr-rule)' }}
+      >
+        {PHASES.map((p) => {
+          const isActive = phase?.name === p.name
+          const c = getAccentColor(p.accent)
+          return (
+            <button
+              key={p.name}
+              onClick={() => setCycleDay(p.days[Math.floor(p.days.length / 2)])}
+              style={{
+                padding: '1rem 0.5rem',
+                background: isActive ? 'var(--lr-bg)' : 'var(--lr-surface)',
+                border: 'none',
+                borderTop: isActive ? `2px solid ${c}` : '2px solid transparent',
+                cursor: 'pointer',
+                textAlign: 'center',
+                transition: 'all 200ms var(--ease-out-strong)',
+              }}
+            >
+              <div
+                className="lr-mono"
+                style={{
+                  fontSize: '0.5625rem',
+                  color: isActive ? c : 'var(--lr-ink-dim)',
+                  letterSpacing: '0.22em',
+                  marginBottom: '0.35rem',
+                }}
+              >
+                · {p.glyph}
+              </div>
+              <div
+                style={{
+                  fontFamily: 'var(--font-fraunces), serif',
+                  fontSize: '0.875rem',
+                  color: isActive ? 'var(--lr-ink)' : 'var(--lr-ink-soft)',
+                  lineHeight: 1.1,
+                  fontWeight: 400,
+                }}
+              >
+                {p.short}
+              </div>
+              <div
+                className="lr-mono"
+                style={{
+                  fontSize: '0.5rem',
+                  color: 'var(--lr-ink-dim)',
+                  letterSpacing: '0.18em',
+                  marginTop: '0.25rem',
+                }}
+              >
+                D.{p.days[0]}–{p.days[p.days.length - 1]}
+              </div>
+            </button>
+          )
+        })}
       </div>
 
       {phase && (
-        <div className={`p-5 rounded-2xl border ${phase.color} mb-6`}>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">{phase.emoji}</span>
-            <div>
-              <h2 className={`font-heading font-semibold text-xl ${phase.accent}`}>{phase.name}</h2>
-              <p className="text-xs text-muted-foreground">{phase.hormones} · Energia: {phase.energy}</p>
-            </div>
+        <div
+          style={{
+            background: 'var(--lr-bg)',
+            border: '1px solid var(--lr-rule)',
+            borderLeft: `3px solid ${accentColor}`,
+            padding: '1.5rem',
+          }}
+        >
+          <div className="mb-6">
+            <span
+              className="lr-mono"
+              style={{ fontSize: '0.625rem', color: accentColor, letterSpacing: '0.22em' }}
+            >
+              FAZA · {phase.glyph}
+            </span>
+            <h3
+              style={{
+                fontFamily: 'var(--font-fraunces), serif',
+                fontSize: '1.5rem',
+                color: 'var(--lr-ink)',
+                fontWeight: 400,
+                marginTop: '0.5rem',
+                marginBottom: '0.5rem',
+              }}
+            >
+              {phase.name}
+            </h3>
+            <p
+              className="lr-mono"
+              style={{ fontSize: '0.625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.18em' }}
+            >
+              {phase.hormones.toUpperCase()} · ENERGIA: {phase.energy.toUpperCase()}
+            </p>
           </div>
 
-          <h3 className="text-sm font-semibold text-coastal-slate mb-3">Rekomendowana suplementacja:</h3>
-          <div className="space-y-2 mb-4">
-            {phase.supplements.map((s) => (
-              <div key={s.name} className="p-3 bg-white/70 rounded-xl">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <span className="font-semibold text-sm text-coastal-slate">{s.name}</span>
-                    <span className={`ml-2 text-xs px-2 py-0.5 rounded-full ${phase.tagColor}`}>
-                      {s.dose}
+          <span className="lr-eyebrow">Rekomendowana suplementacja</span>
+          <div className="space-y-2 mt-4">
+            {phase.supplements.map((s, i) => (
+              <div
+                key={s.name}
+                style={{
+                  padding: '1rem',
+                  background: 'var(--lr-surface)',
+                  border: '1px solid var(--lr-rule)',
+                }}
+              >
+                <div className="flex items-start justify-between gap-3 flex-wrap">
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <span
+                      className="lr-mono"
+                      style={{
+                        fontSize: '0.625rem',
+                        color: 'var(--lr-ink-dim)',
+                        letterSpacing: '0.22em',
+                        marginRight: '0.5rem',
+                      }}
+                    >
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-fraunces), serif',
+                        fontSize: '1rem',
+                        color: 'var(--lr-ink)',
+                        fontWeight: 400,
+                      }}
+                    >
+                      {s.name}
                     </span>
                   </div>
+                  <span
+                    className="lr-mono"
+                    style={{
+                      fontSize: '0.625rem',
+                      color: accentColor,
+                      letterSpacing: '0.18em',
+                      border: '1px solid var(--lr-rule-strong)',
+                      padding: '0.25rem 0.65rem',
+                      borderRadius: '999px',
+                    }}
+                  >
+                    {s.dose}
+                  </span>
                 </div>
-                <p className="text-xs text-muted-foreground mt-1">{s.reason}</p>
+                <p
+                  style={{
+                    fontSize: '0.8125rem',
+                    color: 'var(--lr-ink-soft)',
+                    marginTop: '0.5rem',
+                    paddingLeft: '2.25rem',
+                  }}
+                >
+                  {s.reason}
+                </p>
               </div>
             ))}
           </div>
 
           {phase.avoid && (
-            <div className="p-3 bg-white/50 rounded-xl">
-              <p className="text-xs font-light" style={{ color: 'rgba(72, 89, 107, 0.7)' }}>{phase.avoid}</p>
+            <div
+              style={{
+                marginTop: '1.25rem',
+                padding: '0.875rem 1rem',
+                background: 'var(--lr-surface)',
+                border: '1px solid var(--lr-rule)',
+                borderLeft: '2px solid var(--lr-rose)',
+              }}
+            >
+              <p style={{ fontSize: '0.8125rem', color: 'var(--lr-ink-soft)', margin: 0 }}>
+                {phase.avoid}
+              </p>
             </div>
           )}
         </div>
       )}
 
-      <div className="p-4 bg-secondary/8 rounded-2xl">
-        <p className="text-xs font-light leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.7)' }}>
-          Protokoły suplementacyjne są orientacyjne. Dawkowanie dostosuj do masy ciała
-          i indywidualnych potrzeb. Zawsze sprawdzaj interakcje z lekami.
+      <div
+        style={{
+          marginTop: '1.5rem',
+          padding: '1rem 1.25rem',
+          background: 'var(--lr-bg)',
+          border: '1px solid var(--lr-rule)',
+        }}
+      >
+        <p
+          className="lr-mono"
+          style={{
+            fontSize: '0.625rem',
+            color: 'var(--lr-ink-dim)',
+            letterSpacing: '0.18em',
+            lineHeight: 1.7,
+          }}
+        >
+          DAWKOWANIE DOSTOSUJ DO MASY CIAŁA I INDYWIDUALNYCH POTRZEB. SPRAWDŹ INTERAKCJE Z LEKAMI.
         </p>
       </div>
     </div>
