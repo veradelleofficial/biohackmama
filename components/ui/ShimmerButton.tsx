@@ -28,13 +28,13 @@ interface ShimmerButtonProps {
 }
 
 const gradients = {
-  gold:  '#4F5E44',
-  navy:  '#2D3A2D',
+  gold:  'linear-gradient(135deg, #A68A69 0%, #c4a882 50%, #8a7058 100%)',
+  navy:  'linear-gradient(135deg, #213a50 0%, #3a5f7a 50%, #213a50 100%)',
 }
 
 const glows = {
-  gold: '0 8px 28px rgba(79, 94, 68,0.40)',
-  navy: '0 8px 28px rgba(45, 58, 45,0.35)',
+  gold: '0 8px 28px rgba(166,138,105,0.40)',
+  navy: '0 8px 28px rgba(33,58,80,0.35)',
 }
 
 export function ShimmerButton({

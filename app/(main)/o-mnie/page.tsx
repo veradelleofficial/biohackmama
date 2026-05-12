@@ -101,10 +101,10 @@ export default function AboutPage() {
               </span>{' '}
               wystarczająco szybko
             </h1>
-            <p className="text-base md:text-lg font-light mb-4" style={{ color: 'rgba(45, 58, 45, 0.78)', lineHeight: '1.7' }}>
+            <p className="text-base md:text-lg font-light mb-4" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.7' }}>
               Jestem mamą i pasjonatką, która sama postanowiła zadbać o swoje zdrowie, przestać kierować się propagandą wielkich korporacji i znaleźć odpowiedzi tam, gdzie nasi przodkowie je zostawili. Kiedy urodził się mój syn, zobaczyłam, że coś tu nie gra. Leki nie pomagały. Zalecenia lekarzy nie dawały żadnej poprawy. Wiedziałam, że tak to nie powinno wyglądać i zaczęłam szukać na własną rękę.
             </p>
-            <p className="text-base md:text-lg font-light mb-8" style={{ color: 'rgba(45, 58, 45, 0.78)', lineHeight: '1.7', textWrap: 'balance' } as React.CSSProperties}>
+            <p className="text-base md:text-lg font-light mb-8" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.7', textWrap: 'balance' } as React.CSSProperties}>
               Od lat interesuję się zdrowym odżywianiem i naturalną medycyną. Jeszcze zanim zaszłam w ciążę, te tematy były mi bardzo bliskie. Zagłębienie się w ziołolecznictwo i naturopatię po porodzie dało mi nowy wgląd na zdrowie człowieka. Dwukrotnie wyszłam z niedoczynności tarczycy. Uregulowałam hormony po 5 latach nierównowagi. Wszystko dzięki stylowi życia i odpowiedniej diecie, nie dzięki farmacji.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -173,7 +173,7 @@ export default function AboutPage() {
                 <h3 className="font-heading font-semibold text-xl mt-1 mb-2 tracking-heading">
                   {milestone.title}
                 </h3>
-                <p className="font-light" style={{ color: 'rgba(45, 58, 45, 0.78)', lineHeight: '1.6' }}>
+                <p className="font-light" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.6' }}>
                   {milestone.description}
                 </p>
               </motion.div>
@@ -192,7 +192,7 @@ export default function AboutPage() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal tracking-heading mb-4 text-center">
             Moje podejście
           </h2>
-          <p className="text-base md:text-lg font-light text-center max-w-3xl mx-auto mb-10 md:mb-14" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+          <p className="text-base md:text-lg font-light text-center max-w-3xl mx-auto mb-10 md:mb-14" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
             W BioHackMama nie eliminujemy wszystkiego dla samej zasady. My po prostu odrzucamy chemię, którą wciśnięto nam jako ułatwienie. Teflon, mikrofalówki, plastik i toksyczne składy zamieniamy na to, co służy naszemu zdrowiu. Bez presji, we własnym tempie. Uczę Cię, jak krok po kroku stworzyć dom wolny od toksyn.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
@@ -208,7 +208,7 @@ export default function AboutPage() {
                 <h3 className="font-heading font-semibold text-xl mb-2 tracking-heading">
                   {value.title}
                 </h3>
-                <p className="font-light text-sm" style={{ color: 'rgba(45, 58, 45, 0.78)', lineHeight: '1.6' }}>
+                <p className="font-light text-sm" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.6' }}>
                   {value.description}
                 </p>
               </motion.div>
@@ -243,7 +243,7 @@ export default function AboutPage() {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal tracking-heading mb-5 md:mb-6">
                 Dla kogo to jest?
               </h2>
-              <p className="text-base md:text-lg font-light mb-6" style={{ color: 'rgba(45, 58, 45, 0.78)', lineHeight: '1.7' }}>
+              <p className="text-base md:text-lg font-light mb-6" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.7' }}>
                 Nieważne, czy dopiero otwierasz oczy na to, co Cię truje, czy już od dawna świadomie budujesz swoją codzienność bez toksyn. Pierwsze kroki to solidny fundament dla początkujących, bez spiny i bez przytłoczenia. Kolejne etapy to wejście na poziom master. Tam rozkładamy na części pierwsze tematy niszowe i nieszablonowe rozwiązania, do których trudno dotrzeć w codziennym szumie informacyjnym.
               </p>
               <ul className="space-y-3">
@@ -257,7 +257,7 @@ export default function AboutPage() {
                     viewport={{ once: true }}
                   >
                     <span className="mt-1.5 w-2 h-2 rounded-full bg-coastal-gold flex-shrink-0" />
-                    <span className="font-light" style={{ color: 'rgba(45, 58, 45, 0.78)', lineHeight: '1.5' }}>
+                    <span className="font-light" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.5' }}>
                       {item}
                     </span>
                   </motion.li>
@@ -292,7 +292,7 @@ export default function AboutPage() {
             <h3 className="text-3xl md:text-4xl font-heading font-normal mb-4 tracking-heading">
               Gotowi na zmianę?
             </h3>
-            <p className="text-lg max-w-2xl mx-auto mb-8 font-light" style={{ color: 'rgba(45, 58, 45, 0.78)', lineHeight: '1.6' }}>
+            <p className="text-lg max-w-2xl mx-auto mb-8 font-light" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.6' }}>
               Przerobiłam to wszystko na sobie, żebyś nie musiał błądzić. Zamiast tracić energię na testowanie nieskutecznych metod, skorzystaj z mojej wiedzy i przejdź prosto do działania. Pokazuję Ci, jak odciąć się od tego, co Cię truje i odzyskać kontrolę. Wszystko zebrałam dla Ciebie w jednym miejscu.
             </p>
             <Link
@@ -306,7 +306,7 @@ export default function AboutPage() {
 
         {/* Disclaimer */}
         <div className="mt-10 md:mt-14 text-center">
-          <p className="text-sm md:text-base font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(45, 58, 45, 0.6)' }}>
+          <p className="text-sm md:text-base font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.6)' }}>
             Treści prezentowane na tej stronie mają charakter edukacyjny i informacyjny. Nie jestem lekarzem ani dietetykiem - dzielę się własnym doświadczeniem i wiedzą zdobytą przez lata. Przed wprowadzeniem zmian w diecie, suplementacji lub stylu życia skonsultuj się ze specjalistą.
           </p>
         </div>

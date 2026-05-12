@@ -28,16 +28,16 @@ function NewsletterBox() {
       <div
         className="px-5 pt-5 pb-4"
         style={{
-          background: 'linear-gradient(135deg, rgba(79, 94, 68,0.08) 0%, rgba(184, 150, 104,0.12) 100%)',
+          background: 'linear-gradient(135deg, rgba(166,138,105,0.08) 0%, rgba(174,202,232,0.12) 100%)',
         }}
       >
         <p className="text-xs font-semibold uppercase tracking-widest text-coastal-gold mb-1">
           Newsletter
         </p>
-        <h3 className="font-body font-semibold text-base leading-snug" style={{ color: '#2D3A2D' }}>
+        <h3 className="font-body font-semibold text-base leading-snug" style={{ color: '#213a50' }}>
           Twój cotygodniowy zastrzyk konkretów.
         </h3>
-        <p className="text-xs mt-1.5 leading-relaxed" style={{ color: 'rgba(45, 58, 45,0.65)' }}>
+        <p className="text-xs mt-1.5 leading-relaxed" style={{ color: 'rgba(33,58,80,0.65)' }}>
           Dołącz do zamkniętego grona.<br />Raz w tygodniu wysyłam autorskie protokoły, głębsze analizy i przemyślenia, których nie znajdziesz na moich publicznych profilach.
         </p>
       </div>
@@ -61,8 +61,8 @@ function NewsletterBox() {
               <motion.div
                 animate={
                   focused
-                    ? { boxShadow: '0 0 0 3px rgba(79, 94, 68,0.18), 0 0 0 1px rgba(79, 94, 68,0.50)' }
-                    : { boxShadow: '0 0 0 0px rgba(79, 94, 68,0)' }
+                    ? { boxShadow: '0 0 0 3px rgba(166,138,105,0.18), 0 0 0 1px rgba(166,138,105,0.50)' }
+                    : { boxShadow: '0 0 0 0px rgba(166,138,105,0)' }
                 }
                 transition={{ duration: 0.22 }}
                 className="rounded-2xl"
@@ -76,7 +76,7 @@ function NewsletterBox() {
                   placeholder="twój@email.pl"
                   required
                   className="w-full px-4 py-2.5 text-sm rounded-2xl border border-border/60 bg-background focus:outline-none transition-colors duration-300"
-                  style={{ color: '#2D3A2D' }}
+                  style={{ color: '#213a50' }}
                 />
               </motion.div>
 
@@ -84,11 +84,11 @@ function NewsletterBox() {
               <motion.button
                 type="submit"
                 disabled={status === 'loading'}
-                whileHover={status === 'idle' ? { scale: 1.02, boxShadow: '0 6px 18px rgba(79, 94, 68,0.30)' } : {}}
+                whileHover={status === 'idle' ? { scale: 1.02, boxShadow: '0 6px 18px rgba(166,138,105,0.30)' } : {}}
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.18 }}
                 className="w-full py-2.5 rounded-2xl text-sm font-semibold text-white overflow-hidden"
-                style={{ background: '#4F5E44' }}
+                style={{ background: 'linear-gradient(135deg, #A68A69, #8a7058)' }}
               >
                 <AnimatePresence mode="wait">
                   {status === 'loading' ? (
@@ -117,7 +117,7 @@ function NewsletterBox() {
                 </AnimatePresence>
               </motion.button>
 
-              <p className="text-[10px] text-center" style={{ color: 'rgba(45, 58, 45,0.45)' }}>
+              <p className="text-[10px] text-center" style={{ color: 'rgba(33,58,80,0.45)' }}>
                 Zero spamu. Wypiszesz się jednym kliknięciem.
               </p>
             </motion.div>
@@ -147,8 +147,8 @@ const DEFAULT_PROMOS: PromoBlock[] = [
     desc: 'Zacznij żyć zdrowiej',
     href: '/kursy',
     emoji: '🎓',
-    bg: '#4F5E44',
-    accent: 'rgba(184, 150, 104,0.18)',
+    bg: 'linear-gradient(145deg, #1c3448 0%, #2e5570 60%, #3a6a88 100%)',
+    accent: 'rgba(174,202,232,0.18)',
   },
   {
     label: 'Ebooki',
@@ -156,7 +156,7 @@ const DEFAULT_PROMOS: PromoBlock[] = [
     desc: 'Wiedza w Twoich rękach',
     href: '/ebooki',
     emoji: '📖',
-    bg: '#8B6F47',
+    bg: 'linear-gradient(145deg, #7a5c3a 0%, #A68A69 60%, #c4a882 100%)',
     accent: 'rgba(255,240,220,0.18)',
   },
   {
@@ -165,8 +165,8 @@ const DEFAULT_PROMOS: PromoBlock[] = [
     desc: 'Kalkulatory i quizy',
     href: '/narzedzia',
     emoji: '🔬',
-    bg: '#2D3A2D',
-    accent: 'rgba(245,232,210,0.20)',
+    bg: 'linear-gradient(145deg, #4a6278 0%, #7A90A8 60%, #AECAE8 100%)',
+    accent: 'rgba(220,235,250,0.18)',
   },
 ]
 
@@ -175,7 +175,7 @@ const EASE_OUT = [0.22, 1, 0.36, 1] as const
 function PromoBlocks() {
   return (
     <div className="space-y-2.5">
-      <p className="text-[10px] font-semibold uppercase tracking-[0.12em] px-1 mb-3" style={{ color: 'rgba(45, 58, 45,0.40)' }}>
+      <p className="text-[10px] font-semibold uppercase tracking-[0.12em] px-1 mb-3" style={{ color: 'rgba(33,58,80,0.40)' }}>
         Sprawdź też
       </p>
       {DEFAULT_PROMOS.map((promo, i) => (
@@ -190,7 +190,7 @@ function PromoBlocks() {
             whileHover={{ y: -3, scale: 1.01 }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.22, ease: EASE_OUT }}
-            style={{ borderRadius: 18, overflow: 'hidden', boxShadow: '0 2px 12px rgba(45,58,45,0.14)' }}
+            style={{ borderRadius: 18, overflow: 'hidden', boxShadow: '0 2px 12px rgba(20,40,60,0.14)' }}
           >
             <Link
               href={promo.href}
@@ -282,7 +282,7 @@ function SidebarAdSlot({ href, src, alt }: { href: string; src: string; alt: str
   return (
     <motion.div
       className="w-full rounded-2xl border border-border/60 overflow-hidden"
-      style={{ boxShadow: 'inset 0 1px 3px rgba(45, 58, 45,0.06)' }}
+      style={{ boxShadow: 'inset 0 1px 3px rgba(33,58,80,0.06)' }}
       animate={{ scale: [1, 1.008, 1] }}
       transition={{ delay: 3, duration: 2.0, ease: 'easeInOut', repeat: Infinity, repeatDelay: 14 }}
     >
@@ -303,7 +303,7 @@ function SidebarAdSlot2() {
   return (
     <motion.div
       className="w-full rounded-2xl border border-border/60 overflow-hidden"
-      style={{ boxShadow: 'inset 0 1px 3px rgba(45, 58, 45,0.06)' }}
+      style={{ boxShadow: 'inset 0 1px 3px rgba(33,58,80,0.06)' }}
       animate={{ scale: [1, 1.008, 1] }}
       transition={{ delay: 5, duration: 2.0, ease: 'easeInOut', repeat: Infinity, repeatDelay: 14 }}
     >
@@ -363,13 +363,13 @@ export function MobileSidebar() {
     <div className="xl:hidden mt-14 space-y-8">
 
       {/* ── Thin section divider ── */}
-      <div className="h-px" style={{ background: 'rgba(45, 58, 45,0.10)' }} />
+      <div className="h-px" style={{ background: 'rgba(33,58,80,0.10)' }} />
 
       {/* ── Bento promo section ── */}
       <div>
         <p
           className="text-[10px] font-semibold uppercase tracking-[0.14em] mb-5 px-0.5"
-          style={{ color: 'rgba(45, 58, 45,0.38)' }}
+          style={{ color: 'rgba(33,58,80,0.38)' }}
         >
           Sprawdź też
         </p>
@@ -387,7 +387,7 @@ export function MobileSidebar() {
             <Link
               href={hero.href}
               className="relative flex items-center overflow-hidden"
-              style={{ background: hero.bg, minHeight: 130, boxShadow: '0 6px 28px rgba(45,58,45,0.22)' }}
+              style={{ background: hero.bg, minHeight: 130, boxShadow: '0 6px 28px rgba(20,40,60,0.22)' }}
             >
               {/* Grain */}
               <span className="absolute inset-0 pointer-events-none z-0"
@@ -456,7 +456,7 @@ export function MobileSidebar() {
                 <Link
                   href={promo.href}
                   className="relative flex flex-col items-start overflow-hidden"
-                  style={{ background: promo.bg, minHeight: 148, boxShadow: '0 4px 20px rgba(45,58,45,0.18)' }}
+                  style={{ background: promo.bg, minHeight: 148, boxShadow: '0 4px 20px rgba(20,40,60,0.18)' }}
                 >
                   {/* Grain */}
                   <span className="absolute inset-0 pointer-events-none z-0"

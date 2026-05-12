@@ -96,22 +96,22 @@ export default function CourseContent({ course }: { course: Course | null }) {
               {lesson.free ? (
                 <span
                   className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
-                  style={{ background: 'rgba(79, 94, 68,0.12)', color: '#4F5E44' }}
+                  style={{ background: 'rgba(166,138,105,0.12)', color: '#A68A69' }}
                 >
                   Bezpłatne
                 </span>
               ) : (
                 <div
                   className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                  style={{ background: 'rgba(45, 58, 45,0.25)' }}
+                  style={{ background: 'rgba(33,58,80,0.25)' }}
                 />
               )}
-              <span className="text-sm" style={{ color: 'rgba(45, 58, 45,0.80)' }}>
+              <span className="text-sm" style={{ color: 'rgba(33,58,80,0.80)' }}>
                 {lesson.title}
               </span>
             </div>
             {lesson.duration && (
-              <span className="text-xs flex-shrink-0" style={{ color: 'rgba(45, 58, 45,0.40)' }}>
+              <span className="text-xs flex-shrink-0" style={{ color: 'rgba(33,58,80,0.40)' }}>
                 {lesson.duration}
               </span>
             )}
@@ -136,7 +136,7 @@ export default function CourseContent({ course }: { course: Course | null }) {
         className="pt-24 md:pt-32 pb-14"
         style={{
           background:
-            'linear-gradient(to bottom, rgba(184, 150, 104,0.12) 0%, rgba(79, 94, 68,0.05) 100%)',
+            'linear-gradient(to bottom, rgba(174,202,232,0.12) 0%, rgba(166,138,105,0.05) 100%)',
         }}
       >
         <div className="container max-w-5xl">
@@ -151,7 +151,7 @@ export default function CourseContent({ course }: { course: Course | null }) {
             <Link
               href="/kursy"
               className="inline-flex items-center gap-1.5 text-sm hover:text-coastal-gold transition-colors duration-200"
-              style={{ color: 'rgba(45, 58, 45,0.6)' }}
+              style={{ color: 'rgba(72,89,107,0.6)' }}
             >
               <ArrowLeft size={15} />
               Kursy
@@ -177,7 +177,7 @@ export default function CourseContent({ course }: { course: Course | null }) {
               {/* Title */}
               <h1
                 className="text-3xl sm:text-4xl md:text-5xl font-body font-bold leading-tight mb-5"
-                style={{ color: '#2D3A2D', letterSpacing: '-0.02em' }}
+                style={{ color: '#213a50', letterSpacing: '-0.02em' }}
               >
                 {course.title}
               </h1>
@@ -185,7 +185,7 @@ export default function CourseContent({ course }: { course: Course | null }) {
               {/* Description */}
               <p
                 className="text-base md:text-lg leading-relaxed mb-8 font-light"
-                style={{ color: 'rgba(45, 58, 45,0.80)' }}
+                style={{ color: 'rgba(72,89,107,0.80)' }}
               >
                 {course.description}
               </p>
@@ -204,9 +204,9 @@ export default function CourseContent({ course }: { course: Course | null }) {
                   <div
                     key={i}
                     className="flex items-center gap-2 text-sm px-4 py-2 rounded-2xl bg-white/60 border border-border/50"
-                    style={{ color: 'rgba(45, 58, 45,0.70)' }}
+                    style={{ color: 'rgba(33,58,80,0.70)' }}
                   >
-                    <span style={{ color: '#4F5E44' }}>{icon}</span>
+                    <span style={{ color: '#A68A69' }}>{icon}</span>
                     {label}
                   </div>
                 ))}
@@ -216,7 +216,7 @@ export default function CourseContent({ course }: { course: Course | null }) {
               <div>
                 <p
                   className="text-xs font-semibold uppercase tracking-widest mb-3"
-                  style={{ color: 'rgba(45, 58, 45,0.45)' }}
+                  style={{ color: 'rgba(33,58,80,0.45)' }}
                 >
                   Podgląd kursu
                 </p>
@@ -245,22 +245,22 @@ export default function CourseContent({ course }: { course: Course | null }) {
                   className="px-6 pt-6 pb-5"
                   style={{
                     background:
-                      'linear-gradient(135deg, rgba(79, 94, 68,0.08) 0%, rgba(184, 150, 104,0.10) 100%)',
+                      'linear-gradient(135deg, rgba(166,138,105,0.08) 0%, rgba(174,202,232,0.10) 100%)',
                   }}
                 >
                   <p
                     className="text-xs font-semibold uppercase tracking-widest mb-1"
-                    style={{ color: 'rgba(45, 58, 45,0.45)' }}
+                    style={{ color: 'rgba(33,58,80,0.45)' }}
                   >
                     Cena kursu
                   </p>
-                  <p className="text-5xl font-bold leading-none mb-1" style={{ color: '#2D3A2D' }}>
+                  <p className="text-5xl font-bold leading-none mb-1" style={{ color: '#213a50' }}>
                     {course.price}{' '}
-                    <span className="text-2xl font-medium" style={{ color: 'rgba(45, 58, 45,0.50)' }}>
+                    <span className="text-2xl font-medium" style={{ color: 'rgba(33,58,80,0.50)' }}>
                       zł
                     </span>
                   </p>
-                  <p className="text-xs" style={{ color: 'rgba(45, 58, 45,0.45)' }}>
+                  <p className="text-xs" style={{ color: 'rgba(33,58,80,0.45)' }}>
                     Jednorazowa płatność · Dożywotni dostęp
                   </p>
                 </div>
@@ -272,7 +272,7 @@ export default function CourseContent({ course }: { course: Course | null }) {
 
                   <div
                     className="flex items-center justify-center gap-1.5 text-xs"
-                    style={{ color: 'rgba(45, 58, 45,0.45)' }}
+                    style={{ color: 'rgba(33,58,80,0.45)' }}
                   >
                     <Shield size={11} />
                     Bezpieczna płatność · 14-dniowy zwrot
@@ -280,16 +280,16 @@ export default function CourseContent({ course }: { course: Course | null }) {
 
                   <div
                     className="pt-4 border-t space-y-2.5"
-                    style={{ borderColor: 'rgba(45, 58, 45,0.08)' }}
+                    style={{ borderColor: 'rgba(33,58,80,0.08)' }}
                   >
                     {highlights.map((item, i) => (
                       <div key={i} className="flex items-start gap-2.5">
                         <CheckCircle
                           size={15}
                           className="flex-shrink-0 mt-0.5"
-                          style={{ color: '#4F5E44' }}
+                          style={{ color: '#A68A69' }}
                         />
-                        <span className="text-xs" style={{ color: 'rgba(45, 58, 45,0.70)' }}>
+                        <span className="text-xs" style={{ color: 'rgba(33,58,80,0.70)' }}>
                           {item}
                         </span>
                       </div>
@@ -314,11 +314,11 @@ export default function CourseContent({ course }: { course: Course | null }) {
           <div className="flex items-baseline justify-between mb-8">
             <h2
               className="font-accent font-semibold text-2xl md:text-3xl normal-case"
-              style={{ color: '#2D3A2D' }}
+              style={{ color: '#213a50' }}
             >
               Program kursu
             </h2>
-            <span className="text-sm" style={{ color: 'rgba(45, 58, 45,0.45)' }}>
+            <span className="text-sm" style={{ color: 'rgba(33,58,80,0.45)' }}>
               {curriculum.length} modułów · {totalLessons} lekcji
             </span>
           </div>
@@ -338,15 +338,15 @@ export default function CourseContent({ course }: { course: Course | null }) {
             whileInView="visible"
             viewport={VIEWPORT_ONCE}
             className="mt-14 pt-10 border-t"
-            style={{ borderColor: 'rgba(45, 58, 45,0.10)' }}
+            style={{ borderColor: 'rgba(33,58,80,0.10)' }}
           >
-            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: 'rgba(45, 58, 45,0.40)' }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: 'rgba(33,58,80,0.40)' }}>
               Prowadząca
             </p>
             <Link
               href="/o-mnie"
               className="text-base font-medium hover:text-coastal-gold transition-colors duration-200"
-              style={{ color: '#2D3A2D' }}
+              style={{ color: '#213a50' }}
             >
               {course.author} →
             </Link>
@@ -361,7 +361,7 @@ export default function CourseContent({ course }: { course: Course | null }) {
           viewport={VIEWPORT_ONCE}
           className="mt-14 text-center"
         >
-          <p className="text-sm mb-5" style={{ color: 'rgba(45, 58, 45,0.55)' }}>
+          <p className="text-sm mb-5" style={{ color: 'rgba(33,58,80,0.55)' }}>
             Masz pytania przed zakupem?
           </p>
           <Link

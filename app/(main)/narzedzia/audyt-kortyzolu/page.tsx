@@ -38,7 +38,7 @@ export default function AudytKortyzolaPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal mb-4 tracking-heading">
             Audyt Przeciążenia Kortyzolem
           </h1>
-          <p className="text-base md:text-lg font-light max-w-2xl mx-auto" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+          <p className="text-base md:text-lg font-light max-w-2xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
             8 pytań opartych na fizjologii stresu. Dowiedz się, w jakim stanie jest Twoja oś HPA
             i rytm dobowy kortyzolu.
           </p>
@@ -54,7 +54,7 @@ export default function AudytKortyzolaPage() {
         </div>
 
         <div className="mt-14 pt-8 border-t border-border/40 text-center">
-          <p className="text-xs font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(45, 58, 45, 0.6)' }}>
+          <p className="text-xs font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.6)' }}>
             Quiz ma charakter wyłącznie informacyjny i edukacyjny. Wyniki nie zastępują konsultacji lekarskiej ani diagnostyki hormonalnej.
           </p>
         </div>

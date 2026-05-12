@@ -21,7 +21,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
           height: '630px',
           display: 'flex',
           position: 'relative',
-          background: '#F2EBDD',
+          background: '#F5F0E8',
           fontFamily: 'Georgia, serif',
         }}
       >
@@ -33,7 +33,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             top: 0,
             width: '8px',
             height: '630px',
-            background: '#B89668',
+            background: '#C2A05A',
           }}
         />
 
@@ -45,7 +45,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             left: 0,
             width: '1200px',
             height: '4px',
-            background: '#4F5E44',
+            background: '#4A7C7E',
           }}
         />
 
@@ -58,7 +58,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             width: '500px',
             height: '500px',
             borderRadius: '50%',
-            background: 'rgba(79, 94, 68, 0.06)',
+            background: 'rgba(74, 124, 126, 0.06)',
           }}
         />
 
@@ -88,18 +88,18 @@ export default async function Image({ params }: { params: { slug: string } }) {
               style={{
                 fontSize: '18px',
                 fontWeight: 700,
-                color: '#4F5E44',
+                color: '#4A7C7E',
                 letterSpacing: '1px',
                 textTransform: 'uppercase',
               }}
             >
               BioHackMama
             </span>
-            <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#B89668' }} />
+            <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#C2A05A' }} />
             <span
               style={{
                 fontSize: '14px',
-                color: '#B89668',
+                color: '#C2A05A',
                 letterSpacing: '2px',
                 textTransform: 'uppercase',
               }}
@@ -108,8 +108,8 @@ export default async function Image({ params }: { params: { slug: string } }) {
             </span>
             {readTime && (
               <>
-                <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'rgba(45, 58, 45,0.3)' }} />
-                <span style={{ fontSize: '14px', color: 'rgba(45, 58, 45,0.6)', letterSpacing: '1px' }}>
+                <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'rgba(72,89,107,0.3)' }} />
+                <span style={{ fontSize: '14px', color: 'rgba(72,89,107,0.6)', letterSpacing: '1px' }}>
                   {readTime}
                 </span>
               </>
@@ -121,7 +121,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             style={{
               fontSize: title.length > 60 ? '42px' : title.length > 40 ? '50px' : '58px',
               fontWeight: 700,
-              color: '#2D3A2D',
+              color: '#2C3E50',
               lineHeight: 1.2,
               letterSpacing: '-0.5px',
               maxWidth: '980px',
@@ -135,7 +135,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             style={{
               width: '80px',
               height: '3px',
-              background: '#B89668',
+              background: '#C2A05A',
               borderRadius: '2px',
             }}
           />
@@ -153,7 +153,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
                 width: '40px',
                 height: '40px',
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, #4F5E44, #2D3A2D)',
+                background: 'linear-gradient(135deg, #4A7C7E, #2C5F61)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -163,8 +163,8 @@ export default async function Image({ params }: { params: { slug: string } }) {
               🌿
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-              <span style={{ fontSize: '16px', fontWeight: 600, color: '#2D3A2D' }}>Vera Delle</span>
-              <span style={{ fontSize: '13px', color: 'rgba(45, 58, 45,0.6)', letterSpacing: '1px' }}>
+              <span style={{ fontSize: '16px', fontWeight: 600, color: '#2C3E50' }}>Vera Delle</span>
+              <span style={{ fontSize: '13px', color: 'rgba(72,89,107,0.6)', letterSpacing: '1px' }}>
                 biohackmama.pl
               </span>
             </div>
@@ -179,7 +179,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             left: '0',
             width: '100%',
             height: '4px',
-            background: 'linear-gradient(90deg, #B89668 0%, transparent 60%)',
+            background: 'linear-gradient(90deg, #C2A05A 0%, transparent 60%)',
           }}
         />
       </div>

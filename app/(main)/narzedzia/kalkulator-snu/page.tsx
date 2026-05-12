@@ -81,7 +81,7 @@ export default function KalkulatorSnuPage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal tracking-heading uppercase mb-4">
               Kalkulator Snu
             </h1>
-            <p className="text-lg font-light" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+            <p className="text-lg font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
               Oblicz idealną godzinę zasypiania lub budzenia opartą na 90-minutowych cyklach snu.
               Wstawaj w lekkiej fazie snu – nie z głębokiego NREM.
             </p>
@@ -95,19 +95,19 @@ export default function KalkulatorSnuPage() {
               Dlaczego 90 minut?
             </h2>
             <div className="prose-coastal space-y-4">
-              <p className="font-light leading-relaxed" style={{ color: 'rgba(45, 58, 45, 0.85)' }}>
+              <p className="font-light leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.85)' }}>
                 Sen dzieli się na cykle trwające około 90 minut każdy. Każdy cykl składa się z faz
                 lekkiego snu (N1, N2), głębokiego snu wolnofalowego (N3) oraz fazy REM,
                 w której konsolidujemy pamięć i przetwarzamy emocje.
               </p>
-              <p className="font-light leading-relaxed" style={{ color: 'rgba(45, 58, 45, 0.85)' }}>
+              <p className="font-light leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.85)' }}>
                 Budzenie się na końcu cyklu – gdy jesteś w lekkiej fazie N1 lub N2 – sprawia,
                 że czujesz się odświeżona i gotowa do działania. Budzenie w środku głębokiej
                 fazy N3 powoduje tzw. <strong>inercję senną</strong> – uczucie ciężkości i dezorientacji.
               </p>
               <div className="p-5 bg-secondary/8 border border-border/40 rounded-2xl">
                 <p className="text-sm font-medium text-coastal-ocean mb-2">Wskazówka dla kobiet:</p>
-                <p className="text-sm font-light" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+                <p className="text-sm font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
                   W fazie lutealnej (po owulacji) potrzebujesz zwykle 30-60 minut więcej snu.
                   Twój metabolizm przyspiesza, temperatura ciała rośnie i regeneracja trwa dłużej.
                 </p>
@@ -134,14 +134,14 @@ export default function KalkulatorSnuPage() {
               ].map(({ q, a }) => (
                 <div key={q} className="p-5 bg-card border border-border/60 rounded-2xl">
                   <h3 className="font-semibold mb-2 text-coastal-slate">{q}</h3>
-                  <p className="text-sm font-light leading-relaxed" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>{a}</p>
+                  <p className="text-sm font-light leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>{a}</p>
                 </div>
               ))}
             </div>
           </section>
 
           <div className="mt-12 pt-6 border-t border-border/40">
-            <p className="text-xs font-light leading-relaxed text-center" style={{ color: 'rgba(45, 58, 45, 0.6)' }}>
+            <p className="text-xs font-light leading-relaxed text-center" style={{ color: 'rgba(72, 89, 107, 0.6)' }}>
               Wyniki kalkulatora są orientacyjne. Indywidualne potrzeby snu mogą się różnić.
               W przypadku problemów ze snem skonsultuj się z lekarzem lub specjalistą ds. snu.
             </p>

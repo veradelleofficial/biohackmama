@@ -26,7 +26,7 @@ import { KenBurnsImage } from '@/components/ui/KenBurnsImage'
 const EASE_OUT = [0.22, 1, 0.36, 1] as const
 
 // Background page color — must match globals.css --background for the bottom blend
-const PAGE_BG = '#F2EBDD'
+const PAGE_BG = '#EFEAE4'
 
 export function BlogCoverHero() {
   const heroRef = useRef<HTMLElement>(null)
@@ -68,7 +68,7 @@ export function BlogCoverHero() {
       <div
         className="absolute inset-x-0 top-0 z-10 h-40 pointer-events-none"
         style={{
-          background: 'linear-gradient(to bottom, rgba(45, 58, 45,0.40) 0%, transparent 100%)',
+          background: 'linear-gradient(to bottom, rgba(33,58,80,0.40) 0%, transparent 100%)',
         }}
       />
 
@@ -77,7 +77,7 @@ export function BlogCoverHero() {
         className="absolute inset-x-0 bottom-0 z-10 pointer-events-none"
         style={{
           height: '55%',
-          background: `linear-gradient(to top, ${PAGE_BG} 0%, ${PAGE_BG}99 12%, rgba(242,235,221,0.82) 28%, rgba(242,235,221,0.40) 50%, transparent 100%)`,
+          background: `linear-gradient(to top, ${PAGE_BG} 0%, ${PAGE_BG}99 12%, rgba(239,234,228,0.82) 28%, rgba(239,234,228,0.40) 50%, transparent 100%)`,
         }}
       />
 
@@ -85,7 +85,7 @@ export function BlogCoverHero() {
       <div
         className="absolute inset-y-0 left-0 z-10 w-3/5 pointer-events-none hidden md:block"
         style={{
-          background: 'linear-gradient(to right, rgba(45, 58, 45,0.24) 0%, transparent 100%)',
+          background: 'linear-gradient(to right, rgba(33,58,80,0.24) 0%, transparent 100%)',
         }}
       />
 
@@ -104,7 +104,7 @@ export function BlogCoverHero() {
               WebkitBackdropFilter: 'blur(18px)',
               border: '1px solid rgba(255,255,255,0.20)',
               boxShadow:
-                '0 8px 40px rgba(45, 58, 45,0.18), inset 0 1px 0 rgba(255,255,255,0.16)',
+                '0 8px 40px rgba(33,58,80,0.18), inset 0 1px 0 rgba(255,255,255,0.16)',
             }}
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -129,7 +129,7 @@ export function BlogCoverHero() {
                   fontSize: 'clamp(2.8rem, 8vw, 5rem)',
                   color: '#FFFFFF',
                   letterSpacing: '-0.015em',
-                  textShadow: '0 2px 24px rgba(45, 58, 45,0.28)',
+                  textShadow: '0 2px 24px rgba(33,58,80,0.28)',
                 }}
                 initial={{ y: '115%' }}
                 animate={{ y: '0%' }}

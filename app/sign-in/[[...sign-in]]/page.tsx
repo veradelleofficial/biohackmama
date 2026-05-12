@@ -8,7 +8,7 @@ export default function SignInPage() {
           <h1 className="text-3xl md:text-4xl font-heading font-normal tracking-heading mb-2">
             Witaj ponownie
           </h1>
-          <p className="text-base font-light" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+          <p className="text-base font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
             Zaloguj się do swojego konta
           </p>
         </div>

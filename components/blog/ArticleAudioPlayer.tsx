@@ -244,11 +244,11 @@ export function ArticleAudioPlayer({ audioSrc, articleContentRef }: ArticleAudio
       <motion.div
         className="rounded-2xl border overflow-hidden"
         style={{
-          borderColor: playing ? 'rgba(79, 94, 68,0.35)' : 'rgba(45, 58, 45,0.10)',
+          borderColor: playing ? 'rgba(166,138,105,0.35)' : 'rgba(33,58,80,0.10)',
           background: playing
-            ? 'linear-gradient(135deg, rgba(79, 94, 68,0.06) 0%, rgba(184, 150, 104,0.08) 100%)'
-            : 'rgba(45, 58, 45,0.02)',
-          boxShadow: playing ? '0 2px 12px rgba(79, 94, 68,0.10)' : 'none',
+            ? 'linear-gradient(135deg, rgba(166,138,105,0.06) 0%, rgba(174,202,232,0.08) 100%)'
+            : 'rgba(33,58,80,0.02)',
+          boxShadow: playing ? '0 2px 12px rgba(166,138,105,0.10)' : 'none',
           transition: 'all 0.3s ease',
         }}
       >
@@ -265,9 +265,9 @@ export function ArticleAudioPlayer({ audioSrc, articleContentRef }: ArticleAudio
             className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center"
             style={{
               background: playing
-                ? '#4F5E44'
-                : 'rgba(79, 94, 68,0.10)',
-              color: playing ? '#FFFFFF' : '#4F5E44',
+                ? 'linear-gradient(135deg, #A68A69, #8a7058)'
+                : 'rgba(166,138,105,0.10)',
+              color: playing ? '#FFFFFF' : '#A68A69',
             }}
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.95 }}
@@ -288,10 +288,10 @@ export function ArticleAudioPlayer({ audioSrc, articleContentRef }: ArticleAudio
 
           {/* Text */}
           <div className="flex-1 min-w-0">
-            <p className="font-body font-medium text-sm" style={{ color: '#2D3A2D' }}>
+            <p className="font-body font-medium text-sm" style={{ color: '#213a50' }}>
               {playing ? 'Zatrzymaj odtwarzanie' : 'Posłuchaj tego artykułu'}
             </p>
-            <p className="text-[11px] mt-0.5" style={{ color: 'rgba(45, 58, 45,0.55)' }}>
+            <p className="text-[11px] mt-0.5" style={{ color: 'rgba(72,89,107,0.55)' }}>
               {isFileMode
                 ? (playing ? 'Odtwarzanie...' : 'Profesjonalne nagranie audio')
                 : (playing ? 'Czytanie...' : 'Syntezator mowy w języku polskim')
@@ -301,7 +301,7 @@ export function ArticleAudioPlayer({ audioSrc, articleContentRef }: ArticleAudio
 
           {/* Time display (Variant A only) */}
           {isFileMode && duration > 0 && (
-            <span className="flex-shrink-0 text-xs font-medium tabular-nums" style={{ color: 'rgba(45, 58, 45,0.45)' }}>
+            <span className="flex-shrink-0 text-xs font-medium tabular-nums" style={{ color: 'rgba(33,58,80,0.45)' }}>
               {formatTime(currentTime)} / {formatTime(duration)}
             </span>
           )}
@@ -314,7 +314,7 @@ export function ArticleAudioPlayer({ audioSrc, articleContentRef }: ArticleAudio
           >
             <div
               className="relative h-1.5 rounded-full cursor-pointer overflow-hidden"
-              style={{ background: 'rgba(45, 58, 45,0.08)' }}
+              style={{ background: 'rgba(33,58,80,0.08)' }}
               onClick={seekAudio}
               role="progressbar"
               aria-valuenow={Math.round(progress)}
@@ -326,7 +326,7 @@ export function ArticleAudioPlayer({ audioSrc, articleContentRef }: ArticleAudio
                 className="absolute inset-y-0 left-0 rounded-full"
                 style={{
                   width: `${progress}%`,
-                  background: 'linear-gradient(90deg, #4F5E44 0%, #c4a882 100%)',
+                  background: 'linear-gradient(90deg, #A68A69 0%, #c4a882 100%)',
                 }}
                 layout
                 transition={{ duration: 0.1 }}
@@ -342,7 +342,7 @@ export function ArticleAudioPlayer({ audioSrc, articleContentRef }: ArticleAudio
               <motion.div
                 key={i}
                 className="w-1 rounded-full"
-                style={{ background: '#4F5E44' }}
+                style={{ background: '#A68A69' }}
                 animate={{ height: ['4px', '14px', '4px'] }}
                 transition={{
                   duration: 0.8,

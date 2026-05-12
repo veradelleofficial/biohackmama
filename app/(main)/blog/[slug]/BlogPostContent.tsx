@@ -62,7 +62,7 @@ function ReadingProgressBar() {
         className="h-full origin-left"
         style={{
           scaleX,
-          background: 'linear-gradient(90deg, #4F5E44 0%, #B89668 60%, #4F5E44 100%)',
+          background: 'linear-gradient(90deg, #A68A69 0%, #AECAE8 60%, #A68A69 100%)',
           willChange: 'transform',
         }}
       />
@@ -128,7 +128,7 @@ function ShareButtons({ title }: { title: string }) {
 
   return (
     <div className="flex items-center gap-2 flex-wrap">
-      <span className="text-xs font-medium uppercase tracking-widest" style={{ color: 'rgba(45, 58, 45,0.5)' }}>
+      <span className="text-xs font-medium uppercase tracking-widest" style={{ color: 'rgba(72,89,107,0.5)' }}>
         Udostępnij
       </span>
       <a
@@ -297,7 +297,7 @@ function CalloutBox({ value }: { value: any }) {
           {value.title || config.label}
         </span>
       </div>
-      <p className="text-sm leading-relaxed" style={{ color: 'rgba(45, 58, 45,0.85)' }}>
+      <p className="text-sm leading-relaxed" style={{ color: 'rgba(72,89,107,0.85)' }}>
         {value.body}
       </p>
     </div>
@@ -335,7 +335,7 @@ function InlineLinkBlock({ value }: { value: any }) {
     >
       <div
         className="flex-shrink-0 flex items-center justify-center px-5 py-4 self-stretch text-white text-xs font-semibold uppercase tracking-widest writing-vertical"
-        style={{ background: '#2D3A2D', minWidth: '3.5rem' }}
+        style={{ background: '#48596B', minWidth: '3.5rem' }}
       >
         <span className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 whitespace-nowrap">
           {label}
@@ -345,7 +345,7 @@ function InlineLinkBlock({ value }: { value: any }) {
         <div className="flex items-start justify-between gap-3">
           <span
             className="font-heading text-lg font-semibold leading-snug group-hover:text-coastal-gold transition-colors duration-300"
-            style={{ color: '#2D3A2D' }}
+            style={{ color: '#48596B' }}
           >
             <span className="mr-2">{icon}</span>
             {value.title}
@@ -378,7 +378,7 @@ function RelatedArticles({ articles }: { articles: RelatedArticle[] }) {
         <div className="h-px flex-1 bg-gradient-to-r from-coastal-gold/40 to-transparent" />
         <h2
           className="text-xs font-semibold uppercase tracking-[0.2em] flex-shrink-0"
-          style={{ color: 'rgba(45, 58, 45,0.55)' }}
+          style={{ color: 'rgba(72,89,107,0.55)' }}
         >
           Przeczytaj też
         </h2>
@@ -417,12 +417,12 @@ function RelatedArticles({ articles }: { articles: RelatedArticle[] }) {
                 )}
                 <h3
                   className="font-heading font-semibold text-base leading-snug line-clamp-2 group-hover:text-coastal-gold transition-colors duration-300"
-                  style={{ color: '#2D3A2D' }}
+                  style={{ color: '#48596B' }}
                 >
                   {a.title}
                 </h3>
                 {a.readTime && (
-                  <p className="text-xs mt-2" style={{ color: 'rgba(45, 58, 45,0.5)' }}>
+                  <p className="text-xs mt-2" style={{ color: 'rgba(72,89,107,0.5)' }}>
                     {a.readTime} min czytania
                   </p>
                 )}
@@ -466,12 +466,12 @@ const makePortableTextComponents = (): PortableTextComponents => ({
       <blockquote className="my-10 relative">
         <div
           className="absolute left-0 top-0 bottom-0 w-1 rounded-full"
-          style={{ background: '#4F5E44' }}
+          style={{ background: 'linear-gradient(180deg, #A68A69, #AECAE8)' }}
         />
         <div className="pl-8">
           <p
             className="font-heading text-2xl md:text-3xl font-normal italic leading-snug tracking-heading mb-3"
-            style={{ color: 'rgba(45, 58, 45,0.85)' }}
+            style={{ color: 'rgba(72,89,107,0.85)' }}
           >
             "{value.text}"
           </p>
@@ -492,7 +492,7 @@ const makePortableTextComponents = (): PortableTextComponents => ({
         <h2
           id={id}
           className="text-2xl md:text-3xl font-accent font-semibold normal-case mt-14 mb-5 scroll-mt-24"
-          style={{ color: '#2D3A2D', letterSpacing: '-0.02em', lineHeight: '1.2' }}
+          style={{ color: '#213a50', letterSpacing: '-0.02em', lineHeight: '1.2' }}
         >
           {children}
         </h2>
@@ -505,7 +505,7 @@ const makePortableTextComponents = (): PortableTextComponents => ({
         <h3
           id={id}
           className="text-xl font-body font-semibold normal-case mt-10 mb-4 scroll-mt-24"
-          style={{ color: '#2D3A2D', letterSpacing: '-0.01em' }}
+          style={{ color: '#213a50', letterSpacing: '-0.01em' }}
         >
           {children}
         </h3>
@@ -514,20 +514,20 @@ const makePortableTextComponents = (): PortableTextComponents => ({
     h4: ({ children }) => (
       <h4
         className="text-lg font-body font-semibold normal-case mt-8 mb-3 scroll-mt-24"
-        style={{ color: '#2D3A2D' }}
+        style={{ color: '#213a50' }}
       >
         {children}
       </h4>
     ),
     normal: ({ children }) => (
-      <p className="mb-5 leading-relaxed text-base font-body" style={{ color: 'rgba(45, 58, 45,0.90)' }}>
+      <p className="mb-5 leading-relaxed text-base font-body" style={{ color: 'rgba(33,58,80,0.90)' }}>
         {children}
       </p>
     ),
     blockquote: ({ children }) => (
       <blockquote
         className="border-l-4 border-coastal-gold/60 pl-6 my-6 italic text-lg"
-        style={{ color: 'rgba(45, 58, 45,0.78)' }}
+        style={{ color: 'rgba(33,58,80,0.78)' }}
       >
         {children}
       </blockquote>
@@ -535,12 +535,12 @@ const makePortableTextComponents = (): PortableTextComponents => ({
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="mb-5 space-y-2.5 pl-0" style={{ color: 'rgba(45, 58, 45,0.90)' }}>
+      <ul className="mb-5 space-y-2.5 pl-0" style={{ color: 'rgba(33,58,80,0.90)' }}>
         {children}
       </ul>
     ),
     number: ({ children }) => (
-      <ol className="mb-5 space-y-2.5 pl-0 list-decimal list-inside" style={{ color: 'rgba(45, 58, 45,0.90)' }}>
+      <ol className="mb-5 space-y-2.5 pl-0 list-decimal list-inside" style={{ color: 'rgba(33,58,80,0.90)' }}>
         {children}
       </ol>
     ),
@@ -556,7 +556,7 @@ const makePortableTextComponents = (): PortableTextComponents => ({
   },
   marks: {
     strong: ({ children }) => (
-      <strong className="font-semibold" style={{ color: '#2D3A2D' }}>
+      <strong className="font-semibold" style={{ color: '#213a50' }}>
         {children}
       </strong>
     ),
@@ -600,7 +600,7 @@ function AuthorBox({ author }: { author?: string }) {
         >
           {author || 'Vera Delle'}
         </Link>
-        <p className="text-sm leading-relaxed mt-2" style={{ color: 'rgba(45, 58, 45,0.72)' }}>
+        <p className="text-sm leading-relaxed mt-2" style={{ color: 'rgba(72,89,107,0.72)' }}>
           Mama, biohackerka i pasjonatka naturalnego zdrowia. Sama pokonałam niedoczynność tarczycy i rozregulowane hormony. Dzielę się tym, co naprawdę działa, krok po kroku.
         </p>
         <div className="flex gap-3 mt-3">
@@ -631,7 +631,7 @@ function TldrBox({ excerpt }: { excerpt: string }) {
   return (
     <div
       className="my-10 rounded-3xl p-6 border border-coastal-gold/30 shadow-coastal-sm"
-      style={{ background: 'linear-gradient(135deg, rgba(79, 94, 68,0.07) 0%, rgba(184, 150, 104,0.10) 100%)' }}
+      style={{ background: 'linear-gradient(135deg, rgba(166,138,105,0.07) 0%, rgba(174,202,232,0.10) 100%)' }}
     >
       <div className="flex items-center gap-2 mb-3">
         <span className="text-base">✦</span>
@@ -639,7 +639,7 @@ function TldrBox({ excerpt }: { excerpt: string }) {
           W skrócie
         </span>
       </div>
-      <p className="text-base leading-relaxed font-light" style={{ color: 'rgba(45, 58, 45,0.88)' }}>
+      <p className="text-base leading-relaxed font-light" style={{ color: 'rgba(72,89,107,0.88)' }}>
         {excerpt}
       </p>
     </div>
@@ -695,7 +695,7 @@ export default function BlogPostContent({
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               className="mb-7 flex items-center gap-2 text-sm"
-              style={{ color: 'rgba(45, 58, 45,0.55)' }}
+              style={{ color: 'rgba(72,89,107,0.55)' }}
             >
               <Link
                 href="/blog"
@@ -728,7 +728,7 @@ export default function BlogPostContent({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.60, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
               className="text-3xl sm:text-4xl md:text-5xl font-body font-bold normal-case leading-tight mb-5"
-              style={{ color: '#2D3A2D', letterSpacing: '-0.02em' }}
+              style={{ color: '#213a50', letterSpacing: '-0.02em' }}
             >
               {article.title}
             </motion.h1>
@@ -742,7 +742,7 @@ export default function BlogPostContent({
             >
               <div
                 className="flex flex-wrap items-center gap-4 text-sm"
-                style={{ color: 'rgba(45, 58, 45,0.6)' }}
+                style={{ color: 'rgba(72,89,107,0.6)' }}
               >
                 <span className="flex items-center gap-1.5">
                   <Calendar size={13} />
@@ -798,7 +798,7 @@ export default function BlogPostContent({
             className="w-full"
             style={{
               height: '12px',
-              background: 'linear-gradient(135deg, rgba(79, 94, 68,0.12) 0%, rgba(184, 150, 104,0.16) 100%)',
+              background: 'linear-gradient(135deg, rgba(166,138,105,0.12) 0%, rgba(174,202,232,0.16) 100%)',
             }}
           />
         )}
@@ -894,7 +894,7 @@ export default function BlogPostContent({
           <div className="mt-10 pt-8 border-t border-border/40 text-center">
             <p
               className="text-xs font-light leading-relaxed max-w-2xl mx-auto"
-              style={{ color: 'rgba(45, 58, 45,0.55)' }}
+              style={{ color: 'rgba(72,89,107,0.55)' }}
             >
               Treści prezentowane na tej stronie mają charakter wyłącznie informacyjny i edukacyjny. Nie jestem lekarzem. Dzielę się własnym doświadczeniem. Przed zmianami w diecie, suplementacji lub stylu życia skonsultuj się ze specjalistą.
             </p>

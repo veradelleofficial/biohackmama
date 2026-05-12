@@ -63,7 +63,7 @@ const portableTextComponents: PortableTextComponents = {
               {value.title || style.label}
             </span>
           </div>
-          <p className="text-sm leading-relaxed" style={{ color: 'rgba(45, 58, 45,0.88)' }}>
+          <p className="text-sm leading-relaxed" style={{ color: 'rgba(72,89,107,0.88)' }}>
             {value.body}
           </p>
         </div>
@@ -91,20 +91,20 @@ const portableTextComponents: PortableTextComponents = {
       <h4 className="text-xl font-heading font-semibold mt-6 mb-2">{children}</h4>
     ),
     normal: ({ children }) => (
-      <p className="mb-5 leading-relaxed" style={{ color: 'rgba(45, 58, 45, 0.9)' }}>{children}</p>
+      <p className="mb-5 leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.9)' }}>{children}</p>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-coastal-gold pl-6 my-6 italic text-lg" style={{ color: 'rgba(45, 58, 45, 0.8)' }}>
+      <blockquote className="border-l-4 border-coastal-gold pl-6 my-6 italic text-lg" style={{ color: 'rgba(72, 89, 107, 0.8)' }}>
         {children}
       </blockquote>
     ),
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="mb-5 space-y-2 pl-5 list-disc" style={{ color: 'rgba(45, 58, 45, 0.9)' }}>{children}</ul>
+      <ul className="mb-5 space-y-2 pl-5 list-disc" style={{ color: 'rgba(72, 89, 107, 0.9)' }}>{children}</ul>
     ),
     number: ({ children }) => (
-      <ol className="mb-5 space-y-2 pl-5 list-decimal" style={{ color: 'rgba(45, 58, 45, 0.9)' }}>{children}</ol>
+      <ol className="mb-5 space-y-2 pl-5 list-decimal" style={{ color: 'rgba(72, 89, 107, 0.9)' }}>{children}</ol>
     ),
   },
   listItem: {
@@ -246,7 +246,7 @@ export default function ArticleContent({ article, pilar, subcategory }: Props) {
 
         {/* Disclaimer */}
         <div className="mt-10 pt-6 border-t border-border/40 text-center">
-          <p className="text-xs font-light leading-relaxed max-w-2xl mx-auto" style={{ color: 'rgba(45, 58, 45, 0.6)' }}>
+          <p className="text-xs font-light leading-relaxed max-w-2xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.6)' }}>
             Treści prezentowane na tej stronie mają charakter edukacyjny i informacyjny. Nie jestem lekarzem. Przed zmianami w diecie lub suplementacji skonsultuj się ze specjalistą.
           </p>
         </div>

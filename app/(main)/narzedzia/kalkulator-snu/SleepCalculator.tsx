@@ -147,7 +147,7 @@ export default function SleepCalculator() {
       </div>
 
       <div className="mt-6 p-4 bg-secondary/8 rounded-2xl">
-        <p className="text-xs font-light leading-relaxed" style={{ color: 'rgba(45, 58, 45, 0.7)' }}>
+        <p className="text-xs font-light leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.7)' }}>
           Kalkulator zakłada 90-minutowe cykle snu i ~14 minut na zaśnięcie.
           Wyniki są orientacyjne – indywidualne cykle mogą trwać 80-110 minut.
         </p>

@@ -91,7 +91,7 @@ export default async function SubcategoryPage({ params }: PageProps) {
               {sub.title}
             </h1>
             {sub.description && (
-              <p className="text-lg font-light max-w-2xl" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+              <p className="text-lg font-light max-w-2xl" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
                 {sub.description}
               </p>
             )}
@@ -161,7 +161,7 @@ export default async function SubcategoryPage({ params }: PageProps) {
 
           {/* Disclaimer */}
           <div className="mt-14 pt-8 border-t border-border/40 text-center">
-            <p className="text-xs font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(45, 58, 45, 0.6)' }}>
+            <p className="text-xs font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.6)' }}>
               Treści mają charakter edukacyjny i nie zastępują porady lekarskiej. Przed wdrożeniem protokołów skonsultuj się ze specjalistą.
             </p>
           </div>

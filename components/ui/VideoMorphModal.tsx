@@ -106,7 +106,7 @@ export function VideoMorphModal({
             whileTap={{ scale: 0.94 }}
             transition={{ duration: 0.20 }}
           >
-            <Play size={22} fill="#2D3A2D" stroke="none" style={{ marginLeft: '3px' }} />
+            <Play size={22} fill="#213a50" stroke="none" style={{ marginLeft: '3px' }} />
           </motion.div>
         </div>
 
@@ -115,7 +115,7 @@ export function VideoMorphModal({
           <div className="absolute bottom-3 left-3 right-3">
             <span
               className="inline-block text-xs text-white/90 font-medium px-3 py-1.5 rounded-lg backdrop-blur-sm"
-              style={{ background: 'rgba(45, 58, 45,0.65)' }}
+              style={{ background: 'rgba(33,58,80,0.65)' }}
             >
               {title}
             </span>

@@ -46,7 +46,7 @@ export default function ContactPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-normal tracking-heading mb-4 md:mb-5">
             Napisz do mnie
           </h1>
-          <p className="text-base md:text-lg max-w-2xl mx-auto font-light" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+          <p className="text-base md:text-lg max-w-2xl mx-auto font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
             Masz pytanie, propozycję współpracy lub chcesz po prostu się przywitać? Chętnie Cię wysłucham.
           </p>
         </motion.div>
@@ -67,7 +67,7 @@ export default function ContactPage() {
                 <h3 className="text-2xl font-heading font-normal tracking-heading mb-3">
                   Wiadomość wysłana!
                 </h3>
-                <p className="font-light mb-6" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+                <p className="font-light mb-6" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
                   Dziękuję za kontakt. Odpowiem najszybciej jak to możliwe.
                 </p>
                 <button
@@ -84,7 +84,7 @@ export default function ContactPage() {
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2" style={{ color: 'rgba(45, 58, 45, 0.8)' }}>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2" style={{ color: 'rgba(72, 89, 107, 0.8)' }}>
                       Imię
                     </label>
                     <input
@@ -99,7 +99,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2" style={{ color: 'rgba(45, 58, 45, 0.8)' }}>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2" style={{ color: 'rgba(72, 89, 107, 0.8)' }}>
                       Email
                     </label>
                     <input
@@ -116,7 +116,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2" style={{ color: 'rgba(45, 58, 45, 0.8)' }}>
+                  <label htmlFor="subject" className="block text-sm font-medium mb-2" style={{ color: 'rgba(72, 89, 107, 0.8)' }}>
                     Temat
                   </label>
                   <select
@@ -137,7 +137,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2" style={{ color: 'rgba(45, 58, 45, 0.8)' }}>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2" style={{ color: 'rgba(72, 89, 107, 0.8)' }}>
                     Wiadomość
                   </label>
                   <textarea
@@ -190,7 +190,7 @@ export default function ContactPage() {
                 <Clock className="w-5 h-5 text-coastal-ocean" />
               </div>
               <h3 className="font-heading font-semibold text-lg mb-1 tracking-heading">Czas odpowiedzi</h3>
-              <p className="text-sm font-light" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+              <p className="text-sm font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
                 Staram się odpowiadać w ciągu 24-48 godzin
               </p>
             </div>

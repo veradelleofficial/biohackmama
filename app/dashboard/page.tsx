@@ -49,15 +49,15 @@ export default function DashboardPage() {
         {justSubscribed && (
           <motion.div
             className="mb-8 rounded-2xl border border-coastal-gold/30 px-5 py-4 flex items-center gap-3"
-            style={{ background: 'rgba(79, 94, 68,0.08)' }}
+            style={{ background: 'rgba(166,138,105,0.08)' }}
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
           >
             <span className="text-xl">🎉</span>
             <div>
-              <p className="text-sm font-semibold" style={{ color: '#2D3A2D' }}>Subskrypcja aktywna!</p>
-              <p className="text-xs font-light" style={{ color: 'rgba(45, 58, 45,0.60)' }}>Witaj w BioHackMama Premium. Twoje Pigułki Wiedzy czekają.</p>
+              <p className="text-sm font-semibold" style={{ color: '#213a50' }}>Subskrypcja aktywna!</p>
+              <p className="text-xs font-light" style={{ color: 'rgba(33,58,80,0.60)' }}>Witaj w BioHackMama Premium. Twoje Pigułki Wiedzy czekają.</p>
             </div>
             <Link href="/premium/pigulki" className="ml-auto text-xs font-semibold text-coastal-gold hover:text-coastal-gold/70 transition-colors whitespace-nowrap">
               Otwórz bibliotekę →
@@ -75,7 +75,7 @@ export default function DashboardPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-normal tracking-heading mb-2">
             Witaj, {user?.firstName || 'piękna'}!
           </h1>
-          <p className="text-base md:text-lg font-light" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+          <p className="text-base md:text-lg font-light" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
             Twój panel — subskrypcja, kursy i ebooki w jednym miejscu
           </p>
         </motion.div>
@@ -98,13 +98,13 @@ export default function DashboardPage() {
                 <Link href={stat.href} className="block bg-card rounded-3xl p-5 md:p-6 border border-border/60 shadow-coastal-sm hover:shadow-card-hover transition-all duration-500">
                   <stat.icon className="w-6 h-6 text-coastal-ocean mb-3" />
                   <p className="text-lg font-bold text-coastal-gold">{stat.value}</p>
-                  <p className="text-sm font-light" style={{ color: 'rgba(45, 58, 45, 0.7)' }}>{stat.label}</p>
+                  <p className="text-sm font-light" style={{ color: 'rgba(72, 89, 107, 0.7)' }}>{stat.label}</p>
                 </Link>
               ) : (
                 <div className="bg-card rounded-3xl p-5 md:p-6 border border-border/60 shadow-coastal-sm">
                   <stat.icon className="w-6 h-6 text-coastal-ocean mb-3" />
                   <p className="text-2xl font-bold text-coastal-gold">{stat.value ?? '—'}</p>
-                  <p className="text-sm font-light" style={{ color: 'rgba(45, 58, 45, 0.7)' }}>{stat.label}</p>
+                  <p className="text-sm font-light" style={{ color: 'rgba(72, 89, 107, 0.7)' }}>{stat.label}</p>
                 </div>
               )}
             </motion.div>
@@ -129,15 +129,15 @@ export default function DashboardPage() {
 
           {hasActiveSubscription ? (
             <div className="rounded-3xl border border-coastal-gold/30 p-6 md:p-8"
-              style={{ background: 'linear-gradient(135deg, rgba(79, 94, 68,0.07) 0%, rgba(184, 150, 104,0.07) 100%)' }}>
+              style={{ background: 'linear-gradient(135deg, rgba(166,138,105,0.07) 0%, rgba(174,202,232,0.07) 100%)' }}>
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" />
-                    <p className="text-sm font-semibold" style={{ color: '#2D3A2D' }}>BioHackMama Premium — Aktywna</p>
+                    <p className="text-sm font-semibold" style={{ color: '#213a50' }}>BioHackMama Premium — Aktywna</p>
                   </div>
                   {subscriptionEnd && (
-                    <p className="text-xs font-light" style={{ color: 'rgba(45, 58, 45,0.55)' }}>
+                    <p className="text-xs font-light" style={{ color: 'rgba(33,58,80,0.55)' }}>
                       Następne odnowienie: {subscriptionEnd}
                     </p>
                   )}
@@ -145,7 +145,7 @@ export default function DashboardPage() {
                 <Link
                   href="/premium/pigulki"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl text-white text-sm font-semibold hover:brightness-110 transition-all duration-200"
-                  style={{ background: '#4F5E44' }}
+                  style={{ background: 'linear-gradient(135deg, #A68A69, #8a7058)' }}
                 >
                   Otwórz bibliotekę
                 </Link>
@@ -154,13 +154,13 @@ export default function DashboardPage() {
           ) : (
             <div className="rounded-3xl border border-border/60 p-6 md:p-8 text-center bg-card">
               <Zap className="w-10 h-10 text-coastal-ocean/40 mx-auto mb-3" />
-              <p className="text-base font-light mb-4" style={{ color: 'rgba(45, 58, 45, 0.7)' }}>
+              <p className="text-base font-light mb-4" style={{ color: 'rgba(72, 89, 107, 0.7)' }}>
                 Nie masz jeszcze subskrypcji Premium
               </p>
               <Link
                 href="/premium"
                 className="inline-block px-6 py-3 rounded-2xl text-white text-sm font-semibold hover:brightness-110 transition-all duration-200"
-                style={{ background: '#4F5E44' }}
+                style={{ background: 'linear-gradient(135deg, #A68A69, #8a7058)' }}
               >
                 Odkryj Pigułki Wiedzy
               </Link>
@@ -183,7 +183,7 @@ export default function DashboardPage() {
           </div>
           <div className="bg-card rounded-3xl p-8 md:p-12 border border-border/60 text-center">
             <GraduationCap className="w-12 h-12 text-coastal-ocean/40 mx-auto mb-4" />
-            <p className="text-lg font-light mb-4" style={{ color: 'rgba(45, 58, 45, 0.7)' }}>
+            <p className="text-lg font-light mb-4" style={{ color: 'rgba(72, 89, 107, 0.7)' }}>
               Nie masz jeszcze żadnych kursów
             </p>
             <Link href="/kursy" className="inline-block px-6 py-3 bg-coastal-gold text-white rounded-2xl hover:brightness-110 transition-all duration-300 text-cta text-sm">
@@ -206,7 +206,7 @@ export default function DashboardPage() {
           </div>
           <div className="bg-card rounded-3xl p-8 md:p-12 border border-border/60 text-center">
             <BookOpen className="w-12 h-12 text-coastal-ocean/40 mx-auto mb-4" />
-            <p className="text-lg font-light mb-4" style={{ color: 'rgba(45, 58, 45, 0.7)' }}>
+            <p className="text-lg font-light mb-4" style={{ color: 'rgba(72, 89, 107, 0.7)' }}>
               Nie masz jeszcze żadnych ebooków
             </p>
             <Link href="/ebooki" className="inline-block px-6 py-3 bg-coastal-gold text-white rounded-2xl hover:brightness-110 transition-all duration-300 text-cta text-sm">

@@ -87,7 +87,7 @@ export default function NarzedziaPage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-heading font-normal mb-4 tracking-heading uppercase">
               Narzędzia
             </h1>
-            <p className="text-lg font-light max-w-2xl mx-auto" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+            <p className="text-lg font-light max-w-2xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
               Darmowe kalkulatory i trackery biohackingu dopasowane do kobiecego ciała.
             </p>
           </div>
@@ -104,7 +104,7 @@ export default function NarzedziaPage() {
                   <h2 className="text-2xl font-heading font-semibold tracking-heading mb-3 group-hover:text-coastal-gold transition-colors">
                     {tool.title}
                   </h2>
-                  <p className="text-sm font-light leading-relaxed mb-5" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+                  <p className="text-sm font-light leading-relaxed mb-5" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
                     {tool.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-5">
@@ -123,7 +123,7 @@ export default function NarzedziaPage() {
           </div>
 
           <div className="mt-14 pt-8 border-t border-border/40 text-center">
-            <p className="text-xs font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(45, 58, 45, 0.6)' }}>
+            <p className="text-xs font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.6)' }}>
               Narzędzia mają charakter informacyjny i edukacyjny. Wyniki kalkulatorów nie zastępują indywidualnej konsultacji ze specjalistą.
             </p>
           </div>

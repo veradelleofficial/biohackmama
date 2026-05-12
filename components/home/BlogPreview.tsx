@@ -53,19 +53,10 @@ export default function BlogPreview() {
           <div className="flex justify-center mb-1.5 md:mb-2">
             <Image src="/images/icon.webp" alt="" width={64} height={64} className="h-14 md:h-16 w-auto" />
           </div>
-          <span
-            className="inline-block text-[11px] md:text-xs uppercase font-mono mb-3"
-            style={{ color: '#8B6F47', letterSpacing: '0.25em' }}
-          >
-            Z bloga
-          </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-normal mb-4 md:mb-5 tracking-heading">
             Najnowsze artykuły
           </h2>
-          <div className="flex justify-center mb-5">
-            <span className="inline-block w-12 h-[2px] rounded-full" style={{ backgroundColor: '#4F5E44' }} />
-          </div>
-          <p className="text-base md:text-lg max-w-2xl mx-auto font-light px-4 md:px-0" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+          <p className="text-base md:text-lg max-w-2xl mx-auto font-light px-4 md:px-0" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
             Porady, strategie i przepisy na twoje zdrowie
           </p>
         </motion.div>
@@ -104,13 +95,10 @@ export default function BlogPreview() {
 
                 <div className="p-4 md:p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span
-                      className="text-xs px-3 py-1.5 rounded-full font-medium"
-                      style={{ backgroundColor: '#B89668', color: '#2D3A2D' }}
-                    >
+                    <span className="text-xs px-3 py-1.5 bg-secondary/15 text-coastal-ocean rounded-full font-medium">
                       {article.category}
                     </span>
-                    <span className="text-xs" style={{ color: '#8B6F47' }}>{article.readTime} min czytania</span>
+                    <span className="text-xs text-muted-foreground">{article.readTime} min czytania</span>
                   </div>
 
                   <Link href={`/blog/${article.slug.current}`}>
@@ -119,19 +107,18 @@ export default function BlogPreview() {
                     </h3>
                   </Link>
 
-                  <p className="text-sm font-light mb-4 line-clamp-2" style={{ color: 'rgba(45, 58, 45, 0.78)', lineHeight: '1.6' }}>
+                  <p className="text-sm font-light mb-4 line-clamp-2" style={{ color: 'rgba(72, 89, 107, 0.78)', lineHeight: '1.6' }}>
                     {article.excerpt}
                   </p>
 
                   <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                    <div className="flex items-center gap-1 text-xs" style={{ color: '#8B6F47' }}>
-                      <Calendar size={14} weight="duotone" style={{ color: '#8B6F47' }} />
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <Calendar size={14} weight="duotone" className="text-coastal-ocean" />
                       {article.publishedAt ? new Date(article.publishedAt).toLocaleDateString('pl-PL') : ''}
                     </div>
                     <Link
                       href={`/blog/${article.slug.current}`}
-                      className="transition-colors duration-200 inline-flex items-center gap-1.5"
-                      style={{ color: '#4F5E44' }}
+                      className="text-coastal-gold hover:text-coastal-gold/80 transition-colors duration-200 inline-flex items-center gap-1.5"
                     >
                       <span className="text-sm font-medium">Czytaj</span>
                       <ArrowRight size={16} className="transition-transform duration-250 group-hover:translate-x-1" style={{ transitionTimingFunction: 'cubic-bezier(0.23,1,0.32,1)' }} />
@@ -153,8 +140,7 @@ export default function BlogPreview() {
         >
           <Link
             href="/blog"
-            className="inline-block px-8 py-3.5 rounded-full text-cta text-sm border-2 transition-colors active:scale-[0.97]"
-            style={{ borderColor: '#2D3A2D', color: '#2D3A2D' }}
+            className="inline-block px-8 py-3.5 border border-coastal-ocean/30 text-coastal-slate rounded-3xl hover:bg-secondary/10 hover:border-coastal-ocean/50 transition-all duration-200 active:scale-[0.97] text-cta text-sm"
           >
             Wszystkie artykuły
           </Link>

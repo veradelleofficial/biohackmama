@@ -63,13 +63,13 @@ export default function PigulkaPlayer({ pigulka }: { pigulka: Pigulka }) {
           transition={{ duration: 0.5, ease: EASE_OUT }}
         >
           <span className="inline-block text-[10px] font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4"
-            style={{ background: 'rgba(79, 94, 68,0.12)', color: 'rgba(79, 94, 68,0.90)' }}>
+            style={{ background: 'rgba(166,138,105,0.12)', color: 'rgba(166,138,105,0.90)' }}>
             {pigulka.sciezka}
           </span>
-          <h1 className="text-3xl sm:text-4xl font-heading font-normal tracking-heading mb-3" style={{ color: '#2D3A2D' }}>
+          <h1 className="text-3xl sm:text-4xl font-heading font-normal tracking-heading mb-3" style={{ color: '#213a50' }}>
             {pigulka.title}
           </h1>
-          <div className="flex items-center gap-3 text-sm font-light" style={{ color: 'rgba(45, 58, 45,0.55)' }}>
+          <div className="flex items-center gap-3 text-sm font-light" style={{ color: 'rgba(33,58,80,0.55)' }}>
             {pigulka.duration && <span>⏱ {pigulka.duration} min</span>}
             {pigulka.audioUrl && <span>🎧 Audio</span>}
             {pigulka.videoUrl && <span>📹 Wideo</span>}
@@ -102,12 +102,12 @@ export default function PigulkaPlayer({ pigulka }: { pigulka: Pigulka }) {
         {pigulka.audioUrl && (
           <motion.div
             className="mb-7 rounded-2xl border border-border/40 p-4 md:p-5"
-            style={{ background: 'rgba(242,235,221,0.85)' }}
+            style={{ background: 'rgba(239,234,228,0.85)' }}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: embedUrl ? 0.2 : 0.1, ease: EASE_OUT }}
           >
-            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: 'rgba(79, 94, 68,0.80)' }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: 'rgba(166,138,105,0.80)' }}>
               Nagranie audio
             </p>
             <audio
@@ -132,7 +132,7 @@ export default function PigulkaPlayer({ pigulka }: { pigulka: Pigulka }) {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl text-white text-sm font-semibold transition-all duration-200 hover:brightness-110"
-              style={{ background: '#4F5E44', boxShadow: '0 4px 16px rgba(79, 94, 68,0.28)' }}
+              style={{ background: 'linear-gradient(135deg, #A68A69, #8a7058)', boxShadow: '0 4px 16px rgba(166,138,105,0.28)' }}
             >
               <span>📄</span>
               Pobierz cheat sheet PDF
@@ -144,15 +144,15 @@ export default function PigulkaPlayer({ pigulka }: { pigulka: Pigulka }) {
         {pigulka.description && (
           <motion.div
             className="rounded-2xl border border-border/40 p-5 md:p-6"
-            style={{ background: 'rgba(242,235,221,0.70)' }}
+            style={{ background: 'rgba(239,234,228,0.70)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: 'rgba(45, 58, 45,0.40)' }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: 'rgba(33,58,80,0.40)' }}>
               O tej pigułce
             </p>
-            <p className="text-sm md:text-base font-light leading-relaxed" style={{ color: 'rgba(45, 58, 45,0.80)' }}>
+            <p className="text-sm md:text-base font-light leading-relaxed" style={{ color: 'rgba(72,89,107,0.80)' }}>
               {pigulka.description}
             </p>
           </motion.div>

@@ -104,11 +104,11 @@ function SubscribeButton() {
     <motion.button
       onClick={handleClick}
       disabled={loading}
-      whileHover={!loading ? { scale: 1.03, boxShadow: '0 8px 28px rgba(79, 94, 68,0.38)' } : {}}
+      whileHover={!loading ? { scale: 1.03, boxShadow: '0 8px 28px rgba(166,138,105,0.38)' } : {}}
       whileTap={!loading ? { scale: 0.97 } : {}}
       transition={{ duration: 0.18 }}
       className="w-full py-4 rounded-2xl text-white font-semibold text-base transition-all duration-200 disabled:opacity-60"
-      style={{ background: '#4F5E44' }}
+      style={{ background: 'linear-gradient(135deg, #A68A69, #8a7058)' }}
     >
       {loading ? (
         <span className="flex items-center justify-center gap-2">
@@ -132,11 +132,11 @@ function FaqItem({ q, a }: { q: string; a: string }) {
         className="w-full flex items-center justify-between py-4 text-left"
         onClick={() => setOpen(!open)}
       >
-        <span className="font-medium text-sm md:text-base pr-4" style={{ color: '#2D3A2D' }}>{q}</span>
+        <span className="font-medium text-sm md:text-base pr-4" style={{ color: '#213a50' }}>{q}</span>
         <span className="text-coastal-gold flex-shrink-0 text-lg leading-none">{open ? '−' : '+'}</span>
       </button>
       {open && (
-        <p className="text-sm font-light pb-4 leading-relaxed" style={{ color: 'rgba(45, 58, 45,0.75)' }}>
+        <p className="text-sm font-light pb-4 leading-relaxed" style={{ color: 'rgba(72,89,107,0.75)' }}>
           {a}
         </p>
       )}
@@ -163,13 +163,13 @@ export default function PremiumPage() {
             <span className="inline-block px-4 py-1.5 bg-coastal-gold/10 text-coastal-gold border border-coastal-gold/25 rounded-full text-[10px] font-semibold uppercase tracking-widest mb-5">
               Premium
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-normal tracking-heading mb-5" style={{ color: '#2D3A2D' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-normal tracking-heading mb-5" style={{ color: '#213a50' }}>
               Pigułki Wiedzy
             </h1>
-            <p className="text-base md:text-lg font-light leading-relaxed mb-8" style={{ color: 'rgba(45, 58, 45,0.78)' }}>
+            <p className="text-base md:text-lg font-light leading-relaxed mb-8" style={{ color: 'rgba(72,89,107,0.78)' }}>
               Protokoły biohackingu w 3-5 minut. Audio i wideo do słuchania w biegu, plus jednostronicowy cheat sheet do każdej pigułki. Zero teorii — tylko konkretny krok na dziś.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm font-medium" style={{ color: 'rgba(45, 58, 45,0.65)' }}>
+            <div className="flex flex-wrap justify-center gap-4 text-sm font-medium" style={{ color: 'rgba(33,58,80,0.65)' }}>
               <span className="flex items-center gap-1.5">🎧 Audio do Spotify</span>
               <span className="flex items-center gap-1.5">📹 Krótkie wideo</span>
               <span className="flex items-center gap-1.5">📄 PDF cheat sheet</span>
@@ -188,10 +188,10 @@ export default function PremiumPage() {
             transition={{ duration: 0.5, ease: EASE_OUT }}
             viewport={{ once: true }}
           >
-            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: 'rgba(79, 94, 68,0.85)' }}>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: 'rgba(166,138,105,0.85)' }}>
               5 ścieżek ratunkowych
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-normal tracking-heading" style={{ color: '#2D3A2D' }}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-normal tracking-heading" style={{ color: '#213a50' }}>
               Znajdź to, czego potrzebujesz teraz
             </h2>
           </motion.div>
@@ -207,10 +207,10 @@ export default function PremiumPage() {
                 viewport={{ once: true }}
               >
                 <span className="text-3xl mb-3 block">{s.emoji}</span>
-                <h3 className="font-heading font-semibold text-lg tracking-heading mb-2" style={{ color: '#2D3A2D' }}>
+                <h3 className="font-heading font-semibold text-lg tracking-heading mb-2" style={{ color: '#213a50' }}>
                   {s.title}
                 </h3>
-                <p className="text-sm font-light leading-relaxed" style={{ color: 'rgba(45, 58, 45,0.75)' }}>
+                <p className="text-sm font-light leading-relaxed" style={{ color: 'rgba(72,89,107,0.75)' }}>
                   {s.desc}
                 </p>
               </motion.div>
@@ -225,7 +225,7 @@ export default function PremiumPage() {
           <motion.div
             className="rounded-3xl border border-coastal-gold/30 overflow-hidden"
             style={{
-              background: 'rgba(242,235,221,0.95)',
+              background: 'rgba(239,234,228,0.95)',
               boxShadow: 'var(--shadow-float)',
             }}
             initial={{ opacity: 0, y: 20 }}
@@ -233,13 +233,13 @@ export default function PremiumPage() {
             transition={{ duration: 0.55, ease: EASE_OUT }}
             viewport={{ once: true }}
           >
-            <div className="px-6 pt-6 pb-4 border-b border-border/40" style={{ background: 'linear-gradient(135deg, rgba(79, 94, 68,0.10) 0%, rgba(184, 150, 104,0.10) 100%)' }}>
+            <div className="px-6 pt-6 pb-4 border-b border-border/40" style={{ background: 'linear-gradient(135deg, rgba(166,138,105,0.10) 0%, rgba(174,202,232,0.10) 100%)' }}>
               <p className="text-xs font-semibold uppercase tracking-widest text-coastal-gold mb-1">BioHackMama Premium</p>
               <div className="flex items-end gap-2 mb-1">
-                <span className="text-4xl font-bold" style={{ color: '#2D3A2D' }}>79 zł</span>
-                <span className="text-sm font-light mb-1.5" style={{ color: 'rgba(45, 58, 45,0.55)' }}>/miesiąc</span>
+                <span className="text-4xl font-bold" style={{ color: '#213a50' }}>79 zł</span>
+                <span className="text-sm font-light mb-1.5" style={{ color: 'rgba(33,58,80,0.55)' }}>/miesiąc</span>
               </div>
-              <p className="text-xs font-light" style={{ color: 'rgba(45, 58, 45,0.50)' }}>Bez zobowiązań. Anuluj kiedy chcesz.</p>
+              <p className="text-xs font-light" style={{ color: 'rgba(33,58,80,0.50)' }}>Bez zobowiązań. Anuluj kiedy chcesz.</p>
             </div>
             <div className="px-6 py-5 space-y-3">
               {[
@@ -249,7 +249,7 @@ export default function PremiumPage() {
                 '5 ścieżek tematycznych',
                 'Prywatny feed podcastu (wkrótce)',
               ].map((item) => (
-                <div key={item} className="flex items-start gap-2.5 text-sm font-light" style={{ color: 'rgba(45, 58, 45,0.75)' }}>
+                <div key={item} className="flex items-start gap-2.5 text-sm font-light" style={{ color: 'rgba(33,58,80,0.75)' }}>
                   <span className="text-coastal-gold mt-0.5 flex-shrink-0">✓</span>
                   <span>{item}</span>
                 </div>
@@ -257,7 +257,7 @@ export default function PremiumPage() {
               <div className="pt-3">
                 <SubscribeButton />
               </div>
-              <p className="text-center text-xs font-light" style={{ color: 'rgba(45, 58, 45,0.40)' }}>
+              <p className="text-center text-xs font-light" style={{ color: 'rgba(33,58,80,0.40)' }}>
                 Bezpieczna płatność przez Stripe
               </p>
             </div>
@@ -268,7 +268,7 @@ export default function PremiumPage() {
       {/* FAQ */}
       <section className="py-10 md:py-14">
         <div className="container max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-heading font-normal tracking-heading mb-8 text-center" style={{ color: '#2D3A2D' }}>
+          <h2 className="text-2xl md:text-3xl font-heading font-normal tracking-heading mb-8 text-center" style={{ color: '#213a50' }}>
             Pytania i odpowiedzi
           </h2>
           <div className="bg-card rounded-3xl border border-border/50 px-5 md:px-7">

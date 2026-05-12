@@ -57,14 +57,14 @@ export default function Footer() {
                 className="h-14 md:h-16 w-auto"
               />
             </div>
-            <p className="text-sm font-light leading-relaxed" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+            <p className="text-sm font-light leading-relaxed" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
               Zdrowsze alternatywy, biohacking i wellness dla kobiet.
             </p>
           </div>
 
           {/* Product */}
           <div>
-            <h4 className="font-heading font-normal mb-4 tracking-heading text-sm uppercase" style={{ color: 'rgba(45, 58, 45, 0.9)' }}>Produkty</h4>
+            <h4 className="font-heading font-normal mb-4 tracking-heading text-sm uppercase" style={{ color: 'rgba(72, 89, 107, 0.9)' }}>Produkty</h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/blog" className="text-muted-foreground hover:text-coastal-gold transition-colors duration-300">Blog</Link></li>
               <li><Link href="/kursy" className="text-muted-foreground hover:text-coastal-gold transition-colors duration-300">Kursy</Link></li>
@@ -74,7 +74,7 @@ export default function Footer() {
 
           {/* Strona */}
           <div>
-            <h4 className="font-heading font-normal mb-4 tracking-heading text-sm uppercase" style={{ color: 'rgba(45, 58, 45, 0.9)' }}>Strona</h4>
+            <h4 className="font-heading font-normal mb-4 tracking-heading text-sm uppercase" style={{ color: 'rgba(72, 89, 107, 0.9)' }}>Strona</h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/o-mnie" className="text-muted-foreground hover:text-coastal-gold transition-colors duration-300">O mnie</Link></li>
               <li><Link href="/kontakt" className="text-muted-foreground hover:text-coastal-gold transition-colors duration-300">Kontakt</Link></li>
@@ -85,7 +85,7 @@ export default function Footer() {
 
           {/* Socials */}
           <div>
-            <h4 className="font-heading font-normal mb-4 tracking-heading text-sm uppercase" style={{ color: 'rgba(45, 58, 45, 0.9)' }}>Śledź nas</h4>
+            <h4 className="font-heading font-normal mb-4 tracking-heading text-sm uppercase" style={{ color: 'rgba(72, 89, 107, 0.9)' }}>Śledź nas</h4>
             <div className="flex gap-4">
               <a href="https://instagram.com/biohackmama.pl" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-coastal-gold transition-colors duration-300" title="@biohackmama">
                 <Instagram size={20} />

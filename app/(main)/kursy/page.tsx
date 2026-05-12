@@ -103,7 +103,7 @@ export default function CoursesPage() {
         <motion.div
           className="mb-10 rounded-3xl border border-border/40 px-5 py-5 md:px-7 md:py-6"
           style={{
-            background: 'rgba(242,235,221,0.92)',
+            background: 'rgba(239,234,228,0.92)',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
             boxShadow: 'var(--shadow-float)',
@@ -257,7 +257,7 @@ export default function CoursesPage() {
                   <h3 className="font-heading font-semibold text-xl mt-3 mb-2 tracking-heading">
                     {course.title}
                   </h3>
-                  <p className="text-sm font-light mb-4 line-clamp-2" style={{ color: 'rgba(45, 58, 45, 0.78)' }}>
+                  <p className="text-sm font-light mb-4 line-clamp-2" style={{ color: 'rgba(72, 89, 107, 0.78)' }}>
                     {course.description}
                   </p>
                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -278,7 +278,7 @@ export default function CoursesPage() {
 
         {/* Disclaimer */}
         <div className="mt-14 md:mt-20 pt-8 border-t border-border/40 text-center">
-          <p className="text-sm md:text-base font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(45, 58, 45, 0.75)' }}>
+          <p className="text-sm md:text-base font-light leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(72, 89, 107, 0.75)' }}>
             Prezentowane materiały mają charakter wyłącznie informacyjny i nie stanowią porady medycznej ani specjalistycznej. Przed wprowadzeniem zmian w suplementacji lub stylu życia, skonsultuj się z lekarzem.
           </p>
         </div>
