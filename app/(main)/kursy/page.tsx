@@ -87,8 +87,6 @@ export default function CoursesPage() {
       .finally(() => setLoading(false))
   }, [])
 
-  const activeSegment = segments.find((s) => s.key === segment)!
-
   return (
     <main className="min-h-screen">
       <PageHeader
