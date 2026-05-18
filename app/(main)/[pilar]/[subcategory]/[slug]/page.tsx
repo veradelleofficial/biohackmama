@@ -74,7 +74,7 @@ export default async function ArticlePage({ params }: PageProps) {
       '@type': 'Organization',
       name: 'BioHackMama',
       url: BASE_URL,
-      logo: { '@type': 'ImageObject', url: `${BASE_URL}/images/logo.svg` },
+      logo: { '@type': 'ImageObject', url: `${BASE_URL}/images/logo.png` },
     },
     articleSection: article.pilarTitle,
     keywords: [article.category, article.pilarTitle, 'biohacking', 'wellness', 'zdrowie kobiet'],

@@ -182,7 +182,7 @@ const organizationSchema = {
   '@type': 'Organization',
   name: 'BioHackMama',
   url: BASE_URL,
-  logo: `${BASE_URL}/images/logo.svg`,
+  logo: `${BASE_URL}/images/logo.png`,
   description: 'Platforma edukacyjna o biohackingu i wellness dla kobiet',
   founder: {
     '@type': 'Person',

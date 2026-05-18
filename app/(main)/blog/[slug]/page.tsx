@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           url: BASE_URL,
           logo: {
             '@type': 'ImageObject',
-            url: `${BASE_URL}/images/logo.svg`,
+            url: `${BASE_URL}/images/logo.png`,
           },
         },
         articleSection: article.category,
