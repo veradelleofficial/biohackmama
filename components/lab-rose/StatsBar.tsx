@@ -5,10 +5,10 @@ import { motion } from 'framer-motion'
 const EASE = [0.22, 1, 0.36, 1] as const
 
 const stats = [
-  { num: '4 100', label: 'Kobiet w badaniach na których oparto protokoły' },
-  { num: '14 dni', label: 'Średni czas do pierwszej mierzalnej zmiany' },
-  { num: '87%', label: 'Czytelniczek wraca do treści ponad 3×' },
-  { num: '12', label: 'Recenzowanych źródeł na każdy artykuł' },
+  { num: '50%', label: 'Polaków cierpi na zaburzenia snu' },
+  { num: '65%', label: 'pracowników w Polsce odczuwa wypalenie zawodowe' },
+  { num: '1 / 4', label: 'dorosłych zmaga się ze zdrowiem psychicznym' },
+  { num: '22%', label: 'Polaków ma zaburzenia tarczycy' },
 ]
 
 export default function StatsBar() {

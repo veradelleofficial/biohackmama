@@ -6,9 +6,9 @@ import { motion } from 'framer-motion'
 const EASE = [0.22, 1, 0.36, 1] as const
 
 const credentials = [
-  { num: '4 lata', label: 'badań własnych nad cyklem hormonalnym' },
   { num: '2 ×', label: 'pokonana niedoczynność tarczycy naturalnie' },
-  { num: '120+', label: 'wywiadów z czytelniczkami w 12 krajach' },
+  { num: '5 lat', label: 'bez leków, hormony w pełnej równowadze' },
+  { num: 'Lata', label: 'zagłębiania się w badania i naturoterapię' },
 ]
 
 const sources = [

@@ -67,7 +67,7 @@ export default function Hero() {
       >
         {/* Top row — eyebrow */}
         <motion.div variants={fadeUp} className="mb-12 md:mb-16">
-          <span className="lr-eyebrow">Protokół</span>
+          <span className="lr-eyebrow">Niezależnie od systemu</span>
         </motion.div>
 
         {/* Headline */}
@@ -81,9 +81,10 @@ export default function Hero() {
 
         {/* Body */}
         <motion.p variants={fadeUp} className="mt-10 md:mt-12" style={{ maxWidth: '56ch' }}>
-          Łączę rzetelny biohacking z filozofią non-toxic i mądrością ziołolecznictwa. Pokazuję
-          kobietom, mężczyznom i całym rodzinom, jak oczyścić codzienność ze zbędnych toksyn i
-          wejść na najwyższy poziom własnych możliwości, krok po kroku, bez perfekcji od zaraz.
+          Łączę rzetelny biohacking z filozofią non-toxic i mądrością ziołolecznictwa i
+          naturoterapii. Pokazuję kobietom, mężczyznom i całym rodzinom, jak oczyścić
+          codzienność ze zbędnych toksyn i wejść na najwyższy poziom własnych możliwości, bez
+          perfekcji od zaraz.
         </motion.p>
 
         {/* CTAs */}
