@@ -6,9 +6,9 @@ const EASE = [0.22, 1, 0.36, 1] as const
 
 const stats = [
   { num: '50%', label: 'Polaków cierpi na zaburzenia snu' },
-  { num: '65%', label: 'pracowników w Polsce odczuwa wypalenie zawodowe' },
-  { num: '1 / 4', label: 'dorosłych zmaga się ze zdrowiem psychicznym' },
-  { num: '22%', label: 'Polaków ma zaburzenia tarczycy' },
+  { num: '30%', label: 'dzieci w Polsce ma nadwagę' },
+  { num: '1 / 10', label: 'osób ma chorobę autoimmunologiczną' },
+  { num: '1 / 4', label: 'Polaków ma problemy ze zdrowiem psychicznym' },
 ]
 
 export default function StatsBar() {
