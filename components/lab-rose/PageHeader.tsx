@@ -42,8 +42,8 @@ export default function PageHeader({ eyebrow, title, description, meta }: PageHe
 
       <motion.div
         className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 relative"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         transition={{ duration: 0.7, ease: EASE }}
       >
         <div className="flex items-center justify-between mb-10 md:mb-14">

@@ -12,8 +12,8 @@ const stagger = {
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 }
 const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+  hidden: { opacity: 0, y: 22, filter: 'blur(4px)' },
+  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.7, ease: EASE } },
 }
 
 interface Article {
@@ -55,8 +55,8 @@ export default function BlogPreview() {
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 18, filter: 'blur(4px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7, ease: EASE }}
           className="mb-12 md:mb-16 flex items-end justify-between flex-wrap gap-6"

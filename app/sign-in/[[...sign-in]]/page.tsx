@@ -38,10 +38,10 @@ export default function SignInPage() {
           appearance={{
             variables: {
               colorPrimary: '#C9F24F',
-              colorBackground: '#1E1B16',
+              colorBackground: '#161D25',
               colorText: '#F4EFE6',
               colorTextSecondary: '#B8B0A3',
-              colorInputBackground: '#0E0D0A',
+              colorInputBackground: '#0F1419',
               colorInputText: '#F4EFE6',
               colorDanger: '#E8AEBD',
               borderRadius: '2px',
@@ -51,24 +51,24 @@ export default function SignInPage() {
             elements: {
               rootBox: 'mx-auto w-full',
               card:
-                'border bg-[#1E1B16] shadow-[0_28px_64px_-16px_rgba(0,0,0,0.65)]',
+                'border bg-[#161D25] shadow-[0_28px_64px_-16px_rgba(0,0,0,0.65)]',
               headerTitle: 'font-heading text-[#F4EFE6] !text-base',
               headerSubtitle: 'text-[#B8B0A3] !text-xs',
               socialButtonsBlockButton:
-                'border border-[#46402F] bg-[#0E0D0A] text-[#F4EFE6] hover:bg-[#262218]',
+                'border border-[#3A444F] bg-[#0F1419] text-[#F4EFE6] hover:bg-[#1D2530]',
               socialButtonsBlockButtonText: 'text-[#F4EFE6]',
-              dividerLine: 'bg-[#2A2622]',
+              dividerLine: 'bg-[#2A323D]',
               dividerText: 'text-[#948C7F]',
               formFieldLabel: 'text-[#B8B0A3] text-xs uppercase tracking-widest',
               formFieldInput:
-                'bg-[#0E0D0A] border border-[#46402F] text-[#F4EFE6] focus:border-[#C9F24F] focus:ring-1 focus:ring-[#C9F24F]',
+                'bg-[#0F1419] border border-[#3A444F] text-[#F4EFE6] focus:border-[#C9F24F] focus:ring-1 focus:ring-[#C9F24F]',
               formButtonPrimary:
-                'bg-[#C9F24F] text-[#0E0D0A] hover:bg-[#E8AEBD] font-mono tracking-widest uppercase text-xs font-semibold',
+                'bg-[#C9F24F] text-[#0F1419] hover:bg-[#E8AEBD] font-mono tracking-widest uppercase text-xs font-semibold',
               footerActionText: 'text-[#B8B0A3]',
               footerActionLink: 'text-[#C9F24F] hover:text-[#D4FF3D]',
               identityPreviewText: 'text-[#F4EFE6]',
               identityPreviewEditButton: 'text-[#C9F24F]',
-              otpCodeFieldInput: 'bg-[#0E0D0A] border border-[#46402F] text-[#F4EFE6]',
+              otpCodeFieldInput: 'bg-[#0F1419] border border-[#3A444F] text-[#F4EFE6]',
             },
           }}
         />

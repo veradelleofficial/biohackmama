@@ -11,17 +11,22 @@ export default function NewsletterCTA() {
       style={{
         padding: 'clamp(4rem, 9vw, 8rem) 0',
         borderTop: '1px solid var(--lr-rule)',
+        backgroundImage:
+          'linear-gradient(rgba(12,12,12,0.9), rgba(12,12,12,0.9)), url(/images/bio-bg-2.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
       }}
     >
       <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 24, filter: 'blur(4px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: EASE }}
+          transition={{ duration: 0.75, ease: EASE }}
         >
           <div className="flex items-baseline justify-between mb-8 flex-wrap gap-4">
-            <span className="lr-eyebrow">Lead magnet</span>
+            <span className="lr-eyebrow">Bezpłatny start</span>
           </div>
 
           <h2 style={{ maxWidth: '22ch' }}>
@@ -37,7 +42,7 @@ export default function NewsletterCTA() {
           <ul className="mt-10 space-y-3" style={{ listStyle: 'none', padding: 0 }}>
             {[
               'PDF z protokołem i checklist do druku',
-              '5 maili przez 2 tygodnie z tłem naukowym',
+              'Dziennik do śledzenia efektów przez 14 dni',
               'Lista 12 zbędników z drogerii do wyrzucenia',
             ].map((item, i) => (
               <li
@@ -91,7 +96,7 @@ export default function NewsletterCTA() {
               letterSpacing: '0.18em',
             }}
           >
-            2&nbsp;847 mam już dostało · bez spamu · wypisz się jednym kliknięciem
+            Premiera 2026 · bez spamu · jedno kliknięcie żeby się wypisać
           </p>
         </motion.div>
       </div>

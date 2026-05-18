@@ -11,8 +11,8 @@ const stagger = {
   visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
 }
 const fadeUp = {
-  hidden: { opacity: 0, y: 18 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+  hidden: { opacity: 0, y: 18, filter: 'blur(4px)' },
+  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.7, ease: EASE } },
 }
 
 export default function Hero() {
@@ -21,6 +21,18 @@ export default function Hero() {
       className="relative overflow-hidden"
       style={{ padding: 'clamp(6rem, 12vw, 10rem) 0 clamp(4rem, 8vw, 7rem)' }}
     >
+      {/* Lab notebook dot grid */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(184, 176, 163, 0.18) 1.4px, transparent 1.4px)',
+          backgroundSize: '28px 28px',
+          backgroundPosition: '0 0',
+          maskImage: 'radial-gradient(ellipse at 50% 45%, black 35%, transparent 90%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at 50% 45%, black 35%, transparent 90%)',
+        }}
+      />
       {/* Ambient rose glow — top right */}
       <div
         aria-hidden

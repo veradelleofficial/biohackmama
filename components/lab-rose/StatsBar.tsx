@@ -34,14 +34,19 @@ export default function StatsBar() {
         padding: 'clamp(3rem, 6vw, 5rem) 0',
         borderTop: '1px solid var(--lr-rule)',
         borderBottom: '1px solid var(--lr-rule)',
+        backgroundImage:
+          'linear-gradient(rgba(12,12,12,0.88), rgba(12,12,12,0.88)), url(/images/bio-bg-2.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
       }}
     >
       <motion.div
         className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-6"
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 24, filter: 'blur(4px)' }}
+        whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.8, ease: EASE }}
+        transition={{ duration: 0.75, ease: EASE }}
       >
         {stats.map((s, i) => (
           <div key={i} className="lr-stat">

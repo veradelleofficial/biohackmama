@@ -33,10 +33,10 @@ export default function Authority() {
           {/* Left — photo placeholder + signature */}
           <motion.div
             className="lg:col-span-5"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -20, filter: 'blur(4px)' }}
+            whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8, ease: EASE }}
+            transition={{ duration: 0.75, ease: EASE }}
           >
             <div
               style={{
@@ -92,10 +92,10 @@ export default function Authority() {
           {/* Right — credentials + sources */}
           <motion.div
             className="lg:col-span-7"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 24, filter: 'blur(4px)' }}
+            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
+            transition={{ duration: 0.75, ease: EASE, delay: 0.1 }}
           >
             <span className="lr-eyebrow">Moja historia</span>
             <h2 className="mt-6" style={{ maxWidth: '20ch' }}>

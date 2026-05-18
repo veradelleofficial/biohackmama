@@ -8,15 +8,85 @@ export default function Footer() {
 
   return (
     <footer
-      className="lab-rose"
+      className="lab-rose relative overflow-hidden"
       style={{
         background: 'var(--lr-bg)',
         borderTop: '1px solid var(--lr-rule)',
         color: 'var(--lr-ink)',
       }}
     >
+      {/* Ambient rotating DNA helix + infinity */}
       <div
-        className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16"
+        aria-hidden
+        className="absolute pointer-events-none"
+        style={{
+          top: '50%',
+          left: '50%',
+          width: 'min(900px, 90vw)',
+          aspectRatio: '2 / 1',
+          transform: 'translate(-50%, -50%)',
+          opacity: 0.1,
+          mixBlendMode: 'screen',
+        }}
+      >
+        <svg
+          className="lr-dna-bg"
+          viewBox="-200 -100 400 200"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ width: '100%', height: '100%', display: 'block' }}
+        >
+          <defs>
+            <linearGradient id="lr-dna-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#C9F24F" stopOpacity="0.0" />
+              <stop offset="20%" stopColor="#C9F24F" stopOpacity="0.9" />
+              <stop offset="50%" stopColor="#F4EFE6" stopOpacity="1" />
+              <stop offset="80%" stopColor="#E8AEBD" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#E8AEBD" stopOpacity="0.0" />
+            </linearGradient>
+          </defs>
+          {/* Two interleaved figure-8 strands (DNA backbones) */}
+          <path
+            d="M -150,0 C -150,-90 -50,-90 0,0 C 50,90 150,90 150,0 C 150,-90 50,-90 0,0 C -50,90 -150,90 -150,0 Z"
+            fill="none"
+            stroke="url(#lr-dna-grad)"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+          <path
+            d="M -150,0 C -150,90 -50,90 0,0 C 50,-90 150,-90 150,0 C 150,90 50,90 0,0 C -50,-90 -150,-90 -150,0 Z"
+            fill="none"
+            stroke="url(#lr-dna-grad)"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            opacity="0.6"
+          />
+          {/* Nucleotide rungs across the figure-8 (vertical short strokes) */}
+          {Array.from({ length: 24 }).map((_, i) => {
+            const t = (i / 24) * Math.PI * 2
+            const a = 130
+            const denom = 1 + Math.sin(t) * Math.sin(t)
+            const x = (a * Math.cos(t)) / denom
+            const y = (a * Math.sin(t) * Math.cos(t)) / denom
+            const len = 16 - Math.abs(Math.sin(t * 2)) * 6
+            return (
+              <line
+                key={i}
+                x1={x}
+                y1={y - len / 2}
+                x2={x}
+                y2={y + len / 2}
+                stroke="#C9F24F"
+                strokeWidth="0.8"
+                strokeLinecap="round"
+                opacity={0.55 + 0.35 * Math.cos(t * 3)}
+              />
+            )
+          })}
+        </svg>
+      </div>
+
+      <div
+        className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 relative"
         style={{ padding: 'clamp(3rem, 6vw, 5rem) 1.5rem clamp(2rem, 4vw, 3rem)' }}
       >
         {/* Top — brand + columns */}

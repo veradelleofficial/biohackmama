@@ -429,9 +429,9 @@
 
 .lab-rose {
   /* Palette */
-  --lr-bg:        #0E0D0A;
-  --lr-surface:   #1A1815;
-  --lr-surface-2: #232017;
+  --lr-bg:        #0C0C0C;  /* neutral black — image bg layered above */
+  --lr-surface:   #141414;
+  --lr-surface-2: #1C1C1C;
   --lr-ink:       #F4EFE6;
   --lr-ink-soft:  #B8B0A3;
   --lr-ink-dim:   #6B665E;
@@ -439,8 +439,8 @@
   --lr-accent-soft: #A8D43D;
   --lr-rose:      #E8AEBD;  /* dusty rose — mama warmth */
   --lr-rose-deep: #D89BAC;
-  --lr-rule:      #2A2622;
-  --lr-rule-strong: #3A352D;
+  --lr-rule:      #262626;
+  --lr-rule-strong: #363636;
 
   background-color: var(--lr-bg);
   color: var(--lr-ink);
@@ -522,6 +522,44 @@
   box-shadow: 0 0 12px rgba(232, 174, 189, 0.6);
 }
 
+/* Slow rotation for ambient SVG backgrounds (Footer DNA ∞) */
+@keyframes lr-dna-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes lr-dna-counter {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+.lab-rose .lr-dna-bg {
+  animation: lr-dna-spin 90s linear infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+.lab-rose .lr-dna-bg--counter {
+  animation: lr-dna-counter 120s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lab-rose .lr-dna-bg,
+  .lab-rose .lr-dna-bg--counter { animation: none; }
+}
+
+/* Breathing lime glow keyframe — used by .lr-cta-primary */
+@keyframes lr-breathe-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 rgba(201, 242, 79, 0.0),
+      0 4px 14px rgba(201, 242, 79, 0.10),
+      0 0 20px rgba(201, 242, 79, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 0 0 rgba(201, 242, 79, 0.0),
+      0 6px 22px rgba(201, 242, 79, 0.22),
+      0 0 32px rgba(201, 242, 79, 0.18);
+  }
+}
+
 /* Lime CTA */
 .lab-rose .lr-cta-primary {
   display: inline-flex;
@@ -538,13 +576,21 @@
   border-radius: 2px;
   border: none;
   cursor: pointer;
+  animation: lr-breathe-glow 3.4s ease-in-out infinite;
   transition: background-color 240ms var(--ease-out-strong), transform 200ms var(--ease-out-strong), box-shadow 240ms var(--ease-out-strong);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lab-rose .lr-cta-primary { animation: none; }
 }
 @media (hover: hover) and (pointer: fine) {
   .lab-rose .lr-cta-primary:hover {
     background: #D4FF3D;
     transform: translateY(-1px);
-    box-shadow: 0 12px 32px rgba(201, 242, 79, 0.18);
+    animation: none;
+    box-shadow:
+      0 8px 28px rgba(201, 242, 79, 0.35),
+      0 0 48px rgba(201, 242, 79, 0.40),
+      0 0 80px rgba(201, 242, 79, 0.18);
   }
   /* Modyfikator: hover na różowo, bez podświetlenia (np. Wyślij wiadomość) */
   .lab-rose .lr-cta-primary--rose:hover {
@@ -925,7 +971,7 @@ html[data-page="lab-rose"] body {
    highlight = wrażenie obiektu uniesionego z ciemnej powierzchni. */
 .lab-rose .lr-tool-panel {
   position: relative;
-  background: linear-gradient(180deg, #262218 0%, #1F1B16 100%);
+  background: linear-gradient(180deg, #1D2530 0%, #161D25 100%);
   border: 1px solid var(--lr-rule-strong);
   border-radius: 2px;
   box-shadow:
