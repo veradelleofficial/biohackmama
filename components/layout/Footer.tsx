@@ -4,8 +4,6 @@ import Link from 'next/link'
 import { Mail, Instagram, Facebook, Youtube } from 'lucide-react'
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
-
   return (
     <footer
       className="lab-rose relative overflow-hidden"
@@ -100,22 +98,20 @@ export default function Footer() {
                 fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
                 lineHeight: 1.15,
                 fontWeight: 400,
-                maxWidth: '20ch',
+                maxWidth: '24ch',
               }}
             >
-              Naukowy biohacking
-              <br />
-              dla kobiet i rodzin.{' '}
+              Nauka o długowieczności i codziennej optymalizacji zdrowia{' '}
               <span className="lr-rose" style={{ fontStyle: 'italic' }}>
-                Vera Delle.
+                dla każdego.
               </span>
             </h3>
             <p
               className="mt-6"
-              style={{ fontSize: '0.875rem', maxWidth: '40ch', color: 'var(--lr-ink-soft)' }}
+              style={{ fontSize: '0.875rem', maxWidth: '44ch', color: 'var(--lr-ink-soft)' }}
             >
-              Mierzone protokoły. Recenzowane źródła. Bez ezoteryki i bez supplementacji za 800 zł
-              miesięcznie.
+              Biohacking i wellness przy użyciu darmowych, naturalnych metod oraz gadżetów
+              poprawiających jakość i długość życia.
             </p>
           </div>
 
@@ -124,7 +120,7 @@ export default function Footer() {
               className="lr-mono"
               style={{ fontSize: '0.625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.22em' }}
             >
-              PROGRAMY
+              DLA CIEBIE
             </span>
             <ul style={{ listStyle: 'none', padding: 0, marginTop: '1.25rem' }}>
               {[
@@ -284,53 +280,33 @@ export default function Footer() {
                 <Mail size={16} strokeWidth={1.6} />
               </a>
             </div>
-            <p
-              className="lr-mono mt-6"
+            <a
+              href="mailto:contact@biohackmama.pl"
+              className="mt-6 inline-block"
               style={{
-                fontSize: '0.625rem',
-                color: 'var(--lr-ink-dim)',
-                letterSpacing: '0.18em',
-                lineHeight: 1.8,
+                fontFamily: 'var(--font-jetbrains), monospace',
+                fontSize: '0.9375rem',
+                color: 'var(--lr-accent)',
+                letterSpacing: '0.04em',
+                textDecoration: 'none',
+                borderBottom: '1px solid rgba(201, 242, 79, 0.4)',
+                paddingBottom: '2px',
+                transition: 'color 200ms var(--ease-out-strong), border-color 200ms var(--ease-out-strong)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#D4FF3D'
+                e.currentTarget.style.borderBottomColor = '#D4FF3D'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'var(--lr-accent)'
+                e.currentTarget.style.borderBottomColor = 'rgba(201, 242, 79, 0.4)'
               }}
             >
               contact@biohackmama.pl
-              <br />
-              Wrocław · Polska
-            </p>
+            </a>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div
-          className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
-          style={{
-            paddingTop: '2rem',
-            borderTop: '1px solid var(--lr-rule)',
-          }}
-        >
-          <p
-            className="lr-mono"
-            style={{
-              fontSize: '0.625rem',
-              color: 'var(--lr-ink-dim)',
-              letterSpacing: '0.22em',
-            }}
-          >
-            © {currentYear} BIOHACKMAMA · SOOCIALY SP. Z O.O.
-          </p>
-          <p
-            style={{
-              fontSize: '0.75rem',
-              color: 'var(--lr-ink-dim)',
-              fontFamily: 'var(--font-inter), sans-serif',
-            }}
-          >
-            <span className="lr-script lr-rose" style={{ fontSize: '1.5rem', verticalAlign: 'middle', marginRight: '0.35rem' }}>
-              ♡
-            </span>
-            zrobione w trybie deep work
-          </p>
-        </div>
       </div>
     </footer>
   )

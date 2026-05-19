@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Self-hosted Abramo Script — signature handwriting */
+@font-face {
+  font-family: 'Abramo Script';
+  src: url('/fonts/Abramo%20Script.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Abramo';
+  src: url('/fonts/Abramo%20Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     /* Coastal Wellness Palette */

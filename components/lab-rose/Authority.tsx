@@ -6,18 +6,11 @@ import { motion } from 'framer-motion'
 const EASE = [0.22, 1, 0.36, 1] as const
 
 const credentials = [
-  { num: '2 ×', label: 'pokonana niedoczynność tarczycy naturalnie' },
-  { num: '5 lat', label: 'bez leków, hormony w pełnej równowadze' },
-  { num: 'Lata', label: 'zagłębiania się w badania i naturoterapię' },
+  { num: '2 ×', label: 'pokonana niedoczynność tarczycy naturalnymi metodami i dietą' },
+  { num: '5 lat', label: 'bez leków, hormony w równowadze' },
+  { num: 'Lata', label: 'zagłębiania się w badania, naturoterapię i zdrowsze alternatywy' },
 ]
 
-const sources = [
-  'PubMed · 1 200+ artykułów przeczytanych',
-  'dr Stacy Sims · ROAR, Next Level',
-  'dr Mindy Pelz · Fast Like a Girl',
-  'Examine.com · suplementacja oparta na dowodach',
-  'Andrew Huberman · Stanford School of Medicine',
-]
 
 export default function Authority() {
   return (
@@ -56,17 +49,17 @@ export default function Authority() {
             >
               <div>
                 <span
-                  className="lr-script"
                   style={{
-                    fontSize: 'clamp(2.5rem, 4vw, 3.5rem)',
+                    fontFamily: "'Abramo Script', cursive",
+                    fontSize: 'clamp(2rem, 2.9vw, 2.85rem)',
                     color: 'var(--lr-rose)',
-                    transform: 'rotate(-3deg)',
+                    transform: 'rotate(-2deg)',
                     display: 'inline-block',
-                    lineHeight: 0.9,
-                    textShadow: '0 2px 12px rgba(12,12,12,0.6)',
+                    lineHeight: 0.95,
+                    textShadow: '0 2px 12px rgba(12,12,12,0.7)',
                   }}
                 >
-                  Vera Delle
+                  Veronica Kuzminczuk
                 </span>
                 <div
                   className="lr-mono"
@@ -122,51 +115,6 @@ export default function Authority() {
                   <span className="lr-stat__label">{c.label}</span>
                 </div>
               ))}
-            </div>
-
-            {/* Sources */}
-            <div className="mt-10">
-              <span
-                className="lr-mono"
-                style={{ fontSize: '0.625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.22em' }}
-              >
-                ŹRÓDŁA · NA KTÓRYCH BAZUJĘ
-              </span>
-              <ul
-                style={{
-                  listStyle: 'none',
-                  padding: 0,
-                  marginTop: '1rem',
-                  display: 'grid',
-                  gridTemplateColumns: '1fr',
-                  gap: '0.5rem',
-                }}
-              >
-                {sources.map((s, i) => (
-                  <li
-                    key={i}
-                    style={{
-                      fontFamily: 'var(--font-jetbrains), monospace',
-                      fontSize: '0.75rem',
-                      color: 'var(--lr-ink-soft)',
-                      letterSpacing: '0.04em',
-                      paddingLeft: '1rem',
-                      position: 'relative',
-                    }}
-                  >
-                    <span
-                      style={{
-                        position: 'absolute',
-                        left: 0,
-                        color: 'var(--lr-accent)',
-                      }}
-                    >
-                      ▸
-                    </span>
-                    {s}
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <div className="mt-10">
