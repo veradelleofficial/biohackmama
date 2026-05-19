@@ -41,26 +41,19 @@ export default function Authority() {
             <div
               style={{
                 aspectRatio: '3 / 4',
-                background:
-                  'linear-gradient(135deg, var(--lr-surface-2) 0%, var(--lr-bg) 100%)',
+                backgroundImage:
+                  'linear-gradient(to bottom, rgba(12,12,12,0) 55%, rgba(12,12,12,0.78) 100%), url(/images/vera-portrait.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center top',
+                backgroundRepeat: 'no-repeat',
                 border: '1px solid var(--lr-rule)',
                 position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
+                justifyContent: 'flex-end',
                 padding: '1.5rem',
               }}
             >
-              <span
-                className="lr-mono"
-                style={{
-                  color: 'var(--lr-ink-dim)',
-                  fontSize: '0.625rem',
-                  letterSpacing: '0.22em',
-                }}
-              >
-                IMG-001 · PORTRET · soon
-              </span>
               <div>
                 <span
                   className="lr-script"
@@ -70,6 +63,7 @@ export default function Authority() {
                     transform: 'rotate(-3deg)',
                     display: 'inline-block',
                     lineHeight: 0.9,
+                    textShadow: '0 2px 12px rgba(12,12,12,0.6)',
                   }}
                 >
                   Vera Delle
@@ -78,7 +72,7 @@ export default function Authority() {
                   className="lr-mono"
                   style={{
                     fontSize: '0.625rem',
-                    color: 'var(--lr-ink-dim)',
+                    color: 'var(--lr-ink-soft)',
                     letterSpacing: '0.22em',
                     marginTop: '0.5rem',
                   }}
