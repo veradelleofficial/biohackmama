@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Instagram } from 'lucide-react'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -111,109 +110,6 @@ export default function Hero() {
           <Link href="/audyt" className="lr-cta-ghost">
             Zrób audyt (3 min)
           </Link>
-        </motion.div>
-
-        {/* Signature + Instagram branch */}
-        <motion.div
-          variants={fadeUp}
-          className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-end"
-          style={{ paddingTop: '2rem', borderTop: '1px solid var(--lr-rule)' }}
-        >
-          {/* Left — signature */}
-          <div>
-            <span
-              className="lr-script"
-              style={{
-                fontSize: 'clamp(2.5rem, 4.5vw, 3.5rem)',
-                color: 'var(--lr-rose)',
-                transform: 'rotate(-3deg)',
-                display: 'inline-block',
-                lineHeight: 0.9,
-              }}
-            >
-              Vera Delle
-            </span>
-            <div
-              className="lr-mono mt-2"
-              style={{
-                color: 'var(--lr-ink-dim)',
-                fontSize: '0.625rem',
-                letterSpacing: '0.22em',
-              }}
-            >
-              Founder · BioHackMama
-            </div>
-          </div>
-
-          {/* Right — Instagram branch */}
-          <div>
-            <span
-              className="lr-mono"
-              style={{
-                fontSize: '0.625rem',
-                color: 'var(--lr-ink-dim)',
-                letterSpacing: '0.22em',
-                display: 'block',
-                marginBottom: '0.875rem',
-              }}
-            >
-              TU DOWIESZ SIĘ WIĘCEJ
-            </span>
-            <div className="space-y-2">
-              {[
-                { handle: '@biohackmama.pl', href: 'https://instagram.com/biohackmama.pl' },
-                { handle: '@veradelleofficial', href: 'https://instagram.com/veradelleofficial' },
-              ].map((ig) => (
-                <a
-                  key={ig.handle}
-                  href={ig.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group"
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.875rem',
-                    padding: '0.875rem 1rem',
-                    border: '1px solid var(--lr-rule)',
-                    background: 'var(--lr-surface)',
-                    textDecoration: 'none',
-                    transition: 'border-color 240ms var(--ease-out-strong)',
-                  }}
-                >
-                  <Instagram
-                    size={16}
-                    strokeWidth={1.5}
-                    style={{
-                      color: 'var(--lr-rose)',
-                      transition: 'color 240ms var(--ease-out-strong)',
-                    }}
-                  />
-                  <span
-                    style={{
-                      fontFamily: 'var(--font-fraunces), serif',
-                      fontSize: '1rem',
-                      color: 'var(--lr-ink)',
-                      flex: 1,
-                    }}
-                  >
-                    {ig.handle}
-                  </span>
-                  <span
-                    style={{
-                      color: 'var(--lr-accent)',
-                      fontSize: '1rem',
-                      transition: 'transform 240ms var(--ease-out-strong)',
-                      display: 'inline-block',
-                    }}
-                    className="group-hover:translate-x-1"
-                  >
-                    →
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
         </motion.div>
       </motion.div>
     </section>

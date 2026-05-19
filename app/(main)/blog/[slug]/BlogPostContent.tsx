@@ -62,7 +62,7 @@ function ReadingProgressBar() {
         className="h-full origin-left"
         style={{
           scaleX,
-          background: 'linear-gradient(90deg, #A68A69 0%, #AECAE8 60%, #A68A69 100%)',
+          background: 'linear-gradient(90deg, var(--lr-accent) 0%, var(--lr-rose) 60%, var(--lr-accent) 100%)',
           willChange: 'transform',
         }}
       />
@@ -196,10 +196,14 @@ function TableOfContents({ headings }: { headings: { id: string; text: string; l
   if (headings.length < 2) return null
 
   return (
-    <div className="my-10 rounded-3xl border border-coastal-gold/25 bg-card overflow-hidden shadow-coastal-sm">
+    <div
+      className="my-10 rounded-3xl border overflow-hidden shadow-coastal-sm"
+      style={{ background: 'var(--lr-bg)', borderColor: 'var(--lr-rule-strong)' }}
+    >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-6 py-4 hover:bg-coastal-gold/4 transition-colors duration-200"
+        className="w-full flex items-center justify-between px-6 py-4 transition-colors duration-200"
+        style={{ background: 'transparent' }}
       >
         <div className="flex items-center gap-3">
           <span className="text-lg">📋</span>
@@ -253,51 +257,58 @@ const calloutConfig = {
   protip: {
     icon: '💡',
     label: 'Pro-tip',
-    border: 'border-coastal-gold/50',
-    bg: 'bg-coastal-gold/6',
-    labelColor: 'text-coastal-gold',
+    accent: 'var(--lr-accent)',
+    bg: 'rgba(201, 242, 79, 0.08)',
   },
   warning: {
     icon: '⚠️',
     label: 'Uwaga',
-    border: 'border-orange-300/60',
-    bg: 'bg-orange-50/60',
-    labelColor: 'text-orange-600',
+    accent: '#E89B7A',
+    bg: 'rgba(232, 155, 122, 0.08)',
   },
   research: {
     icon: '🔬',
     label: 'Badania',
-    border: 'border-coastal-ocean/50',
-    bg: 'bg-coastal-sky/15',
-    labelColor: 'text-coastal-ocean',
+    accent: 'var(--lr-rose)',
+    bg: 'rgba(232, 174, 189, 0.08)',
   },
   info: {
     icon: 'ℹ️',
     label: 'Info',
-    border: 'border-coastal-slate/30',
-    bg: 'bg-coastal-slate/5',
-    labelColor: 'text-coastal-slate',
+    accent: 'var(--lr-ink-soft)',
+    bg: 'rgba(184, 176, 163, 0.06)',
   },
   fact: {
     icon: '💎',
     label: 'Ciekawostka',
-    border: 'border-emerald-300/50',
-    bg: 'bg-emerald-50/50',
-    labelColor: 'text-emerald-700',
+    accent: 'var(--lr-accent)',
+    bg: 'rgba(201, 242, 79, 0.06)',
   },
 }
 
 function CalloutBox({ value }: { value: any }) {
   const config = calloutConfig[value.variant as keyof typeof calloutConfig] || calloutConfig.info
   return (
-    <div className={`my-8 rounded-2xl border-l-4 p-5 ${config.border} ${config.bg}`}>
+    <div
+      className="my-8 rounded-2xl p-5"
+      style={{
+        borderLeft: `4px solid ${config.accent}`,
+        background: config.bg,
+        border: `1px solid var(--lr-rule)`,
+        borderLeftWidth: '4px',
+        borderLeftColor: config.accent,
+      }}
+    >
       <div className="flex items-center gap-2 mb-2">
         <span className="text-lg">{config.icon}</span>
-        <span className={`text-xs font-semibold uppercase tracking-widest ${config.labelColor}`}>
+        <span
+          className="text-xs font-semibold uppercase tracking-widest lr-mono"
+          style={{ color: config.accent, letterSpacing: '0.18em' }}
+        >
           {value.title || config.label}
         </span>
       </div>
-      <p className="text-sm leading-relaxed" style={{ color: 'rgba(72,89,107,0.85)' }}>
+      <p className="text-sm leading-relaxed" style={{ color: 'var(--lr-ink-soft)' }}>
         {value.body}
       </p>
     </div>
@@ -334,8 +345,8 @@ function InlineLinkBlock({ value }: { value: any }) {
       className="group flex items-center gap-4 my-8 rounded-2xl overflow-hidden border border-coastal-slate/20 hover:border-coastal-gold/50 transition-all duration-300 hover:shadow-coastal-sm no-underline"
     >
       <div
-        className="flex-shrink-0 flex items-center justify-center px-5 py-4 self-stretch text-white text-xs font-semibold uppercase tracking-widest writing-vertical"
-        style={{ background: '#48596B', minWidth: '3.5rem' }}
+        className="flex-shrink-0 flex items-center justify-center px-5 py-4 self-stretch text-xs font-semibold uppercase tracking-widest writing-vertical"
+        style={{ background: 'var(--lr-accent)', color: 'var(--lr-bg)', minWidth: '3.5rem' }}
       >
         <span className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 whitespace-nowrap">
           {label}
@@ -375,14 +386,24 @@ function RelatedArticles({ articles }: { articles: RelatedArticle[] }) {
   return (
     <div className="mt-14">
       <div className="flex items-center gap-4 mb-6">
-        <div className="h-px flex-1 bg-gradient-to-r from-coastal-gold/40 to-transparent" />
+        <div
+          className="h-px flex-1"
+          style={{ background: 'linear-gradient(to right, var(--lr-rule-strong), transparent)' }}
+        />
         <h2
-          className="text-xs font-semibold uppercase tracking-[0.2em] flex-shrink-0"
-          style={{ color: 'rgba(72,89,107,0.55)' }}
+          className="font-semibold uppercase flex-shrink-0 lr-mono"
+          style={{
+            fontSize: '0.5625rem',
+            letterSpacing: '0.28em',
+            color: 'var(--lr-ink-dim)',
+          }}
         >
           Przeczytaj też
         </h2>
-        <div className="h-px flex-1 bg-gradient-to-l from-coastal-gold/40 to-transparent" />
+        <div
+          className="h-px flex-1"
+          style={{ background: 'linear-gradient(to left, var(--lr-rule-strong), transparent)' }}
+        />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -395,7 +416,12 @@ function RelatedArticles({ articles }: { articles: RelatedArticle[] }) {
               href={`/blog/${a.slug.current}`}
               className="group block bg-card rounded-2xl overflow-hidden border border-border/60 shadow-coastal-sm hover:shadow-card-hover hover:-translate-y-1 transition-all duration-400"
             >
-              <div className="relative w-full h-36 bg-gradient-to-br from-secondary/15 to-primary/8 overflow-hidden">
+              <div
+                className="relative w-full h-36 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(232,174,189,0.10) 0%, rgba(201,242,79,0.08) 100%)',
+                }}
+              >
                 {coverUrl ? (
                   <Image
                     src={coverUrl}
@@ -403,7 +429,6 @@ function RelatedArticles({ articles }: { articles: RelatedArticle[] }) {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 100vw, 33vw"
-                    style={{ filter: 'sepia(8%) saturate(88%)' }}
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-4xl">📄</div>
@@ -411,18 +436,37 @@ function RelatedArticles({ articles }: { articles: RelatedArticle[] }) {
               </div>
               <div className="p-4">
                 {a.category && (
-                  <span className="text-xs text-coastal-ocean/80 font-medium mb-1.5 block">
+                  <span
+                    className="lr-mono font-medium mb-1.5 block"
+                    style={{
+                      fontSize: '0.5625rem',
+                      letterSpacing: '0.22em',
+                      textTransform: 'uppercase',
+                      color: 'var(--lr-rose)',
+                    }}
+                  >
                     {a.category}
                   </span>
                 )}
                 <h3
-                  className="font-heading font-semibold text-base leading-snug line-clamp-2 group-hover:text-coastal-gold transition-colors duration-300"
-                  style={{ color: '#48596B' }}
+                  className="font-heading leading-snug line-clamp-2 group-hover:text-coastal-gold transition-colors duration-300"
+                  style={{
+                    color: 'var(--lr-ink)',
+                    fontSize: '0.875rem',
+                    fontWeight: 500,
+                  }}
                 >
                   {a.title}
                 </h3>
                 {a.readTime && (
-                  <p className="text-xs mt-2" style={{ color: 'rgba(72,89,107,0.5)' }}>
+                  <p
+                    className="lr-mono mt-2"
+                    style={{
+                      fontSize: '0.5625rem',
+                      letterSpacing: '0.18em',
+                      color: 'var(--lr-ink-dim)',
+                    }}
+                  >
                     {a.readTime} min czytania
                   </p>
                 )}
@@ -466,7 +510,7 @@ const makePortableTextComponents = (): PortableTextComponents => ({
       <blockquote className="my-10 relative">
         <div
           className="absolute left-0 top-0 bottom-0 w-1 rounded-full"
-          style={{ background: 'linear-gradient(180deg, #A68A69, #AECAE8)' }}
+          style={{ background: 'linear-gradient(180deg, var(--lr-accent), var(--lr-rose))' }}
         />
         <div className="pl-8">
           <p
@@ -520,14 +564,14 @@ const makePortableTextComponents = (): PortableTextComponents => ({
       </h4>
     ),
     normal: ({ children }) => (
-      <p className="mb-5 leading-relaxed text-base font-body" style={{ color: 'rgba(33,58,80,0.90)' }}>
+      <p className="mb-5 leading-relaxed text-base font-body" style={{ color: 'var(--lr-ink)' }}>
         {children}
       </p>
     ),
     blockquote: ({ children }) => (
       <blockquote
         className="border-l-4 border-coastal-gold/60 pl-6 my-6 italic text-lg"
-        style={{ color: 'rgba(33,58,80,0.78)' }}
+        style={{ color: 'var(--lr-ink)' }}
       >
         {children}
       </blockquote>
@@ -535,12 +579,12 @@ const makePortableTextComponents = (): PortableTextComponents => ({
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="mb-5 space-y-2.5 pl-0" style={{ color: 'rgba(33,58,80,0.90)' }}>
+      <ul className="mb-5 space-y-2.5 pl-0" style={{ color: 'var(--lr-ink)' }}>
         {children}
       </ul>
     ),
     number: ({ children }) => (
-      <ol className="mb-5 space-y-2.5 pl-0 list-decimal list-inside" style={{ color: 'rgba(33,58,80,0.90)' }}>
+      <ol className="mb-5 space-y-2.5 pl-0 list-decimal list-inside" style={{ color: 'var(--lr-ink)' }}>
         {children}
       </ol>
     ),
@@ -556,7 +600,7 @@ const makePortableTextComponents = (): PortableTextComponents => ({
   },
   marks: {
     strong: ({ children }) => (
-      <strong className="font-semibold" style={{ color: '#213a50' }}>
+      <strong className="font-semibold" style={{ color: 'var(--lr-ink)' }}>
         {children}
       </strong>
     ),
@@ -584,8 +628,8 @@ function AuthorBox({ author }: { author?: string }) {
     <div className="mt-14 rounded-3xl border border-coastal-gold/25 bg-card p-6 md:p-8 shadow-coastal-sm flex gap-5 items-start">
       <div className="flex-shrink-0">
         <Image
-          src="/images/vera-delle.jpg.jpg"
-          alt="Vera Delle"
+          src="/images/vera-portrait.jpg"
+          alt="Veronica Kuzminczuk"
           width={64}
           height={64}
           className="w-16 h-16 rounded-full object-cover shadow-coastal-sm"
@@ -598,20 +642,29 @@ function AuthorBox({ author }: { author?: string }) {
           href="/o-mnie"
           className="font-heading text-xl font-semibold text-coastal-slate hover:text-coastal-gold transition-colors duration-300"
         >
-          {author || 'Vera Delle'}
-        </Link>
+          {(author || 'Weronika Kuźmińczuk').replace(/@\S+/g, '').trim()}
+        </Link>{' '}
+        <a
+          href="https://www.instagram.com/veradelleofficial"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm hover:opacity-80 transition-opacity"
+          style={{ color: 'var(--lr-rose)' }}
+        >
+          @veradelleofficial
+        </a>
         <p className="text-sm leading-relaxed mt-2" style={{ color: 'rgba(72,89,107,0.72)' }}>
-          Mama, biohackerka i pasjonatka naturalnego zdrowia. Sama pokonałam niedoczynność tarczycy i rozregulowane hormony. Dzielę się tym, co naprawdę działa, krok po kroku.
+          Mama, biohackerka, pasjonatka zdrowia. Dwukrotnie, całkowicie naturalnie cofnęła
+          niedoczynność tarczycy. Łączy mądrość natury z nowoczesną nauką, pokazując jak
+          omijać marketingowe pułapki i hakować zdrowie bez wydawania majątku.
+        </p>
+        <p
+          className="text-sm leading-relaxed mt-3"
+          style={{ color: 'var(--lr-ink)', fontStyle: 'italic' }}
+        >
+          Dołącz do mojego świata i zmień to, co Cię truje, na to, co Cię wspiera.
         </p>
         <div className="flex gap-3 mt-3">
-          <a
-            href="https://www.instagram.com/veradelleofficial"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-medium text-coastal-gold hover:text-coastal-gold/75 transition-colors"
-          >
-            Instagram ↗
-          </a>
           <Link
             href="/o-mnie"
             className="text-xs font-medium text-coastal-ocean hover:text-coastal-ocean/75 transition-colors"
@@ -631,7 +684,7 @@ function TldrBox({ excerpt }: { excerpt: string }) {
   return (
     <div
       className="my-10 rounded-3xl p-6 border border-coastal-gold/30 shadow-coastal-sm"
-      style={{ background: 'linear-gradient(135deg, rgba(166,138,105,0.07) 0%, rgba(174,202,232,0.10) 100%)' }}
+      style={{ background: 'linear-gradient(135deg, rgba(201,242,79,0.07) 0%, rgba(232,174,189,0.08) 100%)' }}
     >
       <div className="flex items-center gap-2 mb-3">
         <span className="text-base">✦</span>
@@ -716,7 +769,15 @@ export default function BlogPostContent({
               className="mb-4"
             >
               {article.category && (
-                <span className="inline-block text-xs px-3 py-1.5 rounded-full font-medium bg-coastal-sky/25 text-coastal-ocean">
+                <span
+                  className="inline-block text-xs px-3 py-1.5 rounded-full font-medium lr-mono"
+                  style={{
+                    background: 'rgba(232, 174, 189, 0.12)',
+                    color: 'var(--lr-rose)',
+                    border: '1px solid var(--lr-rule)',
+                    letterSpacing: '0.16em',
+                  }}
+                >
                   {article.category}
                 </span>
               )}
@@ -788,7 +849,7 @@ export default function BlogPostContent({
               className="absolute inset-0"
               style={{
                 background:
-                  'linear-gradient(to bottom, transparent 45%, hsl(33,16%,92%) 100%)',
+                  'linear-gradient(to bottom, transparent 45%, var(--lr-bg) 100%)',
               }}
             />
           </motion.div>
@@ -798,7 +859,7 @@ export default function BlogPostContent({
             className="w-full"
             style={{
               height: '12px',
-              background: 'linear-gradient(135deg, rgba(166,138,105,0.12) 0%, rgba(174,202,232,0.16) 100%)',
+              background: 'linear-gradient(135deg, rgba(201,242,79,0.10) 0%, rgba(232,174,189,0.12) 100%)',
             }}
           />
         )}
@@ -849,17 +910,18 @@ export default function BlogPostContent({
           </motion.div>
 
           {/* Divider */}
-          <div className="mt-14 mb-10 h-px bg-gradient-to-r from-transparent via-coastal-gold/30 to-transparent" />
+          <div
+            className="mt-14 mb-10 h-px"
+            style={{ background: 'linear-gradient(to right, transparent, var(--lr-rule-strong), transparent)' }}
+          />
 
           {/* Share again + CTA */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-10">
             <ShareButtons title={article.title} />
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                href="/blog"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border border-coastal-gold/40 text-coastal-gold hover:bg-coastal-gold hover:text-white transition-all duration-300 text-sm font-medium"
-              >
-                Zobacz wszystkie artykuły →
+              <Link href="/blog" className="lr-cta-ghost">
+                Zobacz wszystkie artykuły
+                <span aria-hidden>→</span>
               </Link>
             </motion.div>
           </div>

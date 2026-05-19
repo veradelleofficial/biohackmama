@@ -44,37 +44,37 @@ const values = [
     icon: ShieldCheck,
     title: 'Niezależność od systemu',
     description:
-      'Nie kupuję tego, co próbuje mi wciskać przemysł. Przestałam wierzyć, że korporacje chcą dla ludzi dobrze.',
+      'Nie ufam ślepo temu, co serwuje nam masowy rynek. Już dawno przestałam wierzyć w to, że gigantyczne korporacje dbają o nasze zdrowie. Ich celem jest zysk.',
   },
   {
     icon: Leaf,
     title: 'Non-toxic, krok po kroku',
     description:
-      'Zapomnij o radykalnych rewolucjach. Zmieniamy to, co nas truje, na to, co nas wspiera. Jedna rzecz na raz.',
+      'Wielkie zmiany nie potrzebują rewolucji, tylko ewolucji. Usuwamy z otoczenia to, co nas zatruwa, a wprowadzamy to, co buduje nasz maksymalny potencjał. Spokojnie, bez pośpiechu – jedna mała zmiana na raz.',
   },
   {
     icon: Heart,
     title: 'Z serca, nie z podręcznika',
     description:
-      'Mówię po ludzku. Wiem, jak bardzo boli bezsilność, gdy czujesz, że organizm wysyła sygnały, a system mówi że to wyobraźnia.',
+      'Mówię prostym, ludzkim językiem. Doskonale wiem, jak bardzo boli bezsilność, gdy czujesz, że Twój organizm krzyczy o pomoc, a system medyczny wmawia Ci, że to tylko Twoja wyobraźnia.',
   },
   {
     icon: Brain,
     title: 'Mądrość pokoleń + nauka',
     description:
-      'Czerpię z ziołolecznictwa, bo działało zanim powstały korporacje. Dodaję biohacking i wiedzę o hormonach.',
+      'Sięgam po zioła, pamiętając, że medycyna naturalna doskonale radziła sobie długo przed narodzinami wielkiego przemysłu. Tę tradycyjną mądrość łączę z nowoczesnymi narzędziami biohackingu oraz precyzyjną wiedzą o optymalizacji zdrowia.',
   },
   {
     icon: Sparkles,
     title: 'Praktycznie i z głową',
     description:
-      'Nie musisz wydawać majątku, żeby żyć zdrowo. Marketing wmówił nam, że eko musi być drogie. Pokazuję jak omijać pułapki.',
+      'Nie kupuj drogich iluzji. Marketing chce, żebyś myślał, że zdrowie ma metkę premium. Ja pokazuję, jak dzięki świadomym wyborom omijać te pułapki i hakować zdrowie mądrze, prosto i niskobudżetowo.',
   },
   {
     icon: Baby,
     title: 'Dla Ciebie i rodziny',
     description:
-      'Większość kosmetyków dla niemowląt to marketingowy nadmiar. Uczę jak wrócić do podstaw i chronić zdrowie malucha.',
+      'Masowy rynek zasypuje nas produktami dla dzieci, które są jedynie marketingowym nadmiarem, pełnym zbędnej chemii. Uczę mamy, jak wrócić do minimalistycznych podstaw i budować odporność oraz zdrowie malucha w zgodzie z naturą.',
   },
 ]
 
@@ -91,7 +91,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen">
       <PageHeader
-        eyebrow="O mnie · 006"
+        eyebrow="O mnie"
         title={
           <>
             Mama, która{' '}
@@ -173,20 +173,38 @@ export default function AboutPage() {
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
             >
-              <span className="lr-eyebrow">Krótko o mnie</span>
-              <p className="mt-6" style={{ maxWidth: '52ch' }}>
-                Kiedy urodził się mój syn, zobaczyłam, że coś tu nie gra. Leki nie pomagały.
-                Zalecenia lekarzy nie dawały żadnej poprawy. Wiedziałam, że tak to nie powinno
-                wyglądać.
-              </p>
-              <p className="mt-6" style={{ maxWidth: '52ch' }}>
-                Od lat interesowałam się zdrowym odżywianiem i naturalną medycyną. Jeszcze zanim
-                zaszłam w ciążę, te tematy były mi bliskie. Zagłębienie się w ziołolecznictwo i
-                naturopatię po porodzie dało mi nowy wgląd na zdrowie człowieka.{' '}
-                <span className="lr-rose">Dwukrotnie wyszłam z niedoczynności tarczycy.</span>{' '}
-                Uregulowałam hormony po 5 latach nierównowagi. Wszystko dzięki stylowi życia i
-                odpowiedniej diecie, nie dzięki farmacji.
-              </p>
+              <span className="lr-eyebrow">Nasza historia</span>
+              <div className="mt-6 space-y-5" style={{ maxWidth: '58ch' }}>
+                <p>
+                  Myślałam, że jestem przygotowana do macierzyństwa. Przed ciążą jadłam
+                  zdrowiej i dbałam o siebie. Jednak nikt nie powiedział mi wtedy o
+                  konieczności zrobienia detoksu, a moja wiedza była ułamkiem tego, czym
+                  dysponuję dzisiaj. Kiedy na świecie pojawił się mój syn,{' '}
+                  <span className="lr-rose" style={{ fontStyle: 'italic' }}>Olivier</span>,
+                  brutalnie zderzyłam się z rzeczywistością.
+                </p>
+                <p>
+                  Alergie skórne, domniemane nietolerancje pokarmowe i pierwszy rok życia
+                  upływający pod znakiem lekarskiego: „nie wiemy, co mu jest". Medycyna
+                  konwencjonalna zawiodła. Leki nie pomagały, a zalecenia nie przynosiły
+                  żadnej poprawy. Wiedziałam, że muszę wziąć sprawy w swoje ręce.
+                </p>
+                <p>
+                  Choć medycyna naturalna i zioła były mi bliskie od dawna, to problemy u syna
+                  pchnęły mnie do głębokich studiów nad naturopatią. Przestałam wierzyć w
+                  ślepe gaszenie objawów farmakologią i zaczęłam szukać prawdziwych przyczyn
+                  u źródła.
+                </p>
+                <p>
+                  Dziś zbieram owoce tej drogi. Po 5 latach hormonalnego chaosu uregulowałam
+                  swój organizm i{' '}
+                  <span className="lr-rose">dwukrotnie cofnęłam niedoczynność tarczycy</span>.
+                  Z kolei Olivier jest dziś okazem zdrowia. Nie wie, co to antybiotyki, a
+                  ewentualne przeziębienia kończą się na lekkim katarze. To nie zasługa
+                  szczęścia czy genów, ale świadomego stylu życia, odpowiedniej diety i
+                  naturalnych metod, którymi teraz chcę dzielić się z Tobą.
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -201,7 +219,7 @@ export default function AboutPage() {
       >
         <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
           <div className="mb-10 md:mb-14">
-            <span className="lr-eyebrow">Linia czasu · 4 punkty</span>
+            <span className="lr-eyebrow">Kamienie milowe</span>
             <h2 className="mt-6" style={{ maxWidth: '22ch' }}>
               Co{' '}
               <span className="lr-rose" style={{ fontStyle: 'italic' }}>
@@ -342,14 +360,15 @@ export default function AboutPage() {
         }}
       >
         <div className="max-w-3xl mx-auto px-6 md:px-12 text-center">
-          <h2 style={{ maxWidth: '20ch', margin: '0 auto' }}>
-            Gotowa{' '}
+          <h2 style={{ maxWidth: '24ch', margin: '0 auto' }}>
+            Chcesz zrobić{' '}
             <span className="lr-rose" style={{ fontStyle: 'italic' }}>
-              zacząć?
+              pierwszy krok?
             </span>
           </h2>
-          <p className="mt-6" style={{ maxWidth: '42ch', margin: '1.5rem auto 0' }}>
-            Najlepszy start to Protokół #001. Bezpłatny PDF i 5 maili przez 2 tygodnie.
+          <p className="mt-6" style={{ maxWidth: '50ch', margin: '1.5rem auto 0' }}>
+            Najlepszy start to Protokół #001. Zyskaj bezpłatny PDF i 5 maili przez kolejne
+            2 tygodnie.
           </p>
           <div className="mt-10 flex flex-wrap gap-3 justify-center">
             <Link href="/#newsletter" className="lr-cta-primary">

@@ -8,6 +8,7 @@ import FeaturedEbooks from '@/components/lab-rose/FeaturedEbooks'
 import BlogPreview from '@/components/lab-rose/BlogPreview'
 import Authority from '@/components/lab-rose/Authority'
 import NewsletterCTA from '@/components/lab-rose/NewsletterCTA'
+import SignatureBlock from '@/components/lab-rose/SignatureBlock'
 import Disclaimer from '@/components/lab-rose/Disclaimer'
 
 export const metadata: Metadata = {
@@ -37,6 +38,7 @@ export default function Home() {
       <Authority />
       <BlogPreview />
       <NewsletterCTA />
+      <SignatureBlock />
       <Disclaimer />
     </LabRoseScope>
   )

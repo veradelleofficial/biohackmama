@@ -288,7 +288,7 @@ export function ArticleAudioPlayer({ audioSrc, articleContentRef }: ArticleAudio
 
           {/* Text */}
           <div className="flex-1 min-w-0">
-            <p className="font-body font-medium text-sm" style={{ color: '#213a50' }}>
+            <p className="font-body font-medium text-sm" style={{ color: 'var(--lr-ink)' }}>
               {playing ? 'Zatrzymaj odtwarzanie' : 'Posłuchaj tego artykułu'}
             </p>
             <p className="text-[11px] mt-0.5" style={{ color: 'rgba(72,89,107,0.55)' }}>

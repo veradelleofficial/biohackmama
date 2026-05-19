@@ -92,12 +92,36 @@ export default function Authority() {
               </span>
             </h2>
 
-            <p className="mt-8" style={{ maxWidth: '50ch' }}>
-              Nie jestem lekarzem. Jestem mamą która 4 lata temu po raz drugi dostała
-              diagnozę niedoczynności tarczycy i postanowiła zrozumieć dlaczego, czytając
-              badania, nie poradniki. Wszystko co tutaj piszę przeszło przez moje ciało.
-              Każde źródło jest podlinkowane.
-            </p>
+            <div className="mt-8 space-y-5" style={{ maxWidth: '58ch' }}>
+              <p>
+                Kiedy cztery lata temu, będąc w ciąży, po raz drugi usłyszałam diagnozę:
+                niedoczynność tarczycy, powiedziałam sobie{' '}
+                <span className="lr-rose" style={{ fontStyle: 'italic' }}>„dość”</span>.
+                Chciałam w końcu zrozumieć źródło problemu. Miałam dość szukania po omacku,
+                wydawania fortuny na kolejnych lekarzy i brania leków, które jedynie maskowały
+                objawy, zamiast leczyć przyczynę.
+              </p>
+              <p>
+                Choć nie jestem lekarzem, wzięłam sprawy w swoje ręce. Stałam się dla samej
+                siebie królikiem doświadczalnym i od kilku lat z sukcesem testuję najnowsze
+                odkrycia oraz naturalne metody wspierania organizmu.
+              </p>
+              <p>
+                Nie znajdziesz u mnie teorii wyssanych z palca. Wszystko, czym się dzielę,
+                przeszło przez moje własne ciało, a każdy fakt popieram solidną bibliografią,
+                literaturą naukową i linkami do rzetelnych źródeł.
+              </p>
+              <p>
+                Nauczyłam się świadomie zarządzać biologią swojego organizmu. Zaczęłam się
+                w niego wsłuchiwać i działać tak, by maksymalnie zwiększyć jego potencjał.
+                Od lat osiągam to dzięki precyzyjnemu odżywianiu, ruchowi, ćwiczeniom,
+                celowanej suplementacji oraz eliminacji chemii z mojego otoczenia.
+              </p>
+              <p style={{ color: 'var(--lr-ink)' }}>
+                Wejdź do mojego świata i zobacz, jak możesz naturalnie pomóc swojemu ciału
+                odzyskać równowagę.
+              </p>
+            </div>
 
             {/* Stats inline */}
             <div

@@ -31,9 +31,9 @@ interface Course {
 type Segment = 'kobiety' | 'mezczyzni' | 'dzieci'
 
 const segments: { key: Segment; label: string; desc: string; available: boolean }[] = [
-  { key: 'kobiety', label: 'Dla kobiet', desc: 'Hormony, cykl, sen, regeneracja', available: true },
-  { key: 'mezczyzni', label: 'Dla mężczyzn', desc: 'Testosteron, sen, wydajność', available: false },
-  { key: 'dzieci', label: 'Dla dzieci', desc: 'Rozwój, dieta, czysty dom', available: false },
+  { key: 'kobiety', label: 'Dla kobiet', desc: 'Hormony, sen, PMS, zmęczenie, piękne włosy i skóra', available: true },
+  { key: 'mezczyzni', label: 'Dla mężczyzn', desc: 'Testosteron, sen, libido, energia, skupienie i wydajność', available: false },
+  { key: 'dzieci', label: 'Dla dzieci', desc: 'Odporność, sen, alergie, mądra dieta, czyste otoczenie i rozwój', available: false },
 ]
 
 const kobietyWaitlist = [
@@ -42,36 +42,33 @@ const kobietyWaitlist = [
     num: '01',
     title: 'Hormony w równowadze',
     description:
-      'Zrozum dlaczego twój cykl zarządza wszystkim: od energii i nastroju po regenerację. Protokół oparty na infradiannym rytmie kobiety.',
+      'Masz dość tego, że w jednym tygodniu możesz góry przenosić, a w kolejnym brakuje Ci sił na cokolwiek? Twój cykl zarządza wszystkim: nastrojem, energią i regeneracją. Przedstawiam Ci protokół oparty na kobiecym zegarze dobowym. Nauczę Cię, jak naturalnie zbalansować hormony, by odzyskać stabilną energię przez cały miesiąc.',
     duration: '8 tygodni',
     lessons: '24 lekcje',
     level: 'Początkujący',
     price: 'od 497 zł',
-    seats: '120 / 200 miejsc',
   },
   {
     id: 'k-2',
     num: '02',
-    title: 'Regeneracja i sen',
+    title: 'Hakowanie Snu: Reset dla zapracowanych',
     description:
-      'Sen jako najpotężniejszy biohack. Architektura snu, cyrkadian, ekspozycja na światło i protokoły regeneracji dla zapracowanych kobiet.',
+      'Sen to Twój najpotężniejszy, darmowy lek. Koniec z bezskutecznym przewracaniem się z boku na bok i poranną mgłą mózgową. Nauczę Cię, jak okiełznać rytm dobowy, jak światło steruje Twoimi hormonami i jak realnie regenerować ciało oraz umysł – nawet przy najbardziej napiętym grafiku.',
     duration: '6 tygodni',
     lessons: '18 lekcji',
     level: 'Średniozaawansowany',
     price: 'od 397 zł',
-    seats: '78 / 200 miejsc',
   },
   {
     id: 'k-3',
     num: '03',
-    title: 'Biohacking na co dzień',
+    title: 'Codzienny Biohacking',
     description:
-      'Małe, mierzalne nawyki, które zmieniają biochemię. Od porannego światła po protokoły bez chemii, w codziennej realnej dawce.',
+      'Zapomnij o skomplikowanych i drogich kuracjach. Zdrowie to suma małych wyborów. Oddaję w Twoje ręce 50 gotowych, biohackingowych zmian, które możesz wdrożyć bez czyszczenia portfela. Nauczę Cię, jak poprzez proste nawyki zarządzać swoją energią i odpornością. Od darmowego porannego światła po usuwanie chemii z domu. Jedna mała rzecz na raz, bez presji i rewolucji.',
     duration: '4 tygodnie',
     lessons: '12 lekcji',
     level: 'Początkujący',
     price: 'od 297 zł',
-    seats: '156 / 200 miejsc',
   },
 ]
 
@@ -115,25 +112,16 @@ export default function CoursesPage() {
                 <button
                   key={seg.key}
                   onClick={() => setSegment(seg.key)}
-                  style={{
-                    background: isActive ? 'var(--lr-surface)' : 'var(--lr-bg)',
-                    padding: 'clamp(1.5rem, 3vw, 2rem)',
-                    textAlign: 'left',
-                    cursor: 'pointer',
-                    border: 'none',
-                    borderTop: isActive ? '2px solid var(--lr-accent)' : '2px solid transparent',
-                    transition: 'all 240ms var(--ease-out-strong)',
-                    position: 'relative',
-                  }}
-                  className="group"
+                  className={`lr-segment-tab${isActive ? ' lr-segment-tab--active' : ''}`}
                 >
                   <div className="flex items-center justify-between mb-3">
                     <span
-                      className="lr-mono"
+                      className="lr-mono lr-segment-tab__num"
                       style={{
                         fontSize: '0.625rem',
                         color: isActive ? 'var(--lr-accent)' : 'var(--lr-ink-dim)',
                         letterSpacing: '0.22em',
+                        transition: 'color 200ms var(--ease-out-strong)',
                       }}
                     >
                       // {String(i + 1).padStart(2, '0')}
@@ -155,6 +143,7 @@ export default function CoursesPage() {
                     )}
                   </div>
                   <h3
+                    className="lr-segment-tab__title"
                     style={{
                       fontSize: 'clamp(1.25rem, 2vw, 1.625rem)',
                       lineHeight: 1.1,
@@ -351,9 +340,6 @@ export default function CoursesPage() {
                         <span>{c.duration}</span>
                         <span style={{ textAlign: 'right' }}>{c.lessons}</span>
                         <span className="lr-accent">{c.price}</span>
-                        <span style={{ textAlign: 'right', color: 'var(--lr-ink-dim)' }}>
-                          {c.seats}
-                        </span>
                       </div>
                       <Link
                         href="/#newsletter"

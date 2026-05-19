@@ -108,10 +108,13 @@ export default function Footer() {
             </h3>
             <p
               className="mt-6"
-              style={{ fontSize: '0.875rem', maxWidth: '44ch', color: 'var(--lr-ink-soft)' }}
+              style={{ fontSize: '0.875rem', maxWidth: '50ch', color: 'var(--lr-ink-soft)', lineHeight: 1.7, textWrap: 'balance' }}
             >
-              Biohacking i wellness przy użyciu darmowych, naturalnych metod oraz gadżetów
-              poprawiających jakość i długość życia.
+              Wierzę, że optymalizacja zdrowia i długowieczność leżą w zasięgu ręki każdego z nas,
+              dzięki bezkosztowym bodźcom z natury oraz sprytnym gadżetom wellness. Wszystko,
+              o czym piszę, przetestowałam na sobie. Biohacking traktuję jako świadome
+              przeprogramowanie procesów biologicznych organizmu i pracy umysłu, jednak moją
+              główną misją jest życie w zdrowiu i eliminacji chemii z otoczenia.
             </p>
           </div>
 

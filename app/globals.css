@@ -560,6 +560,94 @@
   .lab-rose .lr-dna-bg--counter { animation: none; }
 }
 
+/* Segment tab — accent gradient hover (jak promo card) */
+.lab-rose .lr-segment-tab {
+  background: var(--lr-bg);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  border-top: 2px solid transparent;
+  transition:
+    background 280ms var(--ease-out-strong),
+    border-top-color 280ms var(--ease-out-strong),
+    transform 240ms var(--ease-out-strong),
+    box-shadow 280ms var(--ease-out-strong);
+  position: relative;
+}
+.lab-rose .lr-segment-tab--active {
+  background: var(--lr-surface);
+  border-top-color: var(--lr-accent);
+}
+@media (hover: hover) and (pointer: fine) {
+  .lab-rose .lr-segment-tab:not(.lr-segment-tab--active):hover {
+    background:
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--lr-accent) 10%, transparent) 0%,
+        color-mix(in srgb, var(--lr-accent) 3%, var(--lr-surface)) 100%
+      );
+    border-top-color: var(--lr-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px -12px color-mix(in srgb, var(--lr-accent) 50%, transparent);
+  }
+  .lab-rose .lr-segment-tab:hover .lr-segment-tab__title { color: var(--lr-ink); }
+  .lab-rose .lr-segment-tab:hover .lr-segment-tab__num { color: var(--lr-accent); }
+}
+
+/* Sidebar promo card — accent gradient + hover punch */
+.lab-rose .lr-promo-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 1rem 1.1rem 0;
+  background:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--promo-accent) 8%, transparent) 0%,
+      color-mix(in srgb, var(--promo-accent) 3%, var(--lr-surface)) 65%,
+      var(--lr-surface) 100%
+    );
+  border: 1px solid var(--lr-rule-strong);
+  text-decoration: none;
+  position: relative;
+  transition:
+    background 280ms var(--ease-out-strong),
+    border-color 280ms var(--ease-out-strong),
+    transform 240ms var(--ease-out-strong),
+    box-shadow 280ms var(--ease-out-strong);
+}
+.lab-rose .lr-promo-card__bar {
+  width: 3px;
+  align-self: stretch;
+  background: var(--promo-accent);
+  margin-right: 0.5rem;
+  transition: width 240ms var(--ease-out-strong);
+}
+.lab-rose .lr-promo-card__arrow {
+  color: var(--promo-accent);
+  font-size: 1.125rem;
+  margin-right: 0.5rem;
+  display: inline-block;
+  transition: transform 240ms var(--ease-out-strong);
+}
+@media (hover: hover) and (pointer: fine) {
+  .lab-rose .lr-promo-card:hover {
+    background:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--promo-accent) 18%, transparent) 0%,
+        color-mix(in srgb, var(--promo-accent) 6%, var(--lr-surface)) 70%,
+        var(--lr-surface) 100%
+      );
+    border-color: var(--promo-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px -10px color-mix(in srgb, var(--promo-accent) 50%, transparent);
+  }
+  .lab-rose .lr-promo-card:hover .lr-promo-card__bar { width: 5px; }
+  .lab-rose .lr-promo-card:hover .lr-promo-card__arrow { transform: translateX(4px); }
+}
+
 /* Breathing lime glow keyframe — used by .lr-cta-primary */
 @keyframes lr-breathe-glow {
   0%, 100% {

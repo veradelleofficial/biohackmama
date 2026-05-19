@@ -20,33 +20,30 @@ const courses = [
     num: '01',
     title: 'Hormony w równowadze',
     summary:
-      'Zrozum dlaczego twój cykl zarządza wszystkim: od energii i nastroju po regenerację. Protokół oparty na infradiannym rytmie kobiety.',
+      'Masz dość tego, że w jednym tygodniu możesz góry przenosić, a w kolejnym brakuje Ci sił na cokolwiek? Twój cykl zarządza wszystkim: nastrojem, energią i regeneracją. Przedstawiam Ci protokół oparty na kobiecym zegarze dobowym. Nauczę Cię, jak naturalnie zbalansować hormony, by odzyskać stabilną energię przez cały miesiąc.',
     duration: '8 tygodni',
     lessons: '24 lekcje',
     price: 'od 497 zł',
-    seats: '120 / 200 miejsc',
   },
   {
     id: 2,
     num: '02',
-    title: 'Regeneracja i sen',
+    title: 'Hakowanie Snu: Reset dla zapracowanych',
     summary:
-      'Sen jako najpotężniejszy biohack. Architektura snu, cyrkadian, ekspozycja na światło i protokoły regeneracji dla zapracowanych kobiet.',
+      'Sen to Twój najpotężniejszy, darmowy lek. Koniec z bezskutecznym przewracaniem się z boku na bok i poranną mgłą mózgową. Nauczę Cię, jak okiełznać rytm dobowy, jak światło steruje Twoimi hormonami i jak realnie regenerować ciało oraz umysł – nawet przy najbardziej napiętym grafiku.',
     duration: '6 tygodni',
     lessons: '18 lekcji',
     price: 'od 397 zł',
-    seats: '78 / 200 miejsc',
   },
   {
     id: 3,
     num: '03',
-    title: 'Biohacking na co dzień',
+    title: 'Codzienny Biohacking',
     summary:
-      'Małe, mierzalne nawyki, które zmieniają biochemię. Od porannego światła po protokoły bez chemii, w codziennej realnej dawce.',
+      'Zapomnij o skomplikowanych i drogich kuracjach. Zdrowie to suma małych wyborów. Oddaję w Twoje ręce 50 gotowych, biohackingowych zmian, które możesz wdrożyć bez czyszczenia portfela. Nauczę Cię, jak poprzez proste nawyki zarządzać swoją energią i odpornością. Od darmowego porannego światła po usuwanie chemii z domu. Jedna mała rzecz na raz, bez presji i rewolucji.',
     duration: '4 tygodnie',
     lessons: '12 lekcji',
     price: 'od 297 zł',
-    seats: '156 / 200 miejsc',
   },
 ]
 
@@ -148,9 +145,6 @@ export default function FeaturedCourses() {
                 <span>{c.duration}</span>
                 <span style={{ textAlign: 'right' }}>{c.lessons}</span>
                 <span className="lr-accent">{c.price}</span>
-                <span style={{ textAlign: 'right', color: 'var(--lr-ink-dim)' }}>
-                  {c.seats}
-                </span>
               </div>
 
               {/* CTA */}

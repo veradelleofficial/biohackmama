@@ -43,25 +43,25 @@ const RECOMMENDATIONS: Record<ConcernKey, Recommendation> = {
   energia: {
     article: { title: 'Skąd bierze się chroniczne zmęczenie u współczesnych kobiet', href: '/blog' },
     ebook: { title: 'Poranny Protokół', href: '/ebooki/poranny-protokol', price: 39 },
-    program: { title: 'Biohacking na co dzień', href: '/kursy', status: 'waitlist' },
+    program: { title: 'Codzienny Biohacking', href: '/kursy', status: 'waitlist' },
     tool: { title: 'Kalkulator Snu', href: '/narzedzia/kalkulator-snu' },
   },
   sen: {
     article: { title: 'Jak naprawić rytm dobowy w 14 dni bez melatoniny', href: '/blog' },
     ebook: { title: 'Poranny Protokół', href: '/ebooki/poranny-protokol', price: 39 },
-    program: { title: 'Regeneracja i sen', href: '/kursy', status: 'waitlist' },
+    program: { title: 'Hakowanie Snu: Reset dla zapracowanych', href: '/kursy', status: 'waitlist' },
     tool: { title: 'Kalkulator Snu', href: '/narzedzia/kalkulator-snu' },
   },
   stres: {
     article: { title: 'Oś HPA: dlaczego współczesny stres przeciąża ciało', href: '/blog' },
     ebook: { title: 'Poranny Protokół', href: '/ebooki/poranny-protokol', price: 39 },
-    program: { title: 'Regeneracja i sen', href: '/kursy', status: 'waitlist' },
+    program: { title: 'Hakowanie Snu: Reset dla zapracowanych', href: '/kursy', status: 'waitlist' },
     tool: { title: 'Audyt Kortyzolu', href: '/narzedzia/audyt-kortyzolu' },
   },
   wypalenie: {
     article: { title: 'Wypalenie zawodowe to fizjologia, nie słabość', href: '/blog' },
     ebook: { title: 'Poranny Protokół', href: '/ebooki/poranny-protokol', price: 39 },
-    program: { title: 'Regeneracja i sen', href: '/kursy', status: 'waitlist' },
+    program: { title: 'Hakowanie Snu: Reset dla zapracowanych', href: '/kursy', status: 'waitlist' },
     tool: { title: 'Audyt Kortyzolu', href: '/narzedzia/audyt-kortyzolu' },
   },
   hormony: {
@@ -79,13 +79,13 @@ const RECOMMENDATIONS: Record<ConcernKey, Recommendation> = {
   metabolizm: {
     article: { title: 'Insulinooporność: jak ją cofnąć, zanim stanie się cukrzycą', href: '/blog' },
     ebook: { title: 'Świadoma Suplementacja', href: '/ebooki/swiadoma-suplementacja', price: 49 },
-    program: { title: 'Biohacking na co dzień', href: '/kursy', status: 'waitlist' },
+    program: { title: 'Codzienny Biohacking', href: '/kursy', status: 'waitlist' },
     tool: { title: 'Kalkulator Okna Żywieniowego', href: '/narzedzia/kalkulator-okna-zywieniowego' },
   },
   jelita: {
     article: { title: 'Jelita pierwsze, reszta potem: dlaczego IBS niszczy całe ciało', href: '/blog' },
     ebook: { title: 'Świadoma Suplementacja', href: '/ebooki/swiadoma-suplementacja', price: 49 },
-    program: { title: 'Biohacking na co dzień', href: '/kursy', status: 'waitlist' },
+    program: { title: 'Codzienny Biohacking', href: '/kursy', status: 'waitlist' },
   },
   skora: {
     article: { title: 'Trądzik dorosłych to nie kosmetyk, to hormony i jelita', href: '/blog' },
@@ -95,7 +95,7 @@ const RECOMMENDATIONS: Record<ConcernKey, Recommendation> = {
   nontoxic: {
     article: { title: 'Co wyrzucić z drogerii w pierwszej kolejności', href: '/blog' },
     ebook: { title: 'Świadoma Suplementacja', href: '/ebooki/swiadoma-suplementacja', price: 49 },
-    program: { title: 'Biohacking na co dzień', href: '/kursy', status: 'waitlist' },
+    program: { title: 'Codzienny Biohacking', href: '/kursy', status: 'waitlist' },
   },
   dzieci: {
     article: { title: 'Jak chronić zdrowie dziecka w toksycznym świecie', href: '/blog' },
@@ -106,7 +106,7 @@ const RECOMMENDATIONS: Record<ConcernKey, Recommendation> = {
   longevity: {
     article: { title: 'Biomarkery, które warto śledzić po 30. roku życia', href: '/blog' },
     ebook: { title: 'Świadoma Suplementacja', href: '/ebooki/swiadoma-suplementacja', price: 49 },
-    program: { title: 'Biohacking na co dzień', href: '/kursy', status: 'waitlist' },
+    program: { title: 'Codzienny Biohacking', href: '/kursy', status: 'waitlist' },
   },
 }
 

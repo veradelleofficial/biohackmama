@@ -187,30 +187,10 @@ function PromoBlocks() {
         >
           <Link
             href={promo.href}
-            className="group block"
-            style={{
-              background: 'var(--lr-surface)',
-              border: '1px solid var(--lr-rule)',
-              padding: '1rem 1rem 1rem 0',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.75rem',
-              textDecoration: 'none',
-              transition: 'border-color 240ms var(--ease-out-strong)',
-              position: 'relative',
-            }}
+            className="lr-promo-card"
+            style={{ ['--promo-accent' as any]: promo.accent }}
           >
-            {/* Left vertical accent bar */}
-            <span
-              aria-hidden
-              style={{
-                width: '3px',
-                alignSelf: 'stretch',
-                background: promo.accent,
-                marginRight: '0.5rem',
-              }}
-            />
-            {/* Glyph number */}
+            <span aria-hidden className="lr-promo-card__bar" />
             <span
               className="lr-mono"
               style={{
@@ -222,13 +202,13 @@ function PromoBlocks() {
             >
               //{promo.glyph}
             </span>
-            {/* Text */}
             <div style={{ flex: 1, minWidth: 0 }}>
               <div className="flex items-baseline gap-2">
                 <span
                   style={{
                     fontFamily: 'var(--font-fraunces), serif',
-                    fontSize: '1.0625rem',
+                    fontSize: '1.125rem',
+                    fontWeight: 500,
                     color: 'var(--lr-ink)',
                     lineHeight: 1.1,
                   }}
@@ -257,19 +237,7 @@ function PromoBlocks() {
                 {promo.desc}
               </p>
             </div>
-            {/* Arrow */}
-            <span
-              style={{
-                color: promo.accent,
-                fontSize: '1rem',
-                marginRight: '0.5rem',
-                transition: 'transform 240ms var(--ease-out-strong)',
-                display: 'inline-block',
-              }}
-              className="group-hover:translate-x-1"
-            >
-              →
-            </span>
+            <span className="lr-promo-card__arrow">→</span>
           </Link>
         </motion.div>
       ))}
