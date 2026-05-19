@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="sticky top-0 z-50 bg-coastal-sand/80 backdrop-blur-md border-b border-border/50">
-        <div className="container flex items-center justify-between h-16 md:h-20 lg:h-24">
+        <div className="container flex items-center justify-between h-20 md:h-20 lg:h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
             <Image
@@ -30,7 +30,7 @@ export default function Navbar() {
               alt="BioHackMama"
               width={320}
               height={80}
-              className="h-10 sm:h-14 md:h-16 lg:h-20 w-auto"
+              className="h-14 sm:h-16 md:h-16 lg:h-20 w-auto"
               priority
             />
           </Link>
