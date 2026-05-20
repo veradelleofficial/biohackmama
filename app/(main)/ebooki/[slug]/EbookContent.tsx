@@ -6,6 +6,7 @@ import { ArrowLeft, Download, CheckCircle, BookOpen, Shield } from 'lucide-react
 import { FloatingBookCover } from '@/components/ui/FloatingBookCover'
 import { ShimmerButton } from '@/components/ui/ShimmerButton'
 import { staggerContainer, fadeUp, VIEWPORT_ONCE } from '@/lib/animations'
+import NewsletterInline from '@/components/lab-rose/NewsletterInline'
 
 interface Ebook {
   _id: string
@@ -241,6 +242,24 @@ export default function EbookContent({ ebook }: { ebook: Ebook | null }) {
             </div>
           </motion.div>
         )}
+
+        {/* ── Newsletter capture ────────────────────────────────────── */}
+        <div className="mt-16 max-w-3xl mx-auto">
+          <NewsletterInline
+            source="ebook-detail"
+            eyebrow="Zanim kupisz"
+            heading={
+              <>
+                Najpierw sprawdź mnie za{' '}
+                <span className="lr-rose" style={{ fontStyle: 'italic' }}>
+                  darmo.
+                </span>
+              </>
+            }
+            desc="Zapisz się i dostań bezpłatny Poranny Protokół. Zobacz mój styl i podejście, zanim zdecydujesz się na ebooka."
+            cta="Pobierz za darmo"
+          />
+        </div>
 
         {/* ── CTA bottom ────────────────────────────────────────────── */}
         <motion.div

@@ -101,7 +101,7 @@ export default function AboutPage() {
             wystarczająco szybko.
           </>
         }
-        description="Jestem mamą i pasjonatką, która sama postanowiła zadbać o swoje zdrowie, przestać kierować się propagandą wielkich korporacji i znaleźć odpowiedzi tam, gdzie nasi przodkowie je zostawili."
+        description="Jestem mamą i pasjonatką holistycznego, low-tox stylu życia, która sama postanowiła świadomie zadbać o swoje zdrowie, przestać kierować się propagandą wielkich korporacji i znaleźć odpowiedzi tam, gdzie nasi przodkowie je zostawili."
       />
 
       {/* Portrait + intro */}

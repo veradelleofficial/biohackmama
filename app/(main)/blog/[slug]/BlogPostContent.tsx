@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ArrowLeft, Clock, Calendar, Link2, Check } from 'lucide-react'
 import { ArticleAudioPlayer } from '@/components/blog/ArticleAudioPlayer'
+import NewsletterInline from '@/components/lab-rose/NewsletterInline'
 import { PortableText, type PortableTextComponents } from '@portabletext/react'
 import { urlFor } from '@/lib/sanity/client'
 
@@ -683,8 +684,8 @@ function TldrBox({ excerpt }: { excerpt: string }) {
   if (!excerpt) return null
   return (
     <div
-      className="my-10 rounded-3xl p-6 border border-coastal-gold/30 shadow-coastal-sm"
-      style={{ background: 'linear-gradient(135deg, rgba(201,242,79,0.07) 0%, rgba(232,174,189,0.08) 100%)' }}
+      className="my-10 rounded-3xl p-6 shadow-coastal-sm"
+      style={{ background: 'var(--lr-surface)', border: '1px solid var(--lr-rule-strong)' }}
     >
       <div className="flex items-center gap-2 mb-3">
         <span className="text-base">✦</span>
@@ -944,6 +945,25 @@ export default function BlogPostContent({
                 className="block w-full rounded-2xl"
               />
             </a>
+          </div>
+
+          {/* Newsletter capture — koniec treści, najwyższa intencja */}
+          <div className="mt-14">
+            <NewsletterInline
+              source="blog-article-end"
+              eyebrow="Spodobał Ci się ten tekst?"
+              heading={
+                <>
+                  Co tydzień{' '}
+                  <span className="lr-rose" style={{ fontStyle: 'italic' }}>
+                    nowa dawka
+                  </span>{' '}
+                  konkretnej wiedzy.
+                </>
+              }
+              desc="Protokoły, analizy i to, co sama testuję, prosto do skrzynki. Plus bezpłatny Poranny Protokół na start."
+              cta="Chcę dostawać"
+            />
           </div>
 
           {/* Related Articles */}

@@ -12,16 +12,16 @@ import SignatureBlock from '@/components/lab-rose/SignatureBlock'
 import Disclaimer from '@/components/lab-rose/Disclaimer'
 
 export const metadata: Metadata = {
-  title: 'BioHackMama – Naukowy biohacking dla mam | Vera Delle',
+  title: 'BioHackMama – Holistyczny, low-tox biohacking | Weronika Kuźmińczuk',
   description:
-    'Mierzone protokoły hormonalne, snu i regeneracji oparte na badaniach. Bez ezoteryki, bez suplementacji za 800 zł miesięcznie. Tylko to, co działa w 14 dni. Vera Delle.',
+    'Holistyczne, low-tox podejście do zdrowia: mierzone protokoły hormonalne, snu i regeneracji oparte na badaniach. Świadomy styl życia bez ezoteryki i bez suplementacji za 800 zł miesięcznie.',
   alternates: {
     canonical: 'https://biohackmama.pl',
   },
   openGraph: {
-    title: 'BioHackMama – Naukowy biohacking dla mam',
+    title: 'BioHackMama – Holistyczny, low-tox biohacking',
     description:
-      'Mierzone protokoły hormonalne, snu i regeneracji. Bez ezoteryki. Tylko to, co działa w 14 dni.',
+      'Holistyczne, low-tox podejście do zdrowia. Świadomy styl życia i mierzone protokoły hormonalne, snu i regeneracji oparte na badaniach.',
     url: 'https://biohackmama.pl',
     type: 'website',
   },

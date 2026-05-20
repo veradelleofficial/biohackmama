@@ -91,11 +91,11 @@ export default function Hero() {
         </motion.h1>
 
         {/* Body */}
-        <motion.p variants={fadeUp} className="mt-10 md:mt-12" style={{ maxWidth: '56ch' }}>
-          Łączę rzetelny biohacking z filozofią non-toxic i mądrością ziołolecznictwa i
-          naturoterapii. Pokazuję kobietom, mężczyznom i całym rodzinom, jak oczyścić
-          codzienność ze zbędnych toksyn i wejść na najwyższy poziom własnych możliwości, bez
-          perfekcji od zaraz.
+        <motion.p variants={fadeUp} className="mt-10 md:mt-12" style={{ maxWidth: '58ch' }}>
+          Łączę rzetelny biohacking z holistycznym, low-tox podejściem oraz mądrością
+          ziołolecznictwa i naturoterapii. Pokazuję kobietom, mężczyznom i całym rodzinom,
+          jak świadomie oczyścić codzienność ze zbędnych toksyn i holistycznie zadbać o
+          siebie, wchodząc na najwyższy poziom własnych możliwości, bez perfekcji od zaraz.
         </motion.p>
 
         {/* CTAs */}

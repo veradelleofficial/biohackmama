@@ -1,7 +1,81 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { Mail, Instagram, Facebook, Youtube } from 'lucide-react'
+import { subscribeEmail } from '@/lib/newsletter'
+
+function FooterNewsletter() {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'sent'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!email || status === 'loading') return
+    setStatus('loading')
+    const { ok } = await subscribeEmail(email, 'footer')
+    if (ok) {
+      setStatus('sent')
+      setEmail('')
+    }
+  }
+
+  return (
+    <div className="mt-8" style={{ maxWidth: '24rem' }}>
+      <span
+        className="lr-mono"
+        style={{
+          fontSize: '0.625rem',
+          color: 'var(--lr-ink-dim)',
+          letterSpacing: '0.22em',
+          display: 'block',
+          marginBottom: '0.75rem',
+        }}
+      >
+        COTYGODNIOWA DAWKA WIEDZY
+      </span>
+      {status === 'sent' ? (
+        <p
+          className="lr-mono"
+          style={{ fontSize: '0.8125rem', color: 'var(--lr-accent)', letterSpacing: '0.04em' }}
+        >
+          ✓ Dzięki! Sprawdź skrzynkę.
+        </p>
+      ) : (
+        <form onSubmit={handleSubmit} className="flex gap-2">
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="twoj@email.pl"
+            className="lr-mono"
+            style={{
+              flex: 1,
+              padding: '0.75rem 0.9rem',
+              background: 'var(--lr-bg)',
+              border: '1px solid var(--lr-rule-strong)',
+              borderRadius: '2px',
+              color: 'var(--lr-ink)',
+              fontSize: '0.8125rem',
+              letterSpacing: '0.04em',
+              outline: 'none',
+            }}
+          />
+          <button
+            type="submit"
+            className="lr-cta-primary"
+            disabled={status === 'loading'}
+            style={{ padding: '0.75rem 1.1rem', opacity: status === 'loading' ? 0.7 : 1 }}
+            aria-label="Zapisz się do newslettera"
+          >
+            {status === 'loading' ? '…' : '→'}
+          </button>
+        </form>
+      )}
+    </div>
+  )
+}
 
 export default function Footer() {
   return (
@@ -114,8 +188,10 @@ export default function Footer() {
               dzięki bezkosztowym bodźcom z natury oraz sprytnym gadżetom wellness. Wszystko,
               o czym piszę, przetestowałam na sobie. Biohacking traktuję jako świadome
               przeprogramowanie procesów biologicznych organizmu i pracy umysłu, jednak moją
-              główną misją jest życie w zdrowiu i eliminacji chemii z otoczenia.
+              główną misją jest holistyczne, low-tox życie w zdrowiu i eliminacja chemii
+              z otoczenia.
             </p>
+            <FooterNewsletter />
           </div>
 
           <div className="md:col-span-2">

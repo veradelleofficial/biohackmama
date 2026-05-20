@@ -5,6 +5,7 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { SmoothScrollProvider } from '@/components/layout/SmoothScrollProvider'
 import { LayoutAnimationProvider } from '@/components/layout/LayoutAnimationProvider'
+import ExitIntentPopup from '@/components/lab-rose/ExitIntentPopup'
 import './globals.css'
 
 
@@ -56,8 +57,13 @@ export const metadata: Metadata = {
     default: 'BioHackMama – Biohacking i Wellness dla Kobiet | Vera Delle',
   },
   description:
-    'Naukowe protokoły biohackingu dopasowane do kobiecego ciała. Hormony, sen, żywienie i longevity – przez Verę Delle, pierwszą polską biohackerkę z wizerunkiem. Kursy, ebooki i artykuły.',
+    'Holistyczny, low-tox biohacking i świadomy styl życia. Naukowe protokoły dopasowane do ciała: hormony, sen, żywienie i longevity. Holistyczne dbanie o siebie bez chemii – kursy, ebooki i artykuły.',
   keywords: [
+    'holistyczne zdrowie',
+    'low-tox styl życia',
+    'świadomy styl życia',
+    'holistyczne dbanie o siebie',
+    'życie bez chemii',
     'biohacking dla kobiet',
     'biohacking Polska',
     'hormony kobiety naturalnie',
@@ -229,6 +235,7 @@ export default function RootLayout({
               {children}
             </LayoutAnimationProvider>
             <Footer />
+            <ExitIntentPopup />
           </SmoothScrollProvider>
         </body>
       </html>
