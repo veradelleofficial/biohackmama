@@ -1,56 +1,46 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
 const stagger = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.14 } },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
 }
 const fadeUp = {
-  hidden: { opacity: 0, y: 24, filter: 'blur(4px)' },
-  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: EASE } },
+  hidden: { opacity: 0, y: 18, filter: 'blur(4px)' },
+  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.7, ease: EASE } },
 }
 
 const paths = [
   {
-    img: '/images/path-01-energia.png?v=2',
-    w: 807,
-    h: 969,
-    alt: 'Chcę mieć więcej energii — sen, kortyzol, poranna rutyna dla zmęczonych mam',
-    label: 'Chcę mieć więcej energii',
+    num: '01',
+    title: 'Chcę mieć więcej energii',
+    desc: 'Sen, kortyzol, poranna rutyna. Dla osób śpiących < 6h, które budzą się zmęczone i potrzebują stabilnego paliwa na cały dzień.',
+    cta: 'Ścieżka energii',
     href: '/blog?pilar=energia',
-    glow: 'rgba(91,200,245,0.35)',
-    glowStrong: 'rgba(91,200,245,0.55)',
   },
   {
-    img: '/images/path-02-hormony.png?v=2',
-    w: 815,
-    h: 1004,
-    alt: 'Chcę zadbać o hormony — cykl, tarczyca, hormony stresu dla kobiet po 30',
-    label: 'Chcę zadbać o hormony',
+    num: '02',
+    title: 'Chcę zadbać o hormony',
+    desc: 'Cykl, tarczyca, hormony stresu. Dla kobiet, które czują, że ich ciało straciło wewnętrzną równowagę i „coś w nim nie gra”.',
+    cta: 'Ścieżka hormonów',
     href: '/blog?pilar=hormony',
-    glow: 'rgba(232,174,189,0.30)',
-    glowStrong: 'rgba(168,212,61,0.30)',
   },
   {
-    img: '/images/path-03-longevity.png?v=2',
-    w: 859,
-    h: 1076,
-    alt: 'Chcę żyć 100 lat — longevity, post przerywany, biomarkery',
-    label: 'Chcę żyć 100 lat',
+    num: '03',
+    title: 'Chcę żyć 100 lat',
+    desc: 'Longevity, autofagia i głęboka regeneracja komórkowa. Dla osób, które chcą przejąć kontrolę nad procesem starzenia i zachować sprawne ciało oraz umysł.',
+    cta: 'Ścieżka longevity',
     href: '/blog?pilar=longevity',
-    glow: 'rgba(126,217,87,0.35)',
-    glowStrong: 'rgba(126,217,87,0.55)',
   },
 ]
 
 export default function StartHere() {
   return (
-    <section id="zacznij" style={{ padding: 'clamp(4rem, 9vw, 8rem) 0', background: '#0B0B0C' }}>
+    <section id="zacznij" style={{ padding: 'clamp(4rem, 9vw, 8rem) 0' }}>
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 18, filter: 'blur(4px)' }}
@@ -69,51 +59,56 @@ export default function StartHere() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 items-start"
+          className="grid grid-cols-1 md:grid-cols-3 gap-px"
+          style={{ background: 'var(--lr-rule)' }}
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
-          {paths.map((c) => (
-            <motion.div key={c.img} variants={fadeUp}>
-              <motion.div
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.35, ease: EASE }}
-                className="group relative"
-                style={{
-                  borderRadius: '16px',
-                  boxShadow: `0 18px 64px -16px ${c.glow}, 0 0 50px -28px ${c.glowStrong}`,
-                }}
+          {paths.map((c, i) => (
+            <motion.article
+              key={i}
+              variants={fadeUp}
+              style={{
+                background: 'var(--lr-bg)',
+                padding: 'clamp(2rem, 4vw, 3rem)',
+                position: 'relative',
+              }}
+            >
+              <span
+                className="lr-mono"
+                style={{ color: 'var(--lr-ink-dim)', fontSize: '0.6875rem' }}
               >
-                <Link
-                  href={c.href}
-                  aria-label={c.label}
-                  className="block relative overflow-hidden"
-                  style={{ borderRadius: '16px', textDecoration: 'none' }}
+                // {c.num}
+              </span>
+              <h3 className="mt-6 mb-4" style={{ color: 'var(--lr-ink)' }}>
+                {c.title}
+              </h3>
+              <p style={{ fontSize: '0.95rem' }}>{c.desc}</p>
+              <Link
+                href={c.href}
+                className="mt-8 inline-flex items-center gap-3 group"
+                style={{ textDecoration: 'none' }}
+              >
+                <span
+                  className="lr-mono"
+                  style={{ color: 'var(--lr-accent)', fontSize: '0.75rem' }}
                 >
-                  <Image
-                    src={c.img}
-                    alt={c.alt}
-                    width={c.w}
-                    height={c.h}
-                    className="w-full h-auto block"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  {/* Hover glow overlay */}
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100"
-                    style={{
-                      borderRadius: '16px',
-                      boxShadow: `inset 0 0 0 1px ${c.glowStrong}, inset 0 0 60px -20px ${c.glow}`,
-                      transition: 'opacity 350ms var(--ease-out-strong)',
-                      pointerEvents: 'none',
-                    }}
-                  />
-                </Link>
-              </motion.div>
-            </motion.div>
+                  {c.cta}
+                </span>
+                <span
+                  style={{
+                    color: 'var(--lr-accent)',
+                    transition: 'transform 240ms var(--ease-out-strong)',
+                    display: 'inline-block',
+                  }}
+                  className="group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </Link>
+            </motion.article>
           ))}
         </motion.div>
       </div>
