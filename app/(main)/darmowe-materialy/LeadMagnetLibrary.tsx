@@ -4,8 +4,6 @@ import { motion } from 'framer-motion'
 import PageHeader from '@/components/lab-rose/PageHeader'
 import LeadMagnetCard, { type LeadMagnet } from '@/components/lab-rose/LeadMagnetCard'
 
-const EASE = [0.22, 1, 0.36, 1] as const
-
 const materials: LeadMagnet[] = [
   {
     slug: 'poranny-protokol',
