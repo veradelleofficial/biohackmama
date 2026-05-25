@@ -15,6 +15,7 @@ export default function Navbar() {
     { href: '/blog', label: 'Artykuły' },
     { href: '/kursy', label: 'Programy' },
     { href: '/ebooki', label: 'Biblioteka' },
+    { href: '/darmowe-materialy', label: 'Darmowe materiały' },
     { href: '/o-mnie', label: 'O mnie' },
     { href: '/kontakt', label: 'Kontakt' },
   ]

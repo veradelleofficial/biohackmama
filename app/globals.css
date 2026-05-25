@@ -560,6 +560,356 @@
   .lab-rose .lr-dna-bg--counter { animation: none; }
 }
 
+/* Darmowe materiały — lead magnet cards */
+.lab-rose .lr-lead-card {
+  background: rgba(20, 20, 22, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 1.5rem 1.5rem 1.75rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .lab-rose .lr-lead-card:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--lead-accent) 40%, transparent);
+    box-shadow: 0 20px 50px -18px color-mix(in srgb, var(--lead-accent) 22%, transparent);
+  }
+}
+.lab-rose .lr-lead-card__media {
+  position: relative;
+  width: 100%;
+  height: 170px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  background: #101012;
+}
+.lab-rose .lr-lead-card__media img { width: 100%; height: 100%; object-fit: cover; }
+.lab-rose .lr-lead-card__media-ph {
+  width: 100%; height: 100%;
+  display: grid; place-items: center;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.625rem; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.lab-rose .lr-lead-card__format {
+  position: absolute;
+  top: 0.75rem; left: 0.75rem;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lr-bg);
+  background: var(--lead-accent);
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.lab-rose .lr-lead-card__title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #fff;
+  min-height: 2.4em;
+  margin-bottom: 0.6rem;
+}
+.lab-rose .lr-lead-card__desc {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--lr-ink-soft);
+  font-weight: 300;
+  flex-grow: 1;
+  margin-bottom: 1.25rem;
+}
+.lab-rose .lr-lead-card__form { display: flex; flex-direction: column; gap: 0.75rem; }
+.lab-rose .lr-lead-card__input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--lr-bg);
+  border: 1px solid var(--lr-rule-strong);
+  border-radius: 2px;
+  color: var(--lr-ink);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  outline: none;
+}
+.lab-rose .lr-lead-card__input:focus { border-color: var(--lead-accent); }
+.lab-rose .lr-lead-card__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  color: var(--lr-ink-dim);
+  cursor: pointer;
+}
+.lab-rose .lr-lead-card__consent input {
+  margin-top: 0.15rem;
+  width: 14px; height: 14px;
+  accent-color: var(--lead-accent);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.lab-rose .lr-lead-card__link { color: var(--lr-ink-soft); text-decoration: underline; }
+.lab-rose .lr-lead-card__success {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.8125rem;
+  color: var(--lead-accent);
+  line-height: 1.5;
+  padding: 0.5rem 0;
+}
+.lab-rose .lr-lead-card__err {
+  font-size: 0.6875rem;
+  color: #e07a5f;
+}
+
+/* "Protokoły transformacji" — kursy: glassmorphism + grafika u góry */
+.lab-rose .lr-course-card {
+  background: rgba(20, 20, 22, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 2rem 1.9rem 2.1rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  min-height: 540px;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+.lab-rose .lr-course-card__media {
+  width: 100%;
+  height: 230px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1.75rem;
+  position: relative;
+  background: #101012;
+}
+.lab-rose .lr-course-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  transition: transform 0.6s ease;
+}
+.lab-rose .lr-course-card__media-ph {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1.25rem;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+}
+.lab-rose .lr-course-card__meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.6875rem;
+  color: var(--lr-ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.lab-rose .lr-course-card__title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: clamp(1.375rem, 2vw, 1.625rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 0.85rem;
+  color: #fff;
+  min-height: 2.4em;
+}
+.lab-rose .lr-course-card__desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--lr-ink-soft);
+  font-weight: 300;
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+.lab-rose .lr-course-card__cta {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+.lab-rose .lr-course-card__cta span { transition: transform 0.3s ease; }
+.lab-rose .lr-course-card--hormones .lr-course-card__cta { color: #ff85a1; }
+.lab-rose .lr-course-card--sleep .lr-course-card__cta { color: #4cc9f0; }
+.lab-rose .lr-course-card--biohacking .lr-course-card__cta { color: #ccff33; }
+@media (hover: hover) and (pointer: fine) {
+  .lab-rose .lr-course-card:hover { transform: translateY(-10px); }
+  .lab-rose .lr-course-card:hover .lr-course-card__media img { transform: scale(1.1); }
+  .lab-rose .lr-course-card:hover .lr-course-card__cta span { transform: translateX(8px); }
+  .lab-rose .lr-course-card--hormones:hover { border-color: rgba(255, 133, 161, 0.4); box-shadow: 0 20px 50px -15px rgba(255, 133, 161, 0.12); }
+  .lab-rose .lr-course-card--sleep:hover { border-color: rgba(76, 201, 240, 0.4); box-shadow: 0 20px 50px -15px rgba(76, 201, 240, 0.12); }
+  .lab-rose .lr-course-card--biohacking:hover { border-color: rgba(204, 255, 51, 0.4); box-shadow: 0 20px 50px -15px rgba(204, 255, 51, 0.12); }
+}
+
+/* "Co cię tu sprowadziło" — karty z kodu + grafiki 3D (mix-blend screen) */
+.lab-rose .lr-path-card {
+  background: linear-gradient(160deg, rgba(20, 20, 23, 0.85) 0%, rgba(8, 8, 10, 0.97) 100%);
+  border-radius: 20px;
+  padding: 2rem 1.9rem 2.1rem;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 470px;
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.7);
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lab-rose .lr-path-card--energy { border: 1px solid rgba(126, 217, 87, 0.16); }
+.lab-rose .lr-path-card--hormones { border: 1px solid rgba(232, 174, 189, 0.16); }
+.lab-rose .lr-path-card--longevity { border: 1px solid rgba(0, 200, 180, 0.16); }
+
+/* Grafika 3D — góra karty, mix-blend screen usuwa czarne tło */
+.lab-rose .lr-graphic {
+  position: absolute;
+  top: -6%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78%;
+  height: 56%;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.92;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s;
+}
+.lab-rose .lr-graphic img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
+@keyframes lr-float3d {
+  0% { transform: translateX(-50%) translateY(0px); }
+  50% { transform: translateX(-50%) translateY(-9px); }
+  100% { transform: translateX(-50%) translateY(0px); }
+}
+.lab-rose .lr-path-card--energy .lr-graphic { animation: lr-float3d 7s ease-in-out infinite; }
+.lab-rose .lr-path-card--hormones .lr-graphic { animation: lr-float3d 8s ease-in-out infinite 0.5s; }
+.lab-rose .lr-path-card--longevity .lr-graphic { animation: lr-float3d 9s ease-in-out infinite 1s; }
+
+/* scrim pod tekstem dla czytelności */
+.lab-rose .lr-path-card::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 62%;
+  background: linear-gradient(to top, rgba(8,8,10,0.97) 35%, rgba(8,8,10,0.7) 65%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.lab-rose .lr-path-card__num {
+  position: absolute;
+  top: 1.6rem;
+  left: 1.9rem;
+  z-index: 3;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.4s ease;
+}
+.lab-rose .lr-path-card__body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+.lab-rose .lr-path-card__title {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: clamp(1.375rem, 2vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #fff;
+  min-height: 2.4em;
+  margin-bottom: 0.85rem;
+}
+.lab-rose .lr-path-card__desc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #a0a0a5;
+  font-weight: 300;
+  min-height: 9em;
+  transition: color 0.4s ease;
+}
+.lab-rose .lr-path-card__arrow {
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lab-rose .lr-path-card__cta {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.lab-rose .lr-path-card--energy .lr-path-card__cta { color: #9be35a; }
+.lab-rose .lr-path-card--hormones .lr-path-card__cta { color: #e2a0b1; }
+.lab-rose .lr-path-card--longevity .lr-path-card__cta { color: #45d6c4; }
+.lab-rose .lr-cta-wave {
+  margin-top: 12px;
+  width: 130px;
+  height: 6px;
+  opacity: 0.45;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-rose .lr-graphic { animation: none !important; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .lab-rose .lr-path-card:hover { transform: translateY(-10px); }
+  .lab-rose .lr-path-card:hover .lr-graphic { opacity: 1; animation-play-state: paused; transform: translateX(-50%) scale(1.06); }
+  .lab-rose .lr-path-card:hover .lr-path-card__arrow { transform: translateX(8px); }
+  .lab-rose .lr-path-card:hover .lr-path-card__num { color: rgba(255, 255, 255, 0.7); }
+  .lab-rose .lr-path-card:hover .lr-path-card__desc { color: #d1d1d6; }
+  .lab-rose .lr-path-card:hover .lr-cta-wave { opacity: 0.9; transform: scaleX(1.05); }
+  .lab-rose .lr-path-card--energy:hover {
+    border-color: rgba(126, 217, 87, 0.45);
+    box-shadow: 0 30px 60px -18px rgba(126, 217, 87, 0.18);
+  }
+  .lab-rose .lr-path-card--hormones:hover {
+    border-color: rgba(232, 174, 189, 0.5);
+    box-shadow: 0 30px 60px -18px rgba(232, 174, 189, 0.2);
+  }
+  .lab-rose .lr-path-card--longevity:hover {
+    border-color: rgba(0, 200, 180, 0.45);
+    box-shadow: 0 30px 60px -18px rgba(0, 200, 180, 0.18);
+  }
+}
+
 /* Segment tab — accent gradient hover (jak promo card) */
 .lab-rose .lr-segment-tab {
   background: var(--lr-bg);

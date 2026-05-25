@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -14,36 +15,51 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.75, ease: EASE } },
 }
 
-const courses = [
+interface Course {
+  variant: 'hormones' | 'sleep' | 'biohacking'
+  title: string
+  desc: string
+  duration: string
+  lessons: string
+  href: string
+  img: string | null
+  phColor: string
+  phBg: string
+}
+
+const courses: Course[] = [
   {
-    id: 1,
-    num: '01',
+    variant: 'hormones',
     title: 'Hormony w równowadze',
-    summary:
-      'Masz dość tego, że w jednym tygodniu możesz góry przenosić, a w kolejnym brakuje Ci sił na cokolwiek? Twój cykl zarządza wszystkim: nastrojem, energią i regeneracją. Przedstawiam Ci protokół oparty na kobiecym zegarze dobowym. Nauczę Cię, jak naturalnie zbalansować hormony, by odzyskać stabilną energię przez cały miesiąc.',
+    desc: 'Odzyskaj stabilność nastroju i energii. Naucz się zarządzać swoim wewnętrznym systemem operacyjnym w oparciu o kobiecy cykl biologiczny.',
     duration: '8 tygodni',
-    lessons: '24 lekcje',
-    price: 'od 497 zł',
+    lessons: '24 lekcje wideo',
+    href: '/kursy',
+    img: null,
+    phColor: '#ff85a1',
+    phBg: 'linear-gradient(135deg, #1a0d12, #3d1122)',
   },
   {
-    id: 2,
-    num: '02',
-    title: 'Hakowanie Snu: Reset dla zapracowanych',
-    summary:
-      'Sen to Twój najpotężniejszy, darmowy lek. Koniec z bezskutecznym przewracaniem się z boku na bok i poranną mgłą mózgową. Nauczę Cię, jak okiełznać rytm dobowy, jak światło steruje Twoimi hormonami i jak realnie regenerować ciało oraz umysł – nawet przy najbardziej napiętym grafiku.',
+    variant: 'sleep',
+    title: 'Hakowanie Snu: Reset',
+    desc: 'Sen to Twój najpotężniejszy, darmowy lek. Okiełznaj rytm dobowy dla maksymalnej regeneracji komórkowej i pożegnaj mgłę mózgową.',
     duration: '6 tygodni',
-    lessons: '18 lekcji',
-    price: 'od 397 zł',
+    lessons: '18 lekcji wideo',
+    href: '/kursy',
+    img: null,
+    phColor: '#4cc9f0',
+    phBg: 'linear-gradient(135deg, #09131a, #112a3d)',
   },
   {
-    id: 3,
-    num: '03',
+    variant: 'biohacking',
     title: 'Codzienny Biohacking',
-    summary:
-      'Zapomnij o skomplikowanych i drogich kuracjach. Zdrowie to suma małych wyborów. Oddaję w Twoje ręce 50 gotowych, biohackingowych zmian, które możesz wdrożyć bez czyszczenia portfela. Nauczę Cię, jak poprzez proste nawyki zarządzać swoją energią i odpornością. Od darmowego porannego światła po usuwanie chemii z domu. Jedna mała rzecz na raz, bez presji i rewolucji.',
+    desc: 'Strategia mikro-zmian. 50 gotowych nawyków, które wdrożysz bez presji. Zarządzaj długowiecznością poprzez drobne codzienne wybory.',
     duration: '4 tygodnie',
-    lessons: '12 lekcji',
-    price: 'od 297 zł',
+    lessons: '12 lekcji wideo',
+    href: '/kursy',
+    img: null,
+    phColor: '#ccff33',
+    phBg: 'linear-gradient(135deg, #111a09, #253d11)',
   },
 ]
 
@@ -51,10 +67,7 @@ export default function FeaturedCourses() {
   return (
     <section
       id="kursy"
-      style={{
-        padding: 'clamp(4rem, 9vw, 8rem) 0',
-        borderTop: '1px solid var(--lr-rule)',
-      }}
+      style={{ padding: 'clamp(4rem, 9vw, 8rem) 0', borderTop: '1px solid var(--lr-rule)', background: '#070707' }}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
         <motion.div
@@ -65,13 +78,12 @@ export default function FeaturedCourses() {
           className="mb-12 md:mb-16 flex items-end justify-between flex-wrap gap-6"
         >
           <div>
-            <span className="lr-eyebrow">Programy</span>
-            <h2 className="mt-6" style={{ maxWidth: '16ch' }}>
-              Trzy{' '}
+            <span className="lr-eyebrow">Programy Masterclass</span>
+            <h2 className="mt-6" style={{ maxWidth: '18ch' }}>
+              Protokoły transformacji{' '}
               <span className="lr-rose" style={{ fontStyle: 'italic' }}>
-                protokoły
-              </span>{' '}
-              dla mam.
+                dla mam.
+              </span>
             </h2>
           </div>
           <Link href="/kursy" className="lr-cta-ghost">
@@ -81,95 +93,38 @@ export default function FeaturedCourses() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
           {courses.map((c) => (
-            <motion.article
-              key={c.id}
-              variants={fadeUp}
-              style={{
-                background: 'var(--lr-surface)',
-                padding: 'clamp(1.75rem, 3vw, 2.5rem)',
-                border: '1px solid var(--lr-rule)',
-                position: 'relative',
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
-              {/* Status pill */}
-              <div className="flex items-center justify-between mb-8">
-                <span
-                  className="lr-mono"
-                  style={{ color: 'var(--lr-ink-dim)', fontSize: '0.6875rem' }}
-                >
-                  // {c.num}
-                </span>
-                <span
-                  className="lr-mono"
-                  style={{
-                    fontSize: '0.6875rem',
-                    color: 'var(--lr-rose)',
-                    border: '1px solid var(--lr-rule-strong)',
-                    padding: '0.35rem 0.75rem',
-                    borderRadius: '999px',
-                  }}
-                >
-                  · waitlist
-                </span>
-              </div>
+            <motion.div key={c.variant} variants={fadeUp}>
+              <Link href={c.href} className={`lr-course-card lr-course-card--${c.variant} group`}>
+                <div className="lr-course-card__media">
+                  {c.img ? (
+                    <Image src={c.img} alt={c.title} width={760} height={460} sizes="(max-width: 768px) 100vw, 33vw" />
+                  ) : (
+                    <div className="lr-course-card__media-ph" style={{ background: c.phBg, color: c.phColor }}>
+                      grafika wkrótce
+                    </div>
+                  )}
+                </div>
 
-              <h3 style={{ minHeight: '3.5em' }}>{c.title}</h3>
+                <div className="lr-course-card__meta">
+                  <span>{c.duration}</span>
+                  <span>{c.lessons}</span>
+                </div>
 
-              <p className="mt-4 mb-8" style={{ fontSize: '0.9375rem', flexGrow: 1 }}>
-                {c.summary}
-              </p>
+                <h3 className="lr-course-card__title">{c.title}</h3>
+                <p className="lr-course-card__desc">{c.desc}</p>
 
-              {/* Specs row */}
-              <div
-                className="lr-mono"
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: '0.75rem 1rem',
-                  fontSize: '0.6875rem',
-                  color: 'var(--lr-ink-soft)',
-                  paddingTop: '1.25rem',
-                  marginBottom: '1.5rem',
-                  borderTop: '1px solid var(--lr-rule)',
-                }}
-              >
-                <span>{c.duration}</span>
-                <span style={{ textAlign: 'right' }}>{c.lessons}</span>
-                <span className="lr-accent">{c.price}</span>
-              </div>
-
-              {/* CTA */}
-              <Link
-                href="#newsletter"
-                className="lr-cta-primary"
-                style={{ width: '100%', justifyContent: 'center' }}
-              >
-                Powiadom mnie o starcie
-                <span aria-hidden>→</span>
+                <div className="lr-course-card__cta">
+                  Poznaj protokół <span aria-hidden>→</span>
+                </div>
               </Link>
-
-              <p
-                className="lr-mono"
-                style={{
-                  fontSize: '0.625rem',
-                  letterSpacing: '0.18em',
-                  color: 'var(--lr-ink-dim)',
-                  marginTop: '0.875rem',
-                  textAlign: 'center',
-                }}
-              >
-                Pierwsze 200 osób · −40%
-              </p>
-            </motion.article>
+            </motion.div>
           ))}
         </motion.div>
       </div>

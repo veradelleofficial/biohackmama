@@ -24,18 +24,32 @@ export default function ExitIntentPopup() {
     if (typeof window === 'undefined') return
     if (sessionStorage.getItem(STORAGE_KEY)) return
 
-    // Desktop — mysz ucieka do góry (zamykanie karty)
+    // Grace period — nic się nie pojawi przez pierwsze 12s na stronie
+    let armed = false
+    const armTimer = window.setTimeout(() => { armed = true }, 12000)
+
+    // Desktop — realny exit intent: mysz ucieka poza górną krawędź okna
     const onMouseOut = (e: MouseEvent) => {
+      if (!armed) return
       if (e.clientY <= 0 && !e.relatedTarget) trigger()
     }
 
-    // Mobile / fallback — po 35s na stronie
-    const timer = window.setTimeout(trigger, 35000)
+    // Mobile + desktop — czytelnik zaangażowany: przescrollował 60% strony
+    const onScroll = () => {
+      if (!armed) return
+      const el = document.documentElement
+      const denom = el.scrollHeight - el.clientHeight
+      if (denom <= 0) return
+      const progress = el.scrollTop / denom
+      if (progress >= 0.6) trigger()
+    }
 
     document.addEventListener('mouseout', onMouseOut)
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => {
+      window.clearTimeout(armTimer)
       document.removeEventListener('mouseout', onMouseOut)
-      window.clearTimeout(timer)
+      window.removeEventListener('scroll', onScroll)
     }
   }, [trigger])
 
