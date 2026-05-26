@@ -84,9 +84,9 @@ export default function FeaturedEbooks() {
           <div>
             <span className="lr-eyebrow">Biblioteka</span>
             <h2 className="mt-6" style={{ maxWidth: '18ch' }}>
-              Ebooki które{' '}
+              Gotowa wiedza do{' '}
               <span className="lr-rose" style={{ fontStyle: 'italic' }}>
-                kupisz teraz.
+                pobrania.
               </span>
             </h2>
           </div>
