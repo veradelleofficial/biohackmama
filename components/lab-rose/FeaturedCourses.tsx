@@ -21,6 +21,7 @@ interface Course {
   desc: string
   duration: string
   lessons: string
+  launch: string
   href: string
   img: string | null
   phColor: string
@@ -34,6 +35,7 @@ const courses: Course[] = [
     desc: 'Odzyskaj stabilność nastroju i energii. Naucz się zarządzać swoim wewnętrznym systemem operacyjnym w oparciu o kobiecy cykl biologiczny.',
     duration: '8 tygodni',
     lessons: '24 lekcje wideo',
+    launch: 'premiera · sierpień 2026',
     href: '/kursy',
     img: null,
     phColor: '#ff85a1',
@@ -45,6 +47,7 @@ const courses: Course[] = [
     desc: 'Sen to Twój najpotężniejszy, darmowy lek. Okiełznaj rytm dobowy dla maksymalnej regeneracji komórkowej i pożegnaj mgłę mózgową.',
     duration: '6 tygodni',
     lessons: '18 lekcji wideo',
+    launch: 'premiera · sierpień 2026',
     href: '/kursy',
     img: null,
     phColor: '#4cc9f0',
@@ -56,6 +59,7 @@ const courses: Course[] = [
     desc: 'Strategia mikro-zmian. 50 gotowych nawyków, które wdrożysz bez presji. Zarządzaj długowiecznością poprzez drobne codzienne wybory.',
     duration: '4 tygodnie',
     lessons: '12 lekcji wideo',
+    launch: 'premiera · lipiec 2026',
     href: '/kursy',
     img: null,
     phColor: '#ccff33',
@@ -102,7 +106,7 @@ export default function FeaturedCourses() {
           {courses.map((c) => (
             <motion.div key={c.variant} variants={fadeUp}>
               <Link href={c.href} className={`lr-course-card lr-course-card--${c.variant} group`}>
-                <div className="lr-course-card__media">
+                <div className="lr-course-card__media" style={{ position: 'relative' }}>
                   {c.img ? (
                     <Image src={c.img} alt={c.title} width={760} height={460} sizes="(max-width: 768px) 100vw, 33vw" />
                   ) : (
@@ -110,6 +114,25 @@ export default function FeaturedCourses() {
                       grafika wkrótce
                     </div>
                   )}
+                  <span
+                    className="lr-mono"
+                    style={{
+                      position: 'absolute',
+                      top: '0.875rem',
+                      left: '0.875rem',
+                      fontSize: '0.5625rem',
+                      letterSpacing: '0.18em',
+                      textTransform: 'uppercase',
+                      padding: '0.35rem 0.65rem',
+                      background: 'rgba(7, 7, 7, 0.72)',
+                      border: '1px solid var(--lr-rose)',
+                      color: 'var(--lr-rose)',
+                      borderRadius: '999px',
+                      backdropFilter: 'blur(6px)',
+                    }}
+                  >
+                    coming soon · {c.launch.replace('premiera · ', '')}
+                  </span>
                 </div>
 
                 <div className="lr-course-card__meta">

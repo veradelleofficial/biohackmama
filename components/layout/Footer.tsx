@@ -386,6 +386,57 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Popularne tematy — wewnętrzne linkowanie do landing pages */}
+        <div
+          className="mt-2 pt-8"
+          style={{ borderTop: '1px solid var(--lr-rule)' }}
+        >
+          <span
+            className="lr-mono"
+            style={{
+              fontSize: '0.625rem',
+              color: 'var(--lr-ink-dim)',
+              letterSpacing: '0.22em',
+              display: 'block',
+              marginBottom: '1rem',
+            }}
+          >
+            POPULARNE TEMATY
+          </span>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { slug: 'hormony', label: 'Hormony' },
+              { slug: 'sen', label: 'Sen' },
+              { slug: 'cykl-i-kobiecosc', label: 'Cykl i Kobiecość' },
+              { slug: 'biohacking', label: 'Biohacking' },
+              { slug: 'suplementacja', label: 'Suplementacja' },
+              { slug: 'odzywianie', label: 'Odżywianie' },
+              { slug: 'stres-i-kortyzol', label: 'Stres i Kortyzol' },
+              { slug: 'longevity', label: 'Longevity' },
+              { slug: 'detoks-i-dom', label: 'Detoks i Dom' },
+              { slug: 'ziololecznictwo', label: 'Ziołolecznictwo' },
+            ].map((t) => (
+              <Link
+                key={t.slug}
+                href={`/temat/${t.slug}`}
+                className="lr-mono"
+                style={{
+                  padding: '0.45rem 0.8rem',
+                  border: '1px solid var(--lr-rule-strong)',
+                  color: 'var(--lr-ink-soft)',
+                  background: 'transparent',
+                  fontSize: '0.625rem',
+                  letterSpacing: '0.12em',
+                  borderRadius: '999px',
+                  textDecoration: 'none',
+                }}
+              >
+                #{t.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
       </div>
     </footer>
   )

@@ -6,6 +6,15 @@ import LeadMagnetCard, { type LeadMagnet } from '@/components/lab-rose/LeadMagne
 
 const materials: LeadMagnet[] = [
   {
+    slug: 'marki-sportowe-bez-poliestru',
+    title: 'Sport bez poliestru',
+    desc: 'Marki ubrań sportowych z bawełny organicznej, wełny merino lub innych alternatyw lepszych niż poliester.',
+    format: 'Lista',
+    img: '/images/mat-sport-bez-poliestru.jpg',
+    accent: '#B5C99A',
+    phBg: 'linear-gradient(135deg, #0d1409, #1f2d11)',
+  },
+  {
     slug: 'poranny-protokol',
     title: 'Poranny Protokół Mamy',
     desc: '7 kroków, 8 minut, mierzalna różnica w 14 dni. PDF z protokołem i checklistą do druku.',

@@ -71,9 +71,28 @@ export const getArticles = async () => {
     "categorySlug": category->slug.current,
     "pilarSlug": category->pilar->slug.current,
     "pilarTitle": category->pilar->title,
+    tags,
     "hasContent": defined(content) && length(content) > 0,
   }`
   return sanityFetch(query)
+}
+
+export const getArticlesByTag = async (tag: string) => {
+  const query = `*[_type == "article" && $tag in tags] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    excerpt,
+    publishedAt,
+    readTime,
+    "coverImageUrl": coverImage.asset->url,
+    "category": category->title,
+    "categorySlug": category->slug.current,
+    "pilarSlug": category->pilar->slug.current,
+    "pilarTitle": category->pilar->title,
+    tags,
+  }`
+  return sanityFetch(query, { tag })
 }
 
 export const getArticlesByPilar = async (pilarSlug: string) => {
@@ -124,6 +143,7 @@ export const getArticleBySlug = async (slug: string) => {
     "categorySlug": category->slug.current,
     "pilarSlug": category->pilar->slug.current,
     "pilarTitle": category->pilar->title,
+    tags,
   }`
   return sanityFetch(query, { slug })
 }
@@ -144,6 +164,7 @@ export const getArticleByFullPath = async (pilarSlug: string, subcategorySlug: s
     "categorySlug": category->slug.current,
     "pilarSlug": category->pilar->slug.current,
     "pilarTitle": category->pilar->title,
+    tags,
   }`
   return sanityFetch(query, { pilarSlug, subcategorySlug, slug })
 }

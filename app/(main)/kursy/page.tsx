@@ -47,6 +47,7 @@ const kobietyWaitlist = [
     lessons: '24 lekcje',
     level: 'Początkujący',
     price: 'od 497 zł',
+    launch: 'sierpień 2026',
   },
   {
     id: 'k-2',
@@ -58,6 +59,7 @@ const kobietyWaitlist = [
     lessons: '18 lekcji',
     level: 'Średniozaawansowany',
     price: 'od 397 zł',
+    launch: 'sierpień 2026',
   },
   {
     id: 'k-3',
@@ -69,6 +71,7 @@ const kobietyWaitlist = [
     lessons: '12 lekcji',
     level: 'Początkujący',
     price: 'od 297 zł',
+    launch: 'lipiec 2026',
   },
 ]
 
@@ -300,7 +303,7 @@ export default function CoursesPage() {
                         flexDirection: 'column',
                       }}
                     >
-                      <div className="flex items-center justify-between mb-8">
+                      <div className="flex items-center justify-between mb-6">
                         <span
                           className="lr-mono"
                           style={{ color: 'var(--lr-ink-dim)', fontSize: '0.6875rem' }}
@@ -319,6 +322,37 @@ export default function CoursesPage() {
                         >
                           · waitlist
                         </span>
+                      </div>
+                      <div
+                        className="lr-mono"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.5rem',
+                          fontSize: '0.625rem',
+                          letterSpacing: '0.22em',
+                          textTransform: 'uppercase',
+                          color: 'var(--lr-accent)',
+                          padding: '0.45rem 0.75rem',
+                          border: '1px solid var(--lr-accent)',
+                          borderRadius: '999px',
+                          alignSelf: 'flex-start',
+                          marginBottom: '1.25rem',
+                          background: 'rgba(201, 242, 79, 0.06)',
+                        }}
+                      >
+                        <span
+                          aria-hidden
+                          style={{
+                            width: 6,
+                            height: 6,
+                            borderRadius: '50%',
+                            background: 'var(--lr-accent)',
+                            boxShadow: '0 0 8px var(--lr-accent)',
+                            display: 'inline-block',
+                          }}
+                        />
+                        coming soon · {c.launch}
                       </div>
                       <h3 style={{ minHeight: '3em' }}>{c.title}</h3>
                       <p className="mt-4 mb-8" style={{ fontSize: '0.9375rem', flexGrow: 1 }}>

@@ -24,6 +24,27 @@ interface Article {
   coverImage?: any
   content: any
   author?: string
+  tags?: string[]
+}
+
+const TAG_LABEL_BY_SLUG: Record<string, string> = {
+  ziololecznictwo: 'Ziołolecznictwo',
+  naturopatia: 'Naturopatia',
+  'medycyna-chinska': 'Medycyna Chińska',
+  biohacking: 'Biohacking',
+  longevity: 'Longevity',
+  biochemia: 'Biochemia',
+  nootropiki: 'Nootropiki',
+  hormony: 'Hormony',
+  'cykl-i-kobiecosc': 'Cykl i Kobiecość',
+  'rytm-dobowy': 'Rytm Dobowy',
+  sen: 'Sen',
+  'post-przerywany': 'Post Przerywany',
+  odzywianie: 'Odżywianie',
+  suplementacja: 'Suplementacja',
+  'detoks-i-dom': 'Detoks i Dom',
+  'mental-wellness': 'Mental Wellness',
+  'stres-i-kortyzol': 'Stres i Kortyzol',
 }
 
 interface RelatedArticle {
@@ -909,6 +930,59 @@ export default function BlogPostContent({
               </div>
             )}
           </motion.div>
+
+          {/* Tag chips — kliknij, by zobaczyć więcej na ten temat */}
+          {article.tags && article.tags.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.5 }}
+              className="mt-12"
+            >
+              <div
+                className="lr-mono"
+                style={{
+                  fontSize: '0.5625rem',
+                  color: 'var(--lr-ink-dim)',
+                  letterSpacing: '0.22em',
+                  marginBottom: '0.75rem',
+                }}
+              >
+                // WIĘCEJ NA TEMAT
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {article.tags.map((t) => (
+                  <Link
+                    key={t}
+                    href={`/temat/${t}`}
+                    className="lr-mono"
+                    style={{
+                      padding: '0.5rem 0.875rem',
+                      border: '1px solid var(--lr-rule-strong)',
+                      color: 'var(--lr-ink-soft)',
+                      background: 'transparent',
+                      fontSize: '0.625rem',
+                      letterSpacing: '0.12em',
+                      borderRadius: '999px',
+                      textDecoration: 'none',
+                      transition: 'all 200ms var(--ease-out-strong)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--lr-rose)'
+                      e.currentTarget.style.color = 'var(--lr-rose)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--lr-rule-strong)'
+                      e.currentTarget.style.color = 'var(--lr-ink-soft)'
+                    }}
+                  >
+                    #{TAG_LABEL_BY_SLUG[t] || t}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          )}
 
           {/* Divider */}
           <div
