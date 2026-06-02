@@ -46,7 +46,7 @@ const fallbackEbooks: Ebook[] = [
     _id: 'fb-3',
     title: 'Świadoma Suplementacja',
     slug: { current: 'swiadoma-suplementacja' },
-    description: '12 suplementów, które warto mieć. I 12, które są wyrzucaniem pieniędzy.',
+    description: 'Czy naprawdę musimy tyle suplementować? Naturalna suplementacja, suplementy must-have i konkretne marki z czystym składem. Jakie polecam, a jakich unikać.',
     price: 49,
     pages: 56,
   },

@@ -68,8 +68,8 @@ const materials: LeadMagnet[] = [
   {
     slug: 'suplementacja-bez-bzdur',
     title: 'Suplementacja bez bzdur',
-    desc: '12 suplementów, które warto mieć. I 12, które są wyrzucaniem pieniędzy.',
-    format: 'PDF',
+    desc: 'Czy naprawdę musimy tyle suplementować? Naturalna suplementacja, suplementy must-have i konkretne marki z czystym składem. Jakie polecam, a jakich unikać.',
+    format: 'eBook',
     img: '/images/mat-suplementacja.jpg',
     accent: '#45d6c4',
     phBg: 'linear-gradient(135deg, #09181a, #11383d)',
