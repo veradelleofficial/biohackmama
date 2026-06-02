@@ -23,6 +23,7 @@ interface Ebook {
   description?: string
   price?: number | string
   pages?: number
+  comingSoon?: string
 }
 
 const fallbackEbooks: Ebook[] = [
@@ -33,6 +34,7 @@ const fallbackEbooks: Ebook[] = [
     description: '7 kroków, 8 minut, mierzalna różnica w 14 dni. PDF + checklist do druku.',
     price: 39,
     pages: 42,
+    comingSoon: 'lipiec 2026',
   },
   {
     _id: 'fb-2',
@@ -41,6 +43,7 @@ const fallbackEbooks: Ebook[] = [
     description: 'Co jeść, kiedy trenować i jak się regenerować w każdej fazie cyklu.',
     price: 59,
     pages: 78,
+    comingSoon: 'sierpień 2026',
   },
   {
     _id: 'fb-3',
@@ -49,6 +52,7 @@ const fallbackEbooks: Ebook[] = [
     description: 'Czy naprawdę musimy tyle suplementować? Naturalna suplementacja, suplementy must-have i konkretne marki z czystym składem. Jakie polecam, a jakich unikać.',
     price: 49,
     pages: 56,
+    comingSoon: 'wrzesień 2026',
   },
 ]
 
@@ -173,14 +177,33 @@ export default function FeaturedEbooks() {
                 </span>
               </div>
 
-              <Link
-                href={`/ebooki/${e.slug.current}`}
-                className="lr-cta-primary"
-                style={{ width: '100%', justifyContent: 'center' }}
-              >
-                Kup ebook
-                <span aria-hidden>→</span>
-              </Link>
+              {e.comingSoon ? (
+                <div
+                  className="lr-mono"
+                  style={{
+                    width: '100%',
+                    padding: '0.5rem 1rem',
+                    border: '1px solid var(--lr-rose)',
+                    color: 'var(--lr-rose)',
+                    background: 'transparent',
+                    fontSize: '0.6875rem',
+                    letterSpacing: '0.12em',
+                    textAlign: 'center',
+                    borderRadius: '4px',
+                  }}
+                >
+                  coming soon · {e.comingSoon}
+                </div>
+              ) : (
+                <Link
+                  href={`/ebooki/${e.slug.current}`}
+                  className="lr-cta-primary"
+                  style={{ width: '100%', justifyContent: 'center' }}
+                >
+                  Kup ebook
+                  <span aria-hidden>→</span>
+                </Link>
+              )}
             </motion.article>
           ))}
         </motion.div>
