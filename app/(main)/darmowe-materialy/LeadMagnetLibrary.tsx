@@ -1,8 +1,8 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import PageHeader from '@/components/lab-rose/PageHeader'
 import LeadMagnetCard, { type LeadMagnet } from '@/components/lab-rose/LeadMagnetCard'
+import RemainingMaterialsSection from '@/components/lab-rose/RemainingMaterialsSection'
 
 const materials: LeadMagnet[] = [
   {
@@ -13,6 +13,7 @@ const materials: LeadMagnet[] = [
     img: '/images/mat-sport-bez-poliestru.jpg',
     accent: '#B5C99A',
     phBg: 'linear-gradient(135deg, #0d1409, #1f2d11)',
+    twoStep: true,
   },
   {
     slug: 'poranny-protokol',
@@ -22,6 +23,7 @@ const materials: LeadMagnet[] = [
     img: '/images/mat-poranny-protokol.jpg',
     accent: '#C9F24F',
     phBg: 'linear-gradient(135deg, #14180a, #2c3d11)',
+    source: 'lead:pozostale-darmowe-materialy',
   },
   {
     slug: 'lista-zbednikow',
@@ -31,15 +33,17 @@ const materials: LeadMagnet[] = [
     img: '/images/mat-lista-zbednikow.jpg',
     accent: '#E8AEBD',
     phBg: 'linear-gradient(135deg, #1a0d12, #3d1122)',
+    source: 'lead:pozostale-darmowe-materialy',
   },
   {
     slug: 'dziennik-snu',
-    title: 'Dziennik snu — 14 dni',
+    title: 'Dziennik snu - 14 dni',
     desc: 'Prosty tracker do śledzenia jakości snu, energii i nawyków. Zobacz wzorce, zanim zmienisz cokolwiek.',
     format: 'PDF',
     img: '/images/mat-dziennik-snu.jpg',
     accent: '#4cc9f0',
     phBg: 'linear-gradient(135deg, #09131a, #112a3d)',
+    source: 'lead:pozostale-darmowe-materialy',
   },
   {
     slug: 'audyt-sypialni-dziecka',
@@ -49,6 +53,7 @@ const materials: LeadMagnet[] = [
     img: '/images/mat-audyt-sypialni.jpg?v=2',
     accent: '#9be35a',
     phBg: 'linear-gradient(135deg, #111a09, #253d11)',
+    source: 'lead:pozostale-darmowe-materialy',
   },
   {
     slug: 'cykl-w-praktyce',
@@ -58,24 +63,24 @@ const materials: LeadMagnet[] = [
     img: '/images/mat-cykl-w-praktyce.jpg',
     accent: '#E8AEBD',
     phBg: 'linear-gradient(135deg, #1a0d12, #3d1122)',
+    source: 'lead:pozostale-darmowe-materialy',
   },
   {
     slug: 'suplementacja-bez-bzdur',
     title: 'Suplementacja bez bzdur',
-    desc: '12 suplementów, które warto mieć. I 12, które są wyrzucaniem pieniędzy. Bez ściemy producentów.',
+    desc: '12 suplementów, które warto mieć. I 12, które są wyrzucaniem pieniędzy.',
     format: 'PDF',
     img: '/images/mat-suplementacja.jpg',
     accent: '#45d6c4',
     phBg: 'linear-gradient(135deg, #09181a, #11383d)',
+    source: 'lead:pozostale-darmowe-materialy',
   },
 ]
 
-const stagger = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-}
 
 export default function LeadMagnetLibrary() {
+  const sportBezPoliestru = materials.find((m) => m.slug === 'marki-sportowe-bez-poliestru')!
+
   return (
     <main className="min-h-screen">
       <PageHeader
@@ -92,21 +97,20 @@ export default function LeadMagnetLibrary() {
         description="Przejmij kontrolę nad swoim zdrowiem. Pobierz sprawdzone przewodniki i checklisty, które pomogły mi poznać potrzeby własnego organizmu i ułożyć skuteczną suplementację. Wybierz interesujący Cię materiał, podaj mail i odbierz go natychmiast na skrzynkę. Bezpiecznie, bez spamu i z możliwością wypisu jednym kliknięciem."
       />
 
+      {/* Sport bez poliestru — featured */}
       <section style={{ padding: 'clamp(2rem, 4vw, 3rem) 0 clamp(4rem, 9vw, 8rem)' }}>
         <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            {materials.map((m) => (
-              <LeadMagnetCard key={m.slug} m={m} />
-            ))}
-          </motion.div>
+          <div className="mb-8">
+            <span className="lr-eyebrow">// MATERIAŁ GŁÓWNY</span>
+          </div>
+          <div style={{ maxWidth: '500px' }}>
+            <LeadMagnetCard key={sportBezPoliestru.slug} m={sportBezPoliestru} />
+          </div>
         </div>
       </section>
+
+      {/* Pozostałe 6 materiałów — one form */}
+      <RemainingMaterialsSection />
     </main>
   )
 }

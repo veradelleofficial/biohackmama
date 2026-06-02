@@ -40,7 +40,7 @@ export async function POST(req: Request) {
         email,
         listIds: [listId],
         updateEnabled: true,
-        attributes: { ZRODLO: source },
+        tags: source ? [source] : [],
       }),
     })
 
