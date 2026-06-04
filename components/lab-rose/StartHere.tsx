@@ -121,14 +121,14 @@ export default function StartHere() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
-          {paths.map((c) => (
-            <motion.div key={c.num} variants={fadeUp}>
+          {paths.map((c, idx) => (
+            <motion.div key={c.num} variants={fadeUp} className={idx === 3 ? 'col-span-full' : ''}>
               <Link href={c.href} className={`lr-path-card lr-path-card--${c.variant} group`}>
                 <div className="lr-graphic">
                   <Image src={c.img} alt="" width={c.w} height={c.h} sizes="(max-width: 768px) 100vw, 33vw" />
