@@ -28,7 +28,7 @@ const paths = [
     num: '// 01',
     variant: 'energy',
     title: 'Chcę mieć więcej energii',
-    desc: 'Sen, kortyzol, poranna rutyna. Dla osób śpiących < 6h, które budzą się zmęczone i potrzebują stabilnego paliwa na cały dzień.',
+    desc: 'Sen, mitochondria, poranna rutyna. Dla osób śpiących < 6h, które budzą się zmęczone i potrzebują stabilnego, komórkowego paliwa na cały dzień bez energetycznych zjazdów.',
     cta: 'Ścieżka energii',
     href: '/blog?pilar=energia',
     img: '/images/g1.png',
@@ -41,7 +41,7 @@ const paths = [
     num: '// 02',
     variant: 'hormones',
     title: 'Chcę zadbać o hormony',
-    desc: 'Cykl, tarczyca, hormony stresu. Dla kobiet, które czują, że ich ciało straciło wewnętrzną równowagę i „coś w nim nie gra”.',
+    desc: 'Cykl, tarczyca, metabolizm. Dla kobiet, które czują, że ich ciało straciło wewnętrzną, kobiecą równowagę, zmagają się z PMS, mgłą mózgową lub oporną wagą i czują, że „coś w nich nie gra”.',
     cta: 'Ścieżka hormonów',
     href: '/blog?pilar=hormony',
     img: '/images/g2.png',
@@ -54,7 +54,7 @@ const paths = [
     num: '// 03',
     variant: 'longevity',
     title: 'Chcę żyć 100 lat',
-    desc: 'Longevity, autofagia i głęboka regeneracja komórkowa. Dla osób, które chcą przejąć kontrolę nad procesem starzenia i zachować sprawne ciało oraz umysł.',
+    desc: 'Longevity, autofagia, regeneracja komórkowa. Dla osób, które chcą przejąć kontrolę nad procesem starzenia, aktywować geny długowieczności i zachować sprawne ciało i umysł.',
     cta: 'Ścieżka longevity',
     href: '/blog?pilar=longevity',
     img: '/images/g3.png',
@@ -65,6 +65,19 @@ const paths = [
   },
   {
     num: '// 04',
+    variant: 'nervous-system',
+    title: 'Chcę ukoić układ nerwowy',
+    desc: 'Przebodźcowanie, nerw błędny, hormony stresu. Dla osób żyjących w wiecznym pędzie i napięciu i chcą przełączyć swoje ciało z trybu przetrwania w stan regeneracji i spokoju.',
+    cta: 'Ścieżka układu nerwowego',
+    href: '/blog?temat=stres-i-kortyzol',
+    img: '/images/g6.png',
+    w: 1000,
+    h: 1200,
+    waveColor: '#B5C99A',
+    waveD: 'M0,5 Q25,7 50,5 T100,5',
+  },
+  {
+    num: '// 05',
     variant: 'clean-home',
     title: 'Chcę czysty dom',
     desc: 'Toksyny budowlane, elektrosmog, jakość wody i powietrza. Dla osób, które rozumieją, że cztery ściany to najważniejszy czynnik środowiskowy kształtujący naszą biologię.',
@@ -77,7 +90,7 @@ const paths = [
     waveD: 'M0,5 Q25,8 50,5 T100,5',
   },
   {
-    num: '// 05',
+    num: '// 06',
     variant: 'kids',
     title: 'Chcę zadbać o dzieci',
     desc: 'Rozwój mózgu, system immunologiczny, nawyki zdrowotne. Dla rodziców, którzy wiedzą, że najlepszy prezent dla dziecka to fundament zdrowia zbudowany w pierwszych latach życia.',
@@ -90,7 +103,7 @@ const paths = [
     waveD: 'M0,5 Q25,3 50,5 T100,5',
   },
   {
-    num: '// 06',
+    num: '// 07',
     variant: 'gut-immunity',
     title: 'Chcę naprawić jelita i odporność',
     desc: 'Mikrobiom, oś jelito-mózg, szczelność bariery jelitowej. Dla osób zmagających się z mgłą mózgową, nietolerancjami i wiecznym zmęczeniem, które chcą odbudować fundament zdrowia tam, gdzie bije źródło 80% naszej odporności.',
@@ -103,7 +116,7 @@ const paths = [
     waveD: 'M0,5 Q25,6 50,5 T100,5',
   },
   {
-    num: '// 07',
+    num: '// 08',
     variant: 'detox',
     title: 'Chcę oczyścić i odciążyć organizm',
     desc: 'Wsparcie wątroby, detoks komórkowy, stabilizacja glukozy. Dla osób, które chcą skutecznie i bezpiecznie usunąć z ciała nagromadzoną chemię cywilizacyjną, naprawić metabolizm i odzyskać lekkość bez destrukcyjnych głodówek.',
@@ -159,15 +172,15 @@ export default function StartHere() {
           </h2>
         </motion.div>
 
-        {/* Top 3 paths */}
+        {/* Top 4 paths */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
-          {paths.slice(0, 3).map((c) => (
+          {paths.slice(0, 4).map((c) => (
             <motion.div key={c.num} variants={fadeUp}>
               <Link href={c.href} className={`lr-path-card lr-path-card--${c.variant} group`}>
                 <div className="lr-graphic">
@@ -198,7 +211,7 @@ export default function StartHere() {
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
-          {paths.slice(3).map((c) => (
+          {paths.slice(4).map((c) => (
             <motion.div key={c.num} variants={fadeUp}>
               <Link href={c.href} className={`lr-path-card lr-path-card--${c.variant} group`}>
                 <div className="lr-graphic">
