@@ -70,7 +70,7 @@ const paths = [
     desc: 'Przebodźcowanie, nerw błędny, hormony stresu. Dla osób żyjących w wiecznym pędzie i napięciu i chcą przełączyć swoje ciało z trybu przetrwania w stan regeneracji i spokoju.',
     cta: 'Ścieżka układu nerwowego',
     href: '/blog?temat=stres-i-kortyzol',
-    img: '/images/g6.png',
+    img: '/images/g8.png',
     w: 1000,
     h: 1200,
     waveColor: '#B5C99A',
