@@ -63,6 +63,19 @@ const paths = [
     waveColor: '#45d6c4',
     waveD: 'M0,5 Q25,2 50,5 T100,5',
   },
+  {
+    num: '// 04',
+    variant: 'clean-home',
+    title: 'Chcę czysty dom',
+    desc: 'Niska chemizacja, EMF, czystość powietrza. Dla osób, które wiedzą, że dom to pierwsza linia obrony zdrowia i chcą żyć w bezpiecznym otoczeniu.',
+    cta: 'Ścieżka czystego domu',
+    href: '/blog?temat=detoks-i-dom',
+    img: '/images/g4.png',
+    w: 1000,
+    h: 1200,
+    waveColor: '#C9F24F',
+    waveD: 'M0,5 Q25,8 50,5 T100,5',
+  },
 ]
 
 export default function StartHere() {
@@ -108,7 +121,7 @@ export default function StartHere() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
