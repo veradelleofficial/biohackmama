@@ -14,14 +14,14 @@ import Disclaimer from '@/components/lab-rose/Disclaimer'
 export const metadata: Metadata = {
   title: 'BioHackMama – Holistyczny, low-tox biohacking | Weronika Kuźmińczuk',
   description:
-    'Holistyczne, low-tox podejście do zdrowia: mierzone protokoły hormonalne, snu i regeneracji oparte na badaniach. Świadomy styl życia bez ezoteryki i bez suplementacji za 800 zł miesięcznie.',
+    'Świadoma optymalizacja zdrowia: zmniejsz ekspozycję na chemię, optymalizuj żywienie. Holistyczne strategie, biohackingowe gadżety przyspieszające regenerację.',
   alternates: {
     canonical: 'https://biohackmama.pl',
   },
   openGraph: {
     title: 'BioHackMama – Holistyczny, low-tox biohacking',
     description:
-      'Holistyczne, low-tox podejście do zdrowia. Świadomy styl życia i mierzone protokoły hormonalne, snu i regeneracji oparte na badaniach.',
+      'Świadoma optymalizacja zdrowia: zmniejsz ekspozycję na chemię, optymalizuj żywienie. Holistyczne strategie, biohackingowe gadżety przyspieszające regenerację.',
     url: 'https://biohackmama.pl',
     type: 'website',
   },
