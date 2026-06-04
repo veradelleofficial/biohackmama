@@ -67,7 +67,7 @@ const paths = [
     num: '// 04',
     variant: 'clean-home',
     title: 'Chcę czysty dom',
-    desc: 'Toksyny budowlane, elektrosmog, jakość wody i powietrza. Dla osób, które rozumieją, że cztery ściany to najważniejszy czynnik środowiskowy kształtujący naszą biologię. Czas zamienić przestrzeń życiową w bezpieczny azyl, który wspiera regenerację komórkową, zamiast bez przerwy obciążać układ odpornościowy.',
+    desc: 'Toksyny budowlane, elektrosmog, jakość wody i powietrza. Dla osób, które rozumieją, że cztery ściany to najważniejszy czynnik środowiskowy kształtujący naszą biologię.',
     cta: 'Ścieżka czystego domu',
     href: '/blog?temat=detoks-i-dom',
     img: '/images/g4.png',
