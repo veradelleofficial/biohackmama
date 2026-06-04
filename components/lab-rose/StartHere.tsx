@@ -89,6 +89,32 @@ const paths = [
     waveColor: '#E8AEBD',
     waveD: 'M0,5 Q25,3 50,5 T100,5',
   },
+  {
+    num: '// 06',
+    variant: 'gut-immunity',
+    title: 'Chcę naprawić jelita i odporność',
+    desc: 'Mikrobiom, oś jelito-mózg, szczelność bariery jelitowej. Dla osób zmagających się z mgłą mózgową, nietolerancjami i wiecznym zmęczeniem, które chcą odbudować fundament zdrowia tam, gdzie bije źródło 80% naszej odporności.',
+    cta: 'Ścieżka jelita',
+    href: '/blog?temat=detoks-i-dom',
+    img: '/images/g6.png',
+    w: 1000,
+    h: 1200,
+    waveColor: '#45d6c4',
+    waveD: 'M0,5 Q25,6 50,5 T100,5',
+  },
+  {
+    num: '// 07',
+    variant: 'detox',
+    title: 'Chcę oczyścić i odciążyć organizm',
+    desc: 'Wsparcie wątroby, detoks komórkowy, stabilizacja glukozy. Dla osób, które chcą skutecznie i bezpiecznie usunąć z ciała nagromadzoną chemię cywilizacyjną, naprawić metabolizm i odzyskać lekkość bez destrukcyjnych głodówek.',
+    cta: 'Ścieżka detoksu',
+    href: '/blog?temat=detoks-i-dom',
+    img: '/images/g7.png',
+    w: 1000,
+    h: 1200,
+    waveColor: '#9be35a',
+    waveD: 'M0,5 Q25,4 50,5 T100,5',
+  },
 ]
 
 export default function StartHere() {
@@ -133,6 +159,7 @@ export default function StartHere() {
           </h2>
         </motion.div>
 
+        {/* Top 3 paths */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
           variants={stagger}
@@ -140,11 +167,42 @@ export default function StartHere() {
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
-          {paths.map((c) => (
+          {paths.slice(0, 3).map((c) => (
             <motion.div key={c.num} variants={fadeUp}>
               <Link href={c.href} className={`lr-path-card lr-path-card--${c.variant} group`}>
                 <div className="lr-graphic">
                   <Image src={c.img} alt="" width={c.w} height={c.h} sizes="(max-width: 768px) 100vw, 33vw" />
+                </div>
+
+                <span className="lr-path-card__num">{c.num}</span>
+
+                <div className="lr-path-card__body">
+                  <h3 className="lr-path-card__title">{c.title}</h3>
+                  <p className="lr-path-card__desc">{c.desc}</p>
+                  <span className="lr-path-card__cta">
+                    {c.cta}
+                    <span className="lr-path-card__arrow" aria-hidden>→</span>
+                  </span>
+                  <CtaWave color={c.waveColor} d={c.waveD} />
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Bottom 4 paths */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+        >
+          {paths.slice(3).map((c) => (
+            <motion.div key={c.num} variants={fadeUp}>
+              <Link href={c.href} className={`lr-path-card lr-path-card--${c.variant} group`}>
+                <div className="lr-graphic">
+                  <Image src={c.img} alt="" width={c.w} height={c.h} sizes="(max-width: 768px) 100vw, 25vw" />
                 </div>
 
                 <span className="lr-path-card__num">{c.num}</span>
