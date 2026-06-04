@@ -821,7 +821,6 @@
 .lab-rose .lr-path-card--nervous-system .lr-graphic { animation: lr-float3d 10s ease-in-out infinite 1.5s; }
 .lab-rose .lr-path-card--clean-home .lr-graphic {
   animation: lr-float3d 10s ease-in-out infinite 1.5s;
-  left: 35%;
 }
 .lab-rose .lr-path-card--clean-home .lr-path-card__cta {
   margin-top: 1rem;
