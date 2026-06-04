@@ -76,6 +76,19 @@ const paths = [
     waveColor: '#C9F24F',
     waveD: 'M0,5 Q25,8 50,5 T100,5',
   },
+  {
+    num: '// 05',
+    variant: 'kids',
+    title: 'Chcę zadbać o dzieci',
+    desc: 'Rozwój mózgu, system immunologiczny, nawyki zdrowotne. Dla rodziców, którzy wiedzą, że najlepszy prezent dla dziecka to fundament zdrowia zbudowany w pierwszych latach życia.',
+    cta: 'Ścieżka dla rodziców',
+    href: '/blog?pilar=dzieci',
+    img: '/images/g5.png',
+    w: 1000,
+    h: 1200,
+    waveColor: '#E8AEBD',
+    waveD: 'M0,5 Q25,3 50,5 T100,5',
+  },
 ]
 
 export default function StartHere() {
@@ -127,8 +140,8 @@ export default function StartHere() {
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
-          {paths.map((c, idx) => (
-            <motion.div key={c.num} variants={fadeUp} className={idx === 3 ? 'col-span-full' : ''}>
+          {paths.map((c) => (
+            <motion.div key={c.num} variants={fadeUp}>
               <Link href={c.href} className={`lr-path-card lr-path-card--${c.variant} group`}>
                 <div className="lr-graphic">
                   <Image src={c.img} alt="" width={c.w} height={c.h} sizes="(max-width: 768px) 100vw, 33vw" />

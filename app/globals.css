@@ -790,6 +790,7 @@
 .lab-rose .lr-path-card--hormones { border: 1px solid rgba(232, 174, 189, 0.16); }
 .lab-rose .lr-path-card--longevity { border: 1px solid rgba(0, 200, 180, 0.16); }
 .lab-rose .lr-path-card--clean-home { border: 1px solid rgba(201, 242, 79, 0.16); }
+.lab-rose .lr-path-card--kids { border: 1px solid rgba(232, 174, 189, 0.16); }
 
 /* Grafika 3D — góra karty, mix-blend screen usuwa czarne tło */
 .lab-rose .lr-graphic {
@@ -821,6 +822,7 @@
 .lab-rose .lr-path-card--clean-home .lr-path-card__cta {
   margin-top: 1rem;
 }
+.lab-rose .lr-path-card--kids .lr-graphic { animation: lr-float3d 11s ease-in-out infinite 2s; }
 
 /* scrim pod tekstem dla czytelności */
 .lab-rose .lr-path-card::after {
@@ -887,6 +889,7 @@
 .lab-rose .lr-path-card--hormones .lr-path-card__cta { color: #e2a0b1; }
 .lab-rose .lr-path-card--longevity .lr-path-card__cta { color: #45d6c4; }
 .lab-rose .lr-path-card--clean-home .lr-path-card__cta { color: #C9F24F; }
+.lab-rose .lr-path-card--kids .lr-path-card__cta { color: #E8AEBD; }
 .lab-rose .lr-cta-wave {
   margin-top: 12px;
   width: 130px;
@@ -920,6 +923,10 @@
   .lab-rose .lr-path-card--clean-home:hover {
     border-color: rgba(201, 242, 79, 0.45);
     box-shadow: 0 30px 60px -18px rgba(201, 242, 79, 0.18);
+  }
+  .lab-rose .lr-path-card--kids:hover {
+    border-color: rgba(232, 174, 189, 0.5);
+    box-shadow: 0 30px 60px -18px rgba(232, 174, 189, 0.2);
   }
 }
 
