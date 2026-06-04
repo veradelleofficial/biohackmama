@@ -790,9 +790,9 @@
 .lab-rose .lr-path-card--hormones { border: 1px solid rgba(232, 174, 189, 0.16); }
 .lab-rose .lr-path-card--longevity { border: 1px solid rgba(0, 200, 180, 0.16); }
 .lab-rose .lr-path-card--nervous-system { border: 1px solid rgba(181, 201, 154, 0.16); }
-.lab-rose .lr-path-card--clean-home { border: 1px solid rgba(201, 242, 79, 0.16); }
-.lab-rose .lr-path-card--kids { border: 1px solid rgba(232, 174, 189, 0.16); }
-.lab-rose .lr-path-card--gut-immunity { border: 1px solid rgba(0, 200, 180, 0.16); }
+.lab-rose .lr-path-card--clean-home { border: 1px solid rgba(232, 174, 189, 0.16); }
+.lab-rose .lr-path-card--kids { border: 1px solid rgba(0, 200, 180, 0.16); }
+.lab-rose .lr-path-card--gut-immunity { border: 1px solid rgba(181, 201, 154, 0.16); }
 .lab-rose .lr-path-card--detox { border: 1px solid rgba(126, 217, 87, 0.16); }
 
 /* Grafika 3D — góra karty, mix-blend screen usuwa czarne tło */
@@ -895,9 +895,9 @@
 .lab-rose .lr-path-card--hormones .lr-path-card__cta { color: #e2a0b1; }
 .lab-rose .lr-path-card--longevity .lr-path-card__cta { color: #45d6c4; }
 .lab-rose .lr-path-card--nervous-system .lr-path-card__cta { color: #B5C99A; }
-.lab-rose .lr-path-card--clean-home .lr-path-card__cta { color: #C9F24F; }
-.lab-rose .lr-path-card--kids .lr-path-card__cta { color: #E8AEBD; }
-.lab-rose .lr-path-card--gut-immunity .lr-path-card__cta { color: #45d6c4; }
+.lab-rose .lr-path-card--clean-home .lr-path-card__cta { color: #e2a0b1; }
+.lab-rose .lr-path-card--kids .lr-path-card__cta { color: #45d6c4; }
+.lab-rose .lr-path-card--gut-immunity .lr-path-card__cta { color: #B5C99A; }
 .lab-rose .lr-path-card--detox .lr-path-card__cta { color: #9be35a; }
 .lab-rose .lr-cta-wave {
   margin-top: 12px;
@@ -934,16 +934,16 @@
     box-shadow: 0 30px 60px -18px rgba(181, 201, 154, 0.18);
   }
   .lab-rose .lr-path-card--clean-home:hover {
-    border-color: rgba(201, 242, 79, 0.45);
-    box-shadow: 0 30px 60px -18px rgba(201, 242, 79, 0.18);
-  }
-  .lab-rose .lr-path-card--kids:hover {
     border-color: rgba(232, 174, 189, 0.5);
     box-shadow: 0 30px 60px -18px rgba(232, 174, 189, 0.2);
   }
-  .lab-rose .lr-path-card--gut-immunity:hover {
+  .lab-rose .lr-path-card--kids:hover {
     border-color: rgba(0, 200, 180, 0.45);
     box-shadow: 0 30px 60px -18px rgba(0, 200, 180, 0.18);
+  }
+  .lab-rose .lr-path-card--gut-immunity:hover {
+    border-color: rgba(181, 201, 154, 0.45);
+    box-shadow: 0 30px 60px -18px rgba(181, 201, 154, 0.18);
   }
   .lab-rose .lr-path-card--detox:hover {
     border-color: rgba(126, 217, 87, 0.45);

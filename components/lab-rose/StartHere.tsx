@@ -86,7 +86,7 @@ const paths = [
     img: '/images/g4.png',
     w: 1148,
     h: 1216,
-    waveColor: '#C9F24F',
+    waveColor: '#e2a0b1',
     waveD: 'M0,5 Q25,8 50,5 T100,5',
   },
   {
@@ -99,7 +99,7 @@ const paths = [
     img: '/images/g5.png',
     w: 1000,
     h: 1200,
-    waveColor: '#E8AEBD',
+    waveColor: '#45d6c4',
     waveD: 'M0,5 Q25,3 50,5 T100,5',
   },
   {
@@ -112,7 +112,7 @@ const paths = [
     img: '/images/g6.png',
     w: 1000,
     h: 1200,
-    waveColor: '#45d6c4',
+    waveColor: '#B5C99A',
     waveD: 'M0,5 Q25,6 50,5 T100,5',
   },
   {
