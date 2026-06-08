@@ -802,7 +802,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 78%;
-  height: 45%;
+  height: 40%;
   z-index: 0;
   pointer-events: none;
   mix-blend-mode: screen;
@@ -834,7 +834,7 @@
   content: '';
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  height: 52%;
+  height: 48%;
   background: linear-gradient(to top, rgba(8,8,10,0.97) 35%, rgba(8,8,10,0.7) 65%, transparent 100%);
   z-index: 1;
   pointer-events: none;
