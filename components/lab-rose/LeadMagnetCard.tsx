@@ -85,8 +85,8 @@ export default function LeadMagnetCard({ m }: { m: LeadMagnet }) {
             key="form"
             onSubmit={handleSubmit}
             className="lr-lead-card__form"
-            initial={m.twoStep ? { opacity: 0, y: 8 } : false}
-            animate={{ opacity: 1, y: 0 }}
+            initial={m.twoStep ? { opacity: 0 } : false}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.35, ease: EASE }}
           >
             {m.twoStep && (
