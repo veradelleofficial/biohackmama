@@ -36,6 +36,7 @@ export default function LeadMagnetCard({ m }: { m: LeadMagnet }) {
     if (!email || !consent || status === 'loading') return
     setStatus('loading')
     const source = m.source || `lead:${m.slug}`
+    console.log('[LeadMagnet]', m.title, '→ source:', source)
     const { ok } = await subscribeEmail(email, source)
     if (ok) {
       setStatus('sent')
