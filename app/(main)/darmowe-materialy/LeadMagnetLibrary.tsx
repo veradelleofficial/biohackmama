@@ -16,6 +16,16 @@ const materials: LeadMagnet[] = [
     twoStep: true,
   },
   {
+    slug: 'usun-bisfenole-z-organizmu',
+    title: 'Usun bisfenole z organizmu',
+    desc: 'Gdzie się kryją bisfenole, jak je wyeliminować z domu i ciała. Krok po kroku do mniejszej chemii.',
+    format: 'Checklist',
+    img: '/images/mat-bisfenole.jpg',
+    accent: '#E8AEBD',
+    phBg: 'linear-gradient(135deg, #1a0d12, #3d1122)',
+    twoStep: true,
+  },
+  {
     slug: 'poranny-protokol',
     title: 'Poranny Protokół Mamy',
     desc: '7 kroków, 8 minut, mierzalna różnica w 14 dni. PDF z protokołem i checklistą do druku.',
@@ -80,6 +90,7 @@ const materials: LeadMagnet[] = [
 
 export default function LeadMagnetLibrary() {
   const sportBezPoliestru = materials.find((m) => m.slug === 'marki-sportowe-bez-poliestru')!
+  const usunBisfenole = materials.find((m) => m.slug === 'usun-bisfenole-z-organizmu')!
 
   return (
     <main className="min-h-screen">
@@ -97,14 +108,15 @@ export default function LeadMagnetLibrary() {
         description="Przejmij kontrolę nad swoim zdrowiem. Pobierz sprawdzone przewodniki i checklisty, które pomogły mi poznać potrzeby własnego organizmu i ułożyć skuteczną suplementację. Wybierz interesujący Cię materiał, podaj mail i odbierz go natychmiast na skrzynkę. Bezpiecznie, bez spamu i z możliwością wypisu jednym kliknięciem."
       />
 
-      {/* Sport bez poliestru — featured */}
+      {/* Sport bez poliestru + Usun bisfenole — featured */}
       <section style={{ padding: 'clamp(2rem, 4vw, 3rem) 0 clamp(4rem, 9vw, 8rem)' }}>
         <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
           <div className="mb-8">
-            <span className="lr-eyebrow">// MATERIAŁ GŁÓWNY</span>
+            <span className="lr-eyebrow">// MATERIAŁY GŁÓWNE</span>
           </div>
-          <div style={{ maxWidth: '500px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))', gap: '2rem', maxWidth: '1100px' }}>
             <LeadMagnetCard key={sportBezPoliestru.slug} m={sportBezPoliestru} />
+            <LeadMagnetCard key={usunBisfenole.slug} m={usunBisfenole} />
           </div>
         </div>
       </section>
