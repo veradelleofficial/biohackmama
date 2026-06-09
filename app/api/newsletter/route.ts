@@ -39,7 +39,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         email,
         listIds: [listId],
-        updateEnabled: true,
+        updateEnabled: false,
         tags: source ? [source] : [],
       }),
     })
@@ -51,7 +51,7 @@ export async function POST(req: Request) {
 
     // Brevo returns 400 "Contact already exist" — treat as success (idempotent)
     const data = await res.json().catch(() => ({}))
-    if (res.status === 400 && data?.code === 'duplicate_parameter') {
+    if (res.status === 400 && (data?.code === 'duplicate_parameter' || data?.message?.includes('already exist'))) {
       return NextResponse.json({ ok: true, already: true })
     }
 
