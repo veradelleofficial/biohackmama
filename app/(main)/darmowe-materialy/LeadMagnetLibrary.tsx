@@ -14,6 +14,7 @@ const materials: LeadMagnet[] = [
     accent: '#B5C99A',
     phBg: 'linear-gradient(135deg, #0d1409, #1f2d11)',
     twoStep: true,
+    source: 'lead:marki-sportowe-bez-poliestru',
   },
   {
     slug: 'usun-bisfenole-z-organizmu',
