@@ -19,7 +19,7 @@ const materials: LeadMagnet[] = [
     slug: 'usun-bisfenole-z-organizmu',
     title: 'Usun bisfenole z organizmu',
     desc: 'Gdzie się kryją bisfenole, jak je wyeliminować z domu i ciała. Krok po kroku do mniejszej chemii.',
-    format: 'Checklist',
+    format: 'Przewodnik',
     img: '/images/mat-bisfenole.jpg',
     accent: '#E8AEBD',
     phBg: 'linear-gradient(135deg, #1a0d12, #3d1122)',
