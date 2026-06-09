@@ -589,6 +589,11 @@
   margin-bottom: 1.25rem;
   background: #101012;
 }
+@media (max-width: 640px) {
+  .lab-rose .lr-lead-card__media {
+    height: 160px;
+  }
+}
 .lab-rose .lr-lead-card__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 10%; }
 .lab-rose .lr-lead-card__media-ph {
   width: 100%; height: 100%;
