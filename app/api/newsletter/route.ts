@@ -21,7 +21,15 @@ export async function POST(req: Request) {
   }
 
   const apiKey = process.env.BREVO_API_KEY
-  const listId = Number(process.env.BREVO_LIST_ID)
+
+  // Map sources to their respective Brevo lists
+  const listMap: Record<string, number> = {
+    'lead:marki-sportowe-bez-poliestru': 2,      // Zero poliester
+    'lead:usun-bisfenole-z-organizmu': 7,        // ALO
+    'lead:pozostale-darmowe-materialy': Number(process.env.BREVO_LIST_ID || '3'),
+  }
+
+  const listId = listMap[source] || Number(process.env.BREVO_LIST_ID || '3')
 
   if (!apiKey || !listId) {
     console.error('[newsletter] Brevo env vars missing')
