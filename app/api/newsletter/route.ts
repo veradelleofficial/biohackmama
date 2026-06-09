@@ -39,7 +39,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         email,
         listIds: [listId],
-        updateEnabled: false,
+        updateEnabled: true,
         tags: source ? [source] : [],
       }),
     })
