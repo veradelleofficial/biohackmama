@@ -24,6 +24,7 @@ const materials: LeadMagnet[] = [
     accent: '#E8AEBD',
     phBg: 'linear-gradient(135deg, #1a0d12, #3d1122)',
     twoStep: true,
+    source: 'lead:usun-bisfenole-z-organizmu',
   },
   {
     slug: 'poranny-protokol',
