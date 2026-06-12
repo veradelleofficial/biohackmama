@@ -117,12 +117,8 @@ export default function LeadMagnetLibrary() {
             <span className="lr-eyebrow">// MATERIAŁY GŁÓWNE</span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', maxWidth: '700px', alignItems: 'start' }}>
-            <div style={{ position: 'relative', zIndex: 1 }}>
-              <LeadMagnetCard key={sportBezPoliestru.slug} m={sportBezPoliestru} />
-            </div>
-            <div style={{ position: 'relative', zIndex: 2 }}>
-              <LeadMagnetCard key={usunBisfenole.slug} m={usunBisfenole} />
-            </div>
+            <LeadMagnetCard key={sportBezPoliestru.slug} m={sportBezPoliestru} />
+            <LeadMagnetCard key={usunBisfenole.slug} m={usunBisfenole} />
           </div>
         </div>
       </section>
