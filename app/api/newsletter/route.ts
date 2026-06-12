@@ -24,8 +24,8 @@ export async function POST(req: Request) {
 
   // Map sources to their respective Brevo lists
   const listMap: Record<string, number> = {
-    'lead:marki-sportowe-bez-poliestru': 7,      // Zero poliester (sport)
-    'lead:usun-bisfenole-z-organizmu': 2,        // ALO (bisfenole)
+    'lead:marki-sportowe-bez-poliestru': 2,      // Zero poliester (sport)
+    'lead:usun-bisfenole-z-organizmu': 7,        // ALO (bisfenole)
     'lead:pozostale-darmowe-materialy': Number(process.env.BREVO_LIST_ID || '3'),
   }
 
