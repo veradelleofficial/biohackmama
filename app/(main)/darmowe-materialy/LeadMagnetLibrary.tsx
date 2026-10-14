@@ -92,7 +92,7 @@ const materials: LeadMagnet[] = [
     title: 'Ubrania dla dzieci bez poliestru',
     desc: 'Lista 112 marek z bawełną organiczną, merino, Tencelem i bambusem. Pogrupowane po materiale, alfabetycznie, z linkami do stron i Instagrama.',
     format: 'Lista',
-    img: '/images/mat-ubrania-dziecka.jpg',
+    img: '/images/dzieci.jpg',
     accent: '#B5C99A',
     phBg: 'linear-gradient(135deg, #0d1409, #1f2d11)',
     downloadUrl: '/pdfs/ubrania-dziecka-bez-poliestru.pdf',
