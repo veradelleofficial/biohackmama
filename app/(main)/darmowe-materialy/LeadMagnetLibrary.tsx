@@ -87,12 +87,24 @@ const materials: LeadMagnet[] = [
     phBg: 'linear-gradient(135deg, #09181a, #11383d)',
     source: 'lead:pozostale-darmowe-materialy',
   },
+  {
+    slug: 'ubrania-dziecka-bez-poliestru',
+    title: 'Ubrania dla dzieci bez poliestru',
+    desc: 'Lista 112 marek z bawełną organiczną, merino, Tencelem i bambusem. Pogrupowane po materiale, alfabetycznie, z linkami do stron i Instagrama.',
+    format: 'Lista',
+    img: '/images/mat-ubrania-dziecka.jpg',
+    accent: '#B5C99A',
+    phBg: 'linear-gradient(135deg, #0d1409, #1f2d11)',
+    downloadUrl: '/pdfs/ubrania-dziecka-bez-poliestru.pdf',
+    source: 'lead:pozostale-darmowe-materialy',
+  },
 ]
 
 
 export default function LeadMagnetLibrary() {
   const sportBezPoliestru = materials.find((m) => m.slug === 'marki-sportowe-bez-poliestru')!
   const usunBisfenole = materials.find((m) => m.slug === 'usun-bisfenole-z-organizmu')!
+  const ubraniadzieci = materials.find((m) => m.slug === 'ubrania-dziecka-bez-poliestru')!
 
   return (
     <main className="min-h-screen">
@@ -116,9 +128,10 @@ export default function LeadMagnetLibrary() {
           <div className="mb-8">
             <span className="lr-eyebrow">// MATERIAŁY GŁÓWNE</span>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', maxWidth: '700px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
             <LeadMagnetCard key={sportBezPoliestru.slug} m={sportBezPoliestru} />
             <LeadMagnetCard key={usunBisfenole.slug} m={usunBisfenole} />
+            <LeadMagnetCard key={ubraniadzieci.slug} m={ubraniadzieci} />
           </div>
         </div>
       </section>

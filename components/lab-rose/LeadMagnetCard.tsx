@@ -18,6 +18,8 @@ export interface LeadMagnet {
   phBg: string
   /** Two-step flow: first show "Odbierz dostęp" button, reveal email form on click */
   twoStep?: boolean
+  /** Direct download link (no email required) */
+  downloadUrl?: string
   /** Custom source tag for automation filtering (defaults to `lead:${slug}`) */
   source?: string
   /** Hide form and show only card content */
@@ -67,7 +69,17 @@ export default function LeadMagnetCard({ m }: { m: LeadMagnet }) {
       <h3 className="lr-lead-card__title">{m.title}</h3>
       <p className="lr-lead-card__desc">{m.desc}</p>
 
-      {!m.hideForm && (status === 'sent' ? (
+      {!m.hideForm && (m.downloadUrl ? (
+        <a
+          href={m.downloadUrl}
+          download
+          className="lr-cta-primary"
+          style={{ width: '100%', justifyContent: 'center', display: 'flex', textDecoration: 'none' }}
+        >
+          Pobierz PDF
+          <span aria-hidden>→</span>
+        </a>
+      ) : status === 'sent' ? (
         <p className="lr-lead-card__success">
           ✓ Gotowe! Sprawdź skrzynkę - materiał już do Ciebie leci.
         </p>
