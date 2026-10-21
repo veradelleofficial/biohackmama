@@ -45,11 +45,6 @@ const INDEX = [
   { num: '05', title: 'Pigułki Wiedzy', desc: 'Krótkie audio i wideo', href: '/premium/pigulki' },
 ]
 
-const TICKER = [
-  'sen', 'kortyzol', 'tarczyca', 'bisfenole', 'mikrobiom', 'poliester', 'woda', 'EMF',
-  'suplementacja', 'dzieci', 'cykl', 'mitochondria', 'detoks domu', 'merino', 'post', 'wątroba',
-]
-
 const stagger = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.11, delayChildren: 0.15 } },
@@ -348,36 +343,12 @@ export default function HeroA() {
       />
       <div aria-hidden className="lr-grain absolute inset-0 pointer-events-none" style={{ opacity: 0.05 }} />
 
-      {/* HUD: górna linia z mono-etykietami */}
-      <motion.div
-        className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative flex items-center justify-between gap-4"
-        style={{ paddingTop: '1.4rem' }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
-      >
-        <span className="lr-mono flex items-center gap-3" style={{ fontSize: '0.5625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.24em' }}>
-          <span className="lr-blink" aria-hidden />
-          LAB · 01
-        </span>
-        <span className="lr-mono hidden sm:inline" style={{ fontSize: '0.5625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.24em' }}>
-          biohacking + życie bez chemii · dla całych rodzin
-        </span>
-        <span className="lr-mono" style={{ fontSize: '0.5625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.24em' }}>
-          PL · 2026
-        </span>
-      </motion.div>
-
       <div
         className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative grid lg:grid-cols-[1fr_0.95fr] gap-10 lg:gap-6 items-center"
-        style={{ paddingTop: 'clamp(1rem, 2.5vw, 2rem)', paddingBottom: 'clamp(1rem, 2vw, 2rem)', minHeight: 'calc(100svh - 7.5rem)' }}
+        style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)', paddingBottom: 'clamp(1rem, 2vw, 2rem)', minHeight: 'calc(100svh - 6rem)' }}
       >
         {/* LEWA */}
         <motion.div variants={stagger} initial="hidden" animate="visible" className="relative z-10" style={{ y: textY }}>
-          <motion.div variants={fadeUp} className="mb-7">
-            <span className="lr-eyebrow">BioHackMama</span>
-          </motion.div>
-
           <motion.h1
             variants={fadeUp}
             style={{
@@ -419,17 +390,6 @@ export default function HeroA() {
             </Link>
           </motion.div>
 
-          <motion.div
-            variants={fadeUp}
-            className="lr-mono mt-9 flex flex-wrap items-center gap-x-5 gap-y-2"
-            style={{ fontSize: '0.5625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.22em' }}
-          >
-            <span><b style={{ color: 'var(--lr-accent)', fontWeight: 600 }}>8</b> ścieżek</span>
-            <span aria-hidden style={{ color: 'var(--lr-rule-strong)' }}>/</span>
-            <span><b style={{ color: 'var(--lr-accent)', fontWeight: 600 }}>9</b> darmowych PDF</span>
-            <span aria-hidden style={{ color: 'var(--lr-rule-strong)' }}>/</span>
-            <span><b style={{ color: 'var(--lr-accent)', fontWeight: 600 }}>6</b> narzędzi</span>
-          </motion.div>
         </motion.div>
 
         {/* PRAWA */}
@@ -477,21 +437,7 @@ export default function HeroA() {
         </div>
       </div>
 
-      {/* TICKER */}
-      <div
-        className="lr-ticker mt-10 md:mt-12"
-        style={{ borderTop: '1px solid var(--lr-rule)', borderBottom: '1px solid var(--lr-rule)' }}
-        aria-hidden
-      >
-        <div className="lr-ticker__track">
-          {[...TICKER, ...TICKER].map((t, i) => (
-            <span key={i} className="lr-ticker__item lr-mono">
-              <span className="lr-ticker__dot" />
-              {t}
-            </span>
-          ))}
-        </div>
-      </div>
+      <div style={{ height: 'clamp(3rem, 6vw, 5rem)' }} aria-hidden />
     </section>
   )
 }
