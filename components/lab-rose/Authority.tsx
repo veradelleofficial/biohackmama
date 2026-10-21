@@ -125,7 +125,7 @@ export default function Authority() {
 
             {/* Stats inline */}
             <div
-              className="mt-10 grid grid-cols-3 gap-4"
+              className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4"
               style={{
                 paddingTop: '2rem',
                 borderTop: '1px solid var(--lr-rule)',

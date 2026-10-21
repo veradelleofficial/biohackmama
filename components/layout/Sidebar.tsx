@@ -206,9 +206,9 @@ function PromoBlocks() {
               <div className="flex items-baseline gap-2">
                 <span
                   style={{
-                    fontFamily: 'var(--font-fraunces), serif',
+                    fontFamily: 'var(--font-inter), Inter, sans-serif',
                     fontSize: '1.125rem',
-                    fontWeight: 500,
+                    fontWeight: 600,
                     color: 'var(--lr-ink)',
                     lineHeight: 1.1,
                   }}

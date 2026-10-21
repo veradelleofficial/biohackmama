@@ -49,9 +49,10 @@ export default function SignInPage() {
               fontSize: '0.9375rem',
             },
             elements: {
-              rootBox: 'mx-auto w-full',
+              rootBox: 'mx-auto w-full max-w-full',
+              cardBox: '!w-full !max-w-full',
               card:
-                'border bg-[#161D25] shadow-[0_28px_64px_-16px_rgba(0,0,0,0.65)]',
+                '!w-full !max-w-full border bg-[#161D25] shadow-[0_28px_64px_-16px_rgba(0,0,0,0.65)]',
               headerTitle: 'font-heading text-[#F4EFE6] !text-base',
               headerSubtitle: 'text-[#B8B0A3] !text-xs',
               socialButtonsBlockButton:

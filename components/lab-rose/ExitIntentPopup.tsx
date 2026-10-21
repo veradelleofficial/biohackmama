@@ -79,17 +79,18 @@ export default function ExitIntentPopup() {
           style={{ background: 'rgba(8, 8, 8, 0.78)', backdropFilter: 'blur(4px)' }}
         >
           <motion.div
-            className="lab-rose relative w-full max-w-md"
+            className="lab-rose relative w-full min-w-0"
             initial={{ opacity: 0, y: 24, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.98 }}
             transition={{ duration: 0.4, ease: EASE }}
             onClick={(e) => e.stopPropagation()}
             style={{
+              maxWidth: 'min(28rem, calc(100vw - 2rem))',
               background: 'var(--lr-surface)',
               border: '1px solid var(--lr-rule-strong)',
               borderRadius: '2px',
-              padding: 'clamp(2rem, 5vw, 2.75rem)',
+              padding: 'clamp(1.5rem, 5vw, 2.75rem)',
               boxShadow: '0 32px 80px -20px rgba(0,0,0,0.7)',
             }}
           >

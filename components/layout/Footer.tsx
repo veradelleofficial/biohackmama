@@ -162,9 +162,9 @@ export default function Footer() {
         style={{ padding: 'clamp(3rem, 6vw, 5rem) 1.5rem clamp(2rem, 4vw, 3rem)' }}
       >
         {/* Top — brand + columns */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 mb-12 md:mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-x-6 gap-y-10 md:gap-12 mb-12 md:mb-16">
           {/* Brand */}
-          <div className="md:col-span-5">
+          <div className="col-span-2 md:col-span-5">
             <span className="lr-eyebrow">BioHackMama · est. 2026</span>
             <h3
               className="mt-6"
@@ -194,7 +194,7 @@ export default function Footer() {
             <FooterNewsletter />
           </div>
 
-          <div className="md:col-span-2">
+          <div className="col-span-1 md:col-span-2">
             <span
               className="lr-mono"
               style={{ fontSize: '0.625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.22em' }}
@@ -226,7 +226,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-2">
+          <div className="col-span-1 md:col-span-2">
             <span
               className="lr-mono"
               style={{ fontSize: '0.625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.22em' }}
@@ -261,7 +261,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-3">
+          <div className="col-span-2 md:col-span-3">
             <span
               className="lr-mono"
               style={{ fontSize: '0.625rem', color: 'var(--lr-ink-dim)', letterSpacing: '0.22em' }}

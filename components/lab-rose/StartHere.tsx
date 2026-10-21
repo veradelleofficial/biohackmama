@@ -205,7 +205,7 @@ export default function StartHere() {
 
         {/* Bottom 4 paths */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          className="mt-6 lg:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
           variants={stagger}
           initial="hidden"
           whileInView="visible"

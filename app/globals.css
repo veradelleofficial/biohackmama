@@ -1339,6 +1339,27 @@
 @media (prefers-reduced-motion: reduce) {
   .lab-rose .lr-cta-primary { animation: none; }
 }
+/* Telefony: ciaśniejsze przyciski, żeby tekst mieścił się w jednej linii */
+@media (max-width: 420px) {
+  .lab-rose .lr-cta-primary,
+  .lab-rose .lr-cta-ghost {
+    letter-spacing: 0.1em;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+/* Długie linki i słowa (np. adresy Instagrama w artykułach) łamią się zamiast
+   rozpychać stronę na telefonie. Działa tylko, gdy coś by wystawało. */
+.lab-rose p,
+.lab-rose li,
+.lab-rose a,
+.lab-rose h1, .lab-rose h2, .lab-rose h3, .lab-rose h4 {
+  overflow-wrap: break-word;
+}
+.lab-rose p a,
+.lab-rose li a {
+  overflow-wrap: anywhere;
+}
 @media (hover: hover) and (pointer: fine) {
   .lab-rose .lr-cta-primary:hover {
     background: #D4FF3D;
@@ -1404,6 +1425,9 @@
   text-transform: uppercase;
   color: var(--lr-ink-soft);
   max-width: 18ch;
+}
+@media (max-width: 640px) {
+  .lab-rose .lr-stat__label { max-width: 32ch; letter-spacing: 0.12em; line-height: 1.6; }
 }
 
 /* Hairlines */
