@@ -287,7 +287,7 @@ export default function HeroKonstelacja() {
                 energii.
               </span>
             </span>
-            <span style={{ display: 'block', marginTop: '0.3em', fontWeight: 400, color: 'var(--lr-ink-soft)', fontSize: '0.62em', letterSpacing: '-0.03em' }}>
+            <span style={{ display: 'block', marginTop: '0.3em', fontWeight: 600, color: 'var(--lr-ink)', fontSize: '0.62em', letterSpacing: '-0.04em' }}>
               Zacznij od
             </span>
             <RotatingWord />
