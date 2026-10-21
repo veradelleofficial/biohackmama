@@ -63,7 +63,6 @@ function RotatingWord() {
 
   return (
     <span
-      className="lr-rose"
       style={{
         display: 'grid',
         overflow: 'hidden',
@@ -79,7 +78,8 @@ function RotatingWord() {
       <AnimatePresence initial={false}>
         <motion.span
           key={ROTATING[i]}
-          style={{ gridArea: '1 / 1' }}
+          className="lr-accent-text"
+          style={{ gridArea: '1 / 1', justifySelf: 'start' }}
           initial={{ y: '105%', opacity: 0, filter: 'blur(6px)' }}
           animate={{ y: '0%', opacity: 1, filter: 'blur(0px)' }}
           exit={{ y: '-105%', opacity: 0, filter: 'blur(6px)' }}

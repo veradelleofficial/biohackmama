@@ -506,6 +506,33 @@
   letter-spacing: inherit !important;
   color: var(--lr-rose);
 }
+/* Duże nagłówki: wyróżnione słowo mieni się gradientem limonka → róż,
+   jak "energii" w hero strony głównej */
+@keyframes lr-accent-shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.lab-rose .lr-accent-text,
+.lab-rose h1 .lr-rose,
+.lab-rose h2 .lr-rose,
+.lab-rose h1 em,
+.lab-rose h2 em {
+  background-image: linear-gradient(90deg, #C9F24F 0%, #E8AEBD 45%, #F4C9D4 60%, #C9F24F 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: lr-accent-shimmer 9s ease-in-out infinite;
+  padding-bottom: 0.08em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lab-rose h1 .lr-rose, .lab-rose h2 .lr-rose,
+  .lab-rose h1 em, .lab-rose h2 em { animation: none; }
+}
 /* Mniejsze nagłówki (h3, h4: tytuły kart, pytań w narzędziach) — ten sam krój */
 .lab-rose h3,
 .lab-rose h4 {
