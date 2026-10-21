@@ -101,10 +101,11 @@ export default function KalkulatorOknaPage() {
                       </span>
                       <h3
                         style={{
-                          fontFamily: 'var(--font-fraunces), serif',
+                          fontFamily: 'var(--font-inter), Inter, sans-serif',
+                          letterSpacing: '-0.025em',
                           fontSize: '1.125rem',
                           color: 'var(--lr-ink)',
-                          fontWeight: 400,
+                          fontWeight: 600,
                           flex: 1,
                           lineHeight: 1.25,
                         }}

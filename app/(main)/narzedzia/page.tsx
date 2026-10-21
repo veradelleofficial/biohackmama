@@ -164,13 +164,14 @@ export default function NarzedziaPage() {
                     <h2
                       className="group-hover:text-[#E8AEBD] transition-colors duration-300"
                       style={{
-                        fontFamily: 'var(--font-fraunces), serif',
+                        fontFamily: 'var(--font-inter), Inter, sans-serif',
+                        letterSpacing: '-0.025em',
                         fontSize: 'clamp(1.25rem, 1.8vw, 1.5rem)',
                         lineHeight: 1.1,
                         color: 'var(--lr-ink)',
                         marginBottom: '1rem',
                         minHeight: '2.4em',
-                        fontWeight: 400,
+                        fontWeight: 600,
                       }}
                     >
                       {tool.title}

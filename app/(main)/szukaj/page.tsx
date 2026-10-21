@@ -216,10 +216,11 @@ export default function SearchPage() {
                     >
                       <h2
                         style={{
-                          fontFamily: 'var(--font-fraunces), serif',
+                          fontFamily: 'var(--font-inter), Inter, sans-serif',
+                          letterSpacing: '-0.025em',
                           fontSize: '1.0625rem',
                           color: 'var(--lr-ink)',
-                          fontWeight: 400,
+                          fontWeight: 600,
                           lineHeight: 1.2,
                         }}
                       >

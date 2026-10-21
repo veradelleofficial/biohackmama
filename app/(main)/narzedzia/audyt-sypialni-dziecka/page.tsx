@@ -242,11 +242,12 @@ export default function AudytSypialniDziecka() {
                     </span>
                     <h3
                       style={{
-                        fontFamily: 'var(--font-fraunces), serif',
+                        fontFamily: 'var(--font-inter), Inter, sans-serif',
+                        letterSpacing: '-0.025em',
                         fontSize: 'clamp(1.125rem, 1.7vw, 1.375rem)',
                         lineHeight: 1.25,
                         color: 'var(--lr-ink)',
-                        fontWeight: 400,
+                        fontWeight: 600,
                         flex: 1,
                       }}
                     >
@@ -445,10 +446,11 @@ export default function AudytSypialniDziecka() {
                           <div style={{ flex: 1 }}>
                             <h4
                               style={{
-                                fontFamily: 'var(--font-fraunces), serif',
+                                fontFamily: 'var(--font-inter), Inter, sans-serif',
+                                letterSpacing: '-0.025em',
                                 fontSize: '1.0625rem',
                                 color: 'var(--lr-ink)',
-                                fontWeight: 400,
+                                fontWeight: 600,
                                 marginBottom: '0.25rem',
                               }}
                             >

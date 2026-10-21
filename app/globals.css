@@ -504,8 +504,25 @@
   font-weight: 300;
   letter-spacing: -0.01em;
 }
-/* Artykuły: śródtytuły w treści zostają lżejsze, żeby tekst dobrze się czytał */
-.lab-rose .prose h2 { font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
+/* Mniejsze nagłówki (h3, h4: tytuły kart, pytań w narzędziach) — ten sam krój */
+.lab-rose h3,
+.lab-rose h4 {
+  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-transform: none;
+  font-feature-settings: 'ss01', 'cv11';
+}
+.lab-rose h3 { line-height: 1.15; }
+.lab-rose h3 .lr-rose,
+.lab-rose h4 .lr-rose,
+.lab-rose h3 em,
+.lab-rose h4 em {
+  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
 .lab-rose h3 { font-size: clamp(1.25rem, 2.2vw, 1.75rem); }
 .lab-rose h4 { font-size: 1.125rem; line-height: 1.25; font-weight: 500; }
 
@@ -832,9 +849,10 @@
   font-weight: 600;
 }
 .lab-rose .lr-lead-card__title {
-  font-family: var(--font-fraunces), Georgia, serif;
+  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.025em;
   font-size: 1.25rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
   color: #fff;
   min-height: 2.4em;
@@ -951,9 +969,10 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 .lab-rose .lr-course-card__title {
-  font-family: var(--font-fraunces), Georgia, serif;
+  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.025em;
   font-size: clamp(1.375rem, 2vw, 1.625rem);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
   margin-bottom: 0.85rem;
   color: #fff;
@@ -1081,9 +1100,10 @@
   flex-direction: column;
 }
 .lab-rose .lr-path-card__title {
-  font-family: var(--font-fraunces), Georgia, serif;
+  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.025em;
   font-size: clamp(1.375rem, 2vw, 1.6rem);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
   color: #fff;
   min-height: 1.8em;
@@ -1729,10 +1749,10 @@ html[data-page="lab-rose"] body {
 .lab-rose .prose h2,
 .lab-rose .prose h3,
 .lab-rose .prose h4 {
-  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif !important;
+  font-family: var(--font-inter), 'Inter', system-ui, sans-serif !important;
   color: var(--lr-ink) !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.02em !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.03em !important;
   line-height: 1.15 !important;
   text-transform: none !important;
 }
