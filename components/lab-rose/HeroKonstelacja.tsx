@@ -240,7 +240,7 @@ function Orb({
 }
 
 
-export default function HeroA() {
+export default function HeroKonstelacja() {
   const ref = useRef<HTMLElement>(null)
   const reduce = useReducedMotion()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })

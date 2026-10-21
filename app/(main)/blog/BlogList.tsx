@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Search } from 'lucide-react'
 import PageHeader from '@/components/lab-rose/PageHeader'
-import BodyDiagram from '@/components/lab-rose/BodyDiagram'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -132,9 +131,6 @@ export default function BlogListLabRose({ articles }: { articles: Article[] }) {
         }
         description="Hormony, sen, żywienie, longevity, ziołolecznictwo, kosmetyki non-toxic. Wszystko, co przerobiłam na własnej skórze zanim zaczęłam o tym pisać."
       />
-
-      {/* Body diagram — wizualny przewodnik po tematach */}
-      <BodyDiagram />
 
       <section style={{ padding: '0 0 clamp(5rem, 9vw, 8rem)' }}>
         <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">

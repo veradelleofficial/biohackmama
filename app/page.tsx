@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import LabRoseScope from '@/components/lab-rose/LabRoseScope'
-import Hero from '@/components/lab-rose/Hero'
+import Hero from '@/components/lab-rose/HeroKonstelacja'
 import StatsBar from '@/components/lab-rose/StatsBar'
 import StartHere from '@/components/lab-rose/StartHere'
 import FeaturedCourses from '@/components/lab-rose/FeaturedCourses'
