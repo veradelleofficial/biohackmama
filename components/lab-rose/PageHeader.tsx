@@ -5,19 +5,21 @@ import { motion } from 'framer-motion'
 const EASE = [0.22, 1, 0.36, 1] as const
 
 interface PageHeaderProps {
-  eyebrow: string
+  /** Nieużywane od 2026-10-21 (klientka usunęła etykiety z kropką nad tytułem). Zostaje w typie, żeby nie zmieniać 15 stron. */
+  eyebrow?: string
   title: React.ReactNode
   description?: React.ReactNode
+  /** Nieużywane, j.w. */
   meta?: string
 }
 
 /**
  * Nagłówek podstron w stylu hero strony głównej:
- * zorza lime/rose/teal w tle, winieta, ziarno, tytuł wysuwany spod maski,
- * rysująca się linia przy etykiecie. Wyróżnione słowa (.lr-rose) dostają
+ * zorza lime/rose/teal w tle, winieta, ziarno, tytuł wysuwany spod maski.
+ * Bez etykiety z kropką nad tytułem. Wyróżnione słowa (.lr-rose) dostają
  * mieniący się gradient z globals.css.
  */
-export default function PageHeader({ eyebrow, title, description, meta }: PageHeaderProps) {
+export default function PageHeader({ title, description }: PageHeaderProps) {
   return (
     <section
       className="relative overflow-hidden"
@@ -40,31 +42,6 @@ export default function PageHeader({ eyebrow, title, description, meta }: PageHe
       <div aria-hidden className="lr-grain absolute inset-0 pointer-events-none" style={{ opacity: 0.05 }} />
 
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 relative">
-        <motion.div
-          className="flex items-center gap-5 mb-10 md:mb-14"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: EASE }}
-        >
-          <span className="lr-eyebrow whitespace-nowrap">{eyebrow}</span>
-          <motion.span
-            aria-hidden
-            className="h-px flex-1"
-            style={{
-              background: 'linear-gradient(to right, rgba(201,242,79,0.6), rgba(232,174,189,0.35) 40%, transparent)',
-              transformOrigin: 'left',
-            }}
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1.4, ease: EASE, delay: 0.25 }}
-          />
-          {meta && (
-            <span className="lr-mono whitespace-nowrap" style={{ color: 'var(--lr-ink-dim)', fontSize: '0.6875rem' }}>
-              {meta}
-            </span>
-          )}
-        </motion.div>
-
         {/* tytuł wysuwa się spod maski */}
         <div style={{ overflow: 'hidden', paddingBottom: '0.12em' }}>
           <motion.h1
