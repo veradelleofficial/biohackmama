@@ -99,7 +99,7 @@ export default function RemainingMaterialsSection() {
         <div className="mb-10">
           <span className="lr-eyebrow">// POZOSTAŁE MATERIAŁY</span>
           <h3 style={{ marginTop: '0.75rem', fontSize: '1.125rem', fontWeight: 500 }}>
-            Jeden email - 6 materiałów do pobrania
+            Te materiały właśnie kończę. Zostaw maila, a wyślę Ci je, jak tylko będą gotowe.
           </h3>
         </div>
 
@@ -131,7 +131,7 @@ export default function RemainingMaterialsSection() {
                 color: 'var(--lr-lime)',
               }}
             >
-              ✓ Gotowe! Sprawdź skrzynkę - wszystkie materiały już do Ciebie lecą.
+              ✓ Dzięki, jesteś na liście! Dam Ci znać mailem, jak tylko materiały będą gotowe.
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -142,7 +142,7 @@ export default function RemainingMaterialsSection() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="twoj@email.pl"
                 className="lr-lead-card__input lr-mono"
-                aria-label="Email — wszystkie materiały"
+                aria-label="Email, zapis na pozostałe materiały"
                 style={{ width: '100%' }}
               />
               <label className="lr-lead-card__consent" style={{ display: 'flex', gap: '0.75rem' }}>
@@ -167,7 +167,7 @@ export default function RemainingMaterialsSection() {
                 disabled={status === 'loading' || !consent}
                 style={{ width: '100%', justifyContent: 'center', opacity: !consent || status === 'loading' ? 0.6 : 1 }}
               >
-                {status === 'loading' ? 'Wysyłam…' : 'Odbierz 6 materiałów'}
+                {status === 'loading' ? 'Zapisuję…' : 'Zapisz mnie'}
                 {status !== 'loading' && <span aria-hidden>→</span>}
               </button>
               {status === 'error' && (
