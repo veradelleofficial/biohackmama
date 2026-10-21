@@ -119,7 +119,7 @@ export default function LeadMagnetLibrary() {
             za darmo.
           </>
         }
-        description="Przejmij kontrolę nad swoim zdrowiem. Pobierz sprawdzone przewodniki i checklisty, które pomogły mi poznać potrzeby własnego organizmu i ułożyć skuteczną suplementację. Wybierz, co Cię ciekawi, zostaw maila i PDF od razu wpada do Twojej skrzynki. Nie spamuję, a wypisać się możesz w każdej chwili."
+        description="Przejmij kontrolę nad swoim zdrowiem. Pobierz sprawdzone przewodniki i checklisty, które pomogły mi poznać potrzeby własnego organizmu i ułożyć skuteczną suplementację. Bierz, co Ci się przyda. Zostawiasz maila, a PDF ląduje u Ciebie w skrzynce w kilka sekund. Spamu nie będzie, a z listy wypiszesz się jednym kliknięciem."
       />
 
       {/* Sport bez poliestru + Usun bisfenole — featured */}
