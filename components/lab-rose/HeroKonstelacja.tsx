@@ -38,7 +38,7 @@ const ORBS = [
 const INDEX = [
   { num: '01', title: 'Artykuły', desc: 'Tematy, o których nie mówi się głośno, a na pewno nie opowiada w całości na Instagramie', href: '/blog' },
   { num: '02', title: 'Programy', desc: 'Osobno dla kobiet, mężczyzn i dzieci', href: '/kursy' },
-  { num: '03', title: 'Darmowe materiały', desc: 'Listy sprawdzonych marek i ściągi do pobrania', href: '/darmowe-materialy' },
+  { num: '03', title: 'Darmowe materiały', desc: 'Wiedza, którą warto mieć zapisaną w telefonie', href: '/darmowe-materialy' },
   { num: '04', title: 'Narzędzia', desc: '6 kalkulatorów i audytów', href: '/narzedzia' },
   { num: '05', title: 'Pigułki Wiedzy', desc: 'Krótkie audio i wideo', href: '/premium/pigulki' },
 ]
