@@ -66,10 +66,6 @@ function RotatingWord() {
       className="lr-rose"
       style={{
         display: 'grid',
-        fontFamily: 'var(--font-fraunces), Fraunces, Georgia, serif',
-        fontStyle: 'italic',
-        fontWeight: 300,
-        letterSpacing: '-0.01em',
         overflow: 'hidden',
         paddingBottom: '0.1em',
         lineHeight: 1.02,

@@ -485,7 +485,7 @@
 
 /* Duże nagłówki (h1, h2) — styl z hero strony głównej (od 2026-10-21):
    Inter, gruby, ciasny, zwykłe litery. Wyróżnione słowa (.lr-rose / em)
-   zostają w Fraunces kursywą w różu, jak rotujące słowo w hero. */
+   są różowe, w tym samym kroju (patrz niżej). */
 .lab-rose h1,
 .lab-rose h2 {
   font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
@@ -495,14 +495,16 @@
 }
 .lab-rose h1 { letter-spacing: -0.045em; line-height: 0.98; }
 .lab-rose h2 { letter-spacing: -0.04em; line-height: 1.02; }
-.lab-rose h1 .lr-rose,
-.lab-rose h2 .lr-rose,
-.lab-rose h1 em,
-.lab-rose h2 em {
-  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif;
-  font-style: italic;
-  font-weight: 300;
-  letter-spacing: -0.01em;
+/* Wyróżnione słowa w nagłówkach: ta sama gruba czcionka co nagłówek,
+   tylko w kolorze różowym (bez szeryfowej kursywy). !important nadpisuje
+   kursywę wpisaną inline w komponentach. */
+.lab-rose h1 .lr-rose, .lab-rose h2 .lr-rose, .lab-rose h3 .lr-rose, .lab-rose h4 .lr-rose,
+.lab-rose h1 em, .lab-rose h2 em, .lab-rose h3 em, .lab-rose h4 em {
+  font-family: inherit !important;
+  font-style: normal !important;
+  font-weight: inherit !important;
+  letter-spacing: inherit !important;
+  color: var(--lr-rose);
 }
 /* Mniejsze nagłówki (h3, h4: tytuły kart, pytań w narzędziach) — ten sam krój */
 .lab-rose h3,
@@ -514,15 +516,7 @@
   font-feature-settings: 'ss01', 'cv11';
 }
 .lab-rose h3 { line-height: 1.15; }
-.lab-rose h3 .lr-rose,
-.lab-rose h4 .lr-rose,
-.lab-rose h3 em,
-.lab-rose h4 em {
-  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif;
-  font-style: italic;
-  font-weight: 300;
-  letter-spacing: -0.01em;
-}
+
 .lab-rose h3 { font-size: clamp(1.25rem, 2.2vw, 1.75rem); }
 .lab-rose h4 { font-size: 1.125rem; line-height: 1.25; font-weight: 500; }
 
