@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { getEbooks } from '@/lib/sanity/queries'
 import PageHeader from '@/components/lab-rose/PageHeader'
+import StatsBar from '@/components/lab-rose/StatsBar'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -193,6 +194,9 @@ export default function EbooksPage() {
           )}
         </div>
       </section>
+
+      {/* Statystyki (przeniesione ze strony głównej 2026-10-21) */}
+      <StatsBar />
 
       <section style={{ padding: '3rem 0', borderTop: '1px solid var(--lr-rule)' }}>
         <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
