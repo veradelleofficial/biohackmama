@@ -26,16 +26,14 @@ const EASE = [0.22, 1, 0.36, 1] as const
 
 const ROTATING = ['snu', 'hormonów', 'dziecka', 'domu', 'talerza', 'głowy']
 
-// pozycje w układzie 0-100 (viewBox), liczone na dwóch orbitach
+// stara konstelacja: swobodnie unoszące się orby (pozycja w % kontenera)
 const ORBS = [
-  { img: '/images/g1.png', label: 'Energia', href: '/blog?pilar=energia', cx: 78, cy: 26, r: 15, glow: '#9be35a' },
-  { img: '/images/g2.png', label: 'Hormony', href: '/blog?pilar=hormony', cx: 22, cy: 30, r: 13, glow: '#e8aebd' },
-  { img: '/images/g5.png', label: 'Dzieci', href: '/blog?pilar=dzieci', cx: 80, cy: 70, r: 14, glow: '#f0b35a' },
-  { img: '/images/g4.png', label: 'Czysty dom', href: '/blog?temat=detoks-i-dom', cx: 24, cy: 74, r: 15, glow: '#45d6c4' },
-  { img: '/images/g8.png', label: 'Układ nerwowy', href: '/blog?temat=stres-i-kortyzol', cx: 51, cy: 50, r: 11, glow: '#6fb7ff' },
+  { img: '/images/g1.png', label: 'Energia', href: '/blog?pilar=energia', x: 58, y: 8, size: 190, delay: 0, depth: 1.0, glow: '#9be35a' },
+  { img: '/images/g2.png', label: 'Hormony', href: '/blog?pilar=hormony', x: 8, y: 22, size: 150, delay: 0.6, depth: 0.55, glow: '#e8aebd' },
+  { img: '/images/g5.png', label: 'Dzieci', href: '/blog?pilar=dzieci', x: 66, y: 50, size: 160, delay: 1.1, depth: 0.75, glow: '#f0b35a' },
+  { img: '/images/g4.png', label: 'Czysty dom', href: '/blog?temat=detoks-i-dom', x: 14, y: 60, size: 175, delay: 1.7, depth: 0.9, glow: '#45d6c4' },
+  { img: '/images/g8.png', label: 'Układ nerwowy', href: '/blog?temat=stres-i-kortyzol', x: 40, y: 34, size: 120, delay: 2.3, depth: 0.4, glow: '#6fb7ff' },
 ]
-// ścieżka konstelacji: hormony → energia → układ nerwowy → dzieci → dom → hormony
-const PATH = 'M22,30 L78,26 L51,50 L80,70 L24,74 L22,30 M51,50 L22,30'
 
 const INDEX = [
   { num: '01', title: 'Artykuły', desc: 'Gęsto, bez wody, co tydzień nowy', href: '/blog' },
@@ -98,107 +96,7 @@ function RotatingWord() {
   )
 }
 
-/* ── Tarcza instrumentu: 72 kresek, co 6. dłuższa ─────────────────────── */
-function Dial({ reduce }: { reduce: boolean }) {
-  const ticks = Array.from({ length: 72 }, (_, i) => i)
-  return (
-    <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden>
-      <g className={reduce ? '' : 'lr-dna-bg'} style={{ transformOrigin: '50% 50%' }}>
-        {ticks.map((t) => {
-          const a = (t / 72) * Math.PI * 2
-          const long = t % 6 === 0
-          const r1 = 47.5
-          const r2 = long ? 44.5 : 46.2
-          return (
-            <line
-              key={t}
-              x1={50 + Math.cos(a) * r1}
-              y1={50 + Math.sin(a) * r1}
-              x2={50 + Math.cos(a) * r2}
-              y2={50 + Math.sin(a) * r2}
-              stroke={long ? 'rgba(244,239,230,0.45)' : 'rgba(244,239,230,0.16)'}
-              strokeWidth={long ? 0.35 : 0.22}
-            />
-          )
-        })}
-        <circle cx="50" cy="50" r="47.8" fill="none" stroke="rgba(244,239,230,0.12)" strokeWidth="0.25" />
-      </g>
-      {/* wewnętrzna orbita, obraca się w drugą stronę */}
-      <circle
-        cx="50" cy="50" r="30"
-        fill="none" stroke="rgba(232,174,189,0.28)" strokeWidth="0.22" strokeDasharray="0.5 2.2"
-        className={reduce ? '' : 'lr-dna-bg lr-dna-bg--counter'}
-        style={{ transformOrigin: '50% 50%' }}
-      />
-      {/* etykiety na tarczy */}
-      <text x="50" y="6.2" textAnchor="middle" fontSize="2.1" fill="rgba(201,242,79,0.8)" fontFamily="var(--font-jetbrains), monospace" letterSpacing="0.4">
-        BIOHACK
-      </text>
-      <text x="50" y="96.4" textAnchor="middle" fontSize="2.1" fill="rgba(232,174,189,0.8)" fontFamily="var(--font-jetbrains), monospace" letterSpacing="0.4">
-        MAMA
-      </text>
-    </svg>
-  )
-}
-
-/* ── Linie konstelacji + wędrujący punkt ──────────────────────────────── */
-function ConstellationLines({ reduce }: { reduce: boolean }) {
-  return (
-    <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden>
-      <defs>
-        <filter id="lr-glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="1.2" result="b" />
-          <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
-        </filter>
-      </defs>
-      <motion.path
-        d={PATH}
-        fill="none"
-        stroke="rgba(244,239,230,0.22)"
-        strokeWidth="0.28"
-        strokeLinecap="round"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 1 }}
-        transition={{ duration: 2.4, ease: 'easeInOut', delay: 1.0 }}
-      />
-      {!reduce && (
-        <>
-          {/* płynący dash po liniach */}
-          <motion.path
-            d={PATH}
-            fill="none"
-            stroke="rgba(201,242,79,0.55)"
-            strokeWidth="0.3"
-            strokeDasharray="1.5 6"
-            strokeLinecap="round"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 3.2, duration: 1 }}
-            className="lr-dash-flow"
-          />
-          {/* punkt świetlny */}
-          <circle r="0.9" fill="#C9F24F" filter="url(#lr-glow)" opacity="0">
-            <animate attributeName="opacity" from="0" to="1" begin="3.4s" dur="0.6s" fill="freeze" />
-            <animateMotion dur="14s" repeatCount="indefinite" begin="3.4s" path={PATH} />
-          </circle>
-        </>
-      )}
-      {/* węzły */}
-      {ORBS.map((o, i) => (
-        <motion.circle
-          key={o.label}
-          cx={o.cx} cy={o.cy} r="0.7"
-          fill={o.glow}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.2 + i * 0.2, duration: 0.5 }}
-          style={{ transformOrigin: `${o.cx}% ${o.cy}%` }}
-        />
-      ))}
-    </svg>
-  )
-}
-
+/* ── Stara konstelacja: dwa cienkie pierścienie + swobodnie unoszące się orby ── */
 function Constellation() {
   const ref = useRef<HTMLDivElement>(null)
   const reduce = !!useReducedMotion()
@@ -206,116 +104,141 @@ function Constellation() {
   const my = useMotionValue(0)
   const sx = useSpring(mx, { stiffness: 40, damping: 18 })
   const sy = useSpring(my, { stiffness: 40, damping: 18 })
-  const px = useTransform(sx, (v) => v * 14)
-  const py = useTransform(sy, (v) => v * 14)
-  const rx = useTransform(sy, (v) => v * -4)
-  const ry = useTransform(sx, (v) => v * 6)
 
   useEffect(() => {
     if (reduce) return
     const onMove = (e: MouseEvent) => {
-      mx.set((e.clientX / window.innerWidth - 0.5) * 2)
-      my.set((e.clientY / window.innerHeight - 0.5) * 2)
+      const el = ref.current
+      if (!el) return
+      const r = el.getBoundingClientRect()
+      mx.set(((e.clientX - r.left) / r.width - 0.5) * 2)
+      my.set(((e.clientY - r.top) / r.height - 0.5) * 2)
     }
     window.addEventListener('mousemove', onMove)
     return () => window.removeEventListener('mousemove', onMove)
   }, [mx, my, reduce])
 
-  return (
-    <motion.div
-      ref={ref}
-      className="relative w-full"
-      style={{
-        aspectRatio: '1 / 1',
-        maxWidth: 620,
-        margin: '0 auto',
-        x: px, y: py, rotateX: rx, rotateY: ry,
-        transformPerspective: 1200,
-        transformStyle: 'preserve-3d',
-      }}
-      initial={{ opacity: 0, scale: 0.92, filter: 'blur(10px)' }}
-      animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-      transition={{ duration: 1.4, ease: EASE, delay: 0.3 }}
-    >
-      {/* pulsujące pierścienie ze środka */}
-      {!reduce && [0, 1, 2].map((i) => (
-        <motion.div
-          key={i}
-          aria-hidden
-          className="absolute rounded-full pointer-events-none"
-          style={{ left: '50%', top: '50%', width: '12%', height: '12%', border: '1px solid rgba(201,242,79,0.5)', x: '-50%', y: '-50%' }}
-          animate={{ scale: [1, 7.5], opacity: [0.55, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: 'easeOut', delay: i * 2 }}
-        />
-      ))}
+  const ringRotate = useTransform(sx, [-1, 1], [-8, 8])
 
-      {/* poświata centralna */}
+  return (
+    <div ref={ref} className="relative w-full" style={{ aspectRatio: '1 / 1.05', maxWidth: 560, margin: '0 auto' }}>
+      {/* orbita: dwa cienkie pierścienie */}
+      <motion.svg
+        viewBox="0 0 100 100"
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        style={{ rotate: ringRotate }}
+        aria-hidden
+      >
+        <motion.circle
+          cx="50" cy="50" r="44"
+          fill="none" stroke="var(--lr-rule-strong)" strokeWidth="0.25" strokeDasharray="1.2 2.4"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 2.2, ease: 'easeOut', delay: 0.4 }}
+          className={reduce ? '' : 'lr-dna-bg'}
+          style={{ transformOrigin: '50% 50%' }}
+        />
+        <motion.circle
+          cx="50" cy="50" r="30"
+          fill="none" stroke="rgba(232,174,189,0.35)" strokeWidth="0.2" strokeDasharray="0.6 3"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 2.4, ease: 'easeOut', delay: 0.7 }}
+          className={reduce ? '' : 'lr-dna-bg--counter lr-dna-bg'}
+          style={{ transformOrigin: '50% 50%' }}
+        />
+        <circle cx="50" cy="50" r="1.1" fill="var(--lr-accent)">
+          {!reduce && <animate attributeName="opacity" values="0.3;1;0.3" dur="2.6s" repeatCount="indefinite" />}
+        </circle>
+      </motion.svg>
+
+      {/* glow w środku */}
       <div
         aria-hidden
-        className="absolute pointer-events-none rounded-full"
+        className="absolute pointer-events-none"
         style={{
-          left: '50%', top: '50%', width: '80%', height: '80%',
+          left: '50%', top: '50%', width: '70%', height: '70%',
           transform: 'translate(-50%,-50%)',
-          background: 'radial-gradient(circle, rgba(201,242,79,0.12) 0%, rgba(232,174,189,0.08) 35%, transparent 68%)',
-          filter: 'blur(28px)',
+          background: 'radial-gradient(circle, rgba(201,242,79,0.10) 0%, rgba(232,174,189,0.06) 40%, transparent 70%)',
+          filter: 'blur(30px)',
         }}
       />
 
-      <Dial reduce={reduce} />
-      <ConstellationLines reduce={reduce} />
-
-      {ORBS.map((o, i) => (
-        <motion.div
-          key={o.label}
-          className="absolute"
-          style={{
-            left: `${o.cx}%`, top: `${o.cy}%`,
-            width: `${o.r * 2}%`,
-            x: '-50%', y: '-50%',
-          }}
-          initial={{ opacity: 0, scale: 0.4 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: EASE, delay: 0.9 + i * 0.16 }}
-        >
-          <Link href={o.href} className="group block relative" aria-label={o.label} style={{ ['--orb-glow' as any]: o.glow }}>
-            <div
-              className="relative rounded-full overflow-hidden lr-orb"
-              style={{
-                aspectRatio: '1 / 1',
-                WebkitMaskImage: 'radial-gradient(circle, black 56%, transparent 71%)',
-                maskImage: 'radial-gradient(circle, black 56%, transparent 71%)',
-              }}
-            >
-              <Image src={o.img} alt="" fill sizes="220px" className="object-cover transition-transform duration-700 group-hover:scale-110" />
-            </div>
-            {/* pierścień hover w kolorze orba */}
-            <span
-              aria-hidden
-              className="absolute inset-[8%] rounded-full pointer-events-none lr-orb__ring"
-              style={{ border: '1px solid var(--orb-glow)', opacity: 0, transition: 'opacity 400ms, transform 600ms cubic-bezier(0.22,1,0.36,1)', transform: 'scale(0.9)' }}
-            />
-            <span
-              className="lr-mono absolute left-1/2 -translate-x-1/2 whitespace-nowrap lr-orb__label"
-              style={{
-                bottom: '-4%',
-                fontSize: '0.5625rem',
-                letterSpacing: '0.2em',
-                color: 'var(--lr-ink)',
-                padding: '0.3rem 0.65rem',
-                background: 'rgba(12,12,12,0.78)',
-                border: '1px solid var(--lr-rule-strong)',
-                borderRadius: 2,
-                backdropFilter: 'blur(6px)',
-              }}
-            >
-              {o.label}
-            </span>
-          </Link>
-        </motion.div>
+      {ORBS.map((o, idx) => (
+        <Orb key={o.label} {...o} idx={idx} sx={sx} sy={sy} reduce={reduce} />
       ))}
+    </div>
+  )
+}
+
+function Orb({
+  img, label, href, x, y, size, delay, depth, glow, idx, sx, sy, reduce,
+}: (typeof ORBS)[number] & {
+  idx: number
+  sx: ReturnType<typeof useSpring>
+  sy: ReturnType<typeof useSpring>
+  reduce: boolean
+}) {
+  const px = useTransform(sx, (v) => v * 18 * depth)
+  const py = useTransform(sy, (v) => v * 18 * depth)
+
+  return (
+    <motion.div
+      className="absolute"
+      style={{ left: `${x}%`, top: `${y}%`, x: px, y: py, width: `clamp(96px, ${size / 5.6}vw, ${size}px)` }}
+      initial={{ opacity: 0, scale: 0.6, filter: 'blur(10px)' }}
+      animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+      transition={{ duration: 1.1, ease: EASE, delay: 0.5 + idx * 0.16 }}
+    >
+      <motion.div
+        animate={reduce ? undefined : { y: [0, -10, 0, 8, 0] }}
+        transition={{ duration: 7 + idx * 1.3, repeat: Infinity, ease: 'easeInOut', delay }}
+      >
+        <Link href={href} className="group block relative" aria-label={label} style={{ ['--orb-glow' as any]: glow }}>
+          <div
+            className="relative rounded-full overflow-hidden"
+            style={{
+              aspectRatio: '1 / 1',
+              WebkitMaskImage: 'radial-gradient(circle, black 58%, transparent 72%)',
+              maskImage: 'radial-gradient(circle, black 58%, transparent 72%)',
+            }}
+          >
+            <Image
+              src={img}
+              alt=""
+              fill
+              sizes="200px"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          </div>
+          <span
+            aria-hidden
+            className="absolute inset-[8%] rounded-full pointer-events-none lr-orb__ring"
+            style={{ border: '1px solid var(--orb-glow)', opacity: 0, transition: 'opacity 400ms, transform 600ms cubic-bezier(0.22,1,0.36,1)', transform: 'scale(0.9)' }}
+          />
+          <span
+            className="lr-mono absolute left-1/2 -translate-x-1/2 whitespace-nowrap lr-orb__label"
+            style={{
+              bottom: '6%',
+              fontSize: '0.5625rem',
+              letterSpacing: '0.2em',
+              color: 'var(--lr-ink)',
+              padding: '0.3rem 0.6rem',
+              background: 'rgba(12,12,12,0.72)',
+              border: '1px solid var(--lr-rule-strong)',
+              borderRadius: 2,
+              backdropFilter: 'blur(6px)',
+              transition: 'border-color 300ms, color 300ms',
+            }}
+          >
+            {label}
+          </span>
+        </Link>
+      </motion.div>
     </motion.div>
   )
 }
+
 
 export default function HeroA() {
   const ref = useRef<HTMLElement>(null)
@@ -374,10 +297,10 @@ export default function HeroA() {
             <RotatingWord />
           </motion.h1>
 
-          <motion.p variants={fadeUp} className="mt-8" style={{ maxWidth: '50ch' }}>
-            Jestem Weronika. Mama, nie lekarz. Przerobiłam na sobie tarczycę, hormony i dom bez
-            chemii. Tutaj zbieram to, co zadziałało: artykuły, programy, narzędzia i darmowe PDF-y.
-            Krok po kroku, bez perfekcji od zaraz.
+          <motion.p variants={fadeUp} className="mt-8" style={{ maxWidth: '52ch' }}>
+            Łączę biohacking z holistycznym, low-tox podejściem oraz mądrością ziołolecznictwa i
+            naturoterapii. Pokazuję jak świadomie oczyścić codzienność ze zbędnych toksyn i
+            holistycznie zadbać o siebie, wchodząc na najwyższy poziom własnych możliwości.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-9 flex flex-wrap gap-3 md:gap-4 items-center">
