@@ -36,9 +36,9 @@ const ORBS = [
 ]
 
 const INDEX = [
-  { num: '01', title: 'Artykuły', desc: 'Gęsto, bez wody, co tydzień nowy', href: '/blog' },
-  { num: '02', title: 'Programy', desc: '8 ścieżek krok po kroku', href: '/kursy' },
-  { num: '03', title: 'Darmowe PDF', desc: '9 list marek i checklist', href: '/darmowe-materialy' },
+  { num: '01', title: 'Artykuły', desc: 'Hormony, sen, dom bez chemii. Sprawdzone na sobie', href: '/blog' },
+  { num: '02', title: 'Programy', desc: 'Osobno dla kobiet, mężczyzn i dzieci', href: '/kursy' },
+  { num: '03', title: 'Darmowe materiały', desc: 'Listy sprawdzonych marek i ściągi do pobrania', href: '/darmowe-materialy' },
   { num: '04', title: 'Narzędzia', desc: '6 kalkulatorów i audytów', href: '/narzedzia' },
   { num: '05', title: 'Pigułki Wiedzy', desc: 'Krótkie audio i wideo', href: '/premium/pigulki' },
 ]
