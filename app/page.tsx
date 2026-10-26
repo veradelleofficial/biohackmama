@@ -31,10 +31,10 @@ export default function Home() {
   return (
     <LabRoseScope>
       <Hero />
-      <StartHere />
-      <SwapsSection />
+      <StartHere />
       <FeaturedCourses />
       <FeaturedEbooks />
+      <SwapsSection />
       <Authority />
       <BlogPreview />
       <NewsletterCTA />
