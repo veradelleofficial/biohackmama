@@ -1,18 +1,30 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { X, Check, ExternalLink } from 'lucide-react'
-import type { Swap } from '@/lib/zamienniki'
-import SwapIllustration from './SwapIllustrations'
+import { X, Check, ExternalLink, Instagram } from 'lucide-react'
+import { INSTAGRAM_LABEL, type Swap } from '@/lib/zamienniki'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
+function Photo({ src, alt, kind }: { src: string; alt: string; kind: 'no' | 'yes' }) {
+  return (
+    <div className="lr-swap__photo">
+      <Image src={src} alt={alt} fill sizes="(max-width: 768px) 45vw, 200px" className="object-cover" />
+      <span className={`lr-swap__stamp lr-swap__stamp--${kind}`}>
+        {kind === 'no' ? <X size={16} strokeWidth={3} /> : <Check size={16} strokeWidth={3} />}
+      </span>
+    </div>
+  )
+}
+
 export default function SwapCard({ s, index = 0 }: { s: Swap; index?: number }) {
+  const hasPhotos = !!(s.instead.img || s.choose.img)
   return (
     <motion.article
-      className="lr-swap group"
-      initial={{ opacity: 0, y: 30, rotate: index % 2 ? 1.2 : -1.2 }}
-      whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+      className={`lr-swap group ${hasPhotos ? 'has-photos' : ''}`}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.7, ease: EASE, delay: (index % 3) * 0.1 }}
       layout
@@ -22,11 +34,11 @@ export default function SwapCard({ s, index = 0 }: { s: Swap; index?: number }) 
       <div className="lr-swap__pair">
         {/* ZAMIAST */}
         <div className="lr-swap__side lr-swap__side--instead">
-          <div className="lr-swap__stage">
-            <SwapIllustration icon={s.icon} v="bad" />
-            <span className="lr-swap__stamp lr-swap__stamp--no"><X size={16} strokeWidth={3} /></span>
-          </div>
-          <span className="lr-swap__tag">Zamiast</span>
+          {s.instead.img && <Photo src={s.instead.img} alt={s.instead.name} kind="no" />}
+          <span className="lr-swap__tag">
+            {!s.instead.img && <span className="lr-swap__dot lr-swap__dot--no"><X size={10} strokeWidth={3.5} /></span>}
+            Zamiast
+          </span>
           <p className="lr-swap__name">{s.instead.name}</p>
           <p className="lr-swap__why">{s.instead.why}</p>
         </div>
@@ -35,19 +47,11 @@ export default function SwapCard({ s, index = 0 }: { s: Swap; index?: number }) 
 
         {/* WYBIERZ */}
         <div className="lr-swap__side lr-swap__side--choose">
-          <div className="lr-swap__stage">
-            <SwapIllustration icon={s.icon} v="good" />
-            <motion.span
-              className="lr-swap__stamp lr-swap__stamp--yes"
-              initial={{ scale: 0, rotate: -40 }}
-              whileInView={{ scale: 1, rotate: -8 }}
-              viewport={{ once: true }}
-              transition={{ type: 'spring', stiffness: 380, damping: 14, delay: 0.5 + (index % 3) * 0.1 }}
-            >
-              <Check size={16} strokeWidth={3} />
-            </motion.span>
-          </div>
-          <span className="lr-swap__tag">Wybierz</span>
+          {s.choose.img && <Photo src={s.choose.img} alt={s.choose.name} kind="yes" />}
+          <span className="lr-swap__tag">
+            {!s.choose.img && <span className="lr-swap__dot lr-swap__dot--yes"><Check size={10} strokeWidth={3.5} /></span>}
+            Wybierz
+          </span>
           <p className="lr-swap__name">
             {s.choose.name}
             {s.choose.brand && <span className="lr-swap__brand">{s.choose.brand}</span>}
@@ -60,6 +64,14 @@ export default function SwapCard({ s, index = 0 }: { s: Swap; index?: number }) 
           )}
         </div>
       </div>
+
+      {s.instagram && (
+        <a href={s.instagram.url} target="_blank" rel="noopener noreferrer" className="lr-swap__ig">
+          <Instagram size={16} strokeWidth={2} />
+          {INSTAGRAM_LABEL[s.instagram.type]}
+          <span aria-hidden>→</span>
+        </a>
+      )}
     </motion.article>
   )
 }

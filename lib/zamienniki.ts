@@ -12,8 +12,20 @@ export interface Swap {
   category: SwapCategory
   icon: 'Cookie' | 'Flame' | 'Container' | 'Package' | 'Slice' | 'Wind' | 'Water' | 'Bulb' | 'Bedding' | 'Mattress' | 'Phone'
   title: string
-  instead: { name: string; why: string }
-  choose: { name: string; why: string; brand?: string; link?: string }
+  instead: { name: string; why: string; /** zdjęcie w public/images/zamienniki/ */ img?: string }
+  choose: { name: string; why: string; brand?: string; link?: string; img?: string }
+  /**
+   * Link do rolki/posta na Instagramie. Przycisk pokazuje się tylko, gdy jest wpisany.
+   * type: 'przepis' (przepis na zamiennik), 'gdzie-kupic' (pokazuję, gdzie kupić), 'rolka' (ogólnie).
+   * Przykład: instagram: { url: 'https://www.instagram.com/reel/ABC123/', type: 'przepis' },
+   */
+  instagram?: { url: string; type: 'przepis' | 'gdzie-kupic' | 'rolka' }
+}
+
+export const INSTAGRAM_LABEL: Record<NonNullable<Swap['instagram']>['type'], string> = {
+  przepis: 'Przepis na Instagramie',
+  'gdzie-kupic': 'Pokazuję, gdzie kupić',
+  rolka: 'Zobacz rolkę',
 }
 
 export const CATEGORY_LABEL: Record<SwapCategory, string> = {
