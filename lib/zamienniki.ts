@@ -5,12 +5,12 @@
  * Teksty to szkic do akceptacji przez Weronikę.
  */
 
-export type SwapCategory = 'kuchnia' | 'dom' | 'lazienka'
+export type SwapCategory = 'kuchnia' | 'dom' | 'sypialnia' | 'lazienka'
 
 export interface Swap {
   id: string
   category: SwapCategory
-  icon: 'Cookie' | 'Flame' | 'Container' | 'Package' | 'Slice' | 'Wind'
+  icon: 'Cookie' | 'Flame' | 'Container' | 'Package' | 'Slice' | 'Wind' | 'Water' | 'Bulb' | 'Bedding' | 'Mattress' | 'Phone'
   title: string
   instead: { name: string; why: string }
   choose: { name: string; why: string; brand?: string; link?: string }
@@ -19,6 +19,7 @@ export interface Swap {
 export const CATEGORY_LABEL: Record<SwapCategory, string> = {
   kuchnia: 'Kuchnia',
   dom: 'Dom',
+  sypialnia: 'Sypialnia',
   lazienka: 'Łazienka',
 }
 
@@ -92,6 +93,76 @@ export const SWAPS: Swap[] = [
     choose: {
       name: 'Deska z litego drewna',
       why: 'Na przykład z buku albo oliwki. Raz na jakiś czas wystarczy natrzeć ją olejem.',
+    },
+  },
+  {
+    id: 'woda',
+    category: 'kuchnia',
+    icon: 'Water',
+    title: 'Woda do picia',
+    instead: {
+      name: 'Woda w plastikowych butelkach',
+      why: 'Butelki stoją miesiącami w magazynach i w słońcu, a plastik może oddawać do wody mikrodrobiny i związki chemiczne.',
+    },
+    choose: {
+      name: 'Przefiltrowana kranówka w szkle',
+      why: 'Dobry filtr usuwa chlor, metale i resztki leków. Pijesz ze szklanej albo stalowej butelki, bez plastiku.',
+    },
+  },
+  {
+    id: 'swiatlo',
+    category: 'dom',
+    icon: 'Bulb',
+    title: 'Światło wieczorem',
+    instead: {
+      name: 'Zimne, białe LED-y po zmroku',
+      why: 'Niebieskie światło wieczorem hamuje melatoninę i mówi mózgowi, że wciąż jest dzień. Trudniej zasnąć.',
+    },
+    choose: {
+      name: 'Ciepłe, przyciemnione światło',
+      why: 'Po zachodzie słońca ciepłe żarówki, lampki nisko i bez migotania. Ciało samo zaczyna szykować się do snu.',
+    },
+  },
+  {
+    id: 'posciel',
+    category: 'sypialnia',
+    icon: 'Bedding',
+    title: 'Pościel',
+    instead: {
+      name: 'Pościel z poliestru i mikrofibry',
+      why: 'Plastik przy skórze przez osiem godzin. Nie oddycha, zatrzymuje ciepło i wilgoć, przez co śpi się gorzej.',
+    },
+    choose: {
+      name: 'Bawełna organiczna albo len',
+      why: 'Oddychają, odprowadzają wilgoć i z każdym praniem są coraz miększe. Len dodatkowo chłodzi latem.',
+    },
+  },
+  {
+    id: 'materac',
+    category: 'sypialnia',
+    icon: 'Mattress',
+    title: 'Materac',
+    instead: {
+      name: 'Materac z taniej pianki',
+      why: 'Na początku czuć chemiczny zapach. To lotne związki, którymi oddychasz w nocy, a pianka bywa nasączana środkami zmniejszającymi palność.',
+    },
+    choose: {
+      name: 'Naturalny lateks, wełna, kokos',
+      why: 'Materiały, które nie parują chemią i dobrze regulują temperaturę. Szukaj certyfikatów, na przykład GOLS albo GOTS.',
+    },
+  },
+  {
+    id: 'telefon',
+    category: 'sypialnia',
+    icon: 'Phone',
+    title: 'Telefon przy łóżku',
+    instead: {
+      name: 'Telefon na szafce, z włączoną siecią',
+      why: 'Powiadomienia i ekran przed snem rozbudzają, a telefon cały czas szuka sieci tuż obok głowy.',
+    },
+    choose: {
+      name: 'Tryb samolotowy i zwykły budzik',
+      why: 'Telefon ładuje się poza sypialnią albo leży w trybie samolotowym. Budzi Cię klasyczny budzik.',
     },
   },
   {
