@@ -1339,6 +1339,86 @@
 @media (prefers-reduced-motion: reduce) {
   .lab-rose .lr-cta-primary { animation: none; }
 }
+/* ── Zdrowsze zamienniki ──────────────────────────────────────────────── */
+.lab-rose .lr-swap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012));
+  border: 1px solid rgba(244,239,230,0.09);
+  transition: border-color 350ms, transform 450ms var(--ease-out-strong);
+}
+.lab-rose .lr-swap__head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+.lab-rose .lr-swap__icon {
+  display: grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 10px;
+  background: rgba(201,242,79,0.1); color: var(--lr-accent);
+}
+.lab-rose .lr-swap__title { font-size: 1.15rem; margin: 0; }
+.lab-rose .lr-swap__pair { display: grid; gap: 0.6rem; flex: 1; }
+.lab-rose .lr-swap__side {
+  padding: 0.9rem 0.95rem 1rem;
+  border-radius: 10px;
+  transition: opacity 400ms, background 400ms, border-color 400ms;
+}
+.lab-rose .lr-swap__side--instead {
+  background: rgba(255,122,138,0.05);
+  border: 1px solid rgba(255,122,138,0.18);
+}
+.lab-rose .lr-swap__side--choose {
+  background: rgba(201,242,79,0.06);
+  border: 1px solid rgba(201,242,79,0.28);
+}
+.lab-rose .lr-swap__tag {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.5625rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+}
+.lab-rose .lr-swap__side--instead .lr-swap__tag { color: #FF8E9C; }
+.lab-rose .lr-swap__side--choose .lr-swap__tag { color: var(--lr-accent); }
+.lab-rose .lr-swap__name {
+  margin: 0.4rem 0 0.25rem;
+  font-size: 0.975rem; font-weight: 600; line-height: 1.3;
+  color: var(--lr-ink);
+}
+.lab-rose .lr-swap__side--instead .lr-swap__name { text-decoration: line-through; text-decoration-color: rgba(255,122,138,0.6); text-decoration-thickness: 1.5px; }
+.lab-rose .lr-swap__brand { color: var(--lr-accent); font-weight: 600; }
+.lab-rose .lr-swap__why { font-size: 0.8125rem; line-height: 1.55; margin: 0; }
+.lab-rose .lr-swap__arrow {
+  justify-self: center;
+  display: grid; place-items: center;
+  width: 30px; height: 30px; margin: -0.95rem 0; z-index: 1;
+  border-radius: 999px;
+  background: var(--lr-accent); color: var(--lr-bg);
+  transform: rotate(90deg);
+  box-shadow: 0 0 0 4px #121212, 0 0 18px rgba(201,242,79,0.4);
+  transition: transform 450ms var(--ease-out-strong);
+}
+.lab-rose .lr-swap__buy {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  margin-top: 0.7rem;
+  font-size: 0.75rem; font-weight: 600;
+  color: var(--lr-accent);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .lab-rose .lr-swap:hover { border-color: rgba(201,242,79,0.35); transform: translateY(-3px); }
+  .lab-rose .lr-swap:hover .lr-swap__side--instead { opacity: 0.55; }
+  .lab-rose .lr-swap:hover .lr-swap__side--choose { background: rgba(201,242,79,0.1); border-color: rgba(201,242,79,0.5); }
+  .lab-rose .lr-swap:hover .lr-swap__arrow { transform: rotate(90deg) translateX(3px); }
+}
+.lab-rose .lr-swap-chip {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--lr-rule-strong);
+  font-size: 0.8125rem; font-weight: 500;
+  color: var(--lr-ink-soft);
+  transition: all 200ms;
+}
+.lab-rose .lr-swap-chip.is-active { background: var(--lr-accent); border-color: var(--lr-accent); color: var(--lr-bg); font-weight: 600; }
+
 /* ── Skaner składu ─────────────────────────────────────────────────────── */
 .lab-rose .lr-scan-tab {
   position: fixed;

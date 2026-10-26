@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import LabRoseScope from '@/components/lab-rose/LabRoseScope'
 import Hero from '@/components/lab-rose/HeroKonstelacja'
 import StartHere from '@/components/lab-rose/StartHere'
+import SwapsSection from '@/components/lab-rose/SwapsSection'
 import FeaturedCourses from '@/components/lab-rose/FeaturedCourses'
 import FeaturedEbooks from '@/components/lab-rose/FeaturedEbooks'
 import BlogPreview from '@/components/lab-rose/BlogPreview'
@@ -31,6 +32,7 @@ export default function Home() {
     <LabRoseScope>
       <Hero />
       <StartHere />
+      <SwapsSection />
       <FeaturedCourses />
       <FeaturedEbooks />
       <Authority />

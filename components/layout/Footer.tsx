@@ -205,6 +205,7 @@ export default function Footer() {
               {[
                 { href: '/kursy', label: 'Programy' },
                 { href: '/ebooki', label: 'Biblioteka' },
+                { href: '/zamienniki', label: 'Zamienniki' },
                 { href: '/premium', label: 'Premium' },
               ].map((l) => (
                 <li key={l.href} style={{ marginBottom: '0.65rem' }}>
