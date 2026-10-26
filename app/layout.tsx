@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer'
 import { SmoothScrollProvider } from '@/components/layout/SmoothScrollProvider'
 import { LayoutAnimationProvider } from '@/components/layout/LayoutAnimationProvider'
 import ExitIntentPopup from '@/components/lab-rose/ExitIntentPopup'
+import ScannerDrawer from '@/components/skaner/ScannerDrawer'
 import './globals.css'
 
 
@@ -236,6 +237,7 @@ export default function RootLayout({
             </LayoutAnimationProvider>
             <Footer />
             <ExitIntentPopup />
+            <ScannerDrawer />
           </SmoothScrollProvider>
         </body>
       </html>

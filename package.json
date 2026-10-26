@@ -19,6 +19,8 @@
     "@sanity/vision": "^3.57.0",
     "@stripe/stripe-js": "^2.1.0",
     "@types/three": "^0.184.0",
+    "@zxing/browser": "^0.1.5",
+    "@zxing/library": "^0.21.3",
     "autoprefixer": "^10.4.16",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.0",

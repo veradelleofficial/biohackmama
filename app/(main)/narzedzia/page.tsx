@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Moon, Clock, Flower2, Zap, Dumbbell, Baby } from 'lucide-react'
+import { Moon, Clock, Flower2, Zap, Dumbbell, Baby, ScanBarcode } from 'lucide-react'
 import PageHeader from '@/components/lab-rose/PageHeader'
 
 const BASE_URL = 'https://biohackmama.pl'
@@ -21,6 +21,15 @@ export const metadata: Metadata = {
 }
 
 const tools = [
+  {
+    slug: 'skaner-skladu',
+    Icon: ScanBarcode,
+    accent: 'lime' as const,
+    title: 'Skaner Składu',
+    description:
+      'Zeskanuj kod kreskowy jedzenia albo kosmetyku. Ocenię skład w gwiazdkach: śmiało kupuj, szukaj alternatywy albo lepiej nie kupuj.',
+    tags: ['Low-tox', 'Skład', 'Zakupy'],
+  },
   {
     slug: 'kalkulator-snu',
     Icon: Moon,
