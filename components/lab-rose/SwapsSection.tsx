@@ -14,7 +14,7 @@ export default function SwapsSection() {
               Wybierz <span className="lr-swaps-sheet__mark">zdrowszą</span> opcję.
             </h2>
             <p className="lr-swaps-sheet__lead">
-              Małe zamiany, które robią różnicę. Co zwykle wkładamy do koszyka w markecie i czym to zastąpić.
+              Małe zmiany, które robią różnicę. Co zwykle wkładamy do koszyka w markecie i czym to zastąpić.
             </p>
           </div>
           <Link href="/zamienniki" className="lr-swaps-sheet__cta">
