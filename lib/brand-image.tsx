@@ -37,7 +37,7 @@ export async function renderLogoPng() {
     (
       <div style={{ width: 1200, height: 320, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 36, background: BG }}>
         <Helix size={190} />
-        <span style={{ fontFamily: 'Sora', fontWeight: 600, fontSize: 128, letterSpacing: '-4.5px', color: LOGO_CREAM }}>
+        <span style={{ fontFamily: 'Sora', fontWeight: 600, fontSize: 104, letterSpacing: '-3.6px', color: LOGO_CREAM }}>
           biohackmama
         </span>
       </div>
@@ -124,7 +124,7 @@ export async function renderOgImage({ eyebrow, title, accent, subtitle, chips = 
           {/* Logo */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <Helix size={44} />
-            <span style={{ fontFamily: 'Sora', fontWeight: 600, fontSize: 34, letterSpacing: '-1.2px', color: LOGO_CREAM }}>biohackmama</span>
+            <span style={{ fontFamily: 'Sora', fontWeight: 600, fontSize: 28, letterSpacing: '-1px', color: LOGO_CREAM }}>biohackmama</span>
           </div>
 
           {/* Środek: etykieta, tytuł, opis */}

@@ -2261,7 +2261,7 @@ html[data-page="lab-rose"] body {
 .bhm-logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.5em;
+  gap: 0.45em;
   font-size: 1.45rem;
   line-height: 1;
   color: #F4EFE6;
@@ -2278,6 +2278,7 @@ html[data-page="lab-rose"] body {
 }
 .bhm-logo__word {
   font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
+  font-size: 0.8em; /* napis mniejszy od znaku (2026-11-18) */
   font-weight: 600;
   letter-spacing: -0.035em;
   color: #F4EFE6;
