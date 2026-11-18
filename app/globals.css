@@ -467,34 +467,35 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings — Fraunces serif, editorial weight */
+/* Nagłówki — Sora (ta sama czcionka co logo, od 2026-11-18) */
 .lab-rose h1,
 .lab-rose h2,
 .lab-rose h3,
 .lab-rose h4,
 .lab-rose .lr-display {
-  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif;
+  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.02;
   color: var(--lr-ink);
   font-feature-settings: 'ss01', 'ss03';
 }
-.lab-rose h1 { font-size: clamp(2.75rem, 7vw, 5.5rem); }
-.lab-rose h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
+.lab-rose h1 { font-size: clamp(2.5rem, 6.6vw, 5.25rem); }
+.lab-rose h2 { font-size: clamp(1.85rem, 4.7vw, 3.35rem); }
 
-/* Duże nagłówki (h1, h2) — styl z hero strony głównej (od 2026-10-21):
-   Inter, gruby, ciasny, zwykłe litery. Wyróżnione słowa (.lr-rose / em)
+/* Duże nagłówki (h1, h2) — styl z hero strony głównej:
+   Sora (jak logo), gruba, ciasna, zwykłe litery. Sora jest szersza
+   od Inter, stąd trochę mniejsze rozmiary i luźniejszy tracking. Wyróżnione słowa (.lr-rose / em)
    są różowe, w tym samym kroju (patrz niżej). */
 .lab-rose h1,
 .lab-rose h2 {
-  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
   font-weight: 600;
   text-transform: none;
   font-feature-settings: 'ss01', 'cv11';
 }
-.lab-rose h1 { letter-spacing: -0.045em; line-height: 0.98; }
-.lab-rose h2 { letter-spacing: -0.04em; line-height: 1.02; }
+.lab-rose h1 { letter-spacing: -0.035em; line-height: 1.02; }
+.lab-rose h2 { letter-spacing: -0.03em; line-height: 1.06; }
 /* Wyróżnione słowa w nagłówkach: ta sama gruba czcionka co nagłówek,
    tylko w kolorze różowym (bez szeryfowej kursywy). !important nadpisuje
    kursywę wpisaną inline w komponentach. */
@@ -536,9 +537,9 @@
 /* Mniejsze nagłówki (h3, h4: tytuły kart, pytań w narzędziach) — ten sam krój */
 .lab-rose h3,
 .lab-rose h4 {
-  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
   font-weight: 600;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
   text-transform: none;
   font-feature-settings: 'ss01', 'cv11';
 }
@@ -567,7 +568,7 @@
 
 /* Script — signature only */
 .lab-rose .lr-script {
-  font-family: var(--font-allura), 'Allura', cursive;
+  font-family: 'Abramo Script', cursive;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
@@ -621,7 +622,7 @@
   transition: transform 520ms var(--ease-out-strong);
 }
 .lab-rose .lr-hero-index__title {
-  font-family: var(--font-fraunces), serif;
+  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
   font-size: clamp(1.1rem, 1.4vw, 1.35rem);
   line-height: 1.1;
   color: var(--lr-ink);
@@ -717,7 +718,7 @@
 }
 .lab-rose .lr-glass-card__num { font-size: 0.5625rem; letter-spacing: 0.22em; color: var(--lr-accent); }
 .lab-rose .lr-glass-card__title {
-  font-family: var(--font-inter), Inter, sans-serif;
+  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
   font-weight: 600; letter-spacing: -0.02em;
   font-size: 1.0625rem; line-height: 1.15; color: var(--lr-ink);
 }
@@ -870,7 +871,7 @@
   font-weight: 600;
 }
 .lab-rose .lr-lead-card__title {
-  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
   letter-spacing: -0.025em;
   font-size: 1.25rem;
   font-weight: 600;
@@ -990,7 +991,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 .lab-rose .lr-course-card__title {
-  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
   letter-spacing: -0.025em;
   font-size: clamp(1.375rem, 2vw, 1.625rem);
   font-weight: 600;
@@ -1121,7 +1122,7 @@
   flex-direction: column;
 }
 .lab-rose .lr-path-card__title {
-  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
   letter-spacing: -0.025em;
   font-size: clamp(1.375rem, 2vw, 1.6rem);
   font-weight: 600;
@@ -1776,7 +1777,7 @@
   gap: 0.5rem;
 }
 .lab-rose .lr-stat__num {
-  font-family: var(--font-fraunces), serif;
+  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 300;
   color: var(--lr-accent);
@@ -2159,7 +2160,7 @@ html[data-page="lab-rose"] body {
 .lab-rose .prose h2,
 .lab-rose .prose h3,
 .lab-rose .prose h4 {
-  font-family: var(--font-inter), 'Inter', system-ui, sans-serif !important;
+  font-family: var(--font-sora), 'Sora', system-ui, sans-serif !important;
   color: var(--lr-ink) !important;
   font-weight: 600 !important;
   letter-spacing: -0.03em !important;
@@ -2206,8 +2207,10 @@ html[data-page="lab-rose"] body {
   border-left: 2px solid var(--lr-accent) !important;
   padding-left: 1.5rem !important;
   margin: 2rem 0 !important;
-  font-family: var(--font-fraunces), serif !important;
-  font-style: italic !important;
+  font-family: var(--font-sora), 'Sora', system-ui, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
   font-size: 1.25rem !important;
   color: var(--lr-rose) !important;
   line-height: 1.5 !important;
@@ -2253,3 +2256,31 @@ html[data-page="lab-rose"] body {
   border-color: var(--lr-rule) !important;
   margin: 3rem 0 !important;
 }
+
+/* ── Logo BioHackMama (od 2026-11-18): dwie nitki + "biohackmama" w Sorze ── */
+.bhm-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.45rem;
+  line-height: 1;
+  color: #F4EFE6;
+}
+@media (min-width: 640px)  { .bhm-logo { font-size: 1.55rem; } }
+/* lg+: obok logo jest 6 linków menu, logo musi zostawić im miejsce */
+@media (min-width: 1024px) { .bhm-logo { font-size: 1.25rem; } }
+@media (min-width: 1280px) { .bhm-logo { font-size: 1.5rem; } }
+.bhm-logo__mark {
+  height: 1.3em;
+  width: auto;
+  flex-shrink: 0;
+  overflow: visible;
+}
+.bhm-logo__word {
+  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: #F4EFE6;
+  white-space: nowrap;
+}
+.bhm-logo--footer { font-size: 1.75rem; }

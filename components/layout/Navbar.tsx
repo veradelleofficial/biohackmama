@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
+import Logo from '@/components/brand/Logo'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, ShoppingBag } from 'lucide-react'
@@ -25,24 +25,17 @@ export default function Navbar() {
       <nav className="sticky top-0 z-50 bg-coastal-sand/80 backdrop-blur-md border-b border-border/50">
         <div className="container flex items-center justify-between h-20 md:h-20 lg:h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0">
-            <Image
-              src="/images/logo.png"
-              alt="BioHackMama"
-              width={320}
-              height={80}
-              className="h-14 sm:h-16 md:h-16 lg:h-20 w-auto"
-              priority
-            />
+          <Link href="/" className="flex items-center flex-shrink-0" aria-label="BioHackMama, strona główna">
+            <Logo />
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-5 xl:gap-8 mx-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="nav-link-underline text-coastal-slate hover:text-coastal-gold transition-colors duration-250"
+                className="nav-link-underline whitespace-nowrap text-coastal-slate hover:text-coastal-gold transition-colors duration-250"
               >
                 {link.label}
               </Link>
@@ -99,7 +92,7 @@ export default function Navbar() {
             {/* Mobile Menu Button — animated hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 -mr-1 rounded-lg"
+              className="lg:hidden p-2 -mr-1 rounded-lg"
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
             >
@@ -121,7 +114,7 @@ export default function Navbar() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.28, ease: [0.23, 1, 0.32, 1] }}
-              className="md:hidden border-t border-border/50 bg-coastal-sand/95 backdrop-blur-md overflow-hidden"
+              className="lg:hidden border-t border-border/50 bg-coastal-sand/95 backdrop-blur-md overflow-hidden"
             >
               <div className="container py-5 flex flex-col gap-1">
                 {navLinks.map((link, i) => (

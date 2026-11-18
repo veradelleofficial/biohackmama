@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Mail, Instagram, Facebook, Youtube } from 'lucide-react'
 import { subscribeEmail } from '@/lib/newsletter'
+import Logo from '@/components/brand/Logo'
 
 function FooterNewsletter() {
   const [email, setEmail] = useState('')
@@ -165,7 +166,10 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-12 gap-x-6 gap-y-10 md:gap-12 mb-12 md:mb-16">
           {/* Brand */}
           <div className="col-span-2 md:col-span-5">
-            <span className="lr-eyebrow">BioHackMama · est. 2026</span>
+            <Link href="/" aria-label="BioHackMama, strona główna" className="inline-flex mb-6">
+              <Logo className="bhm-logo--footer" />
+            </Link>
+            <span className="lr-eyebrow" style={{ display: 'block' }}>BioHackMama · est. 2026</span>
             <h3
               className="mt-6"
               style={{

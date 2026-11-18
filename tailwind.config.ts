@@ -43,9 +43,9 @@ const config: Config = {
         graphite:      'hsl(var(--graphite))',
       },
       fontFamily: {
-        heading: ['var(--font-cormorant)', 'Cormorant Garamond', 'serif'],
+        heading: ['var(--font-sora)', 'Sora', 'system-ui', 'sans-serif'],
         body: ['var(--font-inter)', 'Inter', 'sans-serif'],
-        accent: ['var(--font-playfair)', 'Playfair Display', 'serif'],
+        accent: ['var(--font-sora)', 'Sora', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         'heading': '-0.02em',

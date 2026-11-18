@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Inter, Cormorant_Garamond, Fraunces, JetBrains_Mono, Allura } from 'next/font/google'
+import { Inter, Sora, JetBrains_Mono } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -11,41 +11,25 @@ import './globals.css'
 
 
 
-const playfair = Playfair_Display({
-  subsets: ['latin', 'latin-ext'],
-  variable: '--font-playfair',
-  weight: ['400', '500', '600', '700', '800'],
-})
-
+// Typografia marki (od 2026-11-18): Sora = logo, nagłówki, tytuły, liczby, cytaty.
+// Inter = zwykły tekst. JetBrains Mono = menu, przyciski, etykiety.
+// Podpis = Abramo Script (self-hosted, @font-face w globals.css).
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
   variable: '--font-inter',
   weight: ['300', '400', '500', '600', '700'],
 })
 
-const cormorant = Cormorant_Garamond({
+const sora = Sora({
   subsets: ['latin', 'latin-ext'],
-  variable: '--font-cormorant',
-  weight: ['300', '400', '600'],
-})
-
-const fraunces = Fraunces({
-  subsets: ['latin', 'latin-ext'],
-  variable: '--font-fraunces',
+  variable: '--font-sora',
   weight: ['300', '400', '500', '600', '700'],
-  style: ['normal', 'italic'],
 })
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin', 'latin-ext'],
   variable: '--font-jetbrains',
   weight: ['400', '500', '600', '700'],
-})
-
-const allura = Allura({
-  subsets: ['latin'],
-  variable: '--font-allura',
-  weight: ['400'],
 })
 
 
@@ -92,20 +76,12 @@ export const metadata: Metadata = {
     title: 'BioHackMama – Biohacking i Wellness dla Kobiet',
     description:
       'Naukowe protokoły biohackingu dopasowane do kobiecego ciała. Hormony, sen, żywienie i longevity przez Verę Delle.',
-    images: [
-      {
-        url: '/images/og-default.webp',
-        width: 1200,
-        height: 630,
-        alt: 'BioHackMama – Biohacking i Wellness dla Kobiet',
-      },
-    ],
+    // Obrazek generuje app/opengraph-image.tsx (Next podpina go automatycznie)
   },
   twitter: {
     card: 'summary_large_image',
     title: 'BioHackMama – Biohacking i Wellness dla Kobiet',
     description: 'Naukowe protokoły biohackingu dopasowane do kobiecego ciała. Vera Delle.',
-    images: ['/images/og-default.webp'],
     creator: '@veradelleofficial',
   },
   robots: {
@@ -189,7 +165,7 @@ const organizationSchema = {
   '@type': 'Organization',
   name: 'BioHackMama',
   url: BASE_URL,
-  logo: `${BASE_URL}/images/logo.png`,
+  logo: `${BASE_URL}/brand/logo.png`,
   description: 'Platforma edukacyjna o biohackingu i wellness dla kobiet',
   founder: {
     '@type': 'Person',
@@ -214,7 +190,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="pl" data-page="lab-rose" className={`${playfair.variable} ${inter.variable} ${cormorant.variable} ${fraunces.variable} ${jetbrainsMono.variable} ${allura.variable}`}>
+      <html lang="pl" data-page="lab-rose" className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable}`}>
         <head>
           <script
             type="application/ld+json"

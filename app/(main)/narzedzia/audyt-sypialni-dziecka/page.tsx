@@ -373,7 +373,7 @@ export default function AudytSypialniDziecka() {
                   <div className="flex items-baseline gap-3 mb-8">
                     <span
                       style={{
-                        fontFamily: 'var(--font-fraunces), serif',
+                        fontFamily: 'var(--font-sora), sans-serif',
                         fontSize: 'clamp(4rem, 10vw, 7rem)',
                         color: status.color,
                         lineHeight: 1,

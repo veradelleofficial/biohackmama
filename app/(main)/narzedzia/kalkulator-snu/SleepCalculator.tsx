@@ -117,7 +117,7 @@ export default function SleepCalculator() {
             background: 'var(--lr-bg)',
             border: '1px solid var(--lr-rule-strong)',
             color: 'var(--lr-ink)',
-            fontFamily: 'var(--font-fraunces), serif',
+            fontFamily: 'var(--font-sora), sans-serif',
             fontSize: '2rem',
             fontWeight: 300,
             letterSpacing: '-0.02em',
@@ -168,7 +168,7 @@ export default function SleepCalculator() {
                 <div>
                   <span
                     style={{
-                      fontFamily: 'var(--font-fraunces), serif',
+                      fontFamily: 'var(--font-sora), sans-serif',
                       fontSize: '1.75rem',
                       color: isOptimal ? 'var(--lr-accent)' : 'var(--lr-ink)',
                       fontWeight: 400,

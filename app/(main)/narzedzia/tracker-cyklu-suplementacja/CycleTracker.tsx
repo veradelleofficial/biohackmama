@@ -98,7 +98,7 @@ export default function CycleTracker() {
           </label>
           <span
             style={{
-              fontFamily: 'var(--font-fraunces), serif',
+              fontFamily: 'var(--font-sora), sans-serif',
               fontSize: '2.5rem',
               color: accentColor,
               fontWeight: 400,
@@ -166,7 +166,7 @@ export default function CycleTracker() {
               </div>
               <div
                 style={{
-                  fontFamily: 'var(--font-fraunces), serif',
+                  fontFamily: 'var(--font-sora), sans-serif',
                   fontSize: '0.875rem',
                   color: isActive ? 'var(--lr-ink)' : 'var(--lr-ink-soft)',
                   lineHeight: 1.1,
@@ -254,7 +254,7 @@ export default function CycleTracker() {
                     </span>
                     <span
                       style={{
-                        fontFamily: 'var(--font-fraunces), serif',
+                        fontFamily: 'var(--font-sora), sans-serif',
                         fontSize: '1rem',
                         color: 'var(--lr-ink)',
                         fontWeight: 400,
