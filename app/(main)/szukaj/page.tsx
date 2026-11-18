@@ -216,7 +216,7 @@ export default function SearchPage() {
                     >
                       <h2
                         style={{
-                          fontFamily: 'var(--font-inter), Inter, sans-serif',
+                          fontFamily: 'var(--font-sora), Sora, system-ui, sans-serif',
                           letterSpacing: '-0.025em',
                           fontSize: '1.0625rem',
                           color: 'var(--lr-ink)',

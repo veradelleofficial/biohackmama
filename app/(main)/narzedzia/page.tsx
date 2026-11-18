@@ -173,7 +173,7 @@ export default function NarzedziaPage() {
                     <h2
                       className="group-hover:text-[#E8AEBD] transition-colors duration-300"
                       style={{
-                        fontFamily: 'var(--font-inter), Inter, sans-serif',
+                        fontFamily: 'var(--font-sora), Sora, system-ui, sans-serif',
                         letterSpacing: '-0.025em',
                         fontSize: 'clamp(1.25rem, 1.8vw, 1.5rem)',
                         lineHeight: 1.1,

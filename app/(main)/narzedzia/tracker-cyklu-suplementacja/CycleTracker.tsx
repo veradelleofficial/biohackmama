@@ -209,7 +209,7 @@ export default function CycleTracker() {
             </span>
             <h3
               style={{
-                fontFamily: 'var(--font-inter), Inter, sans-serif',
+                fontFamily: 'var(--font-sora), Sora, system-ui, sans-serif',
                 letterSpacing: '-0.025em',
                 fontSize: '1.5rem',
                 color: 'var(--lr-ink)',

@@ -271,11 +271,11 @@ export default function HeroKonstelacja() {
           <motion.h1
             variants={fadeUp}
             style={{
-              fontFamily: 'var(--font-inter), Inter, system-ui, sans-serif',
+              fontFamily: 'var(--font-sora), Sora, system-ui, sans-serif',
               fontWeight: 600,
               textTransform: 'none',
-              letterSpacing: '-0.045em',
-              lineHeight: 0.98,
+              letterSpacing: '-0.035em',
+              lineHeight: 1.02,
               fontSize: 'clamp(2.7rem, 6.2vw, 5.1rem)',
               fontFeatureSettings: '"ss01", "cv11"',
             }}
