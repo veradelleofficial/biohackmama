@@ -2267,8 +2267,8 @@ html[data-page="lab-rose"] body {
 .bhm-logo svg { height: 100%; width: auto; display: block; overflow: visible; }
 @media (min-width: 640px)  { .bhm-logo { height: 26px; } }
 /* lg+: obok logo jest 6 linków menu, logo musi zostawić im miejsce */
-@media (min-width: 1024px) { .bhm-logo { height: 22px; } }
-@media (min-width: 1280px) { .bhm-logo { height: 26px; } }
-.bhm-logo.bhm-logo--footer { height: 32px; }
+@media (min-width: 1024px) { .bhm-logo { height: 17px; } }
+@media (min-width: 1280px) { .bhm-logo { height: 19px; } }
+.bhm-logo.bhm-logo--footer { height: 24px; }
 .bhm-mark { display: inline-block; line-height: 0; }
 .bhm-mark svg { height: 100%; width: auto; display: block; overflow: visible; }
