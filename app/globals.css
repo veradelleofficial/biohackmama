@@ -2257,31 +2257,18 @@ html[data-page="lab-rose"] body {
   margin: 3rem 0 !important;
 }
 
-/* ── Logo BioHackMama (od 2026-11-18): dwie nitki + "biohackmama" w Sorze ── */
+/* ── Logo BioHackMama (od 2026-11-18, wersja i3): napis z konturów Sory,
+   litera "i" jako drabinka DNA. Rozmiar sterowany wysokością. ── */
 .bhm-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45em;
-  font-size: 1.45rem;
-  line-height: 1;
-  color: #F4EFE6;
+  display: inline-block;
+  height: 24px;
+  line-height: 0;
 }
-@media (min-width: 640px)  { .bhm-logo { font-size: 1.55rem; } }
+.bhm-logo svg { height: 100%; width: auto; display: block; overflow: visible; }
+@media (min-width: 640px)  { .bhm-logo { height: 26px; } }
 /* lg+: obok logo jest 6 linków menu, logo musi zostawić im miejsce */
-@media (min-width: 1024px) { .bhm-logo { font-size: 1.25rem; } }
-@media (min-width: 1280px) { .bhm-logo { font-size: 1.5rem; } }
-.bhm-logo__mark {
-  height: 1.3em;
-  width: auto;
-  flex-shrink: 0;
-  overflow: visible;
-}
-.bhm-logo__word {
-  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
-  font-size: 0.8em; /* napis mniejszy od znaku (2026-11-18) */
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  color: #F4EFE6;
-  white-space: nowrap;
-}
-.bhm-logo--footer { font-size: 1.75rem; }
+@media (min-width: 1024px) { .bhm-logo { height: 22px; } }
+@media (min-width: 1280px) { .bhm-logo { height: 26px; } }
+.bhm-logo.bhm-logo--footer { height: 32px; }
+.bhm-mark { display: inline-block; line-height: 0; }
+.bhm-mark svg { height: 100%; width: auto; display: block; overflow: visible; }

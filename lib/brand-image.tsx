@@ -1,5 +1,8 @@
 import { ImageResponse } from 'next/og'
-import { HELIX_LIME_PATH, HELIX_ROSE_PATH, LOGO_CREAM, LOGO_LIME, LOGO_ROSE } from '@/components/brand/Logo'
+import { WORDMARK_DATA_URI, WORDMARK_RATIO, MARK_DATA_URI, MARK_RATIO, SQUARE_DATA_URI } from '@/components/brand/logo-assets'
+
+const LOGO_CREAM = '#F4EFE6'
+const LOGO_LIME = '#C9F24F'
 
 const CACHE = { 'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400' }
 
@@ -21,28 +24,23 @@ async function loadGoogleFont(family: string, weight: number, text: string): Pro
   return (await fetch(url)).arrayBuffer()
 }
 
-function Helix({ size, stroke = 3.4 }: { size: number; stroke?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 40 40">
-      <path d={HELIX_LIME_PATH} fill="none" stroke={LOGO_LIME} strokeWidth={stroke} strokeLinecap="round" />
-      <path d={HELIX_ROSE_PATH} fill="none" stroke={LOGO_ROSE} strokeWidth={stroke} strokeLinecap="round" />
-    </svg>
-  )
-}
+/* eslint-disable @next/next/no-img-element */
+const Wordmark = ({ height }: { height: number }) => (
+  <img src={WORDMARK_DATA_URI} height={height} width={Math.round(height * WORDMARK_RATIO)} alt="" />
+)
+const Mark = ({ height }: { height: number }) => (
+  <img src={MARK_DATA_URI} height={height} width={Math.round(height * MARK_RATIO)} alt="" />
+)
 
-/** Poziome logo: znak + napis, na ciemnym tle (dla Google / schema.org). */
-export async function renderLogoPng() {
-  const sora = await loadGoogleFont('Sora', 600, 'biohackmama')
+/** Poziome logo na ciemnym tle (dla Google / schema.org). */
+export function renderLogoPng() {
   return new ImageResponse(
     (
-      <div style={{ width: 1200, height: 320, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 36, background: BG }}>
-        <Helix size={190} />
-        <span style={{ fontFamily: 'Sora', fontWeight: 600, fontSize: 104, letterSpacing: '-3.6px', color: LOGO_CREAM }}>
-          biohackmama
-        </span>
+      <div style={{ width: 1200, height: 320, display: 'flex', alignItems: 'center', justifyContent: 'center', background: BG }}>
+        <Wordmark height={112} />
       </div>
     ),
-    { width: 1200, height: 320, headers: CACHE, fonts: [{ name: 'Sora', data: sora, weight: 600, style: 'normal' }] }
+    { width: 1200, height: 320, headers: CACHE }
   )
 }
 
@@ -50,8 +48,8 @@ export async function renderLogoPng() {
 export function renderAvatarPng() {
   return new ImageResponse(
     (
-      <div style={{ width: 1080, height: 1080, display: 'flex', alignItems: 'center', justifyContent: 'center', background: BG }}>
-        <Helix size={600} stroke={3.2} />
+      <div style={{ width: 1080, height: 1080, display: 'flex', background: BG }}>
+        <img src={SQUARE_DATA_URI} width={1080} height={1080} alt="" />
       </div>
     ),
     { width: 1080, height: 1080, headers: CACHE }
@@ -82,7 +80,7 @@ function titleSize(title: string) {
 }
 
 export async function renderOgImage({ eyebrow, title, accent, subtitle, chips = [] }: OgInput) {
-  const soraText = 'biohackmama' + title + chips.map((c) => c.label).join('')
+  const soraText = title + chips.map((c) => c.label).join('')
   const [sora600, sora300, mono] = await Promise.all([
     loadGoogleFont('Sora', 600, soraText),
     loadGoogleFont('Sora', 300, subtitle || 'a'),
@@ -115,16 +113,15 @@ export async function renderOgImage({ eyebrow, title, accent, subtitle, chips = 
         <div style={{ position: 'absolute', bottom: -320, right: -160, width: 820, height: 820, borderRadius: 9999, display: 'flex', background: 'radial-gradient(circle, rgba(232,174,189,0.14) 0%, rgba(232,174,189,0) 65%)' }} />
 
         {/* Duży znak po prawej */}
-        <div style={{ position: 'absolute', right: 70, top: 115, display: 'flex' }}>
-          <Helix size={400} stroke={2.6} />
+        <div style={{ position: 'absolute', right: 150, top: 95, display: 'flex' }}>
+          <Mark height={440} />
         </div>
 
         {/* Treść */}
         <div style={{ position: 'absolute', left: 80, top: 64, bottom: 64, width: 760, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           {/* Logo */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <Helix size={44} />
-            <span style={{ fontFamily: 'Sora', fontWeight: 600, fontSize: 28, letterSpacing: '-1px', color: LOGO_CREAM }}>biohackmama</span>
+          <div style={{ display: 'flex' }}>
+            <Wordmark height={30} />
           </div>
 
           {/* Środek: etykieta, tytuł, opis */}
