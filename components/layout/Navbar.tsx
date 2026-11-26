@@ -4,18 +4,22 @@ import Link from 'next/link'
 import Logo from '@/components/brand/Logo'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search, ShoppingBag } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import { Search, ShoppingBag, User } from 'lucide-react'
 import { UserButton, useUser } from '@clerk/nextjs'
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { user } = useUser()
+  const pathname = usePathname()
+  const isActive = (href: string) => pathname === href || pathname?.startsWith(href + '/')
 
-  const navLinks = [
+  const navLinks: { href: string; label: string; short?: string }[] = [
     { href: '/blog', label: 'Artykuły' },
     { href: '/kursy', label: 'Programy' },
     { href: '/ebooki', label: 'Biblioteka' },
-    { href: '/darmowe-materialy', label: 'Darmowe materiały' },
+    // short = etykieta w pasku na komputerze (pełna nazwa nie mieści się przy szerokim rozstawie liter)
+    { href: '/darmowe-materialy', label: 'Darmowe materiały', short: 'Za darmo' },
     { href: '/o-mnie', label: 'O mnie' },
     { href: '/kontakt', label: 'Kontakt' },
   ]
@@ -23,31 +27,33 @@ export default function Navbar() {
   return (
     <>
       <nav className="sticky top-0 z-50 bg-coastal-sand/80 backdrop-blur-md border-b border-border/50">
-        <div className="container flex items-center justify-between h-20 md:h-20 lg:h-24">
+        {/* Układ jak thestartupmom.com: logo | menu na środku | jeden przycisk (od 2026-11-26) */}
+        <div className="container flex items-center justify-between gap-6 xl:gap-10 h-16 lg:h-[76px]">
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0" aria-label="BioHackMama, strona główna">
             <Logo />
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-5 xl:gap-8 mx-6">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="nav-link-underline whitespace-nowrap text-coastal-slate hover:text-coastal-gold transition-colors duration-250"
+                aria-current={isActive(link.href) ? 'page' : undefined}
+                className="nav-link-underline whitespace-nowrap"
               >
-                {link.label}
+                {link.short ?? link.label}
               </Link>
             ))}
           </div>
 
           {/* Search, Cart, Auth & Mobile Button */}
-          <div className="flex items-center gap-3 md:gap-4">
+          <div className="flex items-center gap-2 sm:gap-4 lg:gap-5">
             {/* Search */}
             <Link
               href="/szukaj"
-              className="p-2 rounded-xl text-coastal-slate hover:text-coastal-gold hover:bg-secondary/10 transition-colors duration-200"
+              className="bhm-nav-icon"
               aria-label="Szukaj"
             >
               <Search size={18} strokeWidth={1.8} />
@@ -56,7 +62,7 @@ export default function Navbar() {
             {/* Cart */}
             <Link
               href="/kursy"
-              className="relative p-2 rounded-xl text-coastal-slate hover:text-coastal-gold hover:bg-secondary/10 transition-colors duration-200"
+              className="bhm-nav-icon"
               aria-label="Koszyk"
             >
               <ShoppingBag size={18} strokeWidth={1.8} />
@@ -64,27 +70,17 @@ export default function Navbar() {
 
             {user ? (
               <>
-                <Link
-                  href="/dashboard"
-                  className="hidden sm:inline-block px-4 py-2 text-xs bg-coastal-gold text-white rounded-2xl hover:brightness-110 transition-[transform,filter] duration-200 active:scale-[0.97] text-cta"
-                >
+                <Link href="/dashboard" className="bhm-nav-pill hidden sm:inline-flex">
                   Dashboard
                 </Link>
                 <UserButton />
               </>
             ) : (
               <>
-                <Link
-                  href="/sign-in"
-                  className="hidden sm:inline-block px-4 py-2 text-xs border border-coastal-ocean/30 text-coastal-slate rounded-2xl hover:bg-secondary/10 transition-[transform,background-color,border-color] duration-200 active:scale-[0.97] text-cta"
-                >
+                {/* Jeden przycisk w pasku; rejestracja jest na /sign-in i w menu mobilnym */}
+                <Link href="/sign-in" className="bhm-nav-pill hidden sm:inline-flex">
+                  <User size={14} strokeWidth={1.8} aria-hidden="true" />
                   Zaloguj
-                </Link>
-                <Link
-                  href="/sign-up"
-                  className="hidden sm:inline-block px-4 py-2 text-xs bg-coastal-gold text-white rounded-2xl hover:brightness-110 transition-[transform,filter] duration-200 active:scale-[0.97] text-cta"
-                >
-                  Zarejestruj
                 </Link>
               </>
             )}
