@@ -460,20 +460,20 @@
 
   background-color: var(--lr-bg);
   color: var(--lr-ink);
-  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
   font-weight: 400;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Nagłówki — Sora (ta sama czcionka co logo, od 2026-11-18) */
+/* Nagłówki — Instrument Sans (od 2026-11-26) */
 .lab-rose h1,
 .lab-rose h2,
 .lab-rose h3,
 .lab-rose h4,
 .lab-rose .lr-display {
-  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.02;
@@ -483,16 +483,14 @@
 .lab-rose h1 { font-size: clamp(2.5rem, 6.6vw, 5.25rem); }
 .lab-rose h2 { font-size: clamp(1.85rem, 4.7vw, 3.35rem); }
 
-/* Duże nagłówki (h1, h2) — styl z hero strony głównej:
-   Sora (jak logo), gruba, ciasna, zwykłe litery. Sora jest szersza
-   od Inter, stąd trochę mniejsze rozmiary i luźniejszy tracking. Wyróżnione słowa (.lr-rose / em)
-   są różowe, w tym samym kroju (patrz niżej). */
+/* Duże nagłówki (h1, h2) — od 2026-11-26 Instrument Sans 500, ciasny
+   tracking, zwykłe litery. Wyróżnione słowa (.lr-rose / em) są w tym samym
+   kroju, w gradiencie (patrz niżej). */
 .lab-rose h1,
 .lab-rose h2 {
-  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
-  font-weight: 600;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
+  font-weight: 500;
   text-transform: none;
-  font-feature-settings: 'ss01', 'cv11';
 }
 .lab-rose h1 { letter-spacing: -0.035em; line-height: 1.02; }
 .lab-rose h2 { letter-spacing: -0.03em; line-height: 1.06; }
@@ -537,11 +535,10 @@
 /* Mniejsze nagłówki (h3, h4: tytuły kart, pytań w narzędziach) — ten sam krój */
 .lab-rose h3,
 .lab-rose h4 {
-  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
   font-weight: 600;
   letter-spacing: -0.01em;
   text-transform: none;
-  font-feature-settings: 'ss01', 'cv11';
 }
 .lab-rose h3 { line-height: 1.15; }
 
@@ -550,7 +547,7 @@
 
 /* Body text */
 .lab-rose p {
-  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-family: var(--font-instrument), 'Instrument Sans', sans-serif;
   color: var(--lr-ink-soft);
   font-size: 1.0625rem;
   line-height: 1.7;
@@ -622,7 +619,7 @@
   transition: transform 520ms var(--ease-out-strong);
 }
 .lab-rose .lr-hero-index__title {
-  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
   font-size: clamp(1.1rem, 1.4vw, 1.35rem);
   line-height: 1.1;
   color: var(--lr-ink);
@@ -718,7 +715,7 @@
 }
 .lab-rose .lr-glass-card__num { font-size: 0.5625rem; letter-spacing: 0.22em; color: var(--lr-accent); }
 .lab-rose .lr-glass-card__title {
-  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
   font-weight: 600; letter-spacing: -0.02em;
   font-size: 1.0625rem; line-height: 1.15; color: var(--lr-ink);
 }
@@ -871,7 +868,7 @@
   font-weight: 600;
 }
 .lab-rose .lr-lead-card__title {
-  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
   letter-spacing: -0.025em;
   font-size: 1.25rem;
   font-weight: 600;
@@ -991,7 +988,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 .lab-rose .lr-course-card__title {
-  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
   letter-spacing: -0.025em;
   font-size: clamp(1.375rem, 2vw, 1.625rem);
   font-weight: 600;
@@ -1122,7 +1119,7 @@
   flex-direction: column;
 }
 .lab-rose .lr-path-card__title {
-  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
   letter-spacing: -0.025em;
   font-size: clamp(1.375rem, 2vw, 1.6rem);
   font-weight: 600;
@@ -1777,7 +1774,7 @@
   gap: 0.5rem;
 }
 .lab-rose .lr-stat__num {
-  font-family: var(--font-sora), 'Sora', system-ui, sans-serif;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 300;
   color: var(--lr-accent);
@@ -1847,7 +1844,7 @@ html[data-page="lab-rose"] nav.sticky {
   border-bottom-color: var(--lr-rule-strong) !important;
 }
 html[data-page="lab-rose"] .nav-link-underline {
-  font-family: var(--font-inter), 'Inter', system-ui, sans-serif !important;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif !important;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.75rem;
@@ -1875,7 +1872,7 @@ html[data-page="lab-rose"] nav.sticky .bhm-nav-icon:hover {
 html[data-page="lab-rose"] nav.sticky .bhm-nav-pill {
   align-items: center;
   gap: 8px;
-  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1;
@@ -2187,7 +2184,7 @@ html[data-page="lab-rose"] body {
 /* ─── PROSE (artykuły blogowe) w Lab × Rose ──────────────────────────── */
 .lab-rose .prose {
   color: var(--lr-ink-soft) !important;
-  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-family: var(--font-instrument), 'Instrument Sans', sans-serif;
   font-size: 1.0625rem;
   line-height: 1.75;
   max-width: 68ch;
@@ -2196,7 +2193,7 @@ html[data-page="lab-rose"] body {
 .lab-rose .prose h2,
 .lab-rose .prose h3,
 .lab-rose .prose h4 {
-  font-family: var(--font-sora), 'Sora', system-ui, sans-serif !important;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif !important;
   color: var(--lr-ink) !important;
   font-weight: 600 !important;
   letter-spacing: -0.03em !important;
@@ -2243,7 +2240,7 @@ html[data-page="lab-rose"] body {
   border-left: 2px solid var(--lr-accent) !important;
   padding-left: 1.5rem !important;
   margin: 2rem 0 !important;
-  font-family: var(--font-sora), 'Sora', system-ui, sans-serif !important;
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif !important;
   font-style: normal !important;
   font-weight: 300 !important;
   letter-spacing: -0.01em !important;

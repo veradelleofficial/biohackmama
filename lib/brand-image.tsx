@@ -82,8 +82,8 @@ function titleSize(title: string) {
 export async function renderOgImage({ eyebrow, title, accent, subtitle, chips = [] }: OgInput) {
   const soraText = title + chips.map((c) => c.label).join('')
   const [sora600, sora300, mono] = await Promise.all([
-    loadGoogleFont('Sora', 600, soraText),
-    loadGoogleFont('Sora', 300, subtitle || 'a'),
+    loadGoogleFont('Instrument Sans', 600, soraText),
+    loadGoogleFont('Instrument Sans', 300, subtitle || 'a'),
     loadGoogleFont('JetBrains Mono', 500, (eyebrow + 'biohackmama.pl').toUpperCase() + 'biohackmama.pl'),
   ])
 
@@ -129,13 +129,13 @@ export async function renderOgImage({ eyebrow, title, accent, subtitle, chips = 
             <span style={{ fontFamily: 'JetBrains Mono', fontWeight: 500, fontSize: 18, letterSpacing: '3.5px', color: LOGO_LIME, textTransform: 'uppercase' }}>
               {eyebrow}
             </span>
-            <div style={{ display: 'flex', flexWrap: 'wrap', fontFamily: 'Sora', fontWeight: 600, fontSize: fs, lineHeight: 1.06, letterSpacing: `${-fs * 0.03}px`, color: LOGO_CREAM }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', fontFamily: 'Instrument Sans', fontWeight: 600, fontSize: fs, lineHeight: 1.06, letterSpacing: `${-fs * 0.03}px`, color: LOGO_CREAM }}>
               {before && <span style={{ whiteSpace: 'pre-wrap' }}>{before}</span>}
               {accented && <span style={{ whiteSpace: 'pre-wrap', color: LOGO_LIME }}>{accented}</span>}
               {after && <span style={{ whiteSpace: 'pre-wrap' }}>{after}</span>}
             </div>
             {shortSubtitle && (
-              <span style={{ fontFamily: 'Sora', fontWeight: 300, fontSize: 24, lineHeight: 1.45, color: INK_SOFT, maxWidth: 700 }}>
+              <span style={{ fontFamily: 'Instrument Sans', fontWeight: 300, fontSize: 24, lineHeight: 1.45, color: INK_SOFT, maxWidth: 700 }}>
                 {shortSubtitle}
               </span>
             )}
@@ -147,7 +147,7 @@ export async function renderOgImage({ eyebrow, title, accent, subtitle, chips = 
               <span
                 key={c.label}
                 style={{
-                  fontFamily: 'Sora',
+                  fontFamily: 'Instrument Sans',
                   fontWeight: 600,
                   fontSize: 18,
                   padding: '8px 18px',
@@ -170,8 +170,8 @@ export async function renderOgImage({ eyebrow, title, accent, subtitle, chips = 
     {
       ...OG_SIZE,
       fonts: [
-        { name: 'Sora', data: sora600, weight: 600, style: 'normal' },
-        { name: 'Sora', data: sora300, weight: 300, style: 'normal' },
+        { name: 'Instrument Sans', data: sora600, weight: 600, style: 'normal' },
+        { name: 'Instrument Sans', data: sora300, weight: 300, style: 'normal' },
         { name: 'JetBrains Mono', data: mono, weight: 500, style: 'normal' },
       ],
     }

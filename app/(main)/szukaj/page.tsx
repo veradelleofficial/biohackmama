@@ -144,7 +144,7 @@ export default function SearchPage() {
                   color: 'var(--lr-ink)',
                   fontSize: '0.9375rem',
                   outline: 'none',
-                  fontFamily: 'var(--font-inter), sans-serif',
+                  fontFamily: 'var(--font-instrument), sans-serif',
                 }}
                 autoFocus
               />
@@ -216,7 +216,7 @@ export default function SearchPage() {
                     >
                       <h2
                         style={{
-                          fontFamily: 'var(--font-sora), Sora, system-ui, sans-serif',
+                          fontFamily: 'var(--font-instrument), Instrument Sans, system-ui, sans-serif',
                           letterSpacing: '-0.025em',
                           fontSize: '1.0625rem',
                           color: 'var(--lr-ink)',

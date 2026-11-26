@@ -1,0 +1,416 @@
+/* ── Strona programu "Zdrowe zamienniki" (/program), od 2026-11-26 ──
+   Jasna wersja palety Lab × Rose w układzie thestartupmom.com.
+   Zmienne --lr-* są przedefiniowane w zakresie .bhm-sales, więc globalne
+   style nagłówków i akapitów same przechodzą na ciemny tekst. */
+
+.lab-rose .bhm-sales {
+  --lr-bg: #FBF8F2;
+  --lr-surface: #F3EEE4;
+  --lr-ink: #1A1815;
+  --lr-ink-soft: #57514A;
+  --lr-ink-dim: #8A8276;
+  --lr-rule: #E3DCCF;
+  --lr-rule-strong: #1A1815;
+  --ps-lime: #C9F24F;
+  --ps-lime-ink: #4F6B00;
+  --ps-rose: #E8AEBD;
+
+  background: var(--lr-bg);
+  color: var(--lr-ink);
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
+}
+
+.bhm-sales .ps-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.bhm-sales .ps-center { text-align: center; display: grid; justify-items: center; }
+
+/* Nagłówki: Sora jak reszta strony, ale lżejsza i z oddechem (proporcje Startup Mom) */
+.lab-rose .bhm-sales h1,
+.lab-rose .bhm-sales h2,
+.lab-rose .bhm-sales h3 {
+  font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
+  color: var(--lr-ink);
+  font-weight: 500;
+  text-wrap: balance;
+}
+.lab-rose .bhm-sales h1 {
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+  margin: 0 0 1.5rem;
+}
+.lab-rose .bhm-sales h2 {
+  font-size: clamp(2.1rem, 4.6vw, 3.6rem);
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  margin: 0 0 1.25rem;
+  max-width: 18ch;
+}
+.lab-rose .bhm-sales h3 {
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 0 0 0.4rem;
+}
+.lab-rose .bhm-sales p { color: var(--lr-ink-soft); }
+
+/* Wyróżnione słowo: limonkowy zakreślacz zamiast gradientu (na jasnym tle gradient ginie) */
+.lab-rose .bhm-sales .ps-mark {
+  color: var(--lr-ink);
+  background: linear-gradient(transparent 60%, var(--ps-lime) 60%, var(--ps-lime) 90%, transparent 90%);
+  -webkit-text-fill-color: currentColor;
+  animation: none;
+  padding: 0 0.04em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Etykiety, pigułki, mikrotekst */
+.bhm-sales .ps-pill {
+  display: inline-block;
+  font-family: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lr-ink);
+  border: 1px solid var(--lr-ink);
+  border-radius: 999px;
+  padding: 7px 14px;
+  margin-bottom: 1.75rem;
+}
+.bhm-sales .ps-eyebrow {
+  font-family: var(--font-instrument), 'Instrument Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lr-ink);
+  margin-bottom: 1rem;
+}
+.bhm-sales .ps-micro {
+  display: block;
+  margin-top: 0.9rem;
+  font-family: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lr-ink-dim);
+}
+.lab-rose .bhm-sales p.ps-lead,
+.lab-rose .bhm-sales p.ps-sub {
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  color: var(--lr-ink);
+  max-width: 30em;
+  margin: 0 0 2rem;
+}
+.lab-rose .bhm-sales p.ps-sub { color: var(--lr-ink-soft); font-size: 1.0625rem; max-width: 36em; }
+
+/* Przyciski: limonka z ciemnym tekstem, jak w Lab × Rose */
+.bhm-sales .ps-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lr-ink) !important;
+  background: var(--ps-lime);
+  border: 1px solid var(--lr-ink);
+  border-radius: 999px;
+  padding: 14px 24px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-out-strong), background-color 200ms;
+}
+.bhm-sales .ps-btn:hover { background: #D4FF3D; }
+.bhm-sales .ps-btn:active { transform: scale(0.97); }
+.bhm-sales .ps-btn:focus-visible { outline: 2px solid var(--lr-ink); outline-offset: 3px; }
+.bhm-sales .ps-btn--big { padding: 17px 30px; font-size: 0.8125rem; }
+.bhm-sales .ps-btn:disabled { opacity: 0.6; cursor: default; }
+
+/* HERO */
+.bhm-sales .ps-hero { padding-block: clamp(3.5rem, 8vw, 6.5rem) clamp(3.5rem, 7vw, 6rem); }
+.bhm-sales .ps-hero__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+.bhm-sales .ps-hero__text { min-width: 0; }
+
+/* Kartka z przykładami zamienników (zamiast zdjęcia) */
+.bhm-sales .ps-note {
+  background: #fff;
+  border: 1px solid var(--lr-ink);
+  border-radius: 6px;
+  padding: 26px 26px 18px;
+  transform: rotate(1.5deg);
+  box-shadow: 10px 10px 0 var(--ps-rose);
+  min-width: 0;
+}
+.bhm-sales .ps-note__label {
+  display: block;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lr-ink-dim);
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--lr-rule);
+}
+.bhm-sales .ps-note ul { list-style: none; margin: 0; padding: 0; }
+.bhm-sales .ps-note li { display: grid; gap: 6px; padding: 16px 0; border-bottom: 1px solid var(--lr-rule); }
+.bhm-sales .ps-note li:last-child { border-bottom: 0; }
+.bhm-sales .ps-note__cat { font-family: var(--font-instrument), sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--lr-ink); }
+.bhm-sales .ps-note__row { display: flex; gap: 10px; align-items: baseline; font-size: 0.9rem; line-height: 1.4; }
+.bhm-sales .ps-note__row--out { color: var(--lr-ink-dim); }
+.bhm-sales .ps-strike { text-decoration: line-through; text-decoration-color: rgba(26,24,21,.4); }
+.bhm-sales .ps-note__row--in { color: var(--lr-ink); font-weight: 500; }
+.bhm-sales .ps-note__tag {
+  flex-shrink: 0;
+  width: 64px;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lr-ink-dim);
+  text-decoration: none;
+  display: inline-block;
+}
+.bhm-sales .ps-note__tag--in { color: var(--ps-lime-ink); font-weight: 600; }
+
+/* Pasek z hasłami */
+.bhm-sales .ps-band {
+  background: var(--lr-ink);
+  color: var(--ps-lime);
+  overflow: hidden;
+  border-block: 1px solid var(--lr-ink);
+  padding: 15px 0;
+}
+.bhm-sales .ps-band__track {
+  display: inline-flex;
+  white-space: nowrap;
+  font-family: var(--font-jetbrains), monospace;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  animation: ps-band 32s linear infinite;
+}
+.bhm-sales .ps-band__track span { display: inline-flex; align-items: center; }
+.bhm-sales .ps-band__track i { font-style: normal; color: var(--ps-rose); margin: 0 28px; }
+@keyframes ps-band { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .bhm-sales .ps-band__track { animation: none; } }
+
+/* Sekcje */
+.bhm-sales .ps-section { padding-block: clamp(4rem, 8vw, 6.5rem); border-top: 1px solid var(--lr-rule); }
+.bhm-sales .ps-section--tint { background: var(--lr-surface); }
+
+.bhm-sales .ps-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  width: 100%;
+  margin: 1rem 0 2.75rem;
+  text-align: left;
+}
+.bhm-sales .ps-card {
+  background: #fff;
+  border: 1px solid var(--lr-ink);
+  border-radius: 14px;
+  padding: 26px 24px 28px;
+  display: grid;
+  gap: 18px;
+  align-content: start;
+  color: var(--ps-lime-ink);
+}
+.lab-rose .bhm-sales .ps-card p {
+  font-family: var(--font-instrument), sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--lr-ink);
+  margin: 0;
+}
+.bhm-sales .ps-card em { font-style: normal; background: linear-gradient(transparent 52%, rgba(232,174,189,.7) 52%, rgba(232,174,189,.7) 96%, transparent 96%); padding: 0 .08em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+.bhm-sales .ps-split { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+.bhm-sales .ps-split__head { position: sticky; top: 110px; }
+.bhm-sales .ps-list { list-style: none; margin: 0; padding: 0; }
+.bhm-sales .ps-list li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 18px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--lr-rule);
+  color: var(--ps-lime-ink);
+}
+.bhm-sales .ps-list li:first-child { padding-top: 6px; }
+.bhm-sales .ps-list li > svg { margin-top: 4px; }
+.lab-rose .bhm-sales .ps-list p { margin: 0; font-size: 1rem; line-height: 1.6; }
+.bhm-sales .ps-list__extra { border-bottom: 0 !important; }
+.lab-rose .bhm-sales .ps-list__extra p { color: var(--lr-ink); }
+.bhm-sales .ps-after-list { margin-top: 3rem; }
+
+/* FAQ */
+.bhm-sales .ps-faq { max-width: 780px; }
+.bhm-sales .ps-faq__list { margin-top: 1rem; border-top: 1px solid var(--lr-ink); }
+.bhm-sales .ps-faq details { border-bottom: 1px solid var(--lr-rule); }
+.bhm-sales .ps-faq summary {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 22px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-instrument), sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: var(--lr-ink);
+}
+.bhm-sales .ps-faq summary::-webkit-details-marker { display: none; }
+.bhm-sales .ps-faq summary svg { color: var(--ps-lime-ink); flex-shrink: 0; }
+.bhm-sales .ps-faq summary:focus-visible { outline: 2px solid var(--lr-ink); outline-offset: 4px; }
+.lab-rose .bhm-sales .ps-faq details p { margin: 0 0 22px 32px; font-size: 1rem; line-height: 1.65; }
+
+/* Zapis */
+.bhm-sales .ps-final { background: #fff; }
+.bhm-sales .ps-form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 520px; }
+.bhm-sales .ps-form input {
+  flex: 1 1 240px;
+  min-width: 0;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--lr-ink);
+  background: #fff;
+  border: 1px solid var(--lr-ink);
+  border-radius: 999px;
+  padding: 14px 22px;
+}
+.bhm-sales .ps-form input:focus-visible { outline: 2px solid var(--ps-lime-ink); outline-offset: 2px; }
+.bhm-sales .ps-err { flex-basis: 100%; font-size: 0.875rem; color: #A23B52; }
+.lab-rose .bhm-sales .ps-done {
+  display: inline-flex; gap: 10px; align-items: center;
+  font-weight: 500; color: var(--lr-ink);
+  background: var(--ps-lime); border-radius: 999px; padding: 12px 22px; margin: 0;
+}
+.bhm-sales .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Telefon i tablet */
+@media (max-width: 900px) {
+  .bhm-sales .ps-hero__grid,
+  .bhm-sales .ps-split { grid-template-columns: 1fr; }
+  .bhm-sales .ps-split__head { position: static; }
+  .bhm-sales .ps-cards { grid-template-columns: 1fr; }
+  .bhm-sales .ps-note { transform: none; box-shadow: 6px 6px 0 var(--ps-rose); }
+}
+
+/* Paragon z przykładami w hero (v2, dopracowany 2026-11-26) */
+.bhm-sales .ps-receipt {
+  --rc-paper: #FFFDF8;
+  --rc-ink: #1F1C18;
+  --rc-dim: #8C8478;
+  --rc-rule: #CFC6B8;
+  --rc-tooth: 9px;
+  justify-self: center;
+  width: min(100%, 392px);
+  position: relative;
+  transform: rotate(-1.6deg) translateZ(0);
+  /* warstwowy cień: kontaktowy + rozproszony */
+  filter:
+    drop-shadow(0 1px 1px rgba(31, 28, 24, 0.10))
+    drop-shadow(0 8px 14px rgba(31, 28, 24, 0.08))
+    drop-shadow(0 28px 40px rgba(31, 28, 24, 0.10));
+}
+.bhm-sales .ps-receipt__paper {
+  position: relative;
+  padding: 34px 30px 40px;
+  color: var(--rc-ink);
+  font-family: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  /* papier: ciepła biel, delikatne światło z góry i ledwo widoczne włókna */
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 22%),
+    repeating-linear-gradient(0deg, rgba(31,28,24,0.012) 0 1px, transparent 1px 3px),
+    var(--rc-paper);
+  /* ząbki z obu stron, jak przy oderwanym paragonie */
+  -webkit-mask:
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / calc(var(--rc-tooth) * 2) var(--rc-tooth) repeat-x,
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(var(--rc-tooth) * 2) var(--rc-tooth) repeat-x,
+    linear-gradient(#000 0 0) center / 100% calc(100% - var(--rc-tooth) * 2) no-repeat;
+          mask:
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / calc(var(--rc-tooth) * 2) var(--rc-tooth) repeat-x,
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(var(--rc-tooth) * 2) var(--rc-tooth) repeat-x,
+    linear-gradient(#000 0 0) center / 100% calc(100% - var(--rc-tooth) * 2) no-repeat;
+}
+.bhm-sales .ps-receipt__paper span { font-family: inherit; }
+
+.bhm-sales .ps-receipt__item {
+  display: grid;
+  gap: 7px;
+  padding: 18px 0;
+  border-bottom: 1px dashed var(--rc-rule);
+}
+.bhm-sales .ps-receipt__item:first-child { padding-top: 6px; }
+.bhm-sales .ps-receipt__cat {
+  display: flex;
+  gap: 10px;
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rc-dim);
+  margin-bottom: 2px;
+}
+.bhm-sales .ps-receipt__row { display: grid; grid-template-columns: 18px 1fr; gap: 10px; align-items: start; }
+.bhm-sales .ps-receipt__icon {
+  width: 18px; height: 18px;
+  border-radius: 4px;
+  display: grid; place-items: center;
+  margin-top: 1px;
+}
+.bhm-sales .ps-receipt__icon--x { color: #B5637A; border: 1.25px solid rgba(181, 99, 122, 0.45); }
+.bhm-sales .ps-receipt__icon--ok { color: var(--rc-ink); background: var(--ps-lime); box-shadow: inset 0 0 0 1px rgba(31,28,24,0.12); }
+.bhm-sales .ps-receipt__out {
+  color: var(--rc-dim);
+  text-decoration: line-through;
+  text-decoration-color: rgba(181, 99, 122, 0.85);
+  text-decoration-thickness: 1.5px;
+}
+.bhm-sales .ps-receipt__in { font-weight: 600; letter-spacing: -0.01em; }
+
+.bhm-sales .ps-receipt__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 16px;
+  padding: 12px 0 0;
+  border-top: 3px double var(--rc-ink);
+  font-weight: 600;
+  font-size: 0.86rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.bhm-sales .ps-receipt__code { margin-top: 22px; display: grid; gap: 7px; color: var(--rc-ink); }
+.bhm-sales .ps-receipt__code svg { width: 100%; height: 46px; display: block; }
+.bhm-sales .ps-receipt__code span {
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  color: var(--rc-ink);
+}
+@media (max-width: 900px) {
+  .bhm-sales .ps-receipt { transform: none; }
+}
+
+/* Globalna reguła bazowa `span { font-family: ... }` nadpisuje mono w środku
+   paragonu i paska; dzieci mają dziedziczyć czcionkę po rodzicu. */
+.bhm-sales .ps-receipt__paper span,
+.bhm-sales .ps-band__track span { font-family: inherit; }

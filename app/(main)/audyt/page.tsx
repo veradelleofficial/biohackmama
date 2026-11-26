@@ -413,7 +413,7 @@ export default function AudytPage() {
                   fontSize: '0.9375rem',
                   outline: 'none',
                   resize: 'vertical',
-                  fontFamily: 'var(--font-inter), sans-serif',
+                  fontFamily: 'var(--font-instrument), sans-serif',
                   borderRadius: '2px',
                 }}
               />

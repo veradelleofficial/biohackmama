@@ -242,7 +242,7 @@ export default function AudytSypialniDziecka() {
                     </span>
                     <h3
                       style={{
-                        fontFamily: 'var(--font-sora), Sora, system-ui, sans-serif',
+                        fontFamily: 'var(--font-instrument), Instrument Sans, system-ui, sans-serif',
                         letterSpacing: '-0.025em',
                         fontSize: 'clamp(1.125rem, 1.7vw, 1.375rem)',
                         lineHeight: 1.25,
@@ -373,7 +373,7 @@ export default function AudytSypialniDziecka() {
                   <div className="flex items-baseline gap-3 mb-8">
                     <span
                       style={{
-                        fontFamily: 'var(--font-sora), sans-serif',
+                        fontFamily: 'var(--font-instrument), sans-serif',
                         fontSize: 'clamp(4rem, 10vw, 7rem)',
                         color: status.color,
                         lineHeight: 1,
@@ -446,7 +446,7 @@ export default function AudytSypialniDziecka() {
                           <div style={{ flex: 1 }}>
                             <h4
                               style={{
-                                fontFamily: 'var(--font-sora), Sora, system-ui, sans-serif',
+                                fontFamily: 'var(--font-instrument), Instrument Sans, system-ui, sans-serif',
                                 letterSpacing: '-0.025em',
                                 fontSize: '1.0625rem',
                                 color: 'var(--lr-ink)',

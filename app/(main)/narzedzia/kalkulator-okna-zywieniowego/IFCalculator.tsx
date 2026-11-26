@@ -52,7 +52,7 @@ export default function IFCalculator() {
               >
                 <div
                   style={{
-                    fontFamily: 'var(--font-sora), sans-serif',
+                    fontFamily: 'var(--font-instrument), sans-serif',
                     fontSize: '1.5rem',
                     color: isActive ? 'var(--lr-accent)' : 'var(--lr-ink)',
                     fontWeight: 400,
@@ -106,7 +106,7 @@ export default function IFCalculator() {
             background: 'var(--lr-bg)',
             border: '1px solid var(--lr-rule-strong)',
             color: 'var(--lr-ink)',
-            fontFamily: 'var(--font-sora), sans-serif',
+            fontFamily: 'var(--font-instrument), sans-serif',
             fontSize: '2rem',
             fontWeight: 300,
             letterSpacing: '-0.02em',
@@ -212,7 +212,7 @@ function ResultRow({
       </div>
       <div
         style={{
-          fontFamily: 'var(--font-sora), sans-serif',
+          fontFamily: 'var(--font-instrument), sans-serif',
           fontSize: '1.75rem',
           color: color,
           fontWeight: 400,

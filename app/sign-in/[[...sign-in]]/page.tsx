@@ -45,7 +45,7 @@ export default function SignInPage() {
               colorInputText: '#F4EFE6',
               colorDanger: '#E8AEBD',
               borderRadius: '2px',
-              fontFamily: 'var(--font-inter), Inter, sans-serif',
+              fontFamily: 'var(--font-instrument), Instrument Sans, sans-serif',
               fontSize: '0.9375rem',
             },
             elements: {

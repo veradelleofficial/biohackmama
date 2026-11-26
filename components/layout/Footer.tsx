@@ -207,7 +207,7 @@ export default function Footer() {
             </span>
             <ul style={{ listStyle: 'none', padding: 0, marginTop: '1.25rem' }}>
               {[
-                { href: '/kursy', label: 'Programy' },
+                { href: '/program', label: 'Program' },
                 { href: '/ebooki', label: 'Biblioteka' },
                 { href: '/zamienniki', label: 'Zamienniki' },
                 { href: '/premium', label: 'Premium' },
@@ -217,7 +217,7 @@ export default function Footer() {
                     href={l.href}
                     className="lr-footer-link"
                     style={{
-                      fontFamily: 'var(--font-inter), sans-serif',
+                      fontFamily: 'var(--font-instrument), sans-serif',
                       fontSize: '0.875rem',
                       color: 'var(--lr-ink)',
                       textDecoration: 'none',
@@ -252,7 +252,7 @@ export default function Footer() {
                     href={l.href}
                     className="lr-footer-link"
                     style={{
-                      fontFamily: 'var(--font-inter), sans-serif',
+                      fontFamily: 'var(--font-instrument), sans-serif',
                       fontSize: '0.875rem',
                       color: 'var(--lr-ink)',
                       textDecoration: 'none',

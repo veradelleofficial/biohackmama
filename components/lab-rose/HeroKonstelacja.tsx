@@ -16,7 +16,7 @@ import {
 /**
  * PROPOZYCJA A · "Konstelacja" (wersja 2)
  * Tło: ruchoma zorza lime/rose + winieta zamiast kropek.
- * Nagłówek: Inter, sentence case, ciasny tracking; rotujące słowo w Fraunces italic rose.
+ * Nagłówek: Instrument Sans, sentence case, ciasny tracking; rotujące słowo w Fraunces italic rose.
  * Prawa strona: "instrument" z tarczą (tick marks), orby tematów na orbitach,
  * rysujące się linie konstelacji i świetlny punkt wędrujący po liniach.
  * Dół: "Co tu znajdziesz" jako szklane karty + ticker tematów.
@@ -271,13 +271,12 @@ export default function HeroKonstelacja() {
           <motion.h1
             variants={fadeUp}
             style={{
-              fontFamily: 'var(--font-sora), Sora, system-ui, sans-serif',
-              fontWeight: 600,
+              fontFamily: 'var(--font-instrument), Instrument Sans, system-ui, sans-serif',
+              fontWeight: 500,
               textTransform: 'none',
               letterSpacing: '-0.035em',
               lineHeight: 1.02,
-              fontSize: 'clamp(2.7rem, 6.2vw, 5.1rem)',
-              fontFeatureSettings: '"ss01", "cv11"',
+              fontSize: 'clamp(2.8rem, 6.6vw, 5.4rem)',
             }}
           >
             <span style={{ display: 'block' }}>Mniej chemii,</span>

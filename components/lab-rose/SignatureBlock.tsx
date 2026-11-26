@@ -108,7 +108,7 @@ export default function SignatureBlock() {
                 <div style={{ flex: 1, minWidth: 0, textAlign: 'left' }}>
                   <span
                     style={{
-                      fontFamily: 'var(--font-inter), Inter, sans-serif',
+                      fontFamily: 'var(--font-instrument), Instrument Sans, sans-serif',
                       fontSize: '1.125rem',
                       fontWeight: 600,
                       color: 'var(--lr-ink)',

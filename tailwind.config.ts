@@ -43,9 +43,9 @@ const config: Config = {
         graphite:      'hsl(var(--graphite))',
       },
       fontFamily: {
-        heading: ['var(--font-sora)', 'Sora', 'system-ui', 'sans-serif'],
-        body: ['var(--font-inter)', 'Inter', 'sans-serif'],
-        accent: ['var(--font-sora)', 'Sora', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-instrument)', 'Instrument Sans', 'system-ui', 'sans-serif'],
+        body: ['var(--font-instrument)', 'Instrument Sans', 'sans-serif'],
+        accent: ['var(--font-instrument)', 'Instrument Sans', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         'heading': '-0.02em',

@@ -219,7 +219,7 @@ export default function ContactPage() {
                         letterSpacing: '0.04em',
                         borderRadius: '2px',
                         resize: 'vertical',
-                        fontFamily: 'var(--font-inter), sans-serif',
+                        fontFamily: 'var(--font-instrument), sans-serif',
                       }}
                     />
                   </div>
@@ -279,7 +279,7 @@ export default function ContactPage() {
                       >
                         <Icon size={18} strokeWidth={1.5} style={{ color: 'var(--lr-rose)' }} />
                         <span
-                          style={{ fontFamily: 'var(--font-inter), sans-serif', fontSize: '0.9rem' }}
+                          style={{ fontFamily: 'var(--font-instrument), sans-serif', fontSize: '0.9rem' }}
                         >
                           {ch.label}
                         </span>

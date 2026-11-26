@@ -16,7 +16,7 @@ export default function Navbar() {
 
   const navLinks: { href: string; label: string; short?: string }[] = [
     { href: '/blog', label: 'Artykuły' },
-    { href: '/kursy', label: 'Programy' },
+    { href: '/program', label: 'Program' },
     { href: '/ebooki', label: 'Biblioteka' },
     // short = etykieta w pasku na komputerze (pełna nazwa nie mieści się przy szerokim rozstawie liter)
     { href: '/darmowe-materialy', label: 'Darmowe materiały', short: 'Za darmo' },
@@ -61,7 +61,7 @@ export default function Navbar() {
 
             {/* Cart */}
             <Link
-              href="/kursy"
+              href="/program"
               className="bhm-nav-icon"
               aria-label="Koszyk"
             >

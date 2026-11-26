@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Sora, JetBrains_Mono } from 'next/font/google'
+import { Instrument_Sans, JetBrains_Mono } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -11,19 +11,14 @@ import './globals.css'
 
 
 
-// Typografia marki (od 2026-11-18): Sora = logo, nagłówki, tytuły, liczby, cytaty.
-// Inter = zwykły tekst. JetBrains Mono = menu, przyciski, etykiety.
+// Typografia marki (od 2026-11-26): Instrument Sans = nagłówki, tytuły, liczby,
+// cytaty, zwykły tekst i linki menu. JetBrains Mono = przyciski, etykiety.
+// Logo to kontury Sory (components/brand/logo-assets.ts), nie zależy od fontów.
 // Podpis = Abramo Script (self-hosted, @font-face w globals.css).
-const inter = Inter({
+const instrument = Instrument_Sans({
   subsets: ['latin', 'latin-ext'],
-  variable: '--font-inter',
-  weight: ['300', '400', '500', '600', '700'],
-})
-
-const sora = Sora({
-  subsets: ['latin', 'latin-ext'],
-  variable: '--font-sora',
-  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-instrument',
+  weight: ['400', '500', '600', '700'],
 })
 
 const jetbrainsMono = JetBrains_Mono({
@@ -190,7 +185,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="pl" data-page="lab-rose" className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable}`}>
+      <html lang="pl" data-page="lab-rose" className={`${instrument.variable} ${jetbrainsMono.variable}`}>
         <head>
           <script
             type="application/ld+json"

@@ -158,7 +158,7 @@ export default function KalkulatorSnuPage() {
                       </span>
                       <h3
                         style={{
-                          fontFamily: 'var(--font-sora), Sora, system-ui, sans-serif',
+                          fontFamily: 'var(--font-instrument), Instrument Sans, system-ui, sans-serif',
                           letterSpacing: '-0.025em',
                           fontSize: '1.125rem',
                           color: 'var(--lr-ink)',
