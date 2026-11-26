@@ -314,20 +314,20 @@
 
 /* Paragon z przykładami w hero (v2, dopracowany 2026-11-26) */
 .bhm-sales .ps-receipt {
-  --rc-paper: #FFFDF8;
+  --rc-paper: #FFFFFF;
   --rc-ink: #1F1C18;
-  --rc-dim: #8C8478;
-  --rc-rule: #CFC6B8;
+  --rc-dim: #6B6358;
+  --rc-rule: #B9AE9E;
   --rc-tooth: 9px;
   justify-self: center;
   width: min(100%, 392px);
   position: relative;
-  transform: rotate(-1.6deg) translateZ(0);
-  /* warstwowy cień: kontaktowy + rozproszony */
+  /* Bez obrotu: obrócony tekst na warstwie z filtrem przeglądarka rozmywa.
+     Cień ostry przy krawędzi i krótki, żeby kartka nie tonęła w mgle. */
   filter:
-    drop-shadow(0 1px 1px rgba(31, 28, 24, 0.10))
-    drop-shadow(0 8px 14px rgba(31, 28, 24, 0.08))
-    drop-shadow(0 28px 40px rgba(31, 28, 24, 0.10));
+    drop-shadow(0 0 0.5px rgba(31, 28, 24, 0.45))
+    drop-shadow(0 2px 2px rgba(31, 28, 24, 0.10))
+    drop-shadow(0 14px 18px rgba(31, 28, 24, 0.10));
 }
 .bhm-sales .ps-receipt__paper {
   position: relative;
@@ -336,11 +336,8 @@
   font-family: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, monospace;
   font-size: 0.84rem;
   line-height: 1.45;
-  /* papier: ciepła biel, delikatne światło z góry i ledwo widoczne włókna */
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 22%),
-    repeating-linear-gradient(0deg, rgba(31,28,24,0.012) 0 1px, transparent 1px 3px),
-    var(--rc-paper);
+  background: var(--rc-paper);
+  -webkit-font-smoothing: antialiased;
   /* ząbki z obu stron, jak przy oderwanym paragonie */
   -webkit-mask:
     conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / calc(var(--rc-tooth) * 2) var(--rc-tooth) repeat-x,
@@ -405,9 +402,6 @@
   font-size: 0.7rem;
   letter-spacing: 0.32em;
   color: var(--rc-ink);
-}
-@media (max-width: 900px) {
-  .bhm-sales .ps-receipt { transform: none; }
 }
 
 /* Globalna reguła bazowa `span { font-family: ... }` nadpisuje mono w środku
